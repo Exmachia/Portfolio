@@ -1,69 +1,245 @@
-import Image from "next/image";
+"use client";
+
+import Link from "next/link";
+import { Container } from "@/components/Container";
+import { CountUp } from "@/components/CountUp";
+import { HighlightedName } from "@/components/HighlightedName";
+import { LinkedText } from "@/components/LinkedText";
+import { PlaceholderImage } from "@/components/PlaceholderImage";
+import { Reveal } from "@/components/Reveal";
+import {
+  IconArrowRight,
+  IconArrowUpRight,
+  IconDownload,
+  IconMail,
+  IconMessageCircle,
+} from "@/components/icons";
+import { featuredSlugs } from "@/lib/content";
+import { useLocale } from "@/lib/locale-context";
+
+// Bento layout for the 4 featured projects: one large tile, one wide tile,
+// two small tiles — instead of a uniform grid.
+const BENTO_SPANS = [
+  "col-span-2 sm:col-start-1 sm:col-end-3 sm:row-start-1 sm:row-end-3",
+  "col-span-2 sm:col-start-3 sm:col-end-5 sm:row-start-1 sm:row-end-2",
+  "col-span-1 sm:col-start-3 sm:col-end-4 sm:row-start-2 sm:row-end-3",
+  "col-span-1 sm:col-start-4 sm:col-end-5 sm:row-start-2 sm:row-end-3",
+];
+
+// Fixed heights below `sm` so the two small tiles align even when their
+// captions wrap to a different number of lines.
+const MOBILE_HEIGHTS = ["h-64", "h-48", "h-40", "h-40"];
 
 export default function Home() {
+  const { t } = useLocale();
+  const { site, ui, caseStudies, stats } = t;
+
+  const featured = featuredSlugs
+    .map((slug) => caseStudies.find((c) => c.slug === slug))
+    .filter((c): c is (typeof caseStudies)[number] => Boolean(c));
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <>
+      <section>
+        <Container className="flex flex-col gap-8 py-16 sm:py-24">
+          <Reveal>
+            <div className="flex items-center gap-3">
+              <span className="h-px w-8 bg-accent" />
+              <span className="font-mono text-xs uppercase tracking-widest text-accent">
+                {site.role}
+              </span>
+            </div>
+          </Reveal>
+          <Reveal delay={80}>
+            <h1 className="font-display font-semibold tracking-tight text-[clamp(2.75rem,9vw,8rem)] leading-[0.95] -ml-0.5">
+              <HighlightedName name={site.name} highlight="Chacón" />
+            </h1>
+          </Reveal>
+          <Reveal delay={160}>
+            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+              {site.tagline}
+            </p>
+          </Reveal>
+          <Reveal delay={240}>
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-2">
+              <Link
+                href="/proyectos"
+                className="group flex cursor-pointer items-center gap-2 rounded-full bg-accent px-6 py-3 font-mono text-xs uppercase tracking-widest text-accent-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                {ui.viewProjects}
+                <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+              </Link>
+              <a
+                href={site.cvHref}
+                download
+                className="group flex cursor-pointer items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:text-accent"
+              >
+                <IconDownload className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5" />
+                <span className="underline decoration-border underline-offset-4 group-hover:decoration-accent">
+                  {ui.downloadCV}
+                </span>
+              </a>
+              <a
+                href="#contact"
+                className="font-mono text-xs uppercase tracking-widest text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              >
+                {ui.contact}
+              </a>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="py-4 sm:py-6">
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 border-t border-b border-border py-10 sm:grid-cols-4 sm:gap-x-10">
+            {stats.map((stat, i) => (
+              <Reveal key={stat.label} delay={i * 80}>
+                <div className="border-l border-border pl-4 sm:pl-6">
+                  <p className="font-display text-4xl font-semibold tracking-tight sm:text-5xl">
+                    <CountUp
+                      end={stat.value}
+                      prefix={stat.prefix}
+                      suffix={stat.suffix}
+                    />
+                  </p>
+                  <p className="mt-2 text-sm leading-snug text-muted-foreground">
+                    <LinkedText
+                      text={stat.label}
+                      linkText={stat.linkText}
+                      href={stat.linkSlug ? `/proyectos/${stat.linkSlug}` : undefined}
+                    />
+                  </p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="py-16 sm:py-20">
+          <Reveal>
+            <h2 className="mb-10 font-display text-2xl font-medium sm:text-3xl">
+              {ui.featuredProjects}
+            </h2>
+          </Reveal>
+          <div className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:grid-rows-[13rem_13rem] sm:gap-5">
+            {featured.map((project, i) => (
+              <Reveal
+                key={project.slug}
+                delay={i * 90}
+                className={`${MOBILE_HEIGHTS[i]} sm:h-full ${BENTO_SPANS[i]}`}
+              >
+                <Link
+                  href={`/proyectos/${project.slug}`}
+                  className="group relative block h-full overflow-hidden rounded-2xl"
+                >
+                  <PlaceholderImage
+                    label={project.title}
+                    seed={i}
+                    pendingLabel={ui.mockupPending}
+                    fill
+                    showLabel={false}
+                    className="absolute inset-0"
+                  />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+                  <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
+                    <h3 className="flex items-center gap-1.5 font-display text-lg font-medium text-white sm:text-xl">
+                      {project.title}
+                      <IconArrowUpRight className="h-4 w-4 -translate-x-1 text-white opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
+                    </h3>
+                    <p className="mt-1 text-sm leading-snug text-white/80 sm:text-base">
+                      {project.homeTeaser}
+                    </p>
+                  </div>
+                </Link>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="py-16 sm:py-20">
+          <Reveal>
+            <div className="paper grid gap-10 rounded-2xl px-6 py-10 sm:grid-cols-2 sm:px-10">
+              <div>
+                <h2 className="mb-4 font-display text-2xl font-medium sm:text-3xl">
+                  {t.nav.experience}
+                </h2>
+                <p className="text-lg leading-relaxed text-muted-foreground">
+                  {site.experienceSummary}
+                </p>
+                <Link
+                  href="/experiencia"
+                  className="group mt-4 inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-accent hover:underline"
+                >
+                  {ui.viewFullTimeline}
+                  <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                </Link>
+              </div>
+              <div>
+                <h2 className="mb-4 font-display text-2xl font-medium sm:text-3xl">
+                  {ui.tools}
+                </h2>
+                <ul className="flex flex-wrap gap-2">
+                  {site.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="rounded-full border border-border bg-card px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:border-accent hover:text-accent"
+                    >
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      <section id="contact" className="scroll-mt-28">
+        <Container className="flex flex-col items-start gap-6 py-16 sm:py-24">
+          <Reveal>
+            <h2 className="font-display text-2xl font-medium sm:text-3xl">
+              {ui.letsTalk}
+            </h2>
+            <p className="mt-3 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              {ui.letsTalkBlurb}
+            </p>
+          </Reveal>
+          <Reveal delay={100}>
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4">
+              <a
+                href={`mailto:${site.email}`}
+                className="flex cursor-pointer items-center gap-2 rounded-full bg-accent px-6 py-3 font-mono text-xs uppercase tracking-widest text-accent-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+              >
+                <IconMail className="h-3.5 w-3.5" />
+                {site.email}
+              </a>
+              <a
+                href={site.whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex cursor-pointer items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              >
+                <IconMessageCircle className="h-3.5 w-3.5" />
+                WhatsApp
+              </a>
+              <a
+                href={site.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex cursor-pointer items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+              >
+                <IconArrowUpRight className="h-3.5 w-3.5" />
+                LinkedIn
+              </a>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+    </>
   );
 }

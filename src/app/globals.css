@@ -1,26 +1,203 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #faf7f0;
+  --foreground: #201c16;
+  --card: #fffdf8;
+  --card-foreground: #201c16;
+  --muted: #f1ebdd;
+  --muted-foreground: #6b6255;
+  --border: #e2d9c4;
+  --accent: #2f5f9e;
+  --accent-foreground: #ffffff;
+  --secondary: #3f3a33;
+
+  --glass-bg: rgba(255, 253, 248, 0.6);
+  --glass-bg-strong: rgba(255, 253, 248, 0.8);
+  --glass-bg-opaque: rgba(255, 253, 248, 0.97);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-shadow: 0 8px 32px rgba(32, 28, 22, 0.1);
+
+  --paper-shadow: 0 2px 0 rgba(32, 28, 22, 0.04), 0 10px 24px rgba(32, 28, 22, 0.06);
+
+  --grid-line: rgba(32, 28, 22, 0.05);
+  --light-a: #6f93c4;
+  --light-b: #caa06a;
+}
+
+[data-theme="dark"] {
+  --background: #18150f;
+  --foreground: #f2ece0;
+  --card: #221d15;
+  --card-foreground: #f2ece0;
+  --muted: #2a251b;
+  --muted-foreground: #b3a992;
+  --border: #3a3324;
+  --accent: #83aade;
+  --accent-foreground: #18150f;
+  --secondary: #cec3a9;
+
+  --glass-bg: rgba(34, 29, 21, 0.6);
+  --glass-bg-strong: rgba(34, 29, 21, 0.8);
+  --glass-bg-opaque: rgba(34, 29, 21, 0.96);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+
+  --grid-line: rgba(255, 255, 255, 0.06);
+  --light-a: #6d8fc0;
+  --light-b: #a97f4f;
+
+  --paper-shadow: 0 2px 0 rgba(0, 0, 0, 0.2), 0 10px 24px rgba(0, 0, 0, 0.35);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-secondary: var(--secondary);
+  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-manrope);
+  --font-mono: var(--font-jetbrains);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Subtle paper grain, used once as a fixed full-page overlay (see AmbientBackground). */
+.paper-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+}
+
+/* Faint designer's-canvas grid, sits behind everything. */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@keyframes drift-a {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(70px, 50px);
+  }
+  66% {
+    transform: translate(-40px, 80px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes drift-b {
+  0% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(-80px, -40px);
+  }
+  66% {
+    transform: translate(50px, -70px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.light-a {
+  animation: drift-a 22s ease-in-out infinite;
+}
+
+.light-b {
+  animation: drift-b 26s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .light-a,
+  .light-b {
+    animation: none;
+  }
+}
+
+/* Glass is reserved for the floating navbar only — a single signature effect,
+   not smeared across every surface. */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px) saturate(160%);
+  -webkit-backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  transform: translateZ(0);
+}
+
+.glass-strong {
+  transform: translateZ(0);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+.glass-opaque {
+  transform: translateZ(0);
+  background: var(--glass-bg-opaque);
+  backdrop-filter: blur(24px) saturate(140%);
+  -webkit-backdrop-filter: blur(24px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+}
+
+/* Everywhere else: a solid, tactile paper surface instead of translucent blur. */
+.paper {
+  background: var(--card);
+  border: 1px solid var(--border);
+  box-shadow: var(--paper-shadow);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

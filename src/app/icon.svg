@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <rect width="32" height="32" rx="8" fill="#2f5f9e" />
+  <text
+    x="16"
+    y="21"
+    text-anchor="middle"
+    font-family="Georgia, 'Times New Roman', serif"
+    font-size="15"
+    font-weight="600"
+    fill="#ffffff"
+  >EC</text>
+</svg>
