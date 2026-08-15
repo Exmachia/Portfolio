@@ -8,6 +8,7 @@ export type CaseStudy = {
   title: string;
   subtitle: string;
   link?: string;
+  image?: string;
   homeTeaser: string;
   contexto: string;
   problema: string;
@@ -285,6 +286,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "psl-scout",
         title: "PSL Scout",
         subtitle: "Marketplace for NFL Personal Seat Licenses",
+        image: "/projects/psl-scout.png",
         homeTeaser:
           "From 0 to 10+ closed sales on a marketplace that hadn't sold a single one before.",
         contexto:
@@ -345,6 +347,7 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Anagram",
         subtitle: "Portfolio and catalog for an architecture studio",
         link: "https://anagramarquitectos.com/portafolio",
+        image: "/projects/anagram.png",
         homeTeaser: "From zero Google presence to #1 for \"arquitectos Colima\".",
         contexto:
           "Anagram is an architecture studio in Colima. The project was their main site, designed as a portfolio (showcasing their flagship projects) with a catalog of properties for sale as a complement, since Anagram has a separate sister site dedicated exclusively to property sales.",
@@ -374,6 +377,7 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Nativa",
         subtitle: "Pre-sale for a high-value residential development",
         link: "https://nativaliving.anagramarquitectos.com/",
+        image: "/projects/nativa.png",
         homeTeaser: "Pre-sale fully sold out before construction was finished.",
         contexto:
           "Nativa is a high-value residential development in Colima, sold as a pre-sale before construction was finished. The site launched as a subdomain of Anagram.",
@@ -428,6 +432,7 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Casas Exclusivas Colima",
         subtitle: "Real estate catalog",
         link: "https://www.casasexclusivas-colima.com/",
+        image: "/projects/casas-exclusivas-colima.png",
         homeTeaser: "Top 20 on Google and real sales generated from the catalog.",
         contexto:
           "Property catalog for sale for the company Casas Exclusivas Colima.",
@@ -640,6 +645,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "psl-scout",
         title: "PSL Scout",
         subtitle: "Marketplace de Personal Seat Licenses para la NFL",
+        image: "/projects/psl-scout.png",
         homeTeaser:
           "De 0 a más de 10 ventas cerradas en un marketplace donde antes no se vendía nada.",
         contexto:
@@ -700,6 +706,7 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Anagram",
         subtitle: "Portafolio y catálogo para un estudio de arquitectura",
         link: "https://anagramarquitectos.com/portafolio",
+        image: "/projects/anagram.png",
         homeTeaser: "De cero presencia en Google al #1 para \"arquitectos Colima\".",
         contexto:
           "Anagram es un estudio de arquitectura en Colima. El proyecto era su sitio principal, pensado como portafolio (destacando sus proyectos insignia) con un catálogo de inmuebles en venta como complemento, ya que Anagram tiene otra página hermana dedicada exclusivamente a la venta de inmuebles.",
@@ -729,6 +736,7 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Nativa",
         subtitle: "Preventa de desarrollo residencial de alta plusvalía",
         link: "https://nativaliving.anagramarquitectos.com/",
+        image: "/projects/nativa.png",
         homeTeaser: "Preventa vendida por completo antes de terminar la construcción.",
         contexto:
           "Nativa es un desarrollo residencial de alta plusvalía en Colima, vendido en modalidad de preventa antes de terminar la construcción. El sitio se lanzó como subdominio de Anagram.",
@@ -783,6 +791,7 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Casas Exclusivas Colima",
         subtitle: "Catálogo inmobiliario",
         link: "https://www.casasexclusivas-colima.com/",
+        image: "/projects/casas-exclusivas-colima.png",
         homeTeaser: "Top 20 en Google y ventas reales generadas desde el catálogo.",
         contexto:
           "Catálogo de propiedades en venta para la empresa Casas Exclusivas Colima.",

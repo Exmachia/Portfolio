@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
+import { ProjectImage } from "@/components/ProjectImage";
 import { Reveal } from "@/components/Reveal";
 import { IconArrowUpRight } from "@/components/icons";
 import { useLocale } from "@/lib/locale-context";
@@ -38,13 +38,14 @@ export function ProyectosView() {
               <span className="font-mono text-sm text-muted-foreground/60">
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <PlaceholderImage
+              <ProjectImage
+                src={project.image}
                 label={project.title}
                 seed={i}
                 pendingLabel={ui.mockupPending}
                 className="col-span-2 sm:col-span-1"
               />
-              <div>
+              <div className="col-span-2 sm:col-span-1">
                 <h2 className="flex items-center gap-1.5 font-display text-2xl font-medium transition-colors group-hover:text-accent sm:text-3xl">
                   {project.title}
                   <IconArrowUpRight className="h-4 w-4 -translate-x-1 opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" />

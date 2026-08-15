@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Container } from "@/components/Container";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
+import { ProjectImage } from "@/components/ProjectImage";
 import { Reveal } from "@/components/Reveal";
 import {
   IconArrowLeft,
@@ -103,10 +103,12 @@ export function CaseStudyView({ slug }: { slug: string }) {
 
         <Reveal delay={100}>
           <div className="mt-10">
-            <PlaceholderImage
+            <ProjectImage
+              src={project.image}
               label={project.title}
               aspect="aspect-[16/9]"
               pendingLabel={ui.mockupPending}
+              priority
             />
           </div>
         </Reveal>

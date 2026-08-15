@@ -5,7 +5,7 @@ import { Container } from "@/components/Container";
 import { CountUp } from "@/components/CountUp";
 import { HighlightedName } from "@/components/HighlightedName";
 import { LinkedText } from "@/components/LinkedText";
-import { PlaceholderImage } from "@/components/PlaceholderImage";
+import { ProjectImage } from "@/components/ProjectImage";
 import { Reveal } from "@/components/Reveal";
 import {
   IconArrowRight,
@@ -135,21 +135,26 @@ export default function Home() {
                   href={`/proyectos/${project.slug}`}
                   className="group relative block h-full overflow-hidden rounded-2xl"
                 >
-                  <PlaceholderImage
+                  <ProjectImage
+                    src={project.image}
                     label={project.title}
                     seed={i}
                     pendingLabel={ui.mockupPending}
                     fill
+                    priority={i === 0}
                     showLabel={false}
                     className="absolute inset-0"
                   />
-                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-black/75 via-black/25 to-transparent" />
+                  <div className="pointer-events-none absolute inset-0 bg-black/10" />
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-full bg-[linear-gradient(to_top,rgba(0,0,0,0.92)_0%,rgba(0,0,0,0.65)_25%,rgba(0,0,0,0.2)_50%,transparent_75%)]" />
                   <div className="absolute inset-x-0 bottom-0 p-4 sm:p-5">
-                    <h3 className="flex items-center gap-1.5 font-display text-lg font-medium text-white sm:text-xl">
+                    <h3
+                      className="flex items-center gap-1.5 font-display text-lg font-medium text-white [text-shadow:0_1px_8px_rgba(0,0,0,0.5)] sm:text-xl"
+                    >
                       {project.title}
                       <IconArrowUpRight className="h-4 w-4 -translate-x-1 text-white opacity-0 transition-all duration-200 group-hover:translate-x-0 group-hover:opacity-100" />
                     </h3>
-                    <p className="mt-1 text-sm leading-snug text-white/80 sm:text-base">
+                    <p className="mt-1 text-sm leading-snug text-white/90 [text-shadow:0_1px_6px_rgba(0,0,0,0.5)] sm:text-base">
                       {project.homeTeaser}
                     </p>
                   </div>
