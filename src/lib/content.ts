@@ -256,12 +256,6 @@ export const content: Record<Locale, ContentBundle> = {
           imageLabel: "Paper sketches",
         },
         {
-          title: "Mid-fidelity",
-          description:
-            "The sketches move into Figma or a Pencil MCP that works directly with the research, turning structure into real components and layout, still without final visual polish.",
-          imageLabel: "Mid-fi in Figma",
-        },
-        {
           title: "High-fidelity",
           description:
             "Once the flow is validated, I bring in the final visual layer: typography, color, spacing, and the details that make it feel like a real product.",
@@ -272,6 +266,12 @@ export const content: Record<Locale, ContentBundle> = {
           description:
             "Before shipping, I test the high-fidelity prototype with real users, sometimes through an interactive prototype generated with Claude, to see where it breaks before it's in production.",
           imageLabel: "Usability testing",
+        },
+        {
+          title: "Monitoring",
+          description:
+            "Once it's live, I set up monitoring with PostHog to see how it actually performs with real usage, not just in testing, and use that data to decide what to iterate on next.",
+          imageLabel: "PostHog dashboard",
         },
       ],
       closing:
@@ -302,7 +302,7 @@ export const content: Record<Locale, ContentBundle> = {
       {
         company: "E3",
         role: "Design & creative direction",
-        dates: "February 2025 — present (parallel, intermittent)",
+        dates: "February 2025 — present (freelance)",
         description:
           "Design and creative direction for a real estate/architecture agency, including the Anagram, Nativa, and Casas Exclusivas Colima projects.",
       },
@@ -312,7 +312,13 @@ export const content: Record<Locale, ContentBundle> = {
         dates: "January 2024 — October 2024",
         description:
           "Led the design of 50+ pages for one of the largest waste collection companies, managing a large-scale migration with a focus on design, user experience, SEO, and delivery timelines.",
-        confidential: true,
+      },
+      {
+        company: "Universidad de Colima",
+        role: "UX/UI Lead",
+        dates: "January 2023 — January 2024",
+        description:
+          "Led UX/UI for Muvi, a virtual tour platform for the university's museums that students used as part of their academic accreditation process.",
       },
     ],
     caseStudies: [
@@ -634,12 +640,6 @@ export const content: Record<Locale, ContentBundle> = {
           imageLabel: "Bocetos a mano",
         },
         {
-          title: "Media fidelidad",
-          description:
-            "Los bocetos pasan a Figma o a un MCP de Pencil que trabaja directamente con la investigación, convirtiendo la estructura en componentes y layout reales, todavía sin el pulido visual final.",
-          imageLabel: "Media fidelidad en Figma",
-        },
-        {
           title: "Alta fidelidad",
           description:
             "Una vez que el flujo está validado, agrego la capa visual final: tipografía, color, espaciado, y los detalles que hacen que se sienta como un producto real.",
@@ -650,6 +650,12 @@ export const content: Record<Locale, ContentBundle> = {
           description:
             "Antes de lanzar, pruebo el prototipo de alta fidelidad con usuarios reales, a veces mediante un prototipo interactivo generado con Claude, para ver dónde falla antes de que esté en producción.",
           imageLabel: "Pruebas de usabilidad",
+        },
+        {
+          title: "Monitoreo",
+          description:
+            "Ya en producción, configuro monitoreo con PostHog para ver cómo se comporta con uso real, no solo en pruebas, y uso esos datos para decidir qué iterar después.",
+          imageLabel: "Dashboard de PostHog",
         },
       ],
       closing:
@@ -680,7 +686,7 @@ export const content: Record<Locale, ContentBundle> = {
       {
         company: "E3",
         role: "Diseño y dirección creativa",
-        dates: "Febrero 2025 — presente (paralelo, intermitente)",
+        dates: "Febrero 2025 — presente (freelance)",
         description:
           "Diseño y dirección creativa para agencia de real estate/arquitectura, incluyendo los proyectos Anagram, Nativa y Casas Exclusivas Colima.",
       },
@@ -690,7 +696,13 @@ export const content: Record<Locale, ContentBundle> = {
         dates: "Enero 2024 — Octubre 2024",
         description:
           "Lideré el diseño de más de 50 páginas para una de las empresas más grandes de recolección de residuos, gestionando una migración a gran escala con foco en diseño, experiencia de usuario, SEO y tiempos de entrega.",
-        confidential: true,
+      },
+      {
+        company: "Universidad de Colima",
+        role: "UX/UI Lead",
+        dates: "Enero 2023 — Enero 2024",
+        description:
+          "Lideré UX/UI para Muvi, una plataforma de recorridos virtuales para los museos de la universidad que los estudiantes usaban como parte de su proceso de acreditación académica.",
       },
     ],
     caseStudies: [

@@ -151,6 +151,15 @@ export function IconLink({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
+export function IconTrendingUp({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M3 17l6-6 4 4 8-8" />
+      <path d="M15 7h6v6" />
+    </svg>
+  );
+}
+
 export function IconHamburger({
   open,
   className = "h-5 w-5",
@@ -165,12 +174,13 @@ export function IconHamburger({
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
-        className="origin-center transition-transform duration-300"
-        style={
-          open
-            ? { transform: "translateY(6px) rotate(45deg)" }
-            : { transform: "translateY(0) rotate(0)" }
-        }
+        className="transition-transform duration-300"
+        style={{
+          transformOrigin: "12px 12px",
+          transform: open
+            ? "translateY(6px) rotate(45deg)"
+            : "translateY(0) rotate(0)",
+        }}
       />
       <path
         d="M4 12h16"
@@ -185,12 +195,13 @@ export function IconHamburger({
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
-        className="origin-center transition-transform duration-300"
-        style={
-          open
-            ? { transform: "translateY(-6px) rotate(-45deg)" }
-            : { transform: "translateY(0) rotate(0)" }
-        }
+        className="transition-transform duration-300"
+        style={{
+          transformOrigin: "12px 12px",
+          transform: open
+            ? "translateY(-6px) rotate(-45deg)"
+            : "translateY(0) rotate(0)",
+        }}
       />
     </svg>
   );

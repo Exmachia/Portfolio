@@ -7,12 +7,12 @@ import { PlaceholderImage } from "@/components/PlaceholderImage";
 import { Reveal } from "@/components/Reveal";
 import {
   IconCheckCircle,
-  IconLayers,
   IconNotebook,
   IconPalette,
   IconPencilLine,
   IconSearch,
   IconTarget,
+  IconTrendingUp,
   IconUsers,
 } from "@/components/icons";
 import { useLocale } from "@/lib/locale-context";
@@ -23,14 +23,14 @@ const STEP_ICONS: ReactNode[] = [
   <IconTarget key="benchmarking" className="h-4 w-4" />,
   <IconNotebook key="notion" className="h-4 w-4" />,
   <IconPencilLine key="lofi" className="h-4 w-4" />,
-  <IconLayers key="midfi" className="h-4 w-4" />,
   <IconPalette key="hifi" className="h-4 w-4" />,
   <IconCheckCircle key="testing" className="h-4 w-4" />,
+  <IconTrendingUp key="monitoring" className="h-4 w-4" />,
 ];
 
 // Which step index starts a new phase, mapped to that phase's index in
 // comoTrabajo.phases (Discovery / Design / Validation).
-const PHASE_STARTS: Record<number, number> = { 0: 0, 3: 1, 7: 2 };
+const PHASE_STARTS: Record<number, number> = { 0: 0, 3: 1, 6: 2 };
 
 export function ComoTrabajoView() {
   const { t } = useLocale();
