@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { AmbientBackground } from "@/components/AmbientBackground";
 import { Providers } from "@/components/Providers";
 import { themeInitScript } from "@/components/ThemeToggle";
-import { content, defaultLocale } from "@/lib/content";
+import { content, defaultLocale, siteUrl } from "@/lib/content";
 
 const fraunces = Fraunces({
   variable: "--font-fraunces",
@@ -28,8 +28,6 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 const { site } = content[defaultLocale];
-
-const siteUrl = "https://luis-chacon.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),

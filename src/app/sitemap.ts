@@ -1,7 +1,5 @@
 import type { MetadataRoute } from "next";
-import { content, defaultLocale } from "@/lib/content";
-
-const siteUrl = "https://luis-chacon.com";
+import { content, defaultLocale, siteUrl } from "@/lib/content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [

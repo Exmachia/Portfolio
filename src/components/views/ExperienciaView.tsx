@@ -1,6 +1,7 @@
 "use client";
 
 import { Container } from "@/components/Container";
+import { ConfidentialityNote } from "@/components/ConfidentialityNote";
 import { Reveal } from "@/components/Reveal";
 import { IconDownload } from "@/components/icons";
 import { useLocale } from "@/lib/locale-context";
@@ -50,6 +51,13 @@ export function ExperienciaView() {
                   <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">
                     {entry.description}
                   </p>
+                  {entry.confidential && (
+                    <ConfidentialityNote
+                      label={t.ui.confidentialLabel}
+                      note={t.ui.confidentialNote}
+                      className="mt-4 max-w-2xl"
+                    />
+                  )}
                 </div>
               </li>
             </Reveal>

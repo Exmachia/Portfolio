@@ -111,6 +111,46 @@ export function IconSparkle({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
+export function IconStar({ className = "h-4 w-4", filled = false }: IconProps & { filled?: boolean }) {
+  return (
+    <svg
+      {...base}
+      className={className}
+      fill={filled ? "currentColor" : "none"}
+      strokeWidth={filled ? 0 : 1.75}
+    >
+      <path d="m12 3 2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9L12 3Z" />
+    </svg>
+  );
+}
+
+export function IconClose({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M6 6l12 12M18 6 6 18" />
+    </svg>
+  );
+}
+
+export function IconLock({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <rect x="5" y="11" width="14" height="9" rx="2" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+    </svg>
+  );
+}
+
+export function IconLink({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M9.5 14.5 14.5 9.5" />
+      <path d="M11 6.5 12.6 4.9a3.5 3.5 0 0 1 5 5L16 11.5" />
+      <path d="M13 17.5 11.4 19.1a3.5 3.5 0 0 1-5-5L8 12.5" />
+    </svg>
+  );
+}
+
 export function IconHamburger({
   open,
   className = "h-5 w-5",

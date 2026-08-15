@@ -2,6 +2,7 @@ export type Locale = "en" | "es";
 
 export const locales: Locale[] = ["en", "es"];
 export const defaultLocale: Locale = "en";
+export const siteUrl = "https://luis-chacon.com";
 
 export type CaseStudy = {
   slug: string;
@@ -9,6 +10,7 @@ export type CaseStudy = {
   subtitle: string;
   link?: string;
   image?: string;
+  confidential?: boolean;
   homeTeaser: string;
   contexto: string;
   problema: string;
@@ -30,6 +32,13 @@ export type ExperienceEntry = {
   role: string;
   dates: string;
   description: string;
+  confidential?: boolean;
+};
+
+export type Skill = {
+  name: string;
+  years: number;
+  rating: number;
 };
 
 export type Stat = {
@@ -62,7 +71,7 @@ export type ContentBundle = {
     whatsappHref: string;
     linkedin: string;
     experienceSummary: string;
-    skills: string[];
+    skills: Skill[];
     cvHref: string;
   };
   nav: {
@@ -107,6 +116,12 @@ export type ContentBundle = {
     takeaway: string;
     switchToLight: string;
     switchToDark: string;
+    yearsOfExperience: string;
+    proficiency: string;
+    confidentialLabel: string;
+    confidentialNote: string;
+    shareCaseStudy: string;
+    linkCopied: string;
   };
   comoTrabajo: {
     title: string;
@@ -141,7 +156,14 @@ export const content: Record<Locale, ContentBundle> = {
       linkedin: "https://www.linkedin.com/in/eduardo-chacon-171367275/",
       experienceSummary:
         "Currently at PSL Scout, with 3+ years of experience designing product.",
-      skills: ["Figma", "Pencil", "Claude", "Notion", "PostHog", "Miro"],
+      skills: [
+        { name: "Figma", years: 5, rating: 5 },
+        { name: "Pencil", years: 1, rating: 4 },
+        { name: "Claude", years: 2, rating: 4 },
+        { name: "Notion", years: 4, rating: 5 },
+        { name: "PostHog", years: 2, rating: 4 },
+        { name: "Miro", years: 2, rating: 5 },
+      ],
       cvHref: "/cv-en.pdf",
     },
     nav: {
@@ -188,6 +210,13 @@ export const content: Record<Locale, ContentBundle> = {
       takeaway: "Takeaway",
       switchToLight: "Switch to light mode",
       switchToDark: "Switch to dark mode",
+      yearsOfExperience: "years of experience",
+      proficiency: "Proficiency",
+      confidentialLabel: "Confidential",
+      confidentialNote:
+        "Some details of this project are under an NDA, so I keep the description high-level out of respect for the client.",
+      shareCaseStudy: "Share",
+      linkCopied: "Link copied",
     },
     comoTrabajo: {
       title: "How I work",
@@ -283,6 +312,7 @@ export const content: Record<Locale, ContentBundle> = {
         dates: "January 2024 — October 2024",
         description:
           "Led the design of 50+ pages for one of the largest waste collection companies, managing a large-scale migration with a focus on design, user experience, SEO, and delivery timelines.",
+        confidential: true,
       },
     ],
     caseStudies: [
@@ -291,6 +321,7 @@ export const content: Record<Locale, ContentBundle> = {
         title: "PSL Scout",
         subtitle: "Marketplace for NFL Personal Seat Licenses",
         image: "/projects/psl-scout.png",
+        confidential: true,
         homeTeaser:
           "From 0 to 10+ closed sales on a marketplace that hadn't sold a single one before.",
         contexto:
@@ -322,6 +353,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "geest",
         title: "Geest",
         subtitle: "Process management SaaS for installation companies",
+        confidential: true,
         homeTeaser:
           "120+ new companies onboarded after redesigning what we built first.",
         contexto:
@@ -502,7 +534,14 @@ export const content: Record<Locale, ContentBundle> = {
       linkedin: "https://www.linkedin.com/in/eduardo-chacon-171367275/",
       experienceSummary:
         "Actualmente en PSL Scout, con más de 3 años de experiencia diseñando producto.",
-      skills: ["Figma", "Pencil", "Claude", "Notion", "PostHog", "Miro"],
+      skills: [
+        { name: "Figma", years: 5, rating: 5 },
+        { name: "Pencil", years: 1, rating: 4 },
+        { name: "Claude", years: 2, rating: 4 },
+        { name: "Notion", years: 4, rating: 5 },
+        { name: "PostHog", years: 2, rating: 4 },
+        { name: "Miro", years: 2, rating: 5 },
+      ],
       cvHref: "/cv-es.pdf",
     },
     nav: {
@@ -549,6 +588,13 @@ export const content: Record<Locale, ContentBundle> = {
       takeaway: "Aprendizaje",
       switchToLight: "Cambiar a modo claro",
       switchToDark: "Cambiar a modo oscuro",
+      yearsOfExperience: "años de experiencia",
+      proficiency: "Dominio",
+      confidentialLabel: "Confidencial",
+      confidentialNote:
+        "Algunos detalles de este proyecto están bajo NDA, así que mantengo la descripción a nivel general por respeto al cliente.",
+      shareCaseStudy: "Compartir",
+      linkCopied: "Link copiado",
     },
     comoTrabajo: {
       title: "Cómo trabajo",
@@ -644,6 +690,7 @@ export const content: Record<Locale, ContentBundle> = {
         dates: "Enero 2024 — Octubre 2024",
         description:
           "Lideré el diseño de más de 50 páginas para una de las empresas más grandes de recolección de residuos, gestionando una migración a gran escala con foco en diseño, experiencia de usuario, SEO y tiempos de entrega.",
+        confidential: true,
       },
     ],
     caseStudies: [
@@ -652,6 +699,7 @@ export const content: Record<Locale, ContentBundle> = {
         title: "PSL Scout",
         subtitle: "Marketplace de Personal Seat Licenses para la NFL",
         image: "/projects/psl-scout.png",
+        confidential: true,
         homeTeaser:
           "De 0 a más de 10 ventas cerradas en un marketplace donde antes no se vendía nada.",
         contexto:
@@ -683,6 +731,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "geest",
         title: "Geest",
         subtitle: "SaaS de gestión de procesos para empresas de instalaciones",
+        confidential: true,
         homeTeaser:
           "120+ empresas nuevas atraídas después de rediseñar qué construíamos primero.",
         contexto:

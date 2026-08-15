@@ -3,8 +3,10 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Container } from "@/components/Container";
+import { ConfidentialityNote } from "@/components/ConfidentialityNote";
 import { ProjectImage } from "@/components/ProjectImage";
 import { Reveal } from "@/components/Reveal";
+import { ShareButton } from "@/components/ShareButton";
 import {
   IconArrowLeft,
   IconArrowRight,
@@ -15,6 +17,7 @@ import {
   IconSearch,
   IconShield,
 } from "@/components/icons";
+import { siteUrl } from "@/lib/content";
 import { useLocale } from "@/lib/locale-context";
 
 function Field({ label, value }: { label: string; value?: string }) {
@@ -73,13 +76,20 @@ export function CaseStudyView({ slug }: { slug: string }) {
   return (
     <article>
       <Container className="py-16 sm:py-20">
-        <Link
-          href="/proyectos"
-          className="group inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-accent"
-        >
-          <IconArrowLeft className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" />
-          {ui.backToProjects}
-        </Link>
+        <div className="flex items-center justify-between gap-4">
+          <Link
+            href="/proyectos"
+            className="group inline-flex items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-accent"
+          >
+            <IconArrowLeft className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-x-0.5" />
+            {ui.backToProjects}
+          </Link>
+          <ShareButton
+            url={`${siteUrl}/proyectos/${project.slug}`}
+            label={ui.shareCaseStudy}
+            copiedLabel={ui.linkCopied}
+          />
+        </div>
 
         <h1 className="mt-6 font-display text-4xl font-medium tracking-tight sm:text-5xl">
           {project.title}
@@ -97,6 +107,10 @@ export function CaseStudyView({ slug }: { slug: string }) {
             {project.link.replace(/^https?:\/\//, "")}
             <IconArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
+        )}
+
+        {project.confidential && (
+          <ConfidentialityNote note={ui.confidentialNote} className="mt-6" />
         )}
 
         <div className="mt-10">

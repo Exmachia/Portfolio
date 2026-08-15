@@ -1,12 +1,15 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { CountUp } from "@/components/CountUp";
 import { HighlightedName } from "@/components/HighlightedName";
 import { LinkedText } from "@/components/LinkedText";
+import { Modal } from "@/components/Modal";
 import { ProjectImage } from "@/components/ProjectImage";
 import { Reveal } from "@/components/Reveal";
+import { StarRating } from "@/components/StarRating";
 import {
   IconArrowRight,
   IconArrowUpRight,
@@ -14,7 +17,7 @@ import {
   IconMail,
   IconMessageCircle,
 } from "@/components/icons";
-import { featuredSlugs } from "@/lib/content";
+import { featuredSlugs, type Skill } from "@/lib/content";
 import { useLocale } from "@/lib/locale-context";
 
 // Bento layout for the 4 featured projects: one large tile, one wide tile,
@@ -42,6 +45,7 @@ const BENTO_IMAGE_SIZES = [
 export default function Home() {
   const { t } = useLocale();
   const { site, ui, caseStudies, stats } = t;
+  const [activeSkill, setActiveSkill] = useState<Skill | null>(null);
 
   const featured = featuredSlugs
     .map((slug) => caseStudies.find((c) => c.slug === slug))
@@ -192,11 +196,14 @@ export default function Home() {
                 </h2>
                 <ul className="flex flex-wrap gap-2">
                   {site.skills.map((skill) => (
-                    <li
-                      key={skill}
-                      className="rounded-full border border-border bg-card px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:border-accent hover:text-accent"
-                    >
-                      {skill}
+                    <li key={skill.name}>
+                      <button
+                        type="button"
+                        onClick={() => setActiveSkill(skill)}
+                        className="cursor-pointer rounded-full border border-border bg-card px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:border-accent hover:text-accent"
+                      >
+                        {skill.name}
+                      </button>
                     </li>
                   ))}
                 </ul>
@@ -247,6 +254,29 @@ export default function Home() {
           </Reveal>
         </Container>
       </section>
+
+      <Modal
+        open={activeSkill !== null}
+        onClose={() => setActiveSkill(null)}
+        closeLabel={t.nav.close}
+      >
+        {activeSkill && (
+          <div className="flex flex-col items-center gap-3 text-center">
+            <h3 className="font-display text-2xl font-medium">
+              {activeSkill.name}
+            </h3>
+            <p className="font-mono text-xs uppercase tracking-widest text-accent">
+              {activeSkill.years} {ui.yearsOfExperience}
+            </p>
+            <div className="mt-2 flex flex-col items-center gap-2">
+              <p className="text-xs uppercase tracking-widest text-muted-foreground">
+                {ui.proficiency}
+              </p>
+              <StarRating rating={activeSkill.rating} />
+            </div>
+          </div>
+        )}
+      </Modal>
     </>
   );
 }

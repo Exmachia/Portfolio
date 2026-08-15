@@ -19,9 +19,28 @@ export async function generateMetadata({
     (c) => c.slug === slug,
   );
   if (!project) return {};
+
+  const title = `${project.title} — ${content[defaultLocale].site.name}`;
+  const description = project.subtitle;
+  // Case studies without a real screenshot yet (Geest, Muvi) fall back to the
+  // site's default OG image instead of shipping a broken/generic preview.
+  const image = project.image ?? "/og-image.png";
+
   return {
-    title: `${project.title} — ${content[defaultLocale].site.name}`,
-    description: project.subtitle,
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: image }],
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [image],
+    },
   };
 }
 
