@@ -10,27 +10,25 @@ export function ExperienciaView() {
 
   return (
     <Container className="py-16 sm:py-20">
-      <Reveal>
-        <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-accent" />
-          <span className="font-mono text-xs uppercase tracking-widest text-accent">
-            {t.nav.experience}
-          </span>
-        </div>
-        <h1 className="mt-4 max-w-2xl font-display text-4xl font-medium tracking-tight sm:text-5xl">
-          {t.ui.timelineTitle}
-        </h1>
-        <a
-          href={t.site.cvHref}
-          download
-          className="group mt-6 inline-flex cursor-pointer items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:text-accent"
-        >
-          <IconDownload className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5" />
-          <span className="underline decoration-border underline-offset-4 group-hover:decoration-accent">
-            {t.ui.downloadCV}
-          </span>
-        </a>
-      </Reveal>
+      <div className="flex items-center gap-3">
+        <span className="h-px w-8 bg-accent" />
+        <span className="font-mono text-xs uppercase tracking-widest text-accent">
+          {t.nav.experience}
+        </span>
+      </div>
+      <h1 className="mt-4 max-w-2xl font-display text-4xl font-medium tracking-tight sm:text-5xl">
+        {t.ui.timelineTitle}
+      </h1>
+      <a
+        href={t.site.cvHref}
+        download
+        className="group mt-6 inline-flex cursor-pointer items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:text-accent"
+      >
+        <IconDownload className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5" />
+        <span className="underline decoration-border underline-offset-4 group-hover:decoration-accent">
+          {t.ui.downloadCV}
+        </span>
+      </a>
 
       <div className="relative mt-16">
         <div className="absolute top-2 bottom-2 left-[5px] w-px bg-border sm:left-[7px]" />

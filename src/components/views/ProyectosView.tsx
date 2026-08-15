@@ -13,20 +13,18 @@ export function ProyectosView() {
 
   return (
     <Container className="py-16 sm:py-20">
-      <Reveal>
-        <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-accent" />
-          <span className="font-mono text-xs uppercase tracking-widest text-accent">
-            {t.nav.projects}
-          </span>
-        </div>
-        <h1 className="mt-4 max-w-2xl font-display text-4xl font-medium tracking-tight sm:text-5xl">
-          {ui.caseStudiesTitle}
-        </h1>
-        <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
-          {ui.caseStudiesSubtitle}
-        </p>
-      </Reveal>
+      <div className="flex items-center gap-3">
+        <span className="h-px w-8 bg-accent" />
+        <span className="font-mono text-xs uppercase tracking-widest text-accent">
+          {t.nav.projects}
+        </span>
+      </div>
+      <h1 className="mt-4 max-w-2xl font-display text-4xl font-medium tracking-tight sm:text-5xl">
+        {ui.caseStudiesTitle}
+      </h1>
+      <p className="mt-4 max-w-2xl text-lg text-muted-foreground">
+        {ui.caseStudiesSubtitle}
+      </p>
 
       <div className="mt-14 flex flex-col">
         {caseStudies.map((project, i) => (

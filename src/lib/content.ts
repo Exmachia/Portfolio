@@ -91,6 +91,7 @@ export type ContentBundle = {
     previous: string;
     next: string;
     methodology: string;
+    phase: string;
     mockupPending: string;
     context: string;
     problem: string;
@@ -111,6 +112,7 @@ export type ContentBundle = {
     title: string;
     kicker: string;
     intro: string;
+    phases: string[];
     steps: ProcessStep[];
     closing: string;
   };
@@ -170,6 +172,7 @@ export const content: Record<Locale, ContentBundle> = {
       previous: "Previous",
       next: "Next",
       methodology: "Methodology",
+      phase: "Phase",
       mockupPending: "mockup pending",
       context: "Context",
       problem: "The problem",
@@ -191,6 +194,7 @@ export const content: Record<Locale, ContentBundle> = {
       kicker: "Research first, always",
       intro:
         "In a market where products compete head to head, the difference isn't just in the interface anymore, it's in how well you understand your user before you draw the first wireframe. Here's the full process, step by step.",
+      phases: ["Discovery", "Design", "Validation"],
       steps: [
         {
           title: "Research",
@@ -529,6 +533,7 @@ export const content: Record<Locale, ContentBundle> = {
       previous: "Anterior",
       next: "Siguiente",
       methodology: "Metodología",
+      phase: "Fase",
       mockupPending: "mockup pendiente",
       context: "Contexto",
       problem: "El problema",
@@ -550,6 +555,7 @@ export const content: Record<Locale, ContentBundle> = {
       kicker: "Investigación primero, siempre",
       intro:
         "En un mercado donde los productos compiten cabeza a cabeza, la diferencia ya no está solo en la interfaz, está en qué tan bien entiendes a tu usuario antes de dibujar el primer wireframe. Este es el proceso completo, paso a paso.",
+      phases: ["Discovery", "Diseño", "Validación"],
       steps: [
         {
           title: "Investigación",

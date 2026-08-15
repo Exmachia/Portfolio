@@ -51,51 +51,43 @@ export default function Home() {
     <>
       <section>
         <Container className="flex flex-col gap-8 py-16 sm:py-24">
-          <Reveal>
-            <div className="flex items-center gap-3">
-              <span className="h-px w-8 bg-accent" />
-              <span className="font-mono text-xs uppercase tracking-widest text-accent">
-                {site.role}
+          <div className="flex items-center gap-3">
+            <span className="h-px w-8 bg-accent" />
+            <span className="font-mono text-xs uppercase tracking-widest text-accent">
+              {site.role}
+            </span>
+          </div>
+          <h1 className="font-display font-semibold tracking-tight text-[clamp(2.75rem,9vw,8rem)] leading-[0.95] -ml-0.5">
+            <HighlightedName name={site.name} highlight="Chacón" />
+          </h1>
+          <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+            {site.tagline}
+          </p>
+          <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-2">
+            <Link
+              href="/proyectos"
+              className="group flex cursor-pointer items-center gap-2 rounded-full bg-accent px-6 py-3 font-mono text-xs uppercase tracking-widest text-accent-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
+            >
+              {ui.viewProjects}
+              <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </Link>
+            <a
+              href={site.cvHref}
+              download
+              className="group flex cursor-pointer items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:text-accent"
+            >
+              <IconDownload className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5" />
+              <span className="underline decoration-border underline-offset-4 group-hover:decoration-accent">
+                {ui.downloadCV}
               </span>
-            </div>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 className="font-display font-semibold tracking-tight text-[clamp(2.75rem,9vw,8rem)] leading-[0.95] -ml-0.5">
-              <HighlightedName name={site.name} highlight="Chacón" />
-            </h1>
-          </Reveal>
-          <Reveal delay={160}>
-            <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
-              {site.tagline}
-            </p>
-          </Reveal>
-          <Reveal delay={240}>
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 pt-2">
-              <Link
-                href="/proyectos"
-                className="group flex cursor-pointer items-center gap-2 rounded-full bg-accent px-6 py-3 font-mono text-xs uppercase tracking-widest text-accent-foreground shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg"
-              >
-                {ui.viewProjects}
-                <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-              </Link>
-              <a
-                href={site.cvHref}
-                download
-                className="group flex cursor-pointer items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:text-accent"
-              >
-                <IconDownload className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5" />
-                <span className="underline decoration-border underline-offset-4 group-hover:decoration-accent">
-                  {ui.downloadCV}
-                </span>
-              </a>
-              <a
-                href="#contact"
-                className="font-mono text-xs uppercase tracking-widest text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
-              >
-                {ui.contact}
-              </a>
-            </div>
-          </Reveal>
+            </a>
+            <a
+              href="#contact"
+              className="font-mono text-xs uppercase tracking-widest text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
+            >
+              {ui.contact}
+            </a>
+          </div>
         </Container>
       </section>
 

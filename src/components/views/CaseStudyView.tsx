@@ -81,38 +81,34 @@ export function CaseStudyView({ slug }: { slug: string }) {
           {ui.backToProjects}
         </Link>
 
-        <Reveal>
-          <h1 className="mt-6 font-display text-4xl font-medium tracking-tight sm:text-5xl">
-            {project.title}
-          </h1>
-          <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
-            {project.subtitle}
-          </p>
-          {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group mt-3 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-accent hover:underline"
-            >
-              {project.link.replace(/^https?:\/\//, "")}
-              <IconArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-            </a>
-          )}
-        </Reveal>
+        <h1 className="mt-6 font-display text-4xl font-medium tracking-tight sm:text-5xl">
+          {project.title}
+        </h1>
+        <p className="mt-3 max-w-2xl text-lg text-muted-foreground">
+          {project.subtitle}
+        </p>
+        {project.link && (
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group mt-3 inline-flex items-center gap-1 font-mono text-xs uppercase tracking-widest text-accent hover:underline"
+          >
+            {project.link.replace(/^https?:\/\//, "")}
+            <IconArrowUpRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+          </a>
+        )}
 
-        <Reveal delay={100}>
-          <div className="mt-10">
-            <ProjectImage
-              src={project.image}
-              label={project.title}
-              aspect="aspect-[16/9]"
-              pendingLabel={ui.mockupPending}
-              sizes="(min-width: 1024px) 950px, 100vw"
-              priority
-            />
-          </div>
-        </Reveal>
+        <div className="mt-10">
+          <ProjectImage
+            src={project.image}
+            label={project.title}
+            aspect="aspect-[16/9]"
+            pendingLabel={ui.mockupPending}
+            sizes="(min-width: 1024px) 950px, 100vw"
+            priority
+          />
+        </div>
 
         <div className="mt-14 grid gap-14 sm:grid-cols-[minmax(0,1fr)_minmax(0,2fr)]">
           <Reveal>
@@ -131,7 +127,9 @@ export function CaseStudyView({ slug }: { slug: string }) {
                 </h2>
               </Reveal>
               <div className="relative mt-8">
-                <div className="absolute top-4 bottom-4 left-4 w-px bg-border" />
+                {processSteps.length > 2 && (
+                  <div className="absolute top-4 bottom-4 left-4 w-px bg-border" />
+                )}
                 <ol className="flex flex-col gap-8">
                   {processSteps.map((step, i) => (
                     <Reveal key={step.label} delay={120 + i * 90}>

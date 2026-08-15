@@ -32,33 +32,29 @@ export function SobreMiView() {
 
   return (
     <Container className="py-16 sm:py-20">
-      <Reveal>
-        <div className="flex items-center gap-3">
-          <span className="h-px w-8 bg-accent" />
-          <span className="font-mono text-xs uppercase tracking-widest text-accent">
-            {sobreMi.title}
-          </span>
-        </div>
-        <h1 className="mt-4 max-w-2xl font-display text-4xl font-medium tracking-tight sm:text-5xl">
-          <HighlightedName name={site.name} highlight="Chacón" />
-        </h1>
-      </Reveal>
+      <div className="flex items-center gap-3">
+        <span className="h-px w-8 bg-accent" />
+        <span className="font-mono text-xs uppercase tracking-widest text-accent">
+          {sobreMi.title}
+        </span>
+      </div>
+      <h1 className="mt-4 max-w-2xl font-display text-4xl font-medium tracking-tight sm:text-5xl">
+        <HighlightedName name={site.name} highlight="Chacón" />
+      </h1>
 
       <div className="mt-10 grid gap-10 sm:grid-cols-[minmax(0,280px)_1fr] sm:items-start sm:gap-12">
-        <Reveal delay={80}>
-          <div className="paper w-40 overflow-hidden rounded-2xl sm:w-full">
-            <div className="relative aspect-square">
-              <Image
-                src="/eduardo.jpg"
-                alt={site.name}
-                fill
-                sizes="(min-width: 640px) 280px, 160px"
-                className="object-cover"
-                priority
-              />
-            </div>
+        <div className="paper w-40 overflow-hidden rounded-2xl sm:w-full">
+          <div className="relative aspect-square">
+            <Image
+              src="/eduardo.jpg"
+              alt={site.name}
+              fill
+              sizes="(min-width: 640px) 280px, 160px"
+              className="object-cover"
+              priority
+            />
           </div>
-        </Reveal>
+        </div>
 
         <div>
           <Reveal delay={140}>
