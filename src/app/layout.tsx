@@ -29,9 +29,27 @@ const jetbrainsMono = JetBrains_Mono({
 
 const { site } = content[defaultLocale];
 
+const siteUrl = "https://luis-chacon.com";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: `${site.name} — ${site.role}`,
   description: site.tagline,
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    title: `${site.name} — ${site.role}`,
+    description: site.tagline,
+    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `${site.name} — ${site.role}`,
+    description: site.tagline,
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

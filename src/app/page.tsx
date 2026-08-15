@@ -30,6 +30,15 @@ const BENTO_SPANS = [
 // captions wrap to a different number of lines.
 const MOBILE_HEIGHTS = ["h-64", "h-48", "h-40", "h-40"];
 
+// Matches BENTO_SPANS: the big and wide tiles render noticeably larger than
+// the two small ones, so request correspondingly sized images.
+const BENTO_IMAGE_SIZES = [
+  "(min-width: 640px) 500px, 100vw",
+  "(min-width: 640px) 500px, 100vw",
+  "(min-width: 640px) 240px, 50vw",
+  "(min-width: 640px) 240px, 50vw",
+];
+
 export default function Home() {
   const { t } = useLocale();
   const { site, ui, caseStudies, stats } = t;
@@ -143,6 +152,7 @@ export default function Home() {
                     fill
                     priority={i === 0}
                     showLabel={false}
+                    sizes={BENTO_IMAGE_SIZES[i]}
                     className="absolute inset-0"
                   />
                   <div className="pointer-events-none absolute inset-0 bg-black/10" />

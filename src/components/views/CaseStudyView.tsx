@@ -108,6 +108,7 @@ export function CaseStudyView({ slug }: { slug: string }) {
               label={project.title}
               aspect="aspect-[16/9]"
               pendingLabel={ui.mockupPending}
+              sizes="(min-width: 1024px) 950px, 100vw"
               priority
             />
           </div>

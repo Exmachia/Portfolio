@@ -11,6 +11,7 @@ export function ProjectImage({
   fill = false,
   priority = false,
   showLabel = true,
+  sizes = "(min-width: 640px) 500px, 100vw",
 }: {
   src?: string;
   label: string;
@@ -21,6 +22,7 @@ export function ProjectImage({
   fill?: boolean;
   priority?: boolean;
   showLabel?: boolean;
+  sizes?: string;
 }) {
   if (!src) {
     return (
@@ -44,7 +46,7 @@ export function ProjectImage({
         src={src}
         alt={label}
         fill
-        sizes="(min-width: 1024px) 50vw, 100vw"
+        sizes={sizes}
         priority={priority}
         className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
       />
