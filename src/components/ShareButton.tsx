@@ -28,12 +28,16 @@ export function ShareButton({
     <button
       type="button"
       onClick={handleClick}
-      className="group inline-flex cursor-pointer items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:text-accent"
+      className={`group inline-flex shrink-0 cursor-pointer items-center gap-1.5 rounded-full border px-4 py-1.5 font-mono text-xs uppercase tracking-widest transition-colors ${
+        copied
+          ? "border-accent text-accent"
+          : "border-border text-foreground hover:border-accent hover:text-accent"
+      }`}
     >
       {copied ? (
         <>
-          <IconCheckCircle className="h-3.5 w-3.5 text-accent" />
-          <span className="text-accent">{copiedLabel}</span>
+          <IconCheckCircle className="h-3.5 w-3.5" />
+          {copiedLabel}
         </>
       ) : (
         <>

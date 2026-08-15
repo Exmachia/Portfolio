@@ -53,7 +53,6 @@ export function ExperienciaView() {
                   </p>
                   {entry.confidential && (
                     <ConfidentialityNote
-                      label={t.ui.confidentialLabel}
                       note={t.ui.confidentialNote}
                       className="mt-4 max-w-2xl"
                     />
