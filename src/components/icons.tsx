@@ -169,39 +169,24 @@ export function IconHamburger({
 }) {
   return (
     <svg viewBox="0 0 24 24" className={className}>
+      <g
+        className="transition-opacity duration-200"
+        style={{ opacity: open ? 0 : 1 }}
+      >
+        <path d="M4 6h16" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+        <path d="M4 12h16" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+        <path d="M4 18h16" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" />
+      </g>
+      {/* Hand-drawn X (not a rotated hamburger line) so it's exactly centered
+          on the 24x24 viewBox by construction, instead of depending on
+          per-element CSS transform-origin math, which rendered off-center. */}
       <path
-        d="M4 6h16"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        className="transition-transform duration-300"
-        style={{
-          transformOrigin: "12px 12px",
-          transform: open
-            ? "translateY(6px) rotate(45deg)"
-            : "translateY(0) rotate(0)",
-        }}
-      />
-      <path
-        d="M4 12h16"
+        d="M6 6l12 12M18 6 6 18"
         stroke="currentColor"
         strokeWidth="1.75"
         strokeLinecap="round"
         className="transition-opacity duration-200"
-        style={{ opacity: open ? 0 : 1 }}
-      />
-      <path
-        d="M4 18h16"
-        stroke="currentColor"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-        className="transition-transform duration-300"
-        style={{
-          transformOrigin: "12px 12px",
-          transform: open
-            ? "translateY(-6px) rotate(-45deg)"
-            : "translateY(0) rotate(0)",
-        }}
+        style={{ opacity: open ? 1 : 0 }}
       />
     </svg>
   );

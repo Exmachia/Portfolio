@@ -149,7 +149,7 @@ export const content: Record<Locale, ContentBundle> = {
       name: "Luis Eduardo Chacón Manzo",
       role: "Product Designer",
       tagline:
-        "I design product driven by research, and I can take it all the way to code. I use AI as part of the process, not as a shortcut, to build interfaces that actually solve problems.",
+        "I design product driven by research and take it all the way to code, using AI as part of the process, not a shortcut, to build interfaces that actually solve problems.",
       email: "eduardo-chacom@hotmail.com",
       whatsapp: "+52 312 121 4827",
       whatsappHref: "https://wa.me/523121214827",
