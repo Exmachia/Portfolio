@@ -45,7 +45,7 @@ export function Nav() {
                 className="font-display text-base font-semibold tracking-tight"
                 onClick={() => setOpen(false)}
               >
-                Eduardo <span className="text-accent">Chacón</span>
+                Luis <span className="text-accent">Chacón</span>
               </Link>
 
               <nav className="hidden gap-6 font-mono text-xs uppercase tracking-widest sm:flex">

@@ -1,13 +1,19 @@
 "use client";
 
+import { useState } from "react";
 import { Container } from "@/components/Container";
 import { ConfidentialityNote } from "@/components/ConfidentialityNote";
+import { Modal } from "@/components/Modal";
 import { Reveal } from "@/components/Reveal";
+import { SkillChips } from "@/components/SkillChips";
+import { SkillDetail } from "@/components/SkillDetail";
 import { IconDownload } from "@/components/icons";
+import type { Skill } from "@/lib/content";
 import { useLocale } from "@/lib/locale-context";
 
 export function ExperienciaView() {
   const { t } = useLocale();
+  const [activeSkill, setActiveSkill] = useState<Skill | null>(null);
 
   return (
     <Container className="py-16 sm:py-20">
@@ -63,6 +69,35 @@ export function ExperienciaView() {
           ))}
         </ol>
       </div>
+
+      <div className="mt-16 grid gap-10 border-t border-border pt-16 sm:grid-cols-2">
+        <Reveal>
+          <h2 className="mb-5 font-display text-2xl font-medium sm:text-3xl">
+            {t.ui.tools}
+          </h2>
+          <SkillChips skills={t.site.skills} onSelect={setActiveSkill} />
+        </Reveal>
+        <Reveal delay={80}>
+          <h2 className="mb-5 font-display text-2xl font-medium sm:text-3xl">
+            {t.ui.skillsLabel}
+          </h2>
+          <SkillChips skills={t.site.expertise} onSelect={setActiveSkill} />
+        </Reveal>
+      </div>
+
+      <Modal
+        open={activeSkill !== null}
+        onClose={() => setActiveSkill(null)}
+        closeLabel={t.nav.close}
+      >
+        {activeSkill && (
+          <SkillDetail
+            skill={activeSkill}
+            yearsOfExperienceLabel={t.ui.yearsOfExperience}
+            proficiencyLabel={t.ui.proficiency}
+          />
+        )}
+      </Modal>
     </Container>
   );
 }

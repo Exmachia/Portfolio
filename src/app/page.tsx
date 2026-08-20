@@ -4,16 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { Container } from "@/components/Container";
 import { CountUp } from "@/components/CountUp";
-import { HighlightedName } from "@/components/HighlightedName";
 import { LinkedText } from "@/components/LinkedText";
 import { Modal } from "@/components/Modal";
 import { ProjectImage } from "@/components/ProjectImage";
 import { Reveal } from "@/components/Reveal";
-import { StarRating } from "@/components/StarRating";
+import { SkillChips } from "@/components/SkillChips";
+import { SkillDetail } from "@/components/SkillDetail";
 import {
   IconArrowRight,
   IconArrowUpRight,
-  IconDownload,
   IconMail,
   IconMessageCircle,
 } from "@/components/icons";
@@ -61,8 +60,8 @@ export default function Home() {
               {site.role}
             </span>
           </div>
-          <h1 className="font-display font-semibold tracking-tight text-[clamp(2.75rem,9vw,8rem)] leading-[0.95] -ml-0.5">
-            <HighlightedName name={site.name} highlight="Chacón" />
+          <h1 className="max-w-4xl font-display font-semibold tracking-tight text-[clamp(2.5rem,7vw,5.5rem)] leading-[1.02] -ml-0.5">
+            {site.heroStatement}
           </h1>
           <p className="max-w-2xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
             {site.tagline}
@@ -75,16 +74,6 @@ export default function Home() {
               {ui.viewProjects}
               <IconArrowRight className="h-3.5 w-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
-            <a
-              href={site.cvHref}
-              download
-              className="group flex cursor-pointer items-center gap-1.5 font-mono text-xs uppercase tracking-widest text-foreground transition-colors hover:text-accent"
-            >
-              <IconDownload className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-translate-y-0.5" />
-              <span className="underline decoration-border underline-offset-4 group-hover:decoration-accent">
-                {ui.downloadCV}
-              </span>
-            </a>
             <a
               href="#contact"
               className="font-mono text-xs uppercase tracking-widest text-foreground underline decoration-border underline-offset-4 transition-colors hover:text-accent hover:decoration-accent"
@@ -194,19 +183,7 @@ export default function Home() {
                 <h2 className="mb-4 font-display text-2xl font-medium sm:text-3xl">
                   {ui.tools}
                 </h2>
-                <ul className="flex flex-wrap gap-2">
-                  {site.skills.map((skill) => (
-                    <li key={skill.name}>
-                      <button
-                        type="button"
-                        onClick={() => setActiveSkill(skill)}
-                        className="cursor-pointer rounded-full border border-border bg-card px-4 py-1.5 font-mono text-xs uppercase tracking-widest text-muted-foreground transition-colors hover:border-accent hover:text-accent"
-                      >
-                        {skill.name}
-                      </button>
-                    </li>
-                  ))}
-                </ul>
+                <SkillChips skills={site.skills} onSelect={setActiveSkill} />
               </div>
             </div>
           </Reveal>
@@ -261,20 +238,11 @@ export default function Home() {
         closeLabel={t.nav.close}
       >
         {activeSkill && (
-          <div className="flex flex-col items-center gap-3 text-center">
-            <h3 className="font-display text-2xl font-medium">
-              {activeSkill.name}
-            </h3>
-            <p className="font-mono text-xs uppercase tracking-widest text-accent">
-              {activeSkill.years} {ui.yearsOfExperience}
-            </p>
-            <div className="mt-2 flex flex-col items-center gap-2">
-              <p className="text-xs uppercase tracking-widest text-muted-foreground">
-                {ui.proficiency}
-              </p>
-              <StarRating rating={activeSkill.rating} />
-            </div>
-          </div>
+          <SkillDetail
+            skill={activeSkill}
+            yearsOfExperienceLabel={ui.yearsOfExperience}
+            proficiencyLabel={ui.proficiency}
+          />
         )}
       </Modal>
     </>

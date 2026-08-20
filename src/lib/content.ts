@@ -65,6 +65,7 @@ export type ContentBundle = {
   site: {
     name: string;
     role: string;
+    heroStatement: string;
     tagline: string;
     email: string;
     whatsapp: string;
@@ -72,6 +73,7 @@ export type ContentBundle = {
     linkedin: string;
     experienceSummary: string;
     skills: Skill[];
+    expertise: Skill[];
     cvHref: string;
   };
   nav: {
@@ -90,6 +92,7 @@ export type ContentBundle = {
     downloadCV: string;
     featuredProjects: string;
     tools: string;
+    skillsLabel: string;
     viewFullTimeline: string;
     letsTalk: string;
     letsTalkBlurb: string;
@@ -148,8 +151,9 @@ export const content: Record<Locale, ContentBundle> = {
     site: {
       name: "Luis Eduardo Chacón Manzo",
       role: "Product Designer",
+      heroStatement: "Product design that actually solves the problem.",
       tagline:
-        "I design product driven by research and take it all the way to code, using AI as part of the process, not a shortcut, to build interfaces that actually solve problems.",
+        "I design end-to-end digital products across SaaS, marketplaces, and real estate, driven by research, not assumptions.",
       email: "eduardo-chacom@hotmail.com",
       whatsapp: "+52 312 121 4827",
       whatsappHref: "https://wa.me/523121214827",
@@ -163,6 +167,23 @@ export const content: Record<Locale, ContentBundle> = {
         { name: "Notion", years: 4, rating: 5 },
         { name: "PostHog", years: 2, rating: 4 },
         { name: "Miro", years: 2, rating: 5 },
+        { name: "Sketch", years: 3, rating: 5 },
+        { name: "Lovable", years: 1, rating: 4 },
+        { name: "Webflow", years: 2, rating: 5 },
+        { name: "Google Analytics", years: 2, rating: 4 },
+      ],
+      expertise: [
+        { name: "User Research", years: 4, rating: 5 },
+        { name: "UX Writing", years: 4, rating: 4 },
+        { name: "Information Architecture", years: 3, rating: 4 },
+        { name: "Interaction Design & Prototyping", years: 5, rating: 5 },
+        { name: "UI / Visual Design", years: 5, rating: 4 },
+        { name: "A/B Testing & Validation", years: 3, rating: 4 },
+        { name: "Design Systems", years: 3, rating: 4 },
+        { name: "SEO Strategy", years: 3, rating: 4 },
+        { name: "Product Analytics", years: 2, rating: 4 },
+        { name: "Team Leadership", years: 3, rating: 4 },
+        { name: "Stakeholder Communication", years: 2, rating: 4 },
       ],
       cvHref: "/cv-en.pdf",
     },
@@ -182,6 +203,7 @@ export const content: Record<Locale, ContentBundle> = {
       downloadCV: "Download CV",
       featuredProjects: "Featured projects",
       tools: "Tools",
+      skillsLabel: "Skills",
       viewFullTimeline: "View full timeline",
       letsTalk: "Let's talk?",
       letsTalkBlurb:
@@ -532,8 +554,9 @@ export const content: Record<Locale, ContentBundle> = {
     site: {
       name: "Luis Eduardo Chacón Manzo",
       role: "Product Designer",
+      heroStatement: "Diseño de producto que sí resuelve el problema.",
       tagline:
-        "Diseño producto guiado por research, y lo puedo llevar hasta el código. Uso IA como parte del proceso, no como atajo, para construir interfaces que de verdad resuelven.",
+        "Diseño producto digital end-to-end para SaaS, marketplaces y real estate, guiado por research, no por suposiciones.",
       email: "eduardo-chacom@hotmail.com",
       whatsapp: "+52 312 121 4827",
       whatsappHref: "https://wa.me/523121214827",
@@ -547,6 +570,23 @@ export const content: Record<Locale, ContentBundle> = {
         { name: "Notion", years: 4, rating: 5 },
         { name: "PostHog", years: 2, rating: 4 },
         { name: "Miro", years: 2, rating: 5 },
+        { name: "Sketch", years: 3, rating: 5 },
+        { name: "Lovable", years: 1, rating: 4 },
+        { name: "Webflow", years: 2, rating: 5 },
+        { name: "Google Analytics", years: 2, rating: 4 },
+      ],
+      expertise: [
+        { name: "Investigación de usuarios", years: 4, rating: 5 },
+        { name: "UX Writing", years: 4, rating: 4 },
+        { name: "Arquitectura de la información", years: 3, rating: 4 },
+        { name: "Diseño de interacción y prototipado", years: 5, rating: 5 },
+        { name: "UI / Diseño visual", years: 5, rating: 4 },
+        { name: "A/B Testing y validación", years: 3, rating: 4 },
+        { name: "Design Systems", years: 3, rating: 4 },
+        { name: "Estrategia SEO", years: 3, rating: 4 },
+        { name: "Product Analytics", years: 2, rating: 4 },
+        { name: "Liderazgo de equipos", years: 3, rating: 4 },
+        { name: "Comunicación con stakeholders", years: 2, rating: 4 },
       ],
       cvHref: "/cv-es.pdf",
     },
@@ -566,6 +606,7 @@ export const content: Record<Locale, ContentBundle> = {
       downloadCV: "Descargar CV",
       featuredProjects: "Proyectos destacados",
       tools: "Herramientas",
+      skillsLabel: "Skills",
       viewFullTimeline: "Ver timeline completo",
       letsTalk: "¿Hablamos?",
       letsTalkBlurb:
