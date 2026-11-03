@@ -186,14 +186,16 @@ export function CaseStudyView({ slug }: { slug: string }) {
               </div>
             </Reveal>
 
-            <Reveal delay={200}>
-              <h2 className="font-display text-2xl font-medium sm:text-3xl">
-                {ui.takeaway}
-              </h2>
-              <p className="mt-4 leading-relaxed text-muted-foreground">
-                {project.aprendizaje}
-              </p>
-            </Reveal>
+            {project.aprendizaje && (
+              <Reveal delay={200}>
+                <h2 className="font-display text-2xl font-medium sm:text-3xl">
+                  {ui.takeaway}
+                </h2>
+                <p className="mt-4 leading-relaxed text-muted-foreground">
+                  {project.aprendizaje}
+                </p>
+              </Reveal>
+            )}
           </div>
         </div>
 
