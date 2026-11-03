@@ -24,7 +24,7 @@ export type CaseStudy = {
   };
   solucionFinal: string;
   resultado: string;
-  aprendizaje: string;
+  aprendizaje?: string;
 };
 
 export type ExperienceEntry = {
@@ -517,6 +517,30 @@ export const content: Record<Locale, ContentBundle> = {
         aprendizaje:
           "Even when a client asks for something closely tied to an exact reference, there's still room, and a responsibility on your part, to give it its own identity, not a copy.",
       },
+      {
+        slug: "sinagua",
+        title: "Sinagua",
+        subtitle: "Open data platform on water in Mexico",
+        link: "https://www.sinagua.org",
+        homeTeaser:
+          "2,475 municipalities, 653 aquifers, and 214 dams in one place, for anyone.",
+        contexto:
+          "Sinagua is an open data platform on water in Mexico. It brings together, municipality by municipality, information on drought, dam levels, aquifer availability, water quality, and who uses the water. It's a citizen, non-profit project.",
+        problema:
+          "Water data in Mexico exists, but it's scattered across CONAGUA, the SMN, and INEGI, in formats that are hard for anyone to read.",
+        miRol:
+          "A personal, end-to-end project. I handled the research, information architecture, interface design, data visualization, and development, with AI tools supporting the coding.",
+        proceso: {
+          decisiones:
+            "I designed the navigation at the municipal level so anyone can find their locality's situation in a few clicks, and turned complex government datasets into visualizations a non-technical audience can understand.",
+          iteraciones:
+            "I added two dams that aren't part of the national monitoring, following a tip from a conservation organization in southern Sinaloa.",
+        },
+        solucionFinal:
+          "One place with the situation of each municipality: drought, dam levels, aquifer availability, water quality, and who uses the water. The data updates itself twice a week with no manual intervention, and a form and an anonymous complaints wall, with moderation rules and a privacy notice, bring what people live through alongside the official data.",
+        resultado:
+          "Coverage of 2,475 municipalities, 653 aquifers, 214 dams, and more than 2,200 water quality monitoring sites, all in one place.",
+      },
     ],
     stats: [
       {
@@ -919,6 +943,30 @@ export const content: Record<Locale, ContentBundle> = {
           "Top 20 en Google dentro de un mercado grande y saturado, y alrededor de 5 casas vendidas a través del sitio.",
         aprendizaje:
           "Incluso cuando un cliente pide algo muy apegado a una referencia exacta, sigue habiendo espacio (y la responsabilidad de tu parte) para darle su propia identidad, no una copia.",
+      },
+      {
+        slug: "sinagua",
+        title: "Sinagua",
+        subtitle: "Plataforma de datos abiertos sobre el agua en México",
+        link: "https://www.sinagua.org",
+        homeTeaser:
+          "2,475 municipios, 653 acuíferos y 214 presas en un solo lugar, para cualquier persona.",
+        contexto:
+          "Sinagua es una plataforma de datos abiertos sobre el agua en México. Reúne en un solo lugar, municipio por municipio, la información sobre sequía, nivel de presas, disponibilidad de acuíferos, calidad del agua y quién la usa. Es un proyecto ciudadano y sin fines de lucro.",
+        problema:
+          "Los datos del agua en México existen, pero están dispersos entre CONAGUA, el SMN y el INEGI, en formatos difíciles de leer para cualquier persona.",
+        miRol:
+          "Proyecto personal end-to-end. Me encargué de la investigación, la arquitectura de información, el diseño de la interfaz, la visualización de datos y el desarrollo, con apoyo de herramientas de IA para programar.",
+        proceso: {
+          decisiones:
+            "Diseñé la navegación a nivel municipal para que cualquier persona encuentre la situación de su localidad en pocos clics, y convertí datasets gubernamentales complejos en visualizaciones entendibles para un público no técnico.",
+          iteraciones:
+            "Sumé dos presas que no están en el monitoreo nacional, a partir del aviso de una organización de conservación del sur de Sinaloa.",
+        },
+        solucionFinal:
+          "Un solo lugar con la situación de cada municipio: sequía, nivel de presas, disponibilidad de acuíferos, calidad del agua y quién la usa. Los datos se actualizan solos dos veces por semana, sin intervención manual, y un formulario y un muro de denuncias anónimas, con reglas de moderación y aviso de privacidad, suman lo que vive la gente a los datos oficiales.",
+        resultado:
+          "Cobertura de 2,475 municipios, 653 acuíferos, 214 presas y más de 2,200 sitios de monitoreo de calidad del agua, todo en un solo lugar.",
       },
     ],
     stats: [
