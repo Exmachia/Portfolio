@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { content, defaultLocale, siteUrl } from "@/lib/content";
+import { visibleCaseStudies } from "@/lib/desktop-content";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -13,7 +14,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified: new Date(),
   }));
 
-  const projectRoutes = content[defaultLocale].caseStudies.map((project) => ({
+  const projectRoutes = visibleCaseStudies(
+    content[defaultLocale].caseStudies,
+  ).map((project) => ({
     url: `${siteUrl}/proyectos/${project.slug}`,
     lastModified: new Date(),
   }));
