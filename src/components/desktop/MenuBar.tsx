@@ -2,9 +2,21 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "@/lib/locale-context";
-import { desktopContent } from "@/lib/desktop-content";
+import { desktopContent, type AppId } from "@/lib/desktop-content";
 import { useTheme } from "@/lib/theme";
 import { useWM } from "@/components/desktop/wm";
+
+// Apps listed in the menu bar on desktop, in dock order.
+const MENU_APPS: AppId[] = [
+  "finder",
+  "figma",
+  "claude",
+  "notion",
+  "photobooth",
+  "contacts",
+  "preview",
+  "trash",
+];
 
 function Check({ on }: { on: boolean }) {
   return (
@@ -44,7 +56,7 @@ export function MenuBar() {
   const { locale, setLocale, t } = useLocale();
   const dc = desktopContent[locale];
   const { theme, setTheme } = useTheme();
-  const { focused } = useWM();
+  const { focused, open: openApp } = useWM();
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -81,9 +93,25 @@ export function MenuBar() {
             LC
           </span>
         </button>
-        <span className="px-2 font-semibold">
+        <span className="px-2 font-semibold lg:hidden">
           {focused ? dc.apps[focused] : "Luis Chacón"}
         </span>
+        <span className="px-2 font-semibold max-lg:hidden">Luis Chacón</span>
+        <nav aria-label="Apps" className="flex items-center max-lg:hidden">
+          {MENU_APPS.map((id) => (
+            <button
+              key={id}
+              type="button"
+              onClick={() => openApp(id)}
+              aria-current={focused === id ? "true" : undefined}
+              className={`h-6 rounded px-2 whitespace-nowrap hover:bg-hover ${
+                focused === id ? "font-semibold" : ""
+              }`}
+            >
+              {dc.apps[id]}
+            </button>
+          ))}
+        </nav>
 
         {open && (
           <div

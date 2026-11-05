@@ -5,10 +5,8 @@ import { useCallback, useEffect, useState } from "react";
 export const themeInitScript = `
 (function () {
   try {
-    var stored = localStorage.getItem('theme');
-    var theme = stored === 'light' || stored === 'dark'
-      ? stored
-      : (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    // Light by default; dark only when the visitor picked it.
+    var theme = localStorage.getItem('theme') === 'dark' ? 'dark' : 'light';
     document.documentElement.setAttribute('data-theme', theme);
   } catch (e) {}
 })();

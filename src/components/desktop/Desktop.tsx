@@ -8,6 +8,7 @@ import { DeskObjects } from "@/components/desktop/DeskObjects";
 import { DesktopFile } from "@/components/desktop/DesktopFile";
 import { Dock } from "@/components/desktop/Dock";
 import { MenuBar } from "@/components/desktop/MenuBar";
+import { SystemAlert } from "@/components/desktop/SystemAlert";
 import { Wallpaper } from "@/components/desktop/Wallpaper";
 import {
   WMProvider,
@@ -133,6 +134,7 @@ function Shell() {
         const App = APP_COMPONENTS[w.id];
         return <App key={w.id} win={w} />;
       })}
+      <SystemAlert />
       <Dock />
     </div>
   );

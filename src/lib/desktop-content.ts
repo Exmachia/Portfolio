@@ -33,6 +33,13 @@ export type DesktopContent = {
   // What each app is for, shown in the dock tooltip ("Figma" -> "My projects").
   tips: Record<AppId, string>;
   hint: string;
+  // System alert shown when every window is closed.
+  alert: {
+    title: string;
+    body: string;
+    open: string;
+    later: string;
+  };
   menu: {
     language: string;
     appearance: string;
@@ -164,6 +171,12 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       trash: "Trash",
     },
     hint: "Open Figma in the dock to see my projects",
+    alert: {
+      title: "Want to see my projects?",
+      body: "They're in Figma: real products and concepts, each with its full process.",
+      open: "Open projects",
+      later: "Not now",
+    },
     menu: {
       language: "Language",
       appearance: "Appearance",
@@ -396,6 +409,12 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       trash: "Papelera",
     },
     hint: "Abre Figma en el dock para ver mis proyectos",
+    alert: {
+      title: "¿Quieres ver mis proyectos?",
+      body: "Están en Figma: productos reales y conceptos, cada uno con su proceso completo.",
+      open: "Abrir proyectos",
+      later: "Ahora no",
+    },
     menu: {
       language: "Idioma",
       appearance: "Apariencia",
