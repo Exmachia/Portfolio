@@ -86,3 +86,18 @@ export function PdfFileIcon({ className = "h-full w-full" }: { className?: strin
     </svg>
   );
 }
+
+// A Figma file on the desktop: its cover as a Quick Look-style thumbnail,
+// with the Figma badge in the corner.
+export function FigFileIcon({ src }: { src: string }) {
+  return (
+    <span className="relative block h-[60px] w-[84px]">
+      <span className="absolute inset-x-0 top-[7px] block h-[47px] overflow-hidden rounded-[5px] bg-white shadow-[0_0_0_2px_#fff,0_0_0_2.5px_rgba(0,0,0,0.12),0_6px_14px_rgba(0,0,0,0.3)]">
+        <Image src={src} alt="" fill sizes="84px" className="object-cover" />
+      </span>
+      <span className="absolute -right-1.5 -bottom-0.5 block h-[22px] w-[22px] drop-shadow-md">
+        <AppIcon id="figma" />
+      </span>
+    </span>
+  );
+}

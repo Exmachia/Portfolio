@@ -107,9 +107,6 @@ export function Dock() {
                   <span className="block text-[13px] leading-tight font-semibold">
                     {dc.tips[id]}
                   </span>
-                  <span className="block text-[11px] leading-tight text-muted">
-                    {dc.apps[id]}
-                  </span>
                 </span>
               )}
               <button

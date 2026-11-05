@@ -23,21 +23,45 @@ function Glyph({ d }: { d: string }) {
   );
 }
 
+// iPhone-style chevron for the nav bar's back button.
+function BackChevron() {
+  return (
+    <svg viewBox="0 0 12 21" width="12" height="21" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+      <path d="M10 2 2 10.5 10 19" />
+    </svg>
+  );
+}
+
+export type MobileNav = {
+  // Centered title; defaults to the window title.
+  title?: string;
+  // Replaces the default back button (close the window, "Home").
+  back?: { label: string; onClick: () => void };
+  // Trailing buttons, e.g. Share or Download.
+  actions?: ReactNode;
+};
+
 export function Window({
   win,
   title,
   toolbar,
+  mobile,
   width,
   height,
+  gutter = 32,
   glass = false,
   children,
 }: {
   win: WinState;
   title: string;
   // Replaces the centered title (e.g. Figma's file tab or Claude's header).
+  // Desktop only: phones get the iPhone nav bar instead.
   toolbar?: ReactNode;
+  mobile?: MobileNav;
   width: number;
   height: number;
+  // Space kept free beside the window by default (e.g. for desktop files).
+  gutter?: number;
   // Liquid Glass window (system apps): the wallpaper shows through the frame.
   glass?: boolean;
   children: ReactNode;
@@ -127,7 +151,7 @@ export function Window({
   const style = {
     "--ww": win.size
       ? `${win.size.w}px`
-      : `min(${width}px, calc(100vw - 32px))`,
+      : `min(${width}px, calc(100vw - ${gutter}px))`,
     "--wh": win.size
       ? `${win.size.h}px`
       : `min(${height}px, calc(100dvh - 150px))`,
@@ -195,22 +219,11 @@ export function Window({
             </button>
           </div>
 
-          <button
-            type="button"
-            aria-label={labels.close}
-            onClick={() => close(win.id)}
-            className="-ml-1 flex h-8 w-8 items-center justify-center rounded-full text-accent md:hidden"
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
-              <path d="M15 5l-7 7 7 7" />
-            </svg>
-          </button>
-
           {toolbar ? (
             <div className="flex min-w-0 flex-1 items-center">{toolbar}</div>
           ) : (
             <h2
-              className={`pointer-events-none min-w-0 flex-1 truncate text-center text-[13px] font-semibold md:absolute md:inset-x-24 ${
+              className={`pointer-events-none absolute inset-x-24 truncate text-center text-[13px] font-semibold ${
                 isFocused ? "text-fg" : "text-muted"
               }`}
             >
@@ -218,6 +231,23 @@ export function Window({
             </h2>
           )}
         </header>
+
+        <nav className="ios-nav">
+          <button
+            type="button"
+            onClick={mobile?.back?.onClick ?? (() => close(win.id))}
+            className="ios-back"
+          >
+            <BackChevron />
+            <span className="truncate">{mobile?.back?.label ?? labels.home}</span>
+          </button>
+          <h2 className="truncate text-center text-[17px] font-semibold tracking-[-0.01em]">
+            {mobile?.title ?? title}
+          </h2>
+          <div className="flex min-w-0 items-center justify-end gap-1">
+            {mobile?.actions}
+          </div>
+        </nav>
         <div className="min-h-0 flex-1 overflow-hidden">{children}</div>
       </div>
 

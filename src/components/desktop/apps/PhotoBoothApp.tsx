@@ -20,7 +20,6 @@ export function PhotoBoothApp({ win }: { win: WinState }) {
   const { locale } = useLocale();
   const dc = desktopContent[locale].photobooth;
   const [index, setIndex] = useState(0);
-  const [flash, setFlash] = useState(0);
 
   const slots = Array.from(
     { length: Math.max(photos.length, PHOTO_SLOTS) },
@@ -62,9 +61,6 @@ export function PhotoBoothApp({ win }: { win: WinState }) {
               {dc.empty}
             </div>
           )}
-          {flash > 0 && (
-            <div key={flash} className="photo-flash pointer-events-none absolute inset-0 bg-white" />
-          )}
           <button
             type="button"
             aria-label="Previous"
@@ -83,7 +79,7 @@ export function PhotoBoothApp({ win }: { win: WinState }) {
           </button>
         </div>
 
-        <div className="relative flex shrink-0 items-center justify-center gap-2 border-t border-line bg-win2 px-4 py-3">
+        <div className="flex shrink-0 items-center justify-center border-t border-line bg-win2 px-4 py-3">
           <div className="flex min-w-0 max-w-full items-center gap-2 overflow-x-auto py-0.5">
             {slots.map((p, k) => (
               <button
@@ -105,17 +101,6 @@ export function PhotoBoothApp({ win }: { win: WinState }) {
               </button>
             ))}
           </div>
-          <button
-            type="button"
-            aria-label="Next photo"
-            onClick={() => {
-              setFlash((f) => f + 1);
-              go(index + 1);
-            }}
-            className="absolute right-4 grid h-11 w-11 place-items-center rounded-full bg-white/15 ring-1 ring-white/25 transition hover:bg-white/25 max-sm:hidden"
-          >
-            <span className="h-7 w-7 rounded-full bg-[#ff453a] shadow-inner" />
-          </button>
         </div>
       </div>
     </Window>

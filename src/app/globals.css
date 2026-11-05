@@ -26,6 +26,7 @@
   --desk-grid: rgba(20, 20, 30, 0.045);
   --desk-grid-major: rgba(20, 20, 30, 0.08);
   --desk-shade: rgba(0, 0, 0, 0.07);
+  --desk-hover: rgba(20, 20, 30, 0.07);
   --desk-fg: #15151b;
   --desk-muted: rgba(21, 21, 27, 0.66);
 
@@ -57,6 +58,7 @@
   --desk-grid: rgba(255, 255, 255, 0.035);
   --desk-grid-major: rgba(255, 255, 255, 0.07);
   --desk-shade: rgba(0, 0, 0, 0.5);
+  --desk-hover: rgba(255, 255, 255, 0.09);
   --desk-fg: #ffffff;
   --desk-muted: rgba(255, 255, 255, 0.72);
 
@@ -364,6 +366,63 @@ body {
   background: var(--win);
 }
 
+/* iPhone nav bar, phones only: back button on the left, title centered on
+   the screen (equal side columns), actions on the right. */
+.ios-nav {
+  display: none;
+}
+@media (max-width: 767px) {
+  .titlebar {
+    display: none;
+  }
+  .ios-nav {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
+    align-items: center;
+    gap: 8px;
+    flex: none;
+    height: 52px;
+    padding: 0 12px 0 6px;
+    border-bottom: 0.5px solid var(--line);
+    background: var(--win);
+    color: var(--fg);
+    user-select: none;
+  }
+}
+.ios-back {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-self: start;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 0 8px 0 4px;
+  border-radius: 10px;
+  color: var(--accent);
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+.ios-back:active {
+  opacity: 0.45;
+}
+/* Text and icon buttons on the right side of the nav bar. */
+.ios-action {
+  display: grid;
+  place-items: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 4px;
+  color: var(--accent);
+  font-size: 17px;
+  letter-spacing: -0.01em;
+}
+.ios-action:active {
+  opacity: 0.45;
+}
+.ios-action:disabled {
+  opacity: 0.35;
+}
+
 .lights {
   display: flex;
   gap: 8px;
@@ -572,19 +631,6 @@ body {
   background-size: 22px 22px;
 }
 
-/* Photo Booth shutter flash */
-@keyframes photo-flash {
-  0% {
-    opacity: 0.95;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-.photo-flash {
-  animation: photo-flash 0.45s ease-out forwards;
-}
-
 /* Objects land on the mat. Uses the individual `translate`/`scale` properties
    so it doesn't fight the inline rotation. */
 @keyframes desk-drop {
@@ -652,6 +698,35 @@ body {
     24px 24px,
     24px 24px;
   background-position: center;
+}
+
+/* Desktop files (see DesktopFile). The name sits on the desk without a box,
+   like Finder: desk-colored text with a halo of the desk color keeps it
+   readable over the mat and the objects. Hover and keyboard focus get a
+   soft highlight; the blue name pill stays reserved for "selected". */
+.desk-file-label {
+  color: var(--desk-fg);
+  text-shadow:
+    0 0 2px var(--desk-bg),
+    0 0 4px var(--desk-bg),
+    0 0 8px var(--desk-bg);
+}
+.desk-file:hover,
+.desk-file:focus-visible {
+  background: var(--desk-hover);
+}
+.desk-file:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 0;
+}
+
+/* App names on the phone home screen, like iOS: white text whose soft dark
+   shadow keeps it readable over the green mat and the light desk alike. */
+.home-label {
+  color: #fff;
+  text-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.55),
+    0 0 6px rgba(0, 0, 0, 0.45);
 }
 
 /* System alert (see SystemAlert): drops in from the menu bar. */

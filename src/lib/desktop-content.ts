@@ -46,6 +46,8 @@ export type DesktopContent = {
     light: string;
     dark: string;
     downloadCV: string;
+    // Back button label of the iPhone nav bar (goes back to the home screen).
+    home: string;
     close: string;
     minimize: string;
     zoom: string;
@@ -133,7 +135,6 @@ export type DesktopContent = {
     fileName: string;
     download: string;
     openTab: string;
-    mobileHint: string;
   };
   trash: {
     empty: string;
@@ -183,6 +184,7 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       light: "Light",
       dark: "Dark",
       downloadCV: "Download CV",
+      home: "Home",
       close: "Close",
       minimize: "Minimize",
       zoom: "Zoom",
@@ -356,7 +358,6 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       fileName: "Luis_Chacon_CV.pdf",
       download: "Download",
       openTab: "Open in new tab",
-      mobileHint: "Your browser may not preview PDFs here.",
     },
     trash: {
       empty: "Trash is empty",
@@ -421,6 +422,7 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       light: "Claro",
       dark: "Oscuro",
       downloadCV: "Descargar CV",
+      home: "Inicio",
       close: "Cerrar",
       minimize: "Minimizar",
       zoom: "Zoom",
@@ -597,7 +599,6 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       fileName: "Luis_Chacon_CV.pdf",
       download: "Descargar",
       openTab: "Abrir en pestaña nueva",
-      mobileHint: "Tu navegador quizá no previsualice PDFs aquí.",
     },
     trash: {
       empty: "La papelera está vacía",

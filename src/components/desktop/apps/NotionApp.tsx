@@ -30,6 +30,7 @@ export function NotionApp({ win }: { win: WinState }) {
     <Window
       win={win}
       title="Notion"
+      mobile={{ title: "Notion" }}
       width={1000}
       height={660}
       toolbar={

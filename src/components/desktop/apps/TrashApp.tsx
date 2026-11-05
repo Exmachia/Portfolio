@@ -43,6 +43,12 @@ export function TrashApp({ win }: { win: WinState }) {
   const rows: Row[] = emptied ? [secret] : [...dc.items, secret];
   const current = rows.find((r) => r.name === selected) ?? null;
 
+  const emptyTrash = () => {
+    setEmptied(true);
+    setSelected(null);
+    setLockedShown(true);
+  };
+
   return (
     <Window
       win={win}
@@ -50,6 +56,18 @@ export function TrashApp({ win }: { win: WinState }) {
       width={780}
       height={470}
       glass
+      mobile={{
+        actions: (
+          <button
+            type="button"
+            disabled={emptied}
+            onClick={emptyTrash}
+            className="ios-action"
+          >
+            {dc.emptyButton}
+          </button>
+        ),
+      }}
       toolbar={
         <div className="flex w-full items-center justify-between gap-3">
           <span className="text-[13px] font-semibold">
@@ -58,11 +76,7 @@ export function TrashApp({ win }: { win: WinState }) {
           <button
             type="button"
             disabled={emptied}
-            onClick={() => {
-              setEmptied(true);
-              setSelected(null);
-              setLockedShown(true);
-            }}
+            onClick={emptyTrash}
             className="rounded-md bg-hover px-2.5 py-1 text-[12px] font-medium hover:bg-sel disabled:opacity-40"
           >
             {dc.emptyButton}

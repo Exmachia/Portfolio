@@ -81,7 +81,16 @@ export function ContactsApp({ win }: { win: WinState }) {
     "flex min-w-[72px] flex-col items-center gap-1 rounded-2xl bg-hover px-3 py-2 text-[11px] font-medium text-accent transition-colors hover:bg-sel";
 
   return (
-    <Window win={win} title={site.name} width={1240} height={940} glass>
+    <Window
+      win={win}
+      title={site.name}
+      mobile={{ title: desktopContent[locale].apps.contacts }}
+      width={1240}
+      // leaves the desktop files on the right in view
+      gutter={360}
+      height={940}
+      glass
+    >
       <div className="flex h-full gap-2 p-2 pt-0 max-md:p-0">
         <aside className="flex w-[216px] shrink-0 flex-col max-md:hidden">
           <p className="px-3 pt-1 pb-2 text-[11px] font-semibold text-muted">

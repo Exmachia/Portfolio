@@ -2,8 +2,18 @@
 
 import { useEffect, type ComponentType } from "react";
 import { useLocale } from "@/lib/locale-context";
-import { desktopContent, type AppId } from "@/lib/desktop-content";
-import { AppIcon, PdfFileIcon } from "@/components/desktop/AppIcons";
+import type { CaseStudy } from "@/lib/content";
+import {
+  desktopContent,
+  featuredCaseStudies,
+  isCaseStudyVisible,
+  type AppId,
+} from "@/lib/desktop-content";
+import {
+  AppIcon,
+  FigFileIcon,
+  PdfFileIcon,
+} from "@/components/desktop/AppIcons";
 import { DeskObjects } from "@/components/desktop/DeskObjects";
 import { DesktopFile } from "@/components/desktop/DesktopFile";
 import { Dock } from "@/components/desktop/Dock";
@@ -48,6 +58,15 @@ const MOBILE_APPS: AppId[] = [
   "trash",
 ];
 
+// Default spots for the .fig files, stacked under the CV (Tailwind needs the
+// full class names written out).
+const FIG_FILE_SLOTS = [
+  "top-[124px] right-5",
+  "top-[236px] right-5",
+  "top-[348px] right-5",
+  "top-[460px] right-5",
+];
+
 // Keeps the address bar shareable: the focused window decides the URL, and
 // each URL also renders its window on the server (see the route pages).
 function pathFor(id: AppId, props: WinProps): string {
@@ -77,9 +96,14 @@ function useUrlSync() {
 }
 
 function DesktopLayer() {
-  const { locale } = useLocale();
+  const { locale, t } = useLocale();
   const dc = desktopContent[locale];
   const { wins, open } = useWM();
+  const figFiles = featuredCaseStudies
+    .map((slug) => t.caseStudies.find((c) => c.slug === slug))
+    .filter((c): c is CaseStudy =>
+      Boolean(c?.image && isCaseStudyVisible(c.slug)),
+    );
 
   return (
     <div className="pointer-events-none absolute inset-0 pt-11 md:pt-7">
@@ -91,6 +115,17 @@ function DesktopLayer() {
           onOpen={() => open("preview")}
           defaultClassName="top-4 right-5"
         />
+        {/* The featured projects as Figma files, in a column under the CV. */}
+        {figFiles.map((c, i) => (
+          <DesktopFile
+            key={c.slug}
+            id={`fig-${c.slug}`}
+            label={`${c.title}.fig`}
+            icon={<FigFileIcon src={c.image ?? ""} />}
+            onOpen={() => open("figma", { project: c.slug })}
+            defaultClassName={FIG_FILE_SLOTS[i]}
+          />
+        ))}
 
         <ul className="pointer-events-auto grid grid-cols-4 gap-x-3 gap-y-6 md:hidden">
           {MOBILE_APPS.map((id) => (
@@ -107,7 +142,7 @@ function DesktopLayer() {
                 >
                   <AppIcon id={id} />
                 </span>
-                <span className="rounded-md bg-black/55 px-1.5 py-0.5 text-[11px] font-medium whitespace-nowrap text-white">
+                <span className="home-label text-[12px] font-medium whitespace-nowrap">
                   {dc.apps[id]}
                 </span>
               </button>

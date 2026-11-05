@@ -5,7 +5,7 @@ import { useEffect, useRef, useState, type ReactNode } from "react";
 const clamp = (v: number, min: number, max: number) =>
   Math.min(Math.max(v, min), max);
 
-const W = 124;
+const W = 156;
 const H = 104;
 
 // A file on the desktop: click to open, drag to move. The position is
@@ -113,13 +113,13 @@ export function DesktopFile({
         }
         onOpen();
       }}
-      className={`pointer-events-auto absolute z-[1] hidden touch-none flex-col items-center gap-1.5 rounded-xl p-2 select-none hover:bg-black/10 md:flex ${
-        dragging ? "cursor-grabbing bg-black/10" : "cursor-grab"
+      className={`desk-file pointer-events-auto absolute z-[1] hidden touch-none flex-col items-center gap-1.5 rounded-xl p-2 select-none md:flex ${
+        dragging ? "cursor-grabbing" : "cursor-grab"
       } ${pos ? "" : defaultClassName}`}
       style={pos ? { left: pos.x, top: pos.y, width: W } : { width: W }}
     >
       {icon}
-      <span className="rounded-md bg-black/60 px-1.5 py-0.5 text-center text-[11.5px] leading-tight font-medium whitespace-nowrap text-white">
+      <span className="desk-file-label line-clamp-2 max-w-full px-1 text-center text-[12px] leading-tight font-medium break-words">
         {label}
       </span>
     </button>

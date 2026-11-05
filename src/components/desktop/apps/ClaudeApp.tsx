@@ -174,6 +174,7 @@ export function ClaudeApp({ win }: { win: WinState }) {
     <Window
       win={win}
       title="Claude"
+      mobile={{ title: "Claude" }}
       width={1000}
       height={680}
       toolbar={

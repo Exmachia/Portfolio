@@ -35,6 +35,15 @@ export function IconArrowUpRight({ className = "h-4 w-4" }: IconProps) {
   );
 }
 
+// iOS-style share: a tray with an arrow coming out of it.
+export function IconShare({ className = "h-4 w-4" }: IconProps) {
+  return (
+    <svg {...base} className={className}>
+      <path d="M12 3v12M8 7l4-4 4 4M8 11H6a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-8a1 1 0 0 0-1-1h-2" />
+    </svg>
+  );
+}
+
 export function IconDownload({ className = "h-4 w-4" }: IconProps) {
   return (
     <svg {...base} className={className}>

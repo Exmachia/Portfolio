@@ -14,8 +14,10 @@ import { useWM, type WinState } from "@/components/desktop/wm";
 import {
   IconArrowLeft,
   IconArrowUpRight,
+  IconCheckCircle,
   IconLink,
   IconLock,
+  IconShare,
 } from "@/components/icons";
 
 const FRAMES = ["cover", "overview", "process", "solution", "result"] as const;
@@ -847,6 +849,7 @@ export function FigmaApp({ win }: { win: WinState }) {
   const dc = desktopContent[locale].figma;
   const caseStudies = visibleCaseStudies(t.caseStudies);
   const { setProps } = useWM();
+  const appLabel = desktopContent[locale].tips.figma;
 
   // No project selected = the file browser.
   const project = caseStudies.find((c) => c.slug === win.props.project);
@@ -867,12 +870,45 @@ export function FigmaApp({ win }: { win: WinState }) {
     }
   };
 
+  // Phones open the system share sheet when there is one.
+  const shareProject = async () => {
+    if (!project) return;
+    const url = `${siteUrl}/proyectos/${project.slug}`;
+    if (navigator.share) {
+      try {
+        await navigator.share({ title: project.title, url });
+      } catch {
+        /* dismissed */
+      }
+      return;
+    }
+    copyLink();
+  };
+
   return (
     <Window
       win={win}
       title={dc.file}
       width={1220}
       height={760}
+      mobile={{
+        title: project ? project.title : appLabel,
+        back: project ? { label: appLabel, onClick: goHome } : undefined,
+        actions: project && (
+          <button
+            type="button"
+            onClick={shareProject}
+            aria-label={copied ? t.ui.linkCopied : t.ui.shareCaseStudy}
+            className="ios-action"
+          >
+            {copied ? (
+              <IconCheckCircle className="h-[22px] w-[22px]" />
+            ) : (
+              <IconShare className="h-[22px] w-[22px]" />
+            )}
+          </button>
+        ),
+      }}
       toolbar={
         <div className="flex w-full min-w-0 items-center gap-3">
           <div className="flex min-w-0 items-center gap-2 text-[13px]">
