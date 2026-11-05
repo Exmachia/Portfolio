@@ -117,6 +117,10 @@ export type DesktopContent = {
     viewProjects: string;
     openCV: string;
     start: string;
+    contact: string;
+    featured: string;
+    seeAll: string;
+    realTag: string;
   };
   preview: {
     fileName: string;
@@ -330,6 +334,10 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       viewProjects: "View my projects in Figma",
       openCV: "Open my CV",
       start: "Start here",
+      contact: "Contact",
+      featured: "Featured projects",
+      seeAll: "See all in Figma",
+      realTag: "Live project",
     },
     preview: {
       fileName: "Luis_Chacon_CV.pdf",
@@ -561,6 +569,10 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       viewProjects: "Ver mis proyectos en Figma",
       openCV: "Abrir mi CV",
       start: "Empieza aquí",
+      contact: "Contacto",
+      featured: "Proyectos destacados",
+      seeAll: "Ver todos en Figma",
+      realTag: "Proyecto real",
     },
     preview: {
       fileName: "Luis_Chacon_CV.pdf",
@@ -602,6 +614,14 @@ export const desktopContent: Record<Locale, DesktopContent> = {
 // Public Figma file with the full design work. Leave null to hide the
 // "Open in Figma" button until the link is available.
 export const figmaPublicUrl: string | null = null;
+
+// Shown in the Contacts window, in this order; each opens its file in Figma.
+export const featuredCaseStudies: string[] = [
+  "nu-wallet",
+  "sinagua",
+  "bbva-transferencias-seguras",
+  "banorte-estado-de-cuenta",
+];
 
 // Case studies kept in content.ts but not shown in the Figma app for now.
 // Remove a slug from this list to bring it back.

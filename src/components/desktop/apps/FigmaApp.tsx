@@ -67,8 +67,9 @@ function Cover({ project, pending }: { project: CaseStudy; pending: string }) {
   return (
     <div
       className={`relative overflow-hidden bg-win2 ${
-        // Concept covers are 16:10; show them whole instead of cropping.
-        project.concept ? "aspect-[16/10]" : "aspect-[16/9]"
+        // Covers exported from Figma (cases with images) are 16:10; show them
+        // whole instead of cropping.
+        project.images ? "aspect-[16/10]" : "aspect-[16/9]"
       }`}
     >
       {project.image ? (

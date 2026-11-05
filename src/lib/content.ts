@@ -559,6 +559,51 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Sinagua",
         subtitle: "Open data platform on water in Mexico",
         link: "https://www.sinagua.org",
+        image: "/projects/sinagua/01-cover.webp",
+        imageAlt:
+          "Sinagua case cover: the aquifer map of Mexico and the Valle de León aquifer detail on a dark background",
+        images: {
+          overview: [
+            caseImage("sinagua", "02-antes.webp", 2880, 1994, {
+              alt: "Before Sinagua: four cards for CONAGUA, SMN and INEGI sources and the five manual steps to learn how water is doing in a municipality",
+              caption:
+                "Reconstruction of the problem. Not a capture of a previous product.",
+            }),
+          ],
+          process: [
+            caseImage("sinagua", "04-lofi-direcciones.webp", 6456, 2360, {
+              alt: "Three grayscale directions: A Articles (discarded), B Complaints wall (complement) and C Navigation by territory (main)",
+              caption:
+                "Drawn after building it: the project kept no original wireframes.",
+            }),
+            caseImage("sinagua", "03-user-flow.webp", 3360, 2480, {
+              alt: "User flow with three journeys: finding how water is where you live, reporting what happens with water, and the automatic twice-weekly data update",
+            }),
+          ],
+          solution: [
+            caseImage("sinagua", "06-hifi-inicio.webp", 2880, 13590, {
+              alt: "Full home page: Mexico is running out of water, drought, aquifers, dry years, dams, who uses the water and water quality",
+            }),
+            caseImage("sinagua", "07-hifi-mapas.webp", 6048, 1992, {
+              alt: "Aquifer map: national overview with the most exposed states, and the Valle de León aquifer detail in Guanajuato",
+            }),
+            caseImage("sinagua", "08-hifi-presas-y-sequia.webp", 6048, 1992, {
+              alt: "Dams map with average fill level by state, and drought map with the states with the most people in drought",
+            }),
+            caseImage("sinagua", "09-hifi-denuncias.webp", 6048, 2192, {
+              alt: "Anonymous complaints wall filtered by state, and the form to send a complaint with its error state",
+            }),
+            caseImage("sinagua", "10-hifi-urgente.webp", 2880, 2896, {
+              alt: "Urgent page: the most critical water stories of the week, with buttons to share them in stories",
+            }),
+            caseImage("sinagua", "11-hifi-movil.webp", 3624, 1896, {
+              alt: "Four mobile screens: home, aquifer map with a bottom sheet, complaints and urgent",
+            }),
+            caseImage("sinagua", "05-design-system.webp", 3360, 6204, {
+              alt: "Sinagua design system: color primitives and semantics, Newsreader and Schibsted Grotesk type, spacing, radii, shadows, components and WCAG contrast",
+            }),
+          ],
+        },
         homeTeaser:
           "2,475 municipalities, 653 aquifers, and 214 dams in one place, for anyone.",
         contexto:
@@ -1267,6 +1312,51 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Sinagua",
         subtitle: "Plataforma de datos abiertos sobre el agua en México",
         link: "https://www.sinagua.org",
+        image: "/projects/sinagua/01-cover.webp",
+        imageAlt:
+          "Portada del caso Sinagua: el mapa de acuíferos de México y el detalle del acuífero Valle de León sobre fondo oscuro",
+        images: {
+          overview: [
+            caseImage("sinagua", "02-antes.webp", 2880, 1994, {
+              alt: "Antes de Sinagua: cuatro tarjetas de fuentes de CONAGUA, SMN e INEGI y los cinco pasos a mano para saber cómo está el agua de un municipio",
+              caption:
+                "Reconstrucción del problema. No es la captura de un producto anterior.",
+            }),
+          ],
+          process: [
+            caseImage("sinagua", "04-lofi-direcciones.webp", 6456, 2360, {
+              alt: "Tres direcciones en grises: A Artículos (descartada), B Muro de denuncias (complemento) y C Navegación por territorio (principal)",
+              caption:
+                "Dibujado después de construirlo: el proyecto no conserva wireframes originales.",
+            }),
+            caseImage("sinagua", "03-user-flow.webp", 3360, 2480, {
+              alt: "User flow con tres recorridos: saber cómo está el agua donde vives, contar lo que pasa con el agua y la actualización automática dos veces por semana",
+            }),
+          ],
+          solution: [
+            caseImage("sinagua", "06-hifi-inicio.webp", 2880, 13590, {
+              alt: "Página de inicio completa: México se está quedando sin agua, sequía, acuíferos, años secos, presas, quién usa el agua y calidad del agua",
+            }),
+            caseImage("sinagua", "07-hifi-mapas.webp", 6048, 1992, {
+              alt: "Mapa de acuíferos: panorama nacional con los estados más expuestos y el detalle del acuífero Valle de León en Guanajuato",
+            }),
+            caseImage("sinagua", "08-hifi-presas-y-sequia.webp", 6048, 1992, {
+              alt: "Mapa de presas con el llenado promedio por estado y mapa de sequía con los estados con más gente en sequía",
+            }),
+            caseImage("sinagua", "09-hifi-denuncias.webp", 6048, 2192, {
+              alt: "Muro de denuncias anónimas filtrado por estado y el formulario para mandar una denuncia con su estado de error",
+            }),
+            caseImage("sinagua", "10-hifi-urgente.webp", 2880, 2896, {
+              alt: "Página Urgente: lo más crítico del agua de la semana, con botones para compartirlo en historias",
+            }),
+            caseImage("sinagua", "11-hifi-movil.webp", 3624, 1896, {
+              alt: "Cuatro pantallas en móvil: inicio, mapa de acuíferos con hoja inferior, denuncias y urgente",
+            }),
+            caseImage("sinagua", "05-design-system.webp", 3360, 6204, {
+              alt: "Design system de Sinagua: colores primitivos y semánticos, tipografía Newsreader y Schibsted Grotesk, espacio, radios, sombras, componentes y contraste WCAG",
+            }),
+          ],
+        },
         homeTeaser:
           "2,475 municipios, 653 acuíferos y 214 presas en un solo lugar, para cualquier persona.",
         contexto:

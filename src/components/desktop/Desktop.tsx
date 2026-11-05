@@ -78,7 +78,7 @@ function useUrlSync() {
 function DesktopLayer() {
   const { locale } = useLocale();
   const dc = desktopContent[locale];
-  const { open } = useWM();
+  const { wins, open } = useWM();
 
   return (
     <div className="pointer-events-none absolute inset-0 pt-11 md:pt-7">
@@ -99,7 +99,11 @@ function DesktopLayer() {
                 onClick={() => open(id)}
                 className="flex w-full flex-col items-center gap-1.5"
               >
-                <span className="h-[62px] w-[62px] drop-shadow-lg">
+                <span
+                  className={`h-[62px] w-[62px] drop-shadow-lg ${
+                    id === "figma" && !wins.figma ? "dock-nudge" : ""
+                  }`}
+                >
                   <AppIcon id={id} />
                 </span>
                 <span className="rounded-md bg-black/55 px-1.5 py-0.5 text-[11px] font-medium whitespace-nowrap text-white">

@@ -91,7 +91,8 @@ export function Dock() {
           const size = BASE * scaleFor(i);
           const isOpen = Boolean(wins[id]);
           const bounceKey = launches[id] ?? 0;
-          const nudge = id === "figma" && !launches.figma;
+          // Figma holds the projects: it keeps hopping until it's open.
+          const nudge = id === "figma" && !isOpen;
           return (
             <div
               key={id}
@@ -120,7 +121,7 @@ export function Dock() {
                 <span
                   key={bounceKey}
                   className={`dock-item block ${
-                    bounceKey > 0 ? "dock-bounce" : nudge ? "dock-nudge" : ""
+                    nudge ? "dock-nudge" : bounceKey > 0 ? "dock-bounce" : ""
                   }`}
                   style={{ width: size, height: size }}
                 >

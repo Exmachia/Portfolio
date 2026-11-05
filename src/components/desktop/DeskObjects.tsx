@@ -31,12 +31,21 @@ const SHADOW_REST =
 const SHADOW_LIFT =
   "drop-shadow(0 4px 4px rgba(0,0,0,0.28)) drop-shadow(0 20px 24px rgba(0,0,0,0.34))";
 
+// Every now and then one object (never two at once) gives a small wiggle, a
+// hint that it can be picked up. Stops for good once the visitor drags one.
+const WIGGLE_FIRST_MS = 2600;
+const WIGGLE_MIN_MS = 4500;
+const WIGGLE_MAX_MS = 9000;
+
 export function DeskObjects() {
   const [items, setItems] = useState<Item[]>([]);
   const [pxPerCm, setPxPerCm] = useState(0);
   const [dragId, setDragId] = useState<string | null>(null);
+  const [wiggle, setWiggle] = useState<{ id: string; n: number } | null>(null);
   const zTop = useRef(10);
   const drag = useRef<{ id: string; dx: number; dy: number } | null>(null);
+  const hasDragged = useRef(false);
+  const ids = useRef<string[]>([]);
 
   useEffect(() => {
     const g = deskGeometry(window.innerWidth, window.innerHeight);
@@ -97,6 +106,32 @@ export function DeskObjects() {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  useEffect(() => {
+    ids.current = items.map((i) => i.obj.id);
+  }, [items]);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let timer = 0;
+    let last: string | null = null;
+    let n = 0;
+    const tick = () => {
+      if (hasDragged.current) return;
+      const pool = ids.current.filter((id) => id !== last);
+      if (!document.hidden && !drag.current && pool.length > 0) {
+        last = pool[Math.floor(Math.random() * pool.length)];
+        n += 1;
+        setWiggle({ id: last, n });
+      }
+      timer = window.setTimeout(
+        tick,
+        WIGGLE_MIN_MS + Math.random() * (WIGGLE_MAX_MS - WIGGLE_MIN_MS),
+      );
+    };
+    timer = window.setTimeout(tick, WIGGLE_FIRST_MS);
+    return () => window.clearTimeout(timer);
+  }, []);
+
   const sizeOf = (o: DeskObject) => {
     const w = o.widthCm * pxPerCm;
     return { w, h: (w * o.h) / o.w };
@@ -108,6 +143,8 @@ export function DeskObjects() {
     if (!it) return;
     e.currentTarget.setPointerCapture(e.pointerId);
     drag.current = { id, dx: e.clientX - it.x, dy: e.clientY - it.y };
+    hasDragged.current = true;
+    setWiggle(null);
     zTop.current += 1;
     const z = zTop.current;
     setItems((list) => list.map((i) => (i.obj.id === id ? { ...i, z } : i)));
@@ -170,15 +207,22 @@ export function DeskObjects() {
                 onPointerUp={onUp}
                 onPointerCancel={onUp}
               >
-                <Image
-                  src={it.obj.src}
-                  alt={it.obj.alt}
-                  width={it.obj.w}
-                  height={it.obj.h}
-                  draggable={false}
-                  unoptimized
-                  className="pointer-events-none h-full w-full select-none"
-                />
+                <div
+                  key={wiggle?.id === it.obj.id ? wiggle.n : 0}
+                  className={`h-full w-full ${
+                    wiggle?.id === it.obj.id ? "desk-wiggle" : ""
+                  }`}
+                >
+                  <Image
+                    src={it.obj.src}
+                    alt={it.obj.alt}
+                    width={it.obj.w}
+                    height={it.obj.h}
+                    draggable={false}
+                    unoptimized
+                    className="pointer-events-none h-full w-full select-none"
+                  />
+                </div>
               </div>
             </div>
           );
