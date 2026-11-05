@@ -55,14 +55,6 @@ function FrameIcon({ className = "h-3.5 w-3.5" }: { className?: string }) {
   );
 }
 
-function ToolGlyph({ d }: { d: string }) {
-  return (
-    <svg viewBox="0 0 16 16" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-      <path d={d} />
-    </svg>
-  );
-}
-
 function Label({ children }: { children: React.ReactNode }) {
   return (
     <p className="font-mono text-[11px] font-medium tracking-[0.12em] text-accent uppercase">
@@ -903,13 +895,6 @@ export function FigmaApp({ win }: { win: WinState }) {
             ) : (
               <span className="truncate font-medium">{dc.file}</span>
             )}
-          </div>
-          <div className="mx-auto flex items-center gap-4 text-muted max-lg:hidden" aria-hidden>
-            <ToolGlyph d="M3 2l4.5 11 1.6-4.4L13.5 7z" />
-            <ToolGlyph d="M2.5 2.5h11v11h-11z M2.5 6.5h11M6.5 2.5v11" />
-            <ToolGlyph d="M8 2.5l5.5 10h-11z" />
-            <ToolGlyph d="M3 13l2-.5 8-8-1.5-1.5-8 8z" />
-            <ToolGlyph d="M3 3.5h10M8 3.5v9" />
           </div>
           <div className="ml-auto flex shrink-0 items-center gap-3">
             <span className="grid h-6 w-6 place-items-center rounded-full bg-accent text-[10px] font-bold text-accent-fg max-sm:hidden">

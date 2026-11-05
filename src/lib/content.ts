@@ -1,7 +1,7 @@
 export type Locale = "en" | "es";
 
 export const locales: Locale[] = ["en", "es"];
-export const defaultLocale: Locale = "en";
+export const defaultLocale: Locale = "es";
 export const siteUrl = "https://luis-chacon.com";
 
 // An extra picture shown inside a case study frame (see CaseStudy.images).
