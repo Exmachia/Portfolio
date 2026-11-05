@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ProyectosView } from "@/components/views/ProyectosView";
+import { Desktop } from "@/components/desktop/Desktop";
 import { content, defaultLocale } from "@/lib/content";
 
 const { site } = content[defaultLocale];
@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function ProyectosPage() {
-  return <ProyectosView />;
+  return <Desktop initial={{ app: "figma" }} />;
 }

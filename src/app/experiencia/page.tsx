@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ExperienciaView } from "@/components/views/ExperienciaView";
+import { Desktop } from "@/components/desktop/Desktop";
 import { content, defaultLocale } from "@/lib/content";
 
 const { site } = content[defaultLocale];
@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function ExperienciaPage() {
-  return <ExperienciaView />;
+  return <Desktop initial={{ app: "finder", props: { tab: "experience" } }} />;
 }

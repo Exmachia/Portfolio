@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-import { CaseStudyView } from "@/components/views/CaseStudyView";
+import { notFound, redirect } from "next/navigation";
+import { Desktop } from "@/components/desktop/Desktop";
 import { content, defaultLocale } from "@/lib/content";
+import { isCaseStudyVisible, visibleCaseStudies } from "@/lib/desktop-content";
 
 export function generateStaticParams() {
-  return content[defaultLocale].caseStudies.map((project) => ({
+  return visibleCaseStudies(content[defaultLocale].caseStudies).map((project) => ({
     slug: project.slug,
   }));
 }
@@ -55,6 +56,7 @@ export default async function CaseStudyPage({
   );
 
   if (!exists) notFound();
+  if (!isCaseStudyVisible(slug)) redirect("/proyectos");
 
-  return <CaseStudyView slug={slug} />;
+  return <Desktop initial={{ app: "figma", props: { project: slug } }} />;
 }

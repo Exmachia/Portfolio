@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { SobreMiView } from "@/components/views/SobreMiView";
+import { Desktop } from "@/components/desktop/Desktop";
 import { content, defaultLocale } from "@/lib/content";
 
 const { site, sobreMi } = content[defaultLocale];
@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function SobreMiPage() {
-  return <SobreMiView />;
+  return <Desktop initial={{ app: "contacts" }} />;
 }

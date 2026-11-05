@@ -1,215 +1,607 @@
 @import "tailwindcss";
 
 :root {
-  --background: #faf7f0;
-  --foreground: #201c16;
-  --card: #fffdf8;
-  --card-foreground: #201c16;
-  --muted: #f1ebdd;
-  --muted-foreground: #6b6255;
-  --border: #e2d9c4;
-  --accent: #2f5f9e;
-  --accent-foreground: #ffffff;
-  --secondary: #3f3a33;
+  --win: #ffffff;
+  --win2: #f5f5f7;
+  --fg: #1d1d1f;
+  --muted: #6e6e73;
+  --line: rgba(0, 0, 0, 0.1);
+  --hover: rgba(0, 0, 0, 0.05);
+  --sel: rgba(0, 122, 255, 0.14);
+  --accent: #007aff;
+  --accent-fg: #ffffff;
+  --canvas: #f5f5f5;
 
-  --glass-bg: rgba(255, 253, 248, 0.6);
-  --glass-bg-strong: rgba(255, 253, 248, 0.8);
-  --glass-bg-opaque: rgba(255, 253, 248, 0.97);
-  --glass-border: rgba(255, 255, 255, 0.7);
-  --glass-shadow: 0 8px 32px rgba(32, 28, 22, 0.1);
+  /* Liquid Glass materials */
+  --glass-fill: rgba(255, 255, 255, 0.4);
+  --glass-bar: rgba(255, 255, 255, 0.42);
+  --glass-win: rgba(250, 250, 252, 0.74);
+  --glass-sheen: rgba(255, 255, 255, 0.22);
+  --rim-1: rgba(255, 255, 255, 0.62);
+  --rim-2: rgba(255, 255, 255, 0.22);
+  --glass-shadow: rgba(20, 24, 40, 0.2);
 
-  --paper-shadow: 0 2px 0 rgba(32, 28, 22, 0.04), 0 10px 24px rgba(32, 28, 22, 0.06);
+  --bar-fg: #14141a;
+  --desk-bg: #ffffff;
+  --desk-fg: #15151b;
+  --desk-muted: rgba(21, 21, 27, 0.66);
 
-  --grid-line: rgba(32, 28, 22, 0.05);
-  --light-a: #6f93c4;
-  --light-b: #caa06a;
+  --tl-off: #c9c9ce;
 }
 
 [data-theme="dark"] {
-  --background: #18150f;
-  --foreground: #f2ece0;
-  --card: #221d15;
-  --card-foreground: #f2ece0;
-  --muted: #2a251b;
-  --muted-foreground: #b3a992;
-  --border: #3a3324;
-  --accent: #83aade;
-  --accent-foreground: #18150f;
-  --secondary: #cec3a9;
+  --win: #1e1e20;
+  --win2: #28282b;
+  --fg: #f5f5f7;
+  --muted: #98989d;
+  --line: rgba(255, 255, 255, 0.1);
+  --hover: rgba(255, 255, 255, 0.07);
+  --sel: rgba(10, 132, 255, 0.3);
+  --accent: #0a84ff;
+  --accent-fg: #ffffff;
+  --canvas: #1e1e1e;
 
-  --glass-bg: rgba(34, 29, 21, 0.6);
-  --glass-bg-strong: rgba(34, 29, 21, 0.8);
-  --glass-bg-opaque: rgba(34, 29, 21, 0.96);
-  --glass-border: rgba(255, 255, 255, 0.08);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --glass-fill: rgba(38, 40, 52, 0.48);
+  --glass-bar: rgba(28, 30, 40, 0.5);
+  --glass-win: rgba(34, 35, 44, 0.76);
+  --glass-sheen: rgba(255, 255, 255, 0.08);
+  --rim-1: rgba(255, 255, 255, 0.34);
+  --rim-2: rgba(255, 255, 255, 0.1);
+  --glass-shadow: rgba(0, 0, 0, 0.42);
 
-  --grid-line: rgba(255, 255, 255, 0.06);
-  --light-a: #6d8fc0;
-  --light-b: #a97f4f;
+  --bar-fg: #f5f5f7;
+  --desk-bg: #000000;
+  --desk-fg: #ffffff;
+  --desk-muted: rgba(255, 255, 255, 0.72);
 
-  --paper-shadow: 0 2px 0 rgba(0, 0, 0, 0.2), 0 10px 24px rgba(0, 0, 0, 0.35);
+  --tl-off: #4a4a50;
+}
+
+/* Per-app skins: each window re-maps the same tokens. */
+[data-app="figma"] {
+  --win: #ffffff;
+  --win2: #ffffff;
+  --accent: #0d99ff;
+  --sel: rgba(13, 153, 255, 0.16);
+  --canvas: #f5f5f5;
+}
+[data-theme="dark"] [data-app="figma"] {
+  --win: #2c2c2c;
+  --win2: #2c2c2c;
+  --line: rgba(255, 255, 255, 0.09);
+  --canvas: #1e1e1e;
+}
+
+[data-app="claude"] {
+  --win: #faf9f5;
+  --win2: #f0eee6;
+  --accent: #c4613f;
+  --sel: rgba(196, 97, 63, 0.12);
+}
+[data-theme="dark"] [data-app="claude"] {
+  --win: #262624;
+  --win2: #1f1e1d;
+  --accent: #e07a55;
+  --sel: rgba(224, 122, 85, 0.18);
+}
+
+[data-app="notion"] {
+  --win: #ffffff;
+  --win2: #f7f7f5;
+  --accent: #2383e2;
+}
+[data-theme="dark"] [data-app="notion"] {
+  --win: #191919;
+  --win2: #202020;
+  --line: rgba(255, 255, 255, 0.09);
+}
+
+[data-app="photobooth"] {
+  --win: #161616;
+  --win2: #202020;
+  --fg: #f5f5f7;
+  --muted: #9a9aa0;
+  --line: rgba(255, 255, 255, 0.12);
+  --hover: rgba(255, 255, 255, 0.08);
+  --accent: #ff453a;
+  --tl-off: #4a4a50;
+}
+
+[data-app="preview"] {
+  --win: #e9e9ed;
+  --win2: #f6f6f8;
+}
+[data-theme="dark"] [data-app="preview"] {
+  --win: #2b2b2e;
+  --win2: #323236;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
+  --color-win: var(--win);
+  --color-win2: var(--win2);
+  --color-fg: var(--fg);
   --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-border: var(--border);
+  --color-line: var(--line);
+  --color-hover: var(--hover);
+  --color-sel: var(--sel);
   --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-secondary: var(--secondary);
-  --font-display: var(--font-fraunces);
-  --font-sans: var(--font-manrope);
-  --font-mono: var(--font-jetbrains);
+  --color-accent-fg: var(--accent-fg);
+  --color-canvas: var(--canvas);
+  --color-desk: var(--desk-fg);
+  --color-desk-muted: var(--desk-muted);
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "SF Pro Text", var(--font-inter),
+    system-ui, sans-serif;
+  --font-display:
+    -apple-system, BlinkMacSystemFont, "SF Pro Display", var(--font-inter),
+    system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", var(--font-mono-fallback), monospace;
+  --font-serif: ui-serif, "New York", Georgia, "Times New Roman", serif;
 }
 
-html {
-  scroll-behavior: smooth;
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(128, 128, 134, 0.45) transparent;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  transition:
-    background-color 0.3s ease,
-    color 0.3s ease;
+  background: #1b1d22;
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--accent);
-  color: var(--accent-foreground);
+  background: var(--sel);
 }
 
-/* Consistent keyboard focus ring across the whole site, mouse/touch clicks
-   don't trigger it, only real keyboard (or assistive tech) focus does. */
 :focus {
   outline: none;
 }
-
 :focus-visible {
   outline: 2px solid var(--accent);
-  outline-offset: 3px;
-  border-radius: 2px;
+  outline-offset: 2px;
 }
 
-/* Subtle paper grain, used once as a fixed full-page overlay (see AmbientBackground). */
-.paper-grain {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.05 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
+/* ---------- Liquid Glass ----------
+   Translucent fill + strong blur and saturation, a soft sheen from the top-left,
+   and a specular rim (bright where light hits, faint at the opposite edge). */
+.lg {
+  position: relative;
+  background:
+    radial-gradient(130% 150% at 0% 0%, var(--glass-sheen) 0%, transparent 58%),
+    var(--glass-fill);
+  backdrop-filter: blur(20px) saturate(150%);
+  -webkit-backdrop-filter: blur(20px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 var(--rim-1),
+    inset 0 -1px 0 var(--rim-2),
+    inset 1px 0 0 var(--rim-2),
+    inset -1px 0 0 var(--rim-2),
+    0 18px 48px var(--glass-shadow),
+    0 2px 8px rgba(0, 0, 0, 0.12);
+}
+.lg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1.25px;
+  pointer-events: none;
+  background: linear-gradient(
+    152deg,
+    var(--rim-1) 0%,
+    transparent 30%,
+    transparent 64%,
+    var(--rim-2) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
 }
 
-/* Faint designer's-canvas grid, sits behind everything. */
-.bg-grid {
-  background-image:
-    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
-    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
-  background-size: 48px 48px;
+/* ---------- Menu bar ---------- */
+.menubar {
+  color: var(--bar-fg);
+  background: var(--glass-bar);
+  backdrop-filter: blur(18px) saturate(140%);
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  box-shadow:
+    inset 0 -1px 0 var(--rim-2),
+    0 1px 0 rgba(0, 0, 0, 0.06);
 }
 
-@keyframes drift-a {
-  0% {
-    transform: translate(0, 0);
+.pop {
+  background:
+    radial-gradient(130% 150% at 0% 0%, var(--glass-sheen) 0%, transparent 58%),
+    var(--glass-win);
+  backdrop-filter: blur(26px) saturate(150%);
+  -webkit-backdrop-filter: blur(26px) saturate(150%);
+  box-shadow:
+    inset 0 1px 0 var(--rim-1),
+    0 20px 54px var(--glass-shadow),
+    0 2px 10px rgba(0, 0, 0, 0.14);
+  color: var(--fg);
+}
+
+/* ---------- Windows ----------
+   .win is the outer box (position, size, animation, resize handles);
+   .win-surface is the clipped, rounded visual surface. */
+.win {
+  --cas: 0;
+  position: absolute;
+  width: var(--ww);
+  height: var(--wh);
+  left: calc(50% - var(--ww) / 2 + var(--cas) * 26px);
+  top: calc(28px + (100dvh - 132px - var(--wh)) / 2 + var(--cas) * 18px);
+  transform-origin: 50% 100%;
+  transition:
+    transform 0.32s cubic-bezier(0.5, 0, 0.2, 1),
+    opacity 0.26s ease;
+  /* `backwards`, not `both`: a forwards fill would keep overriding the
+     minimized state (transform/opacity) once the entrance animation ends. */
+  animation: win-in 0.26s cubic-bezier(0.2, 0.9, 0.3, 1) backwards;
+}
+.win[data-free="true"] {
+  left: var(--px);
+  top: var(--py);
+}
+.win[data-max="true"] {
+  left: 8px;
+  top: 36px;
+  width: calc(100vw - 16px);
+  height: calc(100dvh - 36px - 104px);
+}
+.win[data-min="true"] {
+  transform: translateY(45vh) scale(0.18);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.win-surface {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 26px;
+  background: var(--win);
+  color: var(--fg);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.28),
+    0 0 0 0.5px rgba(0, 0, 0, 0.4),
+    0 0 0 1px var(--line),
+    0 30px 80px -12px rgba(0, 0, 0, 0.5),
+    0 10px 26px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.2s ease;
+}
+.win[data-focused="false"] .win-surface {
+  box-shadow:
+    0 0 0 0.5px rgba(0, 0, 0, 0.3),
+    0 0 0 1px var(--line),
+    0 14px 40px -10px rgba(0, 0, 0, 0.32);
+}
+
+/* System apps get a Liquid Glass window: the wallpaper shows through the
+   frame and sidebar, while the main pane stays a solid card. */
+.win[data-glass="true"] .win-surface {
+  background:
+    radial-gradient(140% 120% at 0% 0%, var(--glass-sheen) 0%, transparent 55%),
+    var(--glass-win);
+  backdrop-filter: blur(30px) saturate(150%);
+  -webkit-backdrop-filter: blur(30px) saturate(150%);
+}
+.win[data-glass="true"] .win-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  padding: 1.25px;
+  pointer-events: none;
+  background: linear-gradient(
+    152deg,
+    var(--rim-1) 0%,
+    transparent 24%,
+    transparent 70%,
+    var(--rim-2) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+.win[data-glass="true"] .titlebar {
+  background: transparent;
+  border-bottom: 0;
+}
+
+@keyframes win-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(10px);
   }
-  33% {
-    transform: translate(70px, 50px);
+  to {
+    opacity: 1;
+    transform: none;
   }
-  66% {
-    transform: translate(-40px, 80px);
+}
+
+.titlebar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: none;
+  height: 50px;
+  padding: 0 18px;
+  gap: 12px;
+  user-select: none;
+  touch-action: none;
+  border-bottom: 0.5px solid var(--line);
+  background: var(--win);
+}
+
+.lights {
+  display: flex;
+  gap: 8px;
+  flex: none;
+}
+.light {
+  position: relative;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  border: 0.5px solid rgba(0, 0, 0, 0.18);
+  background: var(--tl-off);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding: 0;
+}
+.win[data-focused="true"] .light[data-k="close"] {
+  background: #ff5f57;
+}
+.win[data-focused="true"] .light[data-k="min"] {
+  background: #febc2e;
+}
+.win[data-focused="true"] .light[data-k="zoom"] {
+  background: #28c840;
+}
+.light svg {
+  width: 8px;
+  height: 8px;
+  opacity: 0;
+  stroke: rgba(0, 0, 0, 0.62);
+}
+.lights:hover .light svg {
+  opacity: 1;
+}
+
+/* Resize handles sit just outside the window edge so they never fight with
+   the content scrollbars. */
+.rz {
+  position: absolute;
+  z-index: 6;
+  touch-action: none;
+}
+.rz-n {
+  top: -6px;
+  left: 18px;
+  right: 18px;
+  height: 12px;
+  cursor: ns-resize;
+}
+.rz-s {
+  bottom: -6px;
+  left: 18px;
+  right: 18px;
+  height: 12px;
+  cursor: ns-resize;
+}
+.rz-e {
+  right: -6px;
+  top: 18px;
+  bottom: 18px;
+  width: 12px;
+  cursor: ew-resize;
+}
+.rz-w {
+  left: -6px;
+  top: 18px;
+  bottom: 18px;
+  width: 12px;
+  cursor: ew-resize;
+}
+.rz-ne {
+  top: -6px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  cursor: nesw-resize;
+}
+.rz-nw {
+  top: -6px;
+  left: -6px;
+  width: 22px;
+  height: 22px;
+  cursor: nwse-resize;
+}
+.rz-se {
+  bottom: -6px;
+  right: -6px;
+  width: 22px;
+  height: 22px;
+  cursor: nwse-resize;
+}
+.rz-sw {
+  bottom: -6px;
+  left: -6px;
+  width: 22px;
+  height: 22px;
+  cursor: nesw-resize;
+}
+
+/* Mobile: windows are full-screen sheets; no dragging, resizing or lights. */
+@media (max-width: 767px) {
+  .win,
+  .win[data-free="true"],
+  .win[data-max="true"] {
+    left: 0;
+    top: 44px;
+    width: 100vw;
+    height: calc(100dvh - 44px);
   }
+  .win-surface {
+    border-radius: 22px 22px 0 0;
+  }
+  .lights,
+  .rz {
+    display: none;
+  }
+}
+
+/* ---------- Dock ---------- */
+.dock-item {
+  transition:
+    width 0.11s ease-out,
+    height 0.11s ease-out;
+}
+@keyframes dock-bounce {
+  0%,
   100% {
-    transform: translate(0, 0);
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-22px);
+  }
+  55% {
+    transform: translateY(0);
+  }
+  72% {
+    transform: translateY(-9px);
   }
 }
-
-@keyframes drift-b {
-  0% {
-    transform: translate(0, 0);
-  }
-  33% {
-    transform: translate(-80px, -40px);
-  }
-  66% {
-    transform: translate(50px, -70px);
-  }
+.dock-bounce {
+  animation: dock-bounce 0.9s ease-out;
+}
+@keyframes dock-nudge {
+  0%,
   100% {
-    transform: translate(0, 0);
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
   }
 }
-
-.light-a {
-  animation: drift-a 22s ease-in-out infinite;
-}
-
-.light-b {
-  animation: drift-b 26s ease-in-out infinite;
+.dock-nudge {
+  animation: dock-nudge 1.1s ease-in-out 1.2s 4;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .light-a,
-  .light-b {
+  .win,
+  .dock-item {
+    transition: none;
+    animation: none;
+  }
+  .dock-bounce,
+  .dock-nudge {
     animation: none;
   }
 }
 
-/* Glass is reserved for the floating navbar only — a single signature effect,
-   not smeared across every surface. */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px) saturate(160%);
-  -webkit-backdrop-filter: blur(20px) saturate(160%);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  transform: translateZ(0);
-}
-
-.glass-strong {
-  transform: translateZ(0);
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(24px) saturate(180%);
-  -webkit-backdrop-filter: blur(24px) saturate(180%);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-}
-
-.glass-opaque {
-  transform: translateZ(0);
-  background: var(--glass-bg-opaque);
-  backdrop-filter: blur(24px) saturate(140%);
-  -webkit-backdrop-filter: blur(24px) saturate(140%);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-}
-
-/* Everywhere else: a solid, tactile paper surface instead of translucent blur. */
-.paper {
-  background: var(--card);
-  border: 1px solid var(--border);
-  box-shadow: var(--paper-shadow);
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.reveal.reveal-visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
+/* Typing caret for the Claude replies */
+@keyframes caret {
+  50% {
+    opacity: 0;
   }
-  .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
+}
+.caret::after {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 1.05em;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  background: var(--accent);
+  border-radius: 1px;
+  animation: caret 1s steps(1) infinite;
+}
+
+/* Figma canvas dot grid */
+.canvas-grid {
+  background-color: var(--canvas);
+  background-image: radial-gradient(
+    color-mix(in srgb, var(--fg) 14%, transparent) 1px,
+    transparent 1px
+  );
+  background-size: 22px 22px;
+}
+
+/* Photo Booth shutter flash */
+@keyframes photo-flash {
+  0% {
+    opacity: 0.95;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+.photo-flash {
+  animation: photo-flash 0.45s ease-out forwards;
+}
+
+/* Objects land on the mat. Uses the individual `translate`/`scale` properties
+   so it doesn't fight the inline rotation. */
+@keyframes desk-drop {
+  from {
+    opacity: 0;
+    translate: 0 -26px;
+    scale: 1.1;
+  }
+}
+.desk-drop {
+  animation: desk-drop 0.45s cubic-bezier(0.2, 0.9, 0.3, 1) backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .desk-drop {
+    animation: none;
+  }
+}
+
+/* The cutting mat: fixed, tilted, ~2/3 of the desk (see deskGeometry()). */
+.desk-mat {
+  position: absolute;
+  max-width: none;
+  height: auto;
+  width: 66vw;
+  left: 53%;
+  top: calc(36px - 66vw * 0.1605);
+  transform: translateX(-50%) rotate(5deg);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.25))
+    drop-shadow(0 18px 30px rgba(0, 0, 0, 0.28));
+  pointer-events: none;
+  user-select: none;
+}
+@media (max-width: 767px) {
+  .desk-mat {
+    width: 118vw;
+    top: calc(48px - 118vw * 0.11466);
   }
 }

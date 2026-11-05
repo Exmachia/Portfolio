@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ComoTrabajoView } from "@/components/views/ComoTrabajoView";
+import { Desktop } from "@/components/desktop/Desktop";
 import { content, defaultLocale } from "@/lib/content";
 
 const { site, comoTrabajo } = content[defaultLocale];
@@ -10,5 +10,5 @@ export const metadata: Metadata = {
 };
 
 export default function ComoTrabajoPage() {
-  return <ComoTrabajoView />;
+  return <Desktop initial={{ app: "claude", props: { chat: "process" } }} />;
 }
