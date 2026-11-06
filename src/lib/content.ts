@@ -187,7 +187,7 @@ export const content: Record<Locale, ContentBundle> = {
       role: "Product Designer",
       heroStatement: "Product design that actually solves the problem.",
       tagline:
-        "I design end-to-end digital products across SaaS, marketplaces, and real estate, driven by research, not assumptions.",
+        "I design end-to-end digital products across fintech, travel, SaaS, marketplaces, and real estate, driven by research, not assumptions.",
       email: "eduardo-chacom@hotmail.com",
       whatsapp: "+52 312 121 4827",
       whatsappHref: "https://wa.me/523121214827",
@@ -1480,7 +1480,7 @@ export const content: Record<Locale, ContentBundle> = {
       role: "Product Designer",
       heroStatement: "Diseño de producto que sí resuelve el problema.",
       tagline:
-        "Diseño producto digital end-to-end para SaaS, marketplaces y real estate, guiado por research, no por suposiciones.",
+        "Diseño producto digital end-to-end para fintech, viajes, SaaS, marketplaces y real estate, guiado por research, no por suposiciones.",
       email: "eduardo-chacom@hotmail.com",
       whatsapp: "+52 312 121 4827",
       whatsappHref: "https://wa.me/523121214827",
