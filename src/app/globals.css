@@ -536,6 +536,16 @@ body {
   .win-surface {
     border-radius: 0;
   }
+  /* Full-screen sheets are opaque: no glass, so nothing of the home screen
+     shows through (or catches the light rim in the corner). */
+  .win[data-glass="true"] .win-surface {
+    background: var(--win);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+  .win[data-glass="true"] .win-surface::before {
+    display: none;
+  }
   .lights,
   .rz {
     display: none;
