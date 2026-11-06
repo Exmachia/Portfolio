@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, type CSSProperties, type ReactNode } from "react";
+import { useRef, useState, type CSSProperties, type ReactNode } from "react";
 import { useLocale } from "@/lib/locale-context";
 import { desktopContent } from "@/lib/desktop-content";
 import { useWM, type WinState } from "@/components/desktop/wm";
@@ -39,6 +39,10 @@ export type MobileNav = {
   back?: { label: string; onClick: () => void };
   // Trailing buttons, e.g. Share or Download.
   actions?: ReactNode;
+  // iOS large title under the bar that collapses into the bar's centered
+  // title when the content scrolls. On by default; turn it off for apps that
+  // need every pixel (chat, document and camera views).
+  largeTitle?: boolean;
 };
 
 export function Window({
@@ -78,6 +82,24 @@ export function Window({
     rect: DOMRect;
   } | null>(null);
   const isFocused = focused === win.id;
+
+  // Phones: the large title collapses once the content has scrolled.
+  const navTitle = mobile?.title ?? title;
+  const large = mobile?.largeTitle !== false;
+  const [collapsed, setCollapsed] = useState(false);
+  const [seenTitle, setSeenTitle] = useState(navTitle);
+  if (seenTitle !== navTitle) {
+    // New screen (another project, another tab): start expanded again.
+    setSeenTitle(navTitle);
+    setCollapsed(false);
+  }
+  const onContentScroll = (e: React.UIEvent<HTMLElement>) => {
+    const el = e.target as HTMLElement;
+    // Only vertical scrollers with room to scroll count.
+    if (!el || el.scrollHeight - el.clientHeight < 60) return;
+    const top = el.scrollTop;
+    setCollapsed((c) => (c ? top > 0 : top > 40));
+  };
 
   const onPointerDown = (e: React.PointerEvent<HTMLElement>) => {
     focus(win.id);
@@ -232,23 +254,34 @@ export function Window({
           )}
         </header>
 
-        <nav className="ios-nav">
-          <button
-            type="button"
-            onClick={mobile?.back?.onClick ?? (() => close(win.id))}
-            aria-label={mobile?.back?.label ?? labels.home}
-            className="ios-back"
-          >
-            <BackChevron />
-          </button>
-          <h2 className="truncate px-1 text-center text-[17px] font-semibold tracking-[-0.01em]">
-            {mobile?.title ?? title}
-          </h2>
-          <div className="flex min-w-0 items-center justify-end gap-2">
-            {mobile?.actions}
+        <nav className="ios-nav" data-large={large} data-collapsed={collapsed}>
+          <div className="ios-nav-bar">
+            <button
+              type="button"
+              onClick={mobile?.back?.onClick ?? (() => close(win.id))}
+              aria-label={mobile?.back?.label ?? labels.home}
+              className="ios-back"
+            >
+              <BackChevron />
+            </button>
+            <h2
+              className="ios-nav-title"
+              aria-hidden={large && !collapsed ? true : undefined}
+            >
+              {navTitle}
+            </h2>
+            <div className="flex min-w-0 items-center justify-end gap-2">
+              {mobile?.actions}
+            </div>
           </div>
+          {large && <p className="ios-large-title">{navTitle}</p>}
         </nav>
-        <div className="min-h-0 flex-1 overflow-hidden">{children}</div>
+        <div
+          className="min-h-0 flex-1 overflow-hidden"
+          onScrollCapture={onContentScroll}
+        >
+          {children}
+        </div>
       </div>
 
       {!win.maximized &&

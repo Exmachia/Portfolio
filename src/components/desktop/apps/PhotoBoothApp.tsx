@@ -34,7 +34,13 @@ export function PhotoBoothApp({ win }: { win: WinState }) {
   };
 
   return (
-    <Window win={win} title="Photo Booth" width={820} height={660}>
+    <Window
+      win={win}
+      title="Photo Booth"
+      mobile={{ largeTitle: false }}
+      width={820}
+      height={660}
+    >
       <div
         className="flex h-full flex-col bg-win text-fg outline-none"
         tabIndex={0}

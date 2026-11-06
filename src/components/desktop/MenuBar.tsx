@@ -82,11 +82,8 @@ export function MenuBar() {
     "flex w-full items-center rounded-md px-2 py-1 text-left text-[13px] hover:bg-accent hover:text-accent-fg";
 
   return (
-    <div
-      className={`menubar fixed inset-x-0 top-0 z-[2000] flex h-7 items-center justify-between px-3 text-[13px] max-md:h-11 max-md:px-5 ${
-        appOpen ? "max-md:hidden" : ""
-      }`}
-    >
+    <>
+    <div className="menubar fixed inset-x-0 top-0 z-[2000] flex h-7 items-center justify-between px-3 text-[13px] max-md:hidden">
       <div className="flex items-center gap-1" ref={menuRef}>
         <button
           type="button"
@@ -199,5 +196,43 @@ export function MenuBar() {
         <Clock locale={locale} />
       </div>
     </div>
+
+    {/* Phones: no bar, just glass bubbles floating over the home screen (the
+        same ones the apps use for back and actions). Hidden under an open app. */}
+    <div
+      className={`fixed inset-x-0 top-0 z-[2000] flex items-center justify-between px-4 pt-[max(8px,env(safe-area-inset-top))] pb-2 md:hidden ${
+        appOpen ? "hidden" : ""
+      }`}
+    >
+      <span className="ios-bubble text-[15px] font-semibold">Luis Chacón</span>
+      <div className="flex items-center gap-2">
+        <button
+          type="button"
+          onClick={() => setLocale(locale === "en" ? "es" : "en")}
+          aria-label={dc.menu.language}
+          className="ios-bubble text-[14px] font-semibold tracking-wide"
+        >
+          {locale === "en" ? "EN" : "ES"}
+        </button>
+        <button
+          type="button"
+          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          aria-label={dc.menu.appearance}
+          className="ios-bubble"
+        >
+          {theme === "dark" ? (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <circle cx="12" cy="12" r="4" />
+              <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" />
+            </svg>
+          ) : (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+            </svg>
+          )}
+        </button>
+      </div>
+    </div>
+    </>
   );
 }

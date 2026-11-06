@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Providers } from "@/components/Providers";
@@ -41,6 +41,10 @@ export const metadata: Metadata = {
     images: ["/og-image.png"],
   },
 };
+
+// Lets the page reach the screen edges on phones (safe-area insets handle the
+// notch); the status bar color is kept in sync by the desktop shell.
+export const viewport: Viewport = { viewportFit: "cover" };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

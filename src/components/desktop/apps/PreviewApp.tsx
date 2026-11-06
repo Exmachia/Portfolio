@@ -26,6 +26,7 @@ export function PreviewApp({ win }: { win: WinState }) {
       height={780}
       glass
       mobile={{
+        largeTitle: false,
         actions: (
           <a href={href} download aria-label={dc.download} className="ios-action">
             <IconDownload className="h-[22px] w-[22px]" />

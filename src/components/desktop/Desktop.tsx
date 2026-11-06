@@ -106,7 +106,7 @@ function DesktopLayer() {
     );
 
   return (
-    <div className="pointer-events-none absolute inset-0 pt-11 md:pt-7">
+    <div className="pointer-events-none absolute inset-0 pt-[calc(64px+env(safe-area-inset-top,0px))] md:pt-7">
       <div className="relative flex min-h-full flex-col px-6 pt-8 pb-40 md:block md:min-h-0 md:px-0 md:pt-0 md:pb-0">
         <DesktopFile
           id="cv"
@@ -154,9 +154,44 @@ function DesktopLayer() {
   );
 }
 
+// Keeps the phone's status bar the same color as what's right under it: the
+// focused app's surface, or the desk on the home screen.
+function useStatusBarColor() {
+  const { wins, focused } = useWM();
+  const appOpen = Object.values(wins).some((w) => w && !w.minimized);
+
+  useEffect(() => {
+    const apply = () => {
+      const root = document.documentElement;
+      const win = appOpen && focused
+        ? document.querySelector(`.win[data-app="${focused}"]`)
+        : null;
+      const source = win ? getComputedStyle(win) : getComputedStyle(root);
+      const color = source.getPropertyValue(win ? "--win" : "--desk-bg").trim();
+      if (!color) return;
+      let meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+      if (!meta) {
+        meta = document.createElement("meta");
+        meta.name = "theme-color";
+        document.head.appendChild(meta);
+      }
+      meta.content = color;
+    };
+    apply();
+    // The theme toggle changes data-theme without touching React state here.
+    const observer = new MutationObserver(apply);
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["data-theme"],
+    });
+    return () => observer.disconnect();
+  }, [appOpen, focused]);
+}
+
 function Shell() {
   const { wins } = useWM();
   useUrlSync();
+  useStatusBarColor();
 
   return (
     <div className="fixed inset-0 overflow-hidden">

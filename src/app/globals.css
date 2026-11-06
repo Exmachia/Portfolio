@@ -376,22 +376,64 @@ body {
     display: none;
   }
   .ios-nav {
+    display: flex;
+    flex-direction: column;
+    flex: none;
+    padding-top: env(safe-area-inset-top, 0px);
+    background: var(--win);
+    color: var(--fg);
+    user-select: none;
+  }
+  .ios-nav-bar {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
     align-items: center;
     gap: 12px;
-    flex: none;
-    height: calc(68px + env(safe-area-inset-top, 0px));
-    padding: env(safe-area-inset-top, 0px) 16px 0;
-    background: var(--win);
-    color: var(--fg);
-    user-select: none;
+    height: 60px;
+    padding: 0 16px;
+  }
+  .ios-nav-title {
+    overflow: hidden;
+    padding: 0 4px;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-align: center;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    transition: opacity 0.2s ease;
+  }
+  /* With a large title the bar's own title only shows once it has collapsed. */
+  .ios-nav[data-large="true"][data-collapsed="false"] .ios-nav-title {
+    opacity: 0;
+  }
+  .ios-large-title {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    max-height: 88px;
+    padding: 0 20px 12px;
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    transition:
+      max-height 0.25s ease,
+      padding 0.25s ease,
+      opacity 0.2s ease;
+  }
+  .ios-nav[data-collapsed="true"] .ios-large-title {
+    max-height: 0;
+    padding-bottom: 0;
+    opacity: 0;
   }
 }
 /* Liquid Glass bubbles: the back button and the actions float on the bar as
    round glass buttons instead of text links. */
 .ios-back,
-.ios-action {
+.ios-action,
+.ios-bubble {
   display: grid;
   place-items: center;
   height: 44px;
@@ -425,8 +467,16 @@ body {
   width: 44px;
   padding: 0;
 }
+.ios-bubble {
+  padding: 0 14px;
+}
+.ios-bubble:has(svg) {
+  width: 44px;
+  padding: 0;
+}
 .ios-back:active,
-.ios-action:active {
+.ios-action:active,
+.ios-bubble:active {
   transform: scale(0.92);
   opacity: 0.75;
 }

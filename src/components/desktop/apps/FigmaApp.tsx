@@ -231,7 +231,7 @@ function FigmaHome({
 
       <div className="min-w-0 flex-1 overflow-y-auto bg-win2">
         <div className="p-6 max-sm:p-4">
-          <h1 className="font-display text-[22px] font-semibold tracking-tight">
+          <h1 className="font-display text-[22px] font-semibold tracking-tight max-md:hidden">
             {dc.home.title}
           </h1>
           <div className="mt-3 flex gap-1.5 md:hidden">
@@ -921,6 +921,8 @@ export function FigmaApp({ win }: { win: WinState }) {
       height={760}
       mobile={{
         title: project ? project.title : appLabel,
+        // A project's cover already opens with its big title.
+        largeTitle: !project,
         back: project ? { label: appLabel, onClick: goHome } : undefined,
         actions: project && (
           <button
