@@ -7,7 +7,7 @@ import { AppIcon } from "@/components/desktop/AppIcons";
 import { useWM } from "@/components/desktop/wm";
 
 // How long the desk has to stay empty before the alert shows up.
-const DELAY_MS = 30_000;
+const DELAY_MS = 15_000;
 
 // A macOS-style alert that offers the projects whenever every window is
 // closed or minimized. "Not now" hides it until the desk empties again.

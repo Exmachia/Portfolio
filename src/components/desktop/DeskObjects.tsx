@@ -38,8 +38,12 @@ const PAINTERS: Painter[] = [
 ];
 type Cursor = Painter & { x: number; y: number; ms: number };
 
-const HEIST_IDLE_MS = 25_000;
+const HEIST_IDLE_MS = 18_000;
 const EASE = "cubic-bezier(0.45, 0.05, 0.3, 1)";
+// How far past the edge a cursor has to go for its name tag to be gone too.
+const CURSOR_CLEARANCE = 180;
+// What a lifted object's shadow adds around it (see SHADOW_LIFT).
+const SHADOW_REACH = 50;
 
 const sleep = (ms: number) => new Promise((r) => window.setTimeout(r, ms));
 // Two frames, so a transition starts from the position just rendered.
@@ -47,15 +51,20 @@ const nextFrame = () =>
   new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
 const pick = <T,>(list: T[]) => list[Math.floor(Math.random() * list.length)];
 
-// A point just outside the left, right or bottom edge of the screen.
-function offscreen(avoid?: "l" | "r" | "b") {
+// How far past the edge the center of a carried object has to be for all of it
+// to be out of sight, at any rotation and lifted (scale 1.05).
+const objectClearance = ({ w, h }: { w: number; h: number }) =>
+  Math.max(CURSOR_CLEARANCE, (Math.hypot(w, h) / 2) * 1.05 + SHADOW_REACH);
+
+// A point `margin` px outside the left, right or bottom edge of the screen.
+function offscreen(margin: number, avoid?: "l" | "r" | "b") {
   const side = pick((["l", "r", "b"] as const).filter((s) => s !== avoid));
   const vw = window.innerWidth;
   const vh = window.innerHeight;
   const y = vh * (0.2 + Math.random() * 0.5);
-  if (side === "l") return { side, x: -140, y };
-  if (side === "r") return { side, x: vw + 140, y };
-  return { side, x: vw * (0.2 + Math.random() * 0.6), y: vh + 140 };
+  if (side === "l") return { side, x: -margin, y };
+  if (side === "r") return { side, x: vw + margin, y };
+  return { side, x: vw * (0.2 + Math.random() * 0.6), y: vh + margin };
 }
 
 function FigmaCursor({ c }: { c: Cursor }) {
@@ -224,7 +233,7 @@ export function DeskObjects() {
       const victim = pick(onDesk);
       const vs = size(victim.obj);
       const spot = { x: victim.x + vs.w / 2, y: victim.y + vs.h / 2 };
-      const exit = offscreen();
+      const exit = offscreen(objectClearance(vs));
       setCursor({ ...thief, x: exit.x, y: exit.y, ms: 0 });
       await nextFrame();
       setCursor({ ...thief, ...spot, ms: 1500 });
@@ -250,7 +259,7 @@ export function DeskObjects() {
       // 3. Another painter brings a different object to the same spot.
       const obj = pick(pool);
       const ns = size(obj);
-      const entry = offscreen(exit.side);
+      const entry = offscreen(objectClearance(ns), exit.side);
       const drop = {
         x: spot.x + (Math.random() - 0.5) * 40,
         y: spot.y + (Math.random() - 0.5) * 30,
@@ -281,7 +290,7 @@ export function DeskObjects() {
       await sleep(450);
 
       // 4. The courier leaves.
-      const away = offscreen();
+      const away = offscreen(CURSOR_CLEARANCE);
       setCursor({ ...courier, x: away.x, y: away.y, ms: 1300 });
       await sleep(1400);
       setCursor(null);
