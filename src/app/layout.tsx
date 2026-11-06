@@ -35,14 +35,14 @@ export const metadata: Metadata = {
     url: "/",
     siteName: site.name,
     locale: "es_MX",
-    images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} — ${site.role}`,
     description: site.tagline,
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 

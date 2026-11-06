@@ -3,7 +3,7 @@ import { content, defaultLocale } from "@/lib/content";
 
 const { site } = content[defaultLocale];
 
-const DEFAULT_IMAGE = { url: "/og-image.png", width: 1200, height: 630 };
+const DEFAULT_IMAGE = { url: "/og-image.jpg", width: 1200, height: 630 };
 
 // Per-page metadata. Each page needs its own canonical URL (the layout's "/"
 // would otherwise be inherited by every route) and its own Open Graph block,
@@ -33,7 +33,7 @@ export function pageMetadata({
       siteName: site.name,
       locale: "es_MX",
       type,
-      images: [image ? { url: image } : DEFAULT_IMAGE],
+      images: [image ? { url: image, width: 1200, height: 630 } : DEFAULT_IMAGE],
     },
     twitter: {
       card: "summary_large_image",

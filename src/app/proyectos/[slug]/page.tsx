@@ -6,6 +6,11 @@ import { JsonLd } from "@/components/JsonLd";
 import { pageMetadata } from "@/lib/seo";
 import { isCaseStudyVisible, visibleCaseStudies } from "@/lib/desktop-content";
 
+const ogImage = (cover?: string) =>
+  cover?.endsWith("/01-cover-v2.webp")
+    ? cover.replace("01-cover-v2.webp", "og.jpg")
+    : undefined;
+
 export function generateStaticParams() {
   return visibleCaseStudies(content[defaultLocale].caseStudies).map((project) => ({
     slug: project.slug,
@@ -27,8 +32,9 @@ export async function generateMetadata({
     title: project.title,
     description: project.homeTeaser,
     path: `/proyectos/${project.slug}`,
-    // Case studies without a real cover (Geest, Muvi) use the site's image.
-    image: project.image,
+    // Each case folder ships a 1200×630 og.jpg next to its cover; cases
+    // without one (Geest, Muvi) fall back to the site's image.
+    image: ogImage(project.image),
     type: "article",
   });
 }
@@ -64,7 +70,9 @@ export default async function CaseStudyPage({
               headline: project.subtitle,
               description: project.homeTeaser,
               url,
-              image: project.image ? `${siteUrl}${project.image}` : undefined,
+              image: ogImage(project.image)
+                ? `${siteUrl}${ogImage(project.image)}`
+                : undefined,
               inLanguage: defaultLocale,
               author: { "@id": `${siteUrl}/#person` },
               isPartOf: { "@id": `${siteUrl}/#website` },

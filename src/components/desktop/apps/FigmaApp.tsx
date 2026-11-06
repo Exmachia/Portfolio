@@ -72,6 +72,7 @@ function Cover({ project, pending }: { project: CaseStudy; pending: string }) {
           alt={project.imageAlt ?? project.title}
           fill
           sizes="960px"
+          quality={85}
           className="object-cover"
           priority
         />
@@ -94,7 +95,7 @@ function Cover({ project, pending }: { project: CaseStudy; pending: string }) {
 
 // Screens of a case, in reading order. Click opens the full-size file, since
 // the wide ones (states, design system) can't be read at frame width.
-function Gallery({ images, sizes }: { images: CaseImage[]; sizes: string }) {
+function Gallery({ images }: { images: CaseImage[] }) {
   return (
     <div className="space-y-6">
       {images.map((img) => (
@@ -110,8 +111,9 @@ function Gallery({ images, sizes }: { images: CaseImage[]; sizes: string }) {
               alt={img.alt}
               width={img.width}
               height={img.height}
-              sizes={sizes}
-              unoptimized
+              // Frames are at most 960px wide; phones get the viewport width.
+              sizes="(max-width: 1000px) 100vw, 960px"
+              quality={85}
               className="h-auto w-full"
             />
           </a>
@@ -676,7 +678,7 @@ function FigmaFile({
                   </div>
                 )}
                 {overviewImages.length > 0 && (
-                  <Gallery images={overviewImages} sizes="880px" />
+                  <Gallery images={overviewImages} />
                 )}
               </div>
             </Frame>
@@ -699,7 +701,7 @@ function FigmaFile({
                         </div>
                         {s.key === "iterations" && processImages.length > 0 && (
                           <div className="mt-5">
-                            <Gallery images={processImages} sizes="820px" />
+                            <Gallery images={processImages} />
                           </div>
                         )}
                       </div>
@@ -708,7 +710,7 @@ function FigmaFile({
                 </ol>
                 {!project.proceso.iteraciones && processImages.length > 0 && (
                   <div className="mt-6">
-                    <Gallery images={processImages} sizes="820px" />
+                    <Gallery images={processImages} />
                   </div>
                 )}
               </div>
@@ -726,7 +728,7 @@ function FigmaFile({
                 </p>
                 {solutionImages.length > 0 && (
                   <div className="mt-8">
-                    <Gallery images={solutionImages} sizes="900px" />
+                    <Gallery images={solutionImages} />
                   </div>
                 )}
               </div>
