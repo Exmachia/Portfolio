@@ -448,7 +448,50 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Anagram",
         subtitle: "Portfolio and catalog for an architecture studio",
         link: "https://anagramarquitectos.com/portafolio",
-        image: "/projects/anagram.png",
+        image: "/projects/anagram/01-cover.webp",
+        imageAlt:
+          "Anagram case cover: the text Website for an architecture studio next to the site's home and its properties page",
+        images: {
+          overview: [
+            caseImage("anagram", "02-antes.webp", 2880, 1514, {
+              alt: "Diagram of the starting point: no portfolio, no catalog and no visibility. It's a reconstruction, not a capture of the previous site",
+              caption: "Reconstruction of the starting point. Not a capture of the previous site.",
+            }),
+          ],
+          process: [
+            caseImage("anagram", "04-lofi-direcciones.webp", 3936, 2278, {
+              alt: "Two reconstructed grayscale wireframes: A catalog as the focus, discarded, and B flagship projects first, chosen",
+              caption: "Reconstruction. Not the project's original wireframes.",
+            }),
+            caseImage("anagram", "03-user-flow.webp", 3360, 1640, {
+              alt: "User flows: from Google to a project and from the menu to a property for sale",
+            }),
+          ],
+          solution: [
+            caseImage("anagram", "06-hifi-inicio.webp", 2880, 7696, {
+              alt: "Recreation of the home page with its real photos",
+              caption: "Recreation of the published site, observed on November 5, 2026.",
+            }),
+            caseImage("anagram", "07-hifi-portafolio.webp", 2880, 7530, {
+              alt: "Paginated portfolio with the projects in black and white",
+            }),
+            caseImage("anagram", "08-hifi-proyecto.webp", 2880, 7238, {
+              alt: "Casa Maple 31 project detail with spec sheet and gallery",
+            }),
+            caseImage("anagram", "09-hifi-inmobiliaria.webp", 2880, 3782, {
+              alt: "Properties for sale with filters by type, prices and details",
+            }),
+            caseImage("anagram", "05-design-system.webp", 3360, 3784, {
+              alt: "Anagram design system: neutral scale, Outfit typography, components and contrast table",
+            }),
+            caseImage("anagram", "10-hifi-modo-oscuro.webp", 1440, 3848, {
+              alt: "Home in dark mode",
+            }),
+            caseImage("anagram", "11-hifi-movil.webp", 2742, 1896, {
+              alt: "Adapted mobile views: home, portfolio and real estate",
+            }),
+          ],
+        },
         homeTeaser: "From zero Google presence to #1 for \"arquitectos Colima\".",
         contexto:
           "Anagram is an architecture studio in Colima. The project was their main site, designed as a portfolio (showcasing their flagship projects) with a catalog of properties for sale as a complement, since Anagram has a separate sister site dedicated exclusively to property sales.",
@@ -478,7 +521,47 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Nativa",
         subtitle: "Pre-sale for a high-value residential development",
         link: "https://nativaliving.anagramarquitectos.com/",
-        image: "/projects/nativa.png",
+        image: "/projects/nativa/01-cover.webp",
+        imageAlt:
+          "Nativa case cover: the text Apartment presale in Colima next to the site's home and its mobile view",
+        images: {
+          overview: [
+            caseImage("nativa", "02-antes.webp", 2880, 2072, {
+              alt: "Starting material: renders, plans and images, with the questions the buyer has to resolve. It's a reconstruction, not a capture of a previous site",
+              caption: "Reconstruction of the starting point. Not a capture of a previous site.",
+            }),
+          ],
+          process: [
+            caseImage("nativa", "04-lofi-direcciones.webp", 5816, 2368, {
+              alt: "Grayscale wireframes: A gallery of renders and B models first, both hypothetical, and C tour and information, the chosen one",
+              caption: "Reconstruction. Directions A and B are hypothetical.",
+            }),
+            caseImage("nativa", "03-user-flow.webp", 3360, 2040, {
+              alt: "User flows for buying an apartment and for renting or buying a commercial space, up to the sales team",
+            }),
+          ],
+          solution: [
+            caseImage("nativa", "06-hifi-inicio.webp", 1440, 13253, {
+              alt: "Recreation of the site's full page with its real renders and plans",
+              caption: "Recreation of the published site, observed on November 5, 2026.",
+            }),
+            caseImage("nativa", "08-hifi-portada-y-proyecto.webp", 6048, 1992, {
+              alt: "Cover and About the project sections",
+            }),
+            caseImage("nativa", "07-hifi-modelos.webp", 2880, 5582, {
+              alt: "Models page with the plans for Ceiba, Primavera, Rosa Morada and Parota",
+            }),
+            caseImage("nativa", "05-design-system.webp", 3360, 5072, {
+              alt: "Nativa design system: green and terracotta measured from the site, substitute typography Prata and Nunito Sans, components and contrast table",
+            }),
+            caseImage("nativa", "09-hifi-financiamiento-y-contacto.webp", 3072, 3738, {
+              alt: "Financing plans and contact form",
+            }),
+            caseImage("nativa", "10-hifi-movil.webp", 3624, 1896, {
+              alt: "Mobile views: cover, side menu, Ceiba model and contact",
+            }),
+          ],
+        },
         homeTeaser: "Pre-sale fully sold out before construction was finished.",
         contexto:
           "Nativa is a high-value residential development in Colima, sold as a pre-sale before construction was finished. The site launched as a subdomain of Anagram.",
@@ -533,7 +616,50 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Casas Exclusivas Colima",
         subtitle: "Real estate catalog",
         link: "https://www.casasexclusivas-colima.com/",
-        image: "/projects/casas-exclusivas-colima.png",
+        image: "/projects/casas-exclusivas-colima/01-cover.webp",
+        imageAlt:
+          "Casas Exclusivas Colima case cover: title, problem line and mobile home and sales screens",
+        images: {
+          overview: [
+            caseImage("casas-exclusivas-colima", "02-antes.webp", 3600, 1536, {
+              alt: "Grayscale reconstruction of the structure the client asked for: listing with filters, property sheet and contact, unbranded",
+              caption: "Reconstruction of the structure the client asked for. Not a capture of a previous site.",
+            }),
+          ],
+          process: [
+            caseImage("casas-exclusivas-colima", "04-lofi-direcciones.webp", 3360, 2118, {
+              alt: "Two grayscale directions: A copy of the reference, discarded; B reference structure with its own identity, chosen",
+              caption: "Reconstruction. Not the project's original wireframes.",
+            }),
+            caseImage("casas-exclusivas-colima", "03-user-flow.webp", 3990, 1254, {
+              alt: "Reconstructed user flow: arriving directly or from Google, home or local guide, sales, filter, detail and three contact exits",
+            }),
+          ],
+          solution: [
+            caseImage("casas-exclusivas-colima", "06-hifi-inicio.webp", 2880, 8116, {
+              alt: "Home on desktop: hero with an aerial photo, Unique Opportunities, local guides, mission and vision, contact, FAQ and footer",
+              caption: "Recreation of the published site, observed on November 5, 2026.",
+            }),
+            caseImage("casas-exclusivas-colima", "07-hifi-venta.webp", 2880, 7028, {
+              alt: "For sale on desktop: kitchen hero, a Filter your search panel and a grid of properties with code, price, area and square meters",
+            }),
+            caseImage("casas-exclusivas-colima", "08-hifi-detalle.webp", 2880, 6618, {
+              alt: "Property detail on desktop: gallery, map, house details, Call now, Send WhatsApp and similar properties",
+            }),
+            caseImage("casas-exclusivas-colima", "09-hifi-guia.webp", 2880, 2620, {
+              alt: "Colima local guide: introduction, what living in Colima is like and average prices",
+            }),
+            caseImage("casas-exclusivas-colima", "11-hifi-movil.webp", 2742, 5122, {
+              alt: "Home, For sale and Detail on mobile",
+            }),
+            caseImage("casas-exclusivas-colima", "05-design-system.webp", 3360, 7104, {
+              alt: "Design system: primitive and semantic colors, Outfit typography, spacing, radii, shadow, WCAG contrast table and components",
+            }),
+            caseImage("casas-exclusivas-colima", "10-hifi-estados.webp", 2880, 1492, {
+              alt: "States seen on the site: an open question, the budget select, an invitation to get in touch and the nav on scroll, with key decisions and notes to verify",
+            }),
+          ],
+        },
         homeTeaser: "Top 20 on Google and real sales generated from the catalog.",
         contexto:
           "Property catalog for sale for the company Casas Exclusivas Colima.",
@@ -901,6 +1027,213 @@ export const content: Record<Locale, ContentBundle> = {
         aprendizaje:
           "• In credit products, design doesn't change the rate, but it does change when users see their cost: moving the warning from the PDF to the pay button.\n• Recommending isn't hiding: the minimum stays available, just with its consequence beside it.\n• Next: run the test, validate the \"Pay without interest\" wording with legal and explore reminders tied to the due date.",
       },
+      {
+        slug: "mercado-pago-metas-de-ahorro",
+        title: "Mercado Pago Savings Goals",
+        subtitle: "Savings pockets that say how much is left and when you reach your goal",
+        concept: true,
+        image: "/projects/mercado-pago-metas-de-ahorro/01-cover.webp",
+        imageAlt:
+          "Cover of the Savings goals concept project, not affiliated with Mercado Pago, with three screens of the redesign",
+        images: {
+          overview: [
+            caseImage("mercado-pago-metas-de-ahorro", "02-antes.webp", 3908, 2356, {
+              alt: "Recreation of the current flow, to verify in the app: Home, money and yields, Apartados, Apartado and conditions on another screen",
+              caption: "Recreation of the current flow. Not a capture of the app, and the flow is still to be verified.",
+            }),
+          ],
+          process: [
+            caseImage("mercado-pago-metas-de-ahorro", "04-lofi-direcciones.webp", 3120, 2628, {
+              alt: "Three grayscale directions: A calculator, B progress bar and C goal with a date plus a visible rule, the chosen one",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "03-user-flow.webp", 3896, 1860, {
+              alt: "User flow for direction C: summary, rate detail, Apartado as a goal and create goal, with states",
+            }),
+          ],
+          solution: [
+            caseImage("mercado-pago-metas-de-ahorro", "06-hifi-resumen.webp", 8000, 1737, {
+              alt: "Savings summary in its six states: rule pending, met, cutoff notice, first use, offline and rate change",
+              caption: "Names and amounts are sample data.",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "07-hifi-detalle-tasa.webp", 2820, 1892, {
+              alt: "Rate detail: within the cap and balance above the cap",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "09-hifi-crear-meta.webp", 7242, 1892, {
+              alt: "Create goal: empty, with a suggestion every two weeks, a date that already passed, no date and goal created",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "10-hifi-meta-alcanzada.webp", 1346, 1892, {
+              alt: "Goal reached with what was earned and options to withdraw, keep saving or a new goal",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "05-design-system.webp", 3360, 8184, {
+              alt: "Design system: colors, Inter typography, spacing, radii, shadows, WCAG contrast and components",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "08-hifi-apartado-meta.webp", 8000, 1485, {
+              alt: "Apartado as a goal in its states: on time, behind, no date, overdue, a withdrawal that delays the date, after the withdrawal and offline",
+            }),
+          ],
+        },
+        homeTeaser:
+          "A speculative redesign of how a Mercado Pago Mexico user sees their Apartados (savings pockets) and what their money earns.",
+        contexto:
+          "A speculative redesign of how a Mercado Pago Mexico user sees their Apartados (savings pockets) and what their money earns.\n\nPlatform: iOS and Android mobile app.\nDuration: 2 weeks (concept sprint).\nTools: Figma, FigJam.\nOut of scope: actual yield calculation, fund logic, Meli+ as a product and investments outside Apartados.",
+        problema:
+          "Mercado Pago advertises its rate as a percentage, but users save in pesos and in dates. The rate changes by balance, by type of money (available or in an Apartado), by the month's deposits and by membership. The user sees a percentage, but not how much is left or when they reach their goal. Between the two there are rules that change every few months.\n\nCurrent flow (to verify in the app): Home → money and yields section → Apartados → pick an Apartado → see balance. The current rate and its conditions live on another screen or in the terms and conditions. There's no place that says \"you need $X more and you'll get there in month Y\".\n\nPending: confirm the current rate at publication.\n\nPublic evidence:\n• Apartados split the account's money into named \"pockets\"; that money doesn't count as available balance (El Cronista, Jan 2026).\n• Users already use them as goals: 545,000 Apartados for vacations in the first months of 2026, nearly double the previous year (Descubre, Jul 2026).\n• More than 15,000 Apartados for concerts and festivals; 1,500 from BTS fans (El Cronista).\n• Oct 2025: 7% base and up to 13% if you deposit $3,000 a month, only on the first $25,000 (Xataka).\n• Jun 2026: the maximum drops to 12% (6% base + 6% bonus), same $25,000 cap (Xataka).\n• Sep 2026: 15% on Apartados for Meli+ members versus 12% for everyone else (DPL News).\n• The rules changed at least 3 times in 12 months, with conditions that depend on deposits, balance cap, type of money and membership.",
+        proceso: {
+          research:
+            "People in Mexico save a lot, but little in products that earn; the app competes against the \"piggy bank\".\n\nSaving in Mexico:\n• 66.4% of the population had some kind of savings in 2024 (ENIF 2024, cited by Xataka).\n• 63.0% of people aged 18 to 70 had at least one formal savings account (INEGI, ENIF 2024).\n• According to CONDUSEF, 41% save at home, 20% in tandas and only 3% invest to earn returns (Xataka).\n• 51.8% of those who keep a record of expenses set money aside for payments; only 19.5% use apps for that (INEGI).\n\nBenchmark:\n• Monzo (Pots): a goal amount under what's saved, a progress bar and a notice on arrival. What we took: the goal as the main piece of data in the Apartado.\n• Nu Mexico (Cajitas): up to 10 named Cajitas; rate and GAT in the fine print. What we took: a name per goal; show the GAT next to the rate, not hidden.\n• Mercado Pago (current): named Apartados; rate in %, rules in the news and T&C (to verify). This is what needs translating into pesos and dates.\n\nMonzo users asked for years for a target date, a suggested saving per week and a notice if they fall behind (Monzo Community).\n\nInsights (hypotheses to validate in the test):\n1. People think in pesos and dates, not percentages. \"I'm $4,000 short for Cancún\" weighs more than \"12% a year\".\n2. A rule you can't see doesn't get met. If the month's minimum deposit doesn't show its progress, the bonus rate is lost without warning.\n3. Consistency needs rhythm, not just a total. Knowing \"$500 every two weeks\" motivates more than a bar at 30%.\n\nBenchmark to verify with current captures of each app.\n\nHow Might We: how might we let a user know, in pesos and dates, how much their money earns and when they reach their goal?\n\nHypothesis: if each Apartado shows what's left, the estimated date and what's been earned in pesos, and the app says what's missing to keep the month's rate, users will deposit more consistently and explain their yield without looking outside the app.",
+          restricciones:
+            "Assumed constraints: respect Mercado Pago's visual identity; don't change rates or rules, only explain them; projections always marked as estimates.",
+          iteraciones:
+            "Three directions as lo-fi wireframes; C was chosen because it joins the goal and the rate rule on the same screen.\n• A · Calculator: a separate simulator; you enter an amount and a term and it tells you what you earn. Discarded: useful but disconnected; users have to go looking for it and don't see their real money.\n• B · Progress bar: each Apartado with a bar and a percentage of progress, Monzo style. Discarded: it motivates, but doesn't say when you arrive or what happens with the month's rate.\n• C · Goal with a date + visible rule: each Apartado shows what's left, an estimated date and earnings in pesos; on top, the status of the month's rate. Chosen: it answers the three questions (how much it earns, how much is left, when) without leaving the screen.\n\nDeliverables of this phase: lo-fi wireframes of A, B and C, the user flow for C and decision annotations.",
+          decisiones:
+            "• Pesos first, percentage second. \"You earned $84 this month\" on top; \"12% a year\" as secondary data.\n• Honest projection. The estimated date says \"if you keep depositing $500 every two weeks\" and is marked as an estimate at today's rate.\n• The rate rule with progress. The month's minimum deposit is shown as progress, with a notice 5 days before the cutoff.\n• Visible cap. If an Apartado exceeds the balance that earns, it says in pesos how much no longer generates earnings.\n• Mercado Pago identity intact. It uses the brand's blue and typography; the redesign is about information, not style.",
+          validacion:
+            "A plan, not yet carried out. Moderated usability test with 5 Mercado Pago users who use or have used Apartados, 15 to 20 minutes each, over video call with the Figma prototype. Results: pending.\n\nTasks:\n1. \"Tell me how much you earned this month on your saved money.\"\n2. \"What do you have to do to keep the higher rate this month?\"\n3. \"Create a $8,000 goal for a trip in April.\"\n4. \"When do you reach the goal of your 'Concert' Apartado? What happens if you withdraw $1,000?\"\n\nClosing questions:\n• Where do you keep money you save for something specific today?\n• What was the most confusing thing about this version?\n• From 1 to 5, how much do you trust the estimated date you saw?\n\nMetrics to measure:\n• Task success: completed / with help / didn't complete.\n• Understanding of the rate: explains the month's rule in their own words (yes / partly / no).\n• Time on task 1: seconds until stating the earnings in pesos.\n• Trust in the projection: 1 to 5 scale at the end.\n\nComparing against the current app with the same tasks 1 and 2 would give the \"before vs. after\". Deposit consistency could only be measured in a real pilot, outside the scope of this concept.",
+        },
+        solucionFinal:
+          "Apartados become goals: each one says how much is left, when you arrive and how much you've earned in pesos.\n\nScreens:\n1. Savings summary: total saved, the month's earnings in pesos and a \"Rate of the month\" chip with its status (e.g. \"You need $1,200 more in deposits to keep 12%\").\n2. Rate detail: the rule in one sentence, the balance cap that earns and how much of your money falls above or below it.\n3. Apartado as a goal: what's saved against the goal, what's left, estimated arrival date and accumulated earnings.\n4. Create goal: name, amount and desired date; the app suggests a deposit every two weeks to get there.\n5. Goal reached: a brief celebration with what was earned in yield and options: withdraw, keep saving or a new goal.\n\nAccessibility:\n• The goal's status is communicated with text (\"on track\", \"behind\"), not only color.\n• Minimum AA contrast on amounts and text over blue backgrounds.\n• Figures readable by a screen reader as a full sentence (\"you need four thousand pesos more\").\n• 44 × 44 pt touch targets.\n\nStates and edge cases: no Apartados (first use) · goal without a date · overdue goal not completed · withdrawal that delays the date · rate change (notice with date and recalculated projection) · balance above the cap · offline (cached data, projection disabled).",
+        resultado:
+          "An unlaunched concept. There are no results yet: the usability test is planned, not carried out.",
+        aprendizaje:
+          "• In savings products, translating is worth more than adding: the rate already exists, it just needs to be told in pesos and dates.\n• A projection only helps if it says what it depends on; without that condition it reads as a promise.\n• Next: run the test, adjust the rule's wording based on what users don't understand and explore automatic deposits every two weeks.",
+      },
+      {
+        slug: "wise-usd-a-mxn",
+        title: "Wise USD to MXN",
+        subtitle: "Convert dollars to pesos knowing whether to do it today or wait",
+        concept: true,
+        image: "/projects/wise-usd-a-mxn/01-cover.webp",
+        imageAlt:
+          "Cover of the Convert to MXN with context concept project, not affiliated with Wise, with three screens of the redesign",
+        images: {
+          overview: [
+            caseImage("wise-usd-a-mxn", "02-antes.webp", 3895, 1891, {
+              alt: "Recreation of the current flow, to verify in the app: home, USD balance, convert, converter with a chart, alerts in Profile and Auto Conversions",
+              caption: "Recreation of the current flow. Not a capture of the app, and the flow is still to be verified.",
+            }),
+          ],
+          process: [
+            caseImage("wise-usd-a-mxn", "04-lofi-direcciones.webp", 3120, 2648, {
+              alt: "Three grayscale directions: A market dashboard, B proactive alert and C convert with context, the chosen one",
+            }),
+            caseImage("wise-usd-a-mxn", "03-user-flow.webp", 3882, 1538, {
+              alt: "User flow for direction C: convert today or wait for a rate, with orders, notices and states",
+            }),
+          ],
+          solution: [
+            caseImage("wise-usd-a-mxn", "06-hifi-convertir.webp", 5752, 1868, {
+              alt: "Convert with context: USD balance, net in pesos and 30-day range, with no history and offline",
+              caption: "Names and amounts are sample data.",
+            }),
+            caseImage("wise-usd-a-mxn", "07-hifi-desglose.webp", 3702, 1868, {
+              alt: "Net breakdown: USD sent, fee, rate applied and pesos that arrive, with a guaranteed rate and conversion ready",
+            }),
+            caseImage("wise-usd-a-mxn", "08-hifi-esperar.webp", 6618, 1868, {
+              alt: "Wait for a rate: suggested rates with their net, a switch between order and notice, visible rules, the limit of 15 and Sunday",
+            }),
+            caseImage("wise-usd-a-mxn", "09-hifi-ordenes.webp", 5434, 1868, {
+              alt: "My orders: a pending order with distance to the rate, confirm cancellation, cancelled order, cancelled for balance and notice created",
+            }),
+            caseImage("wise-usd-a-mxn", "05-design-system.webp", 3360, 8160, {
+              alt: "Design system: colors, Barlow Semi Condensed and Inter, spacing, radii, shadows, WCAG contrast and components",
+            }),
+          ],
+        },
+        homeTeaser:
+          "A speculative redesign of how a freelancer in Mexico decides when to convert their dollars to pesos.",
+        contexto:
+          "A speculative redesign of how a freelancer in Mexico decides when to convert their dollars to pesos.\n\nPlatform: iOS and Android mobile app.\nDuration: 2 weeks (concept sprint).\nTools: Figma, FigJam.\nTarget user: a freelancer or contractor in Mexico who bills US clients in USD.\nKey assumption: the user already has a USD balance in Wise. Today availability for residents of Mexico is limited (to verify).\nOut of scope: tax advice (RESICO, ISR), exchange rate prediction and backend logic.",
+        problema:
+          "Wise already has rate alerts and automatic conversions, but they live on separate screens. It has the pieces to convert at a good moment, but the user has to put them together alone: rate, history, alert and fee live in different places. Before converting, they can't see in one place whether today's rate is good or how many net pesos they will receive.\n\nCurrent flow to decide whether to convert today (to verify in the app): Home → USD balance → Convert → choose MXN → see rate and fee. To compare against previous days you have to leave for the converter with a chart. For an alert: Profile → Notifications → Exchange rate alerts. To convert automatically at a rate: another flow, Auto Conversions.\n\nPublic evidence:\n• Alerts are set up from Profile → Notifications, outside the conversion flow (Wise Help).\n• Auto Conversions converts when a target rate is reached; at most 15 pending, they can't be edited (you have to cancel and create another) and they don't run on Sundays (Wise Help).\n• MXN is among the 24 currencies supported by Auto Conversions since its launch in 2022 (Wise Blog).\n• Receiving USD by ACH is free; by wire or SWIFT it costs 6.11 USD per payment (Wise Help).\n• The FIX exchange rate went from 18.8148 (Oct 29, 2026) to 18.6285 (Nov 4, 2026). On 2,000 USD that's a 372.60 MXN difference in a week (Banxico).\n• Mexico received 61,719 million USD in remittances in 2025, -4.56% year over year, according to Banxico (Zeta Tijuana). No official figure was found that separates freelance income in USD.\n• Wise launched transfers from Mexico in January 2025 (The Paypers). Users report that residents of Mexico can't receive into a local Wise account (Reddit r/ExpatFinance). Verify current availability.",
+        proceso: {
+          research:
+            "The references give context (recent range) or automate (target rate); none of those reviewed combines both with the net in pesos.\n• Wise web converter: a chart from 48 h to 5 years and a summary of the 30 and 90-day high and low; free alerts. What we took: the \"30-day high / low\" summary as quick context, inside the conversion flow.\n• Revolut Auto-Exchange: automatic conversion at a target rate since 2019; it doesn't execute if the rate moves away by more than 0.75%. What we took: explain in plain language when and why an order doesn't execute.\n• DolarApp: communicates a single fixed fee (3 USD) and compares final net pesos; data from its own blog. What we took: show the result in net pesos, not just the rate.\n\nInsights (hypotheses to validate in the test):\n1. Users think in net pesos, not in the rate. \"I get 37,200\" weighs more than \"18.63\".\n2. \"Is it a good day?\" needs a reference. Without the recent range, today's rate says nothing.\n3. Waiting is a decision, not an omission. Setting a target rate should be one tap from the conversion, not in Profile.\n\nBenchmark to verify with current captures of each app.\n\nHow Might We: how might we help a freelancer decide, on a single screen, whether to convert today or wait for a better rate, knowing how many pesos they receive?\n\nHypothesis: if we show today's rate against the 30-day range, the net in pesos after the fee and a shortcut to a target rate, users will decide faster and with more confidence than today, without leaving the flow.",
+          restricciones:
+            "Assumed constraints: respect Wise's visual identity; use only features that already exist (alerts, Auto Conversions, conversion); always show fee and rate before confirming.",
+          iteraciones:
+            "Three directions as lo-fi wireframes; C was chosen because it's the only one that puts context, net and the alternative of waiting in the same step.\n• A · Market dashboard: a new tab with a large chart, alerts and orders. Discarded: powerful but looks like a trading app; it pulls the user away from converting and adds another section.\n• B · Proactive alert: a notification when a USD payment arrives with \"convert now?\". Discarded: useful as an entry point, but without context once tapped; it pushes to convert without comparing.\n• C · Convert with context: the conversion screen adds a 30-day range bar, the net in MXN and \"Wait for a rate\". Chosen: it reuses the flow that already exists; converting and waiting sit at the same level.\n\nDeliverables of this phase: lo-fi wireframes of A, B and C, the user flow for C and decision annotations.",
+          decisiones:
+            "• Net pesos on top, rate below. Users decide by what they receive, so the net leads the hierarchy.\n• Range, not prediction. The bar shows facts (30-day high/low). No \"good moment\" or market recommendations.\n• Alert and automatic conversion in the same step. A switch picks \"just notify me\" or \"convert for me\"; today they are in different flows.\n• Visible rules. Before creating the order it says: it doesn't run on Sundays, it can't be edited, at most 15 pending.\n• Wise identity intact. It uses its palette and typography; the redesign is about structure, not style.",
+          validacion:
+            "A plan, not yet carried out. Moderated usability test with 5 freelancers in Mexico who bill in USD, 15 to 20 minutes each, over video call with the Figma prototype. Results: pending.\n\nTasks:\n1. \"You were just paid 2,000 USD. Tell me whether you would convert today and why.\"\n2. \"How many pesos would you get if you convert now?\"\n3. \"You'd rather wait for a better rate. Set everything up so it converts by itself.\"\n4. \"Cancel that order and create just a notice.\"\n\nClosing questions:\n• How do you decide today when to convert your dollars?\n• What was the most confusing thing about this version?\n• From 1 to 5, how sure did you feel about your decision?\n\nMetrics to measure:\n• Task success: completed / with help / didn't complete.\n• Net accuracy (task 2): difference between what they say and the real net on screen.\n• Time on task 3: seconds until creating the order.\n• Perceived confidence: 1 to 5 scale at the end.\n\nComparing against the current app with tasks 1 and 3 would give the \"before vs. after\".",
+        },
+        solucionFinal:
+          "\"Convert to MXN\" becomes a decision screen: today's rate in context, net pesos and two clear exits, convert now or wait.\n\nScreens:\n1. Convert with context: the USD amount, the current rate and a bar with the 30-day low and high that marks where today sits.\n2. Net breakdown: USD sent, Wise's fee, the rate applied and the pesos that arrive, in that order.\n3. Wait for a rate: suggests target rates (e.g. the 30-day high) and shows the net you would receive at each. It creates an Auto Conversion or just an alert.\n4. My orders: a list of pending conversions with target rate, distance to the current rate and a cancel action.\n\nAccessibility:\n• The position in the range is also said in text: \"Today: 18.63, near the 30-day high\".\n• Up or down with an icon and a sign, not only green or red.\n• 44 × 44 pt touch targets; the range bar has a label for screen readers.\n\nStates and edge cases: not enough history (hide the bar) · insufficient balance when the rate arrives (order cancelled + notice) · 15 orders reached · Sunday / market closed · rate moving while confirming (guaranteed rate for a limited time, to verify) · offline (last rate with timestamp, conversion disabled).",
+        resultado:
+          "An unlaunched concept. There are no results yet: the usability test is planned, not carried out.",
+        aprendizaje:
+          "• In fintech, sometimes the product already has the features; the work is bringing them together at the moment of deciding.\n• Showing context without giving financial advice is a design line: range yes, prediction no.\n• Next: confirm USD balance availability for residents of Mexico, run the test and explore the entry from the payment-received notification (direction B).",
+      },
+      {
+        slug: "aeromexico-reacomodo",
+        title: "Aeroméxico Rebooking",
+        subtitle: "One-tap rebooking when your flight is delayed or cancelled",
+        concept: true,
+        image: "/projects/aeromexico-reacomodo/01-cover.webp",
+        imageAlt:
+          "Cover of the One-tap rebooking concept project, not affiliated with Aeroméxico, with three screens of the redesign",
+        images: {
+          overview: [
+            caseImage("aeromexico-reacomodo", "02-antes.webp", 3943, 2237, {
+              alt: "Recreation of the current flow, to verify in the app: notification, My trips, status with no options, help channels and compensation handled separately",
+              caption: "Recreation of the current flow. Not a capture of the app, and the flow is still to be verified.",
+            }),
+          ],
+          process: [
+            caseImage("aeromexico-reacomodo", "04-lofi-direcciones.webp", 3120, 2628, {
+              alt: "Three grayscale directions: A search, B automatic and C suggested plus alternatives, the chosen one",
+            }),
+            caseImage("aeromexico-reacomodo", "03-user-flow.webp", 3882, 1538, {
+              alt: "User flow for direction C with delay and cancellation branches, rights, other options and states",
+            }),
+          ],
+          solution: [
+            caseImage("aeromexico-reacomodo", "06-hifi-reacomodo.webp", 7210, 1880, {
+              alt: "Notification and rebooking: cancellation, a 3-hour delay, a short delay and a missed connection",
+              caption: "Names and amounts are sample data.",
+            }),
+            caseImage("aeromexico-reacomodo", "07-hifi-derechos.webp", 5160, 1880, {
+              alt: "Your rights by cause and hours: cancellation, a delay of 2 to 4 hours, more than 4 hours and weather",
+            }),
+            caseImage("aeromexico-reacomodo", "08-hifi-otras-opciones.webp", 3960, 1880, {
+              alt: "Other options: travel another day or request a refund with the estimated amount before confirming",
+            }),
+            caseImage("aeromexico-reacomodo", "09-hifi-confirmacion.webp", 3110, 1880, {
+              alt: "Confirmation with a new pass and a meal voucher, and switching to another flight",
+            }),
+            caseImage("aeromexico-reacomodo", "05-design-system.webp", 3360, 7540, {
+              alt: "Design system: dark palette, Schibsted Grotesk, spacing, radii, shadows, WCAG contrast and components",
+            }),
+            caseImage("aeromexico-reacomodo", "10-hifi-casos-borde.webp", 5160, 1880, {
+              alt: "Edge cases: no flights today, several passengers, an agency ticket and offline",
+            }),
+          ],
+        },
+        homeTeaser:
+          "A speculative redesign of how Aeroméxico's app supports a passenger when their flight is delayed or cancelled.",
+        contexto:
+          "A speculative redesign of how Aeroméxico's app supports a passenger when their flight is delayed or cancelled.\n\nPlatform: iOS and Android mobile app, with a push notification as the entry point.\nDuration: 2 weeks (concept sprint).\nTools: Figma, FigJam.\nOut of scope: the rebooking algorithm, refunds for third-party agencies, groups and unaccompanied minors.",
+        problema:
+          "Aeroméxico is among the most punctual airlines in the world, but when a flight does fall through, the app informs and doesn't resolve: rebooking moves to the queue or the phone. The passenger finds out late, queues at the counter or calls the call center, and doesn't know what they are entitled to by law.\n\nCurrent flow (according to public sources, to verify in the app): change notification → open app → My trips / Status → no flight options visible → call the call center, message the WhatsApp bot or queue at the counter → negotiate the new flight → look separately for what compensation applies.\n\nPublic evidence:\n• In 2025 Aeroméxico operated about 190 thousand flights with 91.88% on-time departures, according to Cirium (El Financiero). Even so, about 8% of departures were not on time.\n• The app has 3.5 million downloads; its published features are status, notifications, check-in and My trips. Rebooking isn't mentioned (El Imparcial, App Store).\n• During the AICM rain contingency (August 2025), Aeroméxico's statement pointed to the status website and its policies page; it didn't mention the app (statement, Vive USA).\n• In October 2025 at least 53 flights were reported cancelled and 315 delayed in two days because of a dispute with pilots (Mexico News Daily).\n• App Store reviews complain that \"they change your flights without notice\" and about \"terrible customer service\" (App Store).\n• The law requires notifying the change and offering options depending on the delay, but the passenger has to know them to ask for them (Civil Aviation Law, art. 47 Bis).",
+        proceso: {
+          research:
+            "References from the US and Canada already solve rebooking inside the app; none explains rights as clearly as Mexican law requires.\n• United: with a delay of 60+ min, the home screen shows whether you've been rebooked, other flights, meal and hotel vouchers, and an agent by chat or video. What we took: everything on the home screen; the problem is the main screen while it lasts.\n• Delta: \"Trip Support\": you see alternatives at no cost, choose one or look for more, confirm and get a new pass. What we took: one suggested option + \"see other options\", without hiding the search.\n• Air Canada: automatic rebooking onto the next available flight; if it doesn't work for you, you change it in \"Manage my booking\". What we took: a default rebooking the passenger can accept or change.\n\nUnited reports that almost 50% of its customers already handle themselves through the app or web during disruptions (United).\n\nInsights (hypotheses to validate in the test):\n1. The first question is \"what time do I arrive?\", not \"why?\". Options should be sorted by arrival time.\n2. Rights depend on hours and cause. If the app calculates what applies (7.5% discount, 25% compensation), the passenger doesn't have to look for it.\n3. Accepting must be reversible. If the passenger fears being stuck with a bad flight, they prefer the queue; a \"you can change it later\" lowers that fear.\n\nBenchmark to verify with current captures of each app.\n\nHow Might We: how might we let a passenger with a delayed or cancelled flight know what they are owed and secure a new flight without queuing or calling?\n\nHypothesis: if the app notifies with the alternative flight already suggested, shows the rights calculated for their case and lets them accept in one tap, passengers will resolve their rebooking from the phone in under 2 minutes and with fewer calls to the call center.",
+          restricciones:
+            "Assumed constraints: respect Aeroméxico's visual identity; only offer flights with an available seat; rights wording aligned to art. 47 Bis and reviewed by legal.",
+          iteraciones:
+            "Three directions as lo-fi wireframes; C was chosen because it resolves quickly without taking control away from the passenger.\n• A · Search: the notification leads to a flight search with date and origin prefilled. Discarded: familiar, but it shifts all the work to the passenger at a stressful moment.\n• B · Automatic: the airline rebooks on its own and the passenger just receives the new pass. Discarded: faster, but if the flight doesn't work for them they are back in the queue; it doesn't show rights.\n• C · Suggested + alternatives: a card with the best flight already held, 2 or 3 alternatives below and rights on the side. Chosen: one tap if the suggestion works, control if not; rights visible before deciding.\n\nDeliverables of this phase: lo-fi wireframes of A, B and C, the user flow for C with delay and cancellation branches and decision annotations.",
+          decisiones:
+            "• Arrival time as the main data. It's what the passenger is reorganizing (connection, work, family); the flight number goes to the background.\n• Rights before the button, not after. The passenger chooses between rebooking and a refund knowing what they lose or gain.\n• Cause stated in plain language. \"Due to weather\" or \"due to Aeroméxico's operation\", because compensation depends on it.\n• Human exit always visible. An agent chat entry on every screen, as United does.\n• Aeroméxico identity intact. It uses its palette and typography; the redesign is about flow, not style.",
+          validacion:
+            "A plan, not yet carried out. Moderated usability test with 5 passengers who flew in the last year, 15 to 20 minutes each, over video call with the Figma prototype. Results: pending.\n\nTasks:\n1. \"You received this notice. Find a flight that gets you to your destination today.\"\n2. \"Before accepting, tell me what you are owed for this cancellation.\"\n3. \"You decide not to travel today. Request your refund.\"\n4. \"You already accepted a flight, but changed your mind. Choose another.\"\n\nClosing questions:\n• What did you do the last time a flight of yours was delayed or cancelled?\n• Would you trust accepting from the app without talking to anyone? Why?\n• From 1 to 5, how clear was what you are owed?\n\nMetrics to measure:\n• Task success: completed / with help / didn't complete.\n• Time on task 1: seconds from the notice to confirming a flight.\n• Understanding of rights: answer in task 2 correct / partial / incorrect.\n• Errors: taps on the wrong option or flight.\n• Perceived confidence: 1 to 5 scale at the end.\n\nFor the \"before vs. after\", task 1 would be run in the current app to compare steps and time.",
+        },
+        solucionFinal:
+          "While the disruption lasts, the app's home screen becomes a rebooking center: what happened, your best option and what you're owed.\n\nScreens:\n1. Notification: \"Your flight AM 123 was cancelled. We held AM 127 for you, you arrive 19:40.\" It opens straight to the rebooking card.\n2. Rebooking: suggested flight on top with arrival time and seat; below, 2 or 3 alternatives sorted by arrival; an \"Accept this flight\" button.\n3. Your rights: a panel by cause and hours: meals, a minimum 7.5% discount (2 to 4 h) or a refund / flight with a minimum 25% compensation (cancellation or more than 4 h), citing art. 47 Bis.\n4. Other options: travel another day or request a refund, with the estimated amount visible before confirming.\n5. Confirmation: a new boarding pass, digital vouchers if they apply and \"You can change it up to 2 h before\" (rule to be defined with the business).\n\nAccessibility:\n• States (cancelled, delayed, confirmed) with text and an icon, not only color.\n• Minimum AA contrast; times in large type for quick reading in the waiting room.\n• 44 × 44 pt touch targets; logical reading order for VoiceOver and TalkBack.\n• Plain language in rights: no \"concessionaire\" or \"permit holder\".\n\nStates and edge cases: short delay with no rights (under 1 h) · cause not attributable to the airline (weather) · no flights available today · booking with several passengers · missed connection · ticket bought through an agency (redirect) · offline (last cached information and update time).",
+        resultado:
+          "An unlaunched concept. There are no results yet: the usability test is planned, not carried out.",
+        aprendizaje:
+          "• In airlines, high punctuality doesn't remove the problem: the roughly 8% that fails defines the experience of whoever lives it.\n• Explaining rights isn't only legal; it's what lets people choose between rebooking and a refund without fear.\n• Next: run the test, validate the rights wording with a lawyer and explore the version for routes to the US, where the DOT requires an automatic refund after 6+ hours of delay on international flights (CBS News).",
+      },
     ],
     stats: [
       {
@@ -1201,7 +1534,50 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Anagram",
         subtitle: "Portafolio y catálogo para un estudio de arquitectura",
         link: "https://anagramarquitectos.com/portafolio",
-        image: "/projects/anagram.png",
+        image: "/projects/anagram/01-cover.webp",
+        imageAlt:
+          "Portada del caso Anagram: texto Sitio de un estudio de arquitectura junto a la portada del sitio y la página de propiedades",
+        images: {
+          overview: [
+            caseImage("anagram", "02-antes.webp", 2880, 1514, {
+              alt: "Esquema del punto de partida: sin portafolio, sin catálogo y sin visibilidad. Es una reconstrucción, no una captura del sitio anterior",
+              caption: "Reconstrucción del punto de partida. No es una captura del sitio anterior.",
+            }),
+          ],
+          process: [
+            caseImage("anagram", "04-lofi-direcciones.webp", 3936, 2278, {
+              alt: "Dos wireframes en grises reconstruidos: A catálogo como foco, descartada, y B proyectos insignia primero, elegida",
+              caption: "Reconstrucción. No son los wireframes originales del proyecto.",
+            }),
+            caseImage("anagram", "03-user-flow.webp", 3360, 1640, {
+              alt: "Flujos de usuario: de Google a un proyecto y del menú a una propiedad en venta",
+            }),
+          ],
+          solution: [
+            caseImage("anagram", "06-hifi-inicio.webp", 2880, 7696, {
+              alt: "Recreación de la página de inicio con sus fotos reales",
+              caption: "Recreación del sitio publicado, observado el 5 de noviembre de 2026.",
+            }),
+            caseImage("anagram", "07-hifi-portafolio.webp", 2880, 7530, {
+              alt: "Portafolio paginado con los proyectos en blanco y negro",
+            }),
+            caseImage("anagram", "08-hifi-proyecto.webp", 2880, 7238, {
+              alt: "Detalle del proyecto Casa Maple 31 con ficha y galería",
+            }),
+            caseImage("anagram", "09-hifi-inmobiliaria.webp", 2880, 3782, {
+              alt: "Propiedades en venta con filtros por tipo, precios y datos",
+            }),
+            caseImage("anagram", "05-design-system.webp", 3360, 3784, {
+              alt: "Design system de Anagram: escala neutra, tipografía Outfit, componentes y tabla de contraste",
+            }),
+            caseImage("anagram", "10-hifi-modo-oscuro.webp", 1440, 3848, {
+              alt: "Inicio en modo oscuro",
+            }),
+            caseImage("anagram", "11-hifi-movil.webp", 2742, 1896, {
+              alt: "Vistas móviles adaptadas: inicio, portafolio e inmobiliaria",
+            }),
+          ],
+        },
         homeTeaser: "De cero presencia en Google al #1 para \"arquitectos Colima\".",
         contexto:
           "Anagram es un estudio de arquitectura en Colima. El proyecto era su sitio principal, pensado como portafolio (destacando sus proyectos insignia) con un catálogo de inmuebles en venta como complemento, ya que Anagram tiene otra página hermana dedicada exclusivamente a la venta de inmuebles.",
@@ -1231,7 +1607,47 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Nativa",
         subtitle: "Preventa de desarrollo residencial de alta plusvalía",
         link: "https://nativaliving.anagramarquitectos.com/",
-        image: "/projects/nativa.png",
+        image: "/projects/nativa/01-cover.webp",
+        imageAlt:
+          "Portada del caso Nativa: texto Preventa de departamentos en Colima junto a la portada del sitio y su vista móvil",
+        images: {
+          overview: [
+            caseImage("nativa", "02-antes.webp", 2880, 2072, {
+              alt: "Material de partida: renders, planos e imágenes, con las preguntas que el comprador tiene que resolver. Es una reconstrucción, no la captura de un sitio anterior",
+              caption: "Reconstrucción del punto de partida. No es la captura de un sitio anterior.",
+            }),
+          ],
+          process: [
+            caseImage("nativa", "04-lofi-direcciones.webp", 5816, 2368, {
+              alt: "Wireframes en grises: A galería de renders y B modelos primero, ambas hipotéticas, y C recorrido e información, la elegida",
+              caption: "Reconstrucción. Las direcciones A y B son hipotéticas.",
+            }),
+            caseImage("nativa", "03-user-flow.webp", 3360, 2040, {
+              alt: "Flujos de usuario para comprar un departamento y para rentar o comprar un local, hasta el equipo de ventas",
+            }),
+          ],
+          solution: [
+            caseImage("nativa", "06-hifi-inicio.webp", 1440, 13253, {
+              alt: "Recreación de la página completa del sitio con sus renders y planos reales",
+              caption: "Recreación del sitio publicado, observado el 5 de noviembre de 2026.",
+            }),
+            caseImage("nativa", "08-hifi-portada-y-proyecto.webp", 6048, 1992, {
+              alt: "Secciones de portada y Sobre el proyecto",
+            }),
+            caseImage("nativa", "07-hifi-modelos.webp", 2880, 5582, {
+              alt: "Página de modelos con los planos de Ceiba, Primavera, Rosa Morada y Parota",
+            }),
+            caseImage("nativa", "05-design-system.webp", 3360, 5072, {
+              alt: "Design system de Nativa: verde y terracota medidos del sitio, tipografía sustituta Prata y Nunito Sans, componentes y tabla de contraste",
+            }),
+            caseImage("nativa", "09-hifi-financiamiento-y-contacto.webp", 3072, 3738, {
+              alt: "Planes de financiamiento y formulario de contacto",
+            }),
+            caseImage("nativa", "10-hifi-movil.webp", 3624, 1896, {
+              alt: "Vistas móviles: portada, menú lateral, modelo Ceiba y contacto",
+            }),
+          ],
+        },
         homeTeaser: "Preventa vendida por completo antes de terminar la construcción.",
         contexto:
           "Nativa es un desarrollo residencial de alta plusvalía en Colima, vendido en modalidad de preventa antes de terminar la construcción. El sitio se lanzó como subdominio de Anagram.",
@@ -1286,7 +1702,50 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Casas Exclusivas Colima",
         subtitle: "Catálogo inmobiliario",
         link: "https://www.casasexclusivas-colima.com/",
-        image: "/projects/casas-exclusivas-colima.png",
+        image: "/projects/casas-exclusivas-colima/01-cover.webp",
+        imageAlt:
+          "Portada del caso Casas Exclusivas Colima: título, línea del problema y pantallas de inicio y venta móvil",
+        images: {
+          overview: [
+            caseImage("casas-exclusivas-colima", "02-antes.webp", 3600, 1536, {
+              alt: "Reconstrucción en grises de la estructura pedida por el cliente: listado con filtros, ficha de propiedad y contacto, sin marca",
+              caption: "Reconstrucción de la estructura que pidió el cliente. No es la captura de un sitio anterior.",
+            }),
+          ],
+          process: [
+            caseImage("casas-exclusivas-colima", "04-lofi-direcciones.webp", 3360, 2118, {
+              alt: "Dos direcciones en grises: A copia de la referencia, descartada; B estructura de referencia con identidad propia, elegida",
+              caption: "Reconstrucción. No son los wireframes originales del proyecto.",
+            }),
+            caseImage("casas-exclusivas-colima", "03-user-flow.webp", 3990, 1254, {
+              alt: "User flow reconstruido: llegada directa o desde Google, inicio o guía local, venta, filtro, detalle y tres salidas de contacto",
+            }),
+          ],
+          solution: [
+            caseImage("casas-exclusivas-colima", "06-hifi-inicio.webp", 2880, 8116, {
+              alt: "Inicio en escritorio: hero con foto aérea, Oportunidades Únicas, guías locales, misión y visión, contacto, preguntas frecuentes y pie",
+              caption: "Recreación del sitio publicado, observado el 5 de noviembre de 2026.",
+            }),
+            caseImage("casas-exclusivas-colima", "07-hifi-venta.webp", 2880, 7028, {
+              alt: "Venta en escritorio: hero de cocina, panel Filtra tu búsqueda y cuadrícula de propiedades con clave, precio, zona y metros",
+            }),
+            caseImage("casas-exclusivas-colima", "08-hifi-detalle.webp", 2880, 6618, {
+              alt: "Detalle de propiedad en escritorio: galería, mapa, datos de la casa, Llamar ahora, Enviar WhatsApp y propiedades similares",
+            }),
+            caseImage("casas-exclusivas-colima", "09-hifi-guia.webp", 2880, 2620, {
+              alt: "Guía local de Colima: introducción, cómo es vivir en Colima y precios promedio",
+            }),
+            caseImage("casas-exclusivas-colima", "11-hifi-movil.webp", 2742, 5122, {
+              alt: "Inicio, Venta y Detalle en móvil",
+            }),
+            caseImage("casas-exclusivas-colima", "05-design-system.webp", 3360, 7104, {
+              alt: "Design system: colores primitivos y semánticos, tipografía Outfit, espaciado, radios, sombra, tabla de contraste WCAG y componentes",
+            }),
+            caseImage("casas-exclusivas-colima", "10-hifi-estados.webp", 2880, 1492, {
+              alt: "Estados vistos en el sitio: pregunta abierta, select de presupuesto, invitación a contactar y nav al hacer scroll, con decisiones clave y notas por verificar",
+            }),
+          ],
+        },
         homeTeaser: "Top 20 en Google y ventas reales generadas desde el catálogo.",
         contexto:
           "Catálogo de propiedades en venta para la empresa Casas Exclusivas Colima.",
@@ -1653,6 +2112,213 @@ export const content: Record<Locale, ContentBundle> = {
           "Concepto sin lanzar. Todavía no hay resultados: el test de usabilidad está planeado, no realizado.",
         aprendizaje:
           "• En productos de crédito, el diseño no cambia la tasa, pero sí cuándo el usuario ve su costo: mover la advertencia del PDF al botón de pagar.\n• Recomendar no es esconder: el mínimo sigue disponible, solo con su consecuencia al lado.\n• Siguiente: correr el test, validar el texto \"Pagar sin intereses\" con legal y explorar recordatorios ligados a la fecha límite.",
+      },
+      {
+        slug: "mercado-pago-metas-de-ahorro",
+        title: "Mercado Pago Metas de Ahorro",
+        subtitle: "Apartados que dicen cuánto falta y cuándo llegas a tu meta",
+        concept: true,
+        image: "/projects/mercado-pago-metas-de-ahorro/01-cover.webp",
+        imageAlt:
+          "Portada del concept project Metas de ahorro, no afiliado a Mercado Pago, con tres pantallas del rediseño",
+        images: {
+          overview: [
+            caseImage("mercado-pago-metas-de-ahorro", "02-antes.webp", 3908, 2356, {
+              alt: "Recreación del flujo actual, por verificar en la app: Inicio, dinero y rendimientos, Apartados, Apartado y condiciones en otra pantalla",
+              caption: "Recreación del flujo actual. No es una captura de la app y el flujo está por verificar.",
+            }),
+          ],
+          process: [
+            caseImage("mercado-pago-metas-de-ahorro", "04-lofi-direcciones.webp", 3120, 2628, {
+              alt: "Tres direcciones en grises: A calculadora, B barra de progreso y C meta con fecha más regla visible, la elegida",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "03-user-flow.webp", 3896, 1860, {
+              alt: "User flow de la dirección C: resumen, detalle de la tasa, Apartado como meta y crear meta, con estados",
+            }),
+          ],
+          solution: [
+            caseImage("mercado-pago-metas-de-ahorro", "06-hifi-resumen.webp", 8000, 1737, {
+              alt: "Resumen de ahorro en sus seis estados: regla pendiente, cumplida, aviso de cierre, primer uso, sin conexión y cambio de tasa",
+              caption: "Los nombres y montos son datos de ejemplo.",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "07-hifi-detalle-tasa.webp", 2820, 1892, {
+              alt: "Detalle de la tasa: dentro del tope y saldo arriba del tope",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "09-hifi-crear-meta.webp", 7242, 1892, {
+              alt: "Crear meta: vacío, con sugerencia por quincena, fecha que ya pasó, sin fecha y meta creada",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "10-hifi-meta-alcanzada.webp", 1346, 1892, {
+              alt: "Meta alcanzada con lo ganado y opciones de retirar, seguir ahorrando o nueva meta",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "05-design-system.webp", 3360, 8184, {
+              alt: "Design system: colores, tipografía Inter, espaciado, radios, sombras, contraste WCAG y componentes",
+            }),
+            caseImage("mercado-pago-metas-de-ahorro", "08-hifi-apartado-meta.webp", 8000, 1485, {
+              alt: "Apartado como meta en sus estados: a tiempo, atrasado, sin fecha, vencida, retiro que retrasa la fecha, después del retiro y sin conexión",
+            }),
+          ],
+        },
+        homeTeaser:
+          "Rediseño especulativo de cómo un usuario de Mercado Pago México ve sus Apartados y lo que rinde su dinero.",
+        contexto:
+          "Rediseño especulativo de cómo un usuario de Mercado Pago México ve sus Apartados y lo que rinde su dinero.\n\nPlataforma: app móvil iOS y Android.\nDuración: 2 semanas (concept sprint).\nHerramientas: Figma, FigJam.\nFuera de alcance: cálculo real de rendimientos, lógica del fondo, Meli+ como producto e inversiones fuera de Apartados.",
+        problema:
+          "Mercado Pago anuncia su tasa en porcentaje, pero el usuario ahorra en pesos y en fechas. La tasa cambia por saldo, por tipo de dinero (disponible o Apartado), por depósitos del mes y por membresía. El usuario ve un porcentaje, pero no cuánto le falta ni cuándo llega a su meta. Entre ambas cosas hay reglas que cambian cada pocos meses.\n\nFlujo actual (por verificar en la app): Inicio → sección de dinero y rendimientos → Apartados → elegir un Apartado → ver saldo. La tasa vigente y sus condiciones viven en otra pantalla o en términos y condiciones. No hay un lugar que diga \"te faltan $X y llegas en tal mes\".\n\nPendiente: confirmar la tasa vigente al publicar.\n\nEvidencia pública:\n• Los Apartados dividen el dinero de la cuenta en \"bolsas\" con nombre; ese dinero no cuenta como saldo disponible (El Cronista, ene 2026).\n• Los usuarios ya los usan como metas: 545,000 Apartados para vacaciones en los primeros meses de 2026, cerca del doble que el año anterior (Descubre, jul 2026).\n• Más de 15,000 Apartados para conciertos y festivales; 1,500 de fans de BTS (El Cronista).\n• Oct 2025: 7% base y hasta 13% si ingresas $3,000 al mes, solo sobre los primeros $25,000 (Xataka).\n• Jun 2026: el máximo baja a 12% (6% base + 6% sobretasa), mismo tope de $25,000 (Xataka).\n• Sep 2026: 15% en Apartados para miembros Meli+ contra 12% para el resto (DPL News).\n• Las reglas cambiaron al menos 3 veces en 12 meses, con condiciones que dependen de depósitos, tope de saldo, tipo de dinero y membresía.",
+        proceso: {
+          research:
+            "En México se ahorra mucho, pero poco en productos que rinden; la app compite contra el \"guardadito\".\n\nContexto de ahorro en México:\n• 66.4% de la población tuvo algún tipo de ahorro en 2024 (ENIF 2024, citada por Xataka).\n• 63.0% de personas de 18 a 70 años tenía al menos una cuenta de ahorro formal (INEGI, ENIF 2024).\n• Según CONDUSEF, 41% ahorra en casa, 20% en tandas y solo 3% invierte para obtener rendimientos (Xataka).\n• 51.8% de quienes llevan registro de gastos separa el dinero para pagos; solo 19.5% usa apps para eso (INEGI).\n\nBenchmark:\n• Monzo (Pots): monto meta bajo lo ahorrado, barra de progreso y aviso al llegar. Qué tomamos: la meta como dato principal del Apartado.\n• Nu México (Cajitas): hasta 10 Cajitas con nombre; tasa y GAT en la letra pequeña. Qué tomamos: nombre por meta; mostrar GAT junto a la tasa, no escondida.\n• Mercado Pago (actual): Apartados con nombre; tasa en %, reglas en noticias y T&C (por verificar). Es lo que hay que traducir a pesos y fechas.\n\nLos usuarios de Monzo pidieron por años una fecha objetivo, el ahorro sugerido por semana y un aviso si se atrasan (Monzo Community).\n\nInsights (hipótesis a validar en el test):\n1. Se piensa en pesos y fechas, no en porcentajes. \"Me faltan $4,000 para Cancún\" pesa más que \"12% anual\".\n2. Una regla que no se ve no se cumple. Si el depósito mínimo del mes no aparece con su avance, la sobretasa se pierde sin aviso.\n3. La constancia necesita ritmo, no solo un total. Saber \"$500 por quincena\" motiva más que una barra al 30%.\n\nBenchmark por verificar con capturas actuales de cada app.\n\nHow Might We: ¿cómo podríamos hacer que un usuario sepa, en pesos y fechas, cuánto rinde su dinero y cuándo llega a su meta?\n\nHipótesis: si cada Apartado muestra lo que falta, la fecha estimada y lo ganado en pesos, y la app avisa qué falta para mantener la tasa del mes, el usuario depositará con más constancia y explicará su rendimiento sin buscar fuera de la app.",
+          restricciones:
+            "Restricciones asumidas: respetar la identidad visual de Mercado Pago; no cambiar tasas ni reglas, solo explicarlas; proyecciones siempre marcadas como estimadas.",
+          iteraciones:
+            "Tres direcciones en wireframes lo-fi; se eligió la C porque une la meta y la regla de la tasa en la misma pantalla.\n• A · Calculadora: simulador aparte; ingresas monto y plazo y te dice cuánto ganas. Descartada: útil pero desconectado; el usuario tiene que ir a buscarlo y no ve su dinero real.\n• B · Barra de progreso: cada Apartado con barra y porcentaje de avance, al estilo Monzo. Descartada: motiva, pero no dice cuándo llegas ni qué pasa con la tasa del mes.\n• C · Meta con fecha + regla visible: cada Apartado muestra lo que falta, fecha estimada y ganancia en pesos; arriba, el estado de la tasa del mes. Elegida: responde las tres preguntas (cuánto rinde, cuánto falta, cuándo) sin salir de la pantalla.\n\nEntregables de esta fase: wireframes lo-fi de A, B y C, flujo de usuario de la C y anotaciones de las decisiones.",
+          decisiones:
+            "• Pesos primero, porcentaje después. \"Ganaste $84 este mes\" arriba; \"12% anual\" como dato secundario.\n• Proyección honesta. La fecha estimada dice \"si sigues depositando $500 por quincena\" y se marca como estimación con la tasa de hoy.\n• La regla de la tasa con avance. El depósito mínimo del mes se muestra como progreso, con aviso 5 días antes del cierre.\n• Tope visible. Si un Apartado rebasa el saldo que rinde, se avisa en pesos cuánto ya no genera ganancia.\n• Identidad Mercado Pago intacta. Se usan el azul y la tipografía de la marca; el rediseño es de información, no de estilo.",
+          validacion:
+            "Plan, aún no realizado. Test de usabilidad moderado con 5 usuarios de Mercado Pago que usen o hayan usado Apartados, 15 a 20 minutos cada uno, por videollamada con el prototipo de Figma. Resultados: pendientes.\n\nTareas:\n1. \"Dime cuánto ganaste este mes por tu dinero ahorrado.\"\n2. \"¿Qué tienes que hacer para mantener la tasa más alta este mes?\"\n3. \"Crea una meta de $8,000 para un viaje en abril.\"\n4. \"¿Cuándo llegas a la meta de tu Apartado 'Concierto'? ¿Qué pasa si retiras $1,000?\"\n\nPreguntas de cierre:\n• ¿Dónde guardas hoy el dinero que ahorras para algo específico?\n• ¿Qué fue lo más confuso de esta versión?\n• Del 1 al 5, ¿qué tanto confías en la fecha estimada que viste?\n\nMétricas a medir:\n• Éxito por tarea: completó / con ayuda / no completó.\n• Comprensión de la tasa: explica la regla del mes con sus palabras (sí / parcial / no).\n• Tiempo en tarea 1: segundos hasta decir la ganancia en pesos.\n• Confianza en la proyección: escala 1 a 5 al cierre.\n\nComparar contra la app actual con las mismas tareas 1 y 2 daría el \"antes vs. después\". La constancia de depósitos solo se mediría en un piloto real, fuera del alcance de este concepto.",
+        },
+        solucionFinal:
+          "Los Apartados se vuelven metas: cada uno dice cuánto falta, cuándo llegas y cuánto llevas ganado en pesos.\n\nPantallas:\n1. Resumen de ahorro: total ahorrado, ganancia del mes en pesos y un chip \"Tasa del mes\" con su estado (p. ej. \"Te faltan $1,200 de depósitos para mantener 12%\").\n2. Detalle de la tasa: la regla en una frase, el tope de saldo que rinde y qué parte de tu dinero queda arriba o abajo de él.\n3. Apartado como meta: lo ahorrado sobre la meta, lo que falta, fecha estimada de llegada y ganancia acumulada.\n4. Crear meta: nombre, monto y fecha deseada; la app sugiere un depósito por quincena para llegar.\n5. Meta alcanzada: celebración breve con lo ganado en rendimientos y opciones: retirar, seguir ahorrando o nueva meta.\n\nAccesibilidad:\n• El estado de la meta se comunica con texto (\"vas a tiempo\", \"vas atrasado\"), no solo con color.\n• Contraste AA mínimo en montos y textos sobre fondos azules.\n• Cifras legibles por lector de pantalla como frase completa (\"te faltan cuatro mil pesos\").\n• Áreas táctiles de 44 × 44 pt.\n\nEstados y casos borde: sin Apartados (primer uso) · meta sin fecha · meta vencida sin completar · retiro que retrasa la fecha · cambio de tasa (aviso con fecha y proyección recalculada) · saldo arriba del tope · sin conexión (datos en caché, proyección deshabilitada).",
+        resultado:
+          "Concepto sin lanzar. Todavía no hay resultados: el test de usabilidad está planeado, no realizado.",
+        aprendizaje:
+          "• En productos de ahorro, traducir vale más que agregar: la tasa ya existe, falta decirla en pesos y fechas.\n• Una proyección solo ayuda si dice de qué depende; sin esa condición se lee como promesa.\n• Siguiente: correr el test, ajustar el texto de la regla según lo que los usuarios no entiendan y explorar depósitos automáticos por quincena.",
+      },
+      {
+        slug: "wise-usd-a-mxn",
+        title: "Wise USD a MXN",
+        subtitle: "Convertir dólares a pesos sabiendo si conviene hoy o esperar",
+        concept: true,
+        image: "/projects/wise-usd-a-mxn/01-cover.webp",
+        imageAlt:
+          "Portada del concept project Convertir a MXN con contexto, no afiliado a Wise, con tres pantallas del rediseño",
+        images: {
+          overview: [
+            caseImage("wise-usd-a-mxn", "02-antes.webp", 3895, 1891, {
+              alt: "Recreación del flujo actual, por verificar en la app: inicio, saldo USD, convertir, conversor con gráfica, alertas en Perfil y Auto Conversions",
+              caption: "Recreación del flujo actual. No es una captura de la app y el flujo está por verificar.",
+            }),
+          ],
+          process: [
+            caseImage("wise-usd-a-mxn", "04-lofi-direcciones.webp", 3120, 2648, {
+              alt: "Tres direcciones en grises: A dashboard de mercado, B alerta proactiva y C convertir con contexto, la elegida",
+            }),
+            caseImage("wise-usd-a-mxn", "03-user-flow.webp", 3882, 1538, {
+              alt: "User flow de la dirección C: convertir hoy o esperar a una tasa, con órdenes, avisos y estados",
+            }),
+          ],
+          solution: [
+            caseImage("wise-usd-a-mxn", "06-hifi-convertir.webp", 5752, 1868, {
+              alt: "Convertir con contexto: saldo USD, neto en pesos y rango de 30 días, sin historial y sin conexión",
+              caption: "Los nombres y montos son datos de ejemplo.",
+            }),
+            caseImage("wise-usd-a-mxn", "07-hifi-desglose.webp", 3702, 1868, {
+              alt: "Desglose neto: USD enviados, comisión, tasa aplicada y pesos que llegan, con tasa garantizada y conversión lista",
+            }),
+            caseImage("wise-usd-a-mxn", "08-hifi-esperar.webp", 6618, 1868, {
+              alt: "Esperar a una tasa: tasas sugeridas con su neto, switch entre orden y aviso, reglas visibles, límite de 15 y domingo",
+            }),
+            caseImage("wise-usd-a-mxn", "09-hifi-ordenes.webp", 5434, 1868, {
+              alt: "Mis órdenes: orden pendiente con distancia a la tasa, confirmar cancelación, orden cancelada, cancelada por saldo y aviso creado",
+            }),
+            caseImage("wise-usd-a-mxn", "05-design-system.webp", 3360, 8160, {
+              alt: "Design system: colores, Barlow Semi Condensed e Inter, espaciado, radios, sombras, contraste WCAG y componentes",
+            }),
+          ],
+        },
+        homeTeaser:
+          "Rediseño especulativo de cómo un freelancer en México decide cuándo convertir sus dólares a pesos.",
+        contexto:
+          "Rediseño especulativo de cómo un freelancer en México decide cuándo convertir sus dólares a pesos.\n\nPlataforma: app móvil iOS y Android.\nDuración: 2 semanas (concept sprint).\nHerramientas: Figma, FigJam.\nUsuario objetivo: freelancer o contratista en México que cobra en USD a clientes de EE. UU.\nSupuesto clave: el usuario ya tiene saldo USD en Wise. Hoy la disponibilidad para residentes en México es limitada (por verificar).\nFuera de alcance: asesoría fiscal (RESICO, ISR), predicción del tipo de cambio y lógica de backend.",
+        problema:
+          "Wise ya tiene alertas de tasa y conversiones automáticas, pero viven en pantallas separadas. Tiene las piezas para convertir en buen momento, pero el usuario tiene que armarlas solo: tasa, historial, alerta y comisión viven en lugares distintos. Antes de convertir, no ve en un solo lugar si la tasa de hoy es buena ni cuántos pesos netos recibirá.\n\nFlujo actual para decidir si convertir hoy (por verificar en la app): Inicio → saldo USD → Convertir → elegir MXN → ver tasa y comisión. Para comparar contra días anteriores hay que salir al conversor con gráfica. Para una alerta: Perfil → Notificaciones → Alertas de tipo de cambio. Para convertir sola a una tasa: otro flujo, Auto Conversions.\n\nEvidencia pública:\n• Las alertas se configuran desde Perfil → Notificaciones, fuera del flujo de conversión (Wise Help).\n• Auto Conversions convierte al llegar a una tasa objetivo; máximo 15 pendientes, no se editan (hay que cancelar y crear otra) y no corren en domingo (Wise Help).\n• MXN está entre las 24 monedas soportadas por Auto Conversions desde su lanzamiento en 2022 (Wise Blog).\n• Recibir USD por ACH es gratis; por wire o SWIFT cuesta 6.11 USD por pago (Wise Help).\n• El tipo de cambio FIX pasó de 18.8148 (29 oct 2026) a 18.6285 (4 nov 2026). En 2,000 USD son 372.60 MXN de diferencia en una semana (Banxico).\n• México recibió 61,719 millones de USD en remesas en 2025, -4.56% anual, según Banxico (Zeta Tijuana). No se encontró una cifra oficial que separe el ingreso freelance en USD.\n• Wise lanzó envíos desde México en enero de 2025 (The Paypers). Usuarios reportan que residentes en México no pueden recibir en una cuenta Wise local (Reddit r/ExpatFinance). Verificar disponibilidad actual.",
+        proceso: {
+          research:
+            "Los referentes dan contexto (rango reciente) o automatizan (tasa objetivo); ninguno de los revisados junta ambos con el neto en pesos.\n• Conversor web de Wise: gráfica de 48 h a 5 años y resumen de máximo y mínimo de 30 y 90 días; alertas gratis. Qué tomamos: el resumen \"máx / mín 30 días\" como contexto rápido, dentro del flujo de conversión.\n• Revolut Auto-Exchange: conversión automática a tasa objetivo desde 2019; no ejecuta si la tasa se aleja más de 0.75%. Qué tomamos: explicar en lenguaje claro cuándo y por qué una orden no se ejecuta.\n• DolarApp: comunica una sola comisión fija (3 USD) y compara pesos netos finales; dato de su propio blog. Qué tomamos: mostrar el resultado en pesos netos, no solo la tasa.\n\nInsights (hipótesis a validar en el test):\n1. El usuario piensa en pesos netos, no en tasa. \"Me llegan 37,200\" pesa más que \"18.63\".\n2. \"¿Es buen día?\" necesita una referencia. Sin el rango reciente, la tasa de hoy no dice nada.\n3. Esperar es una decisión, no una omisión. Fijar una tasa objetivo debe estar a un toque desde la conversión, no en Perfil.\n\nBenchmark por verificar con capturas actuales de cada app.\n\nHow Might We: ¿cómo podríamos ayudar a un freelancer a decidir, en una sola pantalla, si convierte hoy o espera una mejor tasa, sabiendo cuántos pesos recibe?\n\nHipótesis: si mostramos la tasa de hoy contra el rango de 30 días, el neto en pesos después de comisión y un atajo a tasa objetivo, el usuario decidirá más rápido y con más confianza que hoy, sin salir del flujo.",
+          restricciones:
+            "Restricciones asumidas: respetar la identidad visual de Wise; usar solo funciones que ya existen (alertas, Auto Conversions, conversión); mostrar siempre comisión y tasa antes de confirmar.",
+          iteraciones:
+            "Tres direcciones en wireframes lo-fi; se eligió la C porque es la única que pone contexto, neto y alternativa de esperar en el mismo paso.\n• A · Dashboard de mercado: pestaña nueva con gráfica grande, alertas y órdenes. Descartada: poderosa pero parece app de trading; aleja al usuario de convertir y agrega una sección más.\n• B · Alerta proactiva: notificación cuando llega un pago USD con \"¿convertir ahora?\". Descartada: útil como entrada, pero sin contexto al tocarla; empuja a convertir sin comparar.\n• C · Convertir con contexto: la pantalla de conversión suma una barra de rango 30 días, neto en MXN y \"Esperar a una tasa\". Elegida: reusa el flujo que ya existe; convertir y esperar quedan al mismo nivel.\n\nEntregables de esta fase: wireframes lo-fi de A, B y C, flujo de usuario de la C y anotaciones de las decisiones.",
+          decisiones:
+            "• Pesos netos arriba, tasa abajo. El usuario decide por lo que le llega, así que el neto manda la jerarquía.\n• Rango, no predicción. La barra muestra hechos (máx/mín de 30 días). Nada de \"buen momento\" ni recomendaciones de mercado.\n• Alerta y conversión automática en un mismo paso. Un switch elige \"solo avísame\" o \"convierte por mí\"; hoy están en flujos distintos.\n• Reglas visibles. Antes de crear la orden se dice: no corre en domingo, no se edita, máximo 15 pendientes.\n• Identidad Wise intacta. Se usan su paleta y tipografía; el rediseño es de estructura, no de estilo.",
+          validacion:
+            "Plan, aún no realizado. Test de usabilidad moderado con 5 freelancers en México que cobran en USD, 15 a 20 minutos cada uno, por videollamada con el prototipo de Figma. Resultados: pendientes.\n\nTareas:\n1. \"Te acaban de pagar 2,000 USD. Dime si convertirías hoy y por qué.\"\n2. \"¿Cuántos pesos te llegarían si conviertes ahora?\"\n3. \"Prefieres esperar a una mejor tasa. Deja todo listo para que se convierta solo.\"\n4. \"Cancela esa orden y crea solo un aviso.\"\n\nPreguntas de cierre:\n• ¿Cómo decides hoy cuándo convertir tus dólares?\n• ¿Qué fue lo más confuso de esta versión?\n• Del 1 al 5, ¿qué tan seguro te sentiste de tu decisión?\n\nMétricas a medir:\n• Éxito por tarea: completó / con ayuda / no completó.\n• Precisión del neto (tarea 2): diferencia entre lo que dice y el neto real en pantalla.\n• Tiempo en tarea 3: segundos hasta crear la orden.\n• Confianza percibida: escala 1 a 5 al cierre.\n\nComparar contra la app actual con las tareas 1 y 3 daría el \"antes vs. después\".",
+        },
+        solucionFinal:
+          "\"Convertir a MXN\" se vuelve una pantalla de decisión: tasa de hoy en contexto, pesos netos y dos salidas claras, convertir ahora o esperar.\n\nPantallas:\n1. Convertir con contexto: monto en USD, tasa actual y una barra con mínimo y máximo de 30 días que marca dónde está hoy.\n2. Desglose neto: USD enviados, comisión de Wise, tasa aplicada y pesos que llegan, en ese orden.\n3. Esperar a una tasa: sugiere tasas objetivo (p. ej. máximo de 30 días) y muestra el neto que recibiría en cada una. Crea una Auto Conversion o solo una alerta.\n4. Mis órdenes: lista de conversiones pendientes con tasa objetivo, distancia a la tasa actual y acción de cancelar.\n\nAccesibilidad:\n• La posición en el rango se dice también en texto: \"Hoy: 18.63, cerca del máximo de 30 días\".\n• Subida o bajada con ícono y signo, no solo verde o rojo.\n• Áreas táctiles de 44 × 44 pt; la barra de rango tiene etiqueta para lector de pantalla.\n\nEstados y casos borde: sin historial suficiente (ocultar barra) · saldo insuficiente al llegar la tasa (orden cancelada + aviso) · 15 órdenes alcanzadas · domingo / mercado cerrado · tasa moviéndose mientras confirma (tasa garantizada por tiempo limitado, por verificar) · sin conexión (última tasa con hora, conversión deshabilitada).",
+        resultado:
+          "Concepto sin lanzar. Todavía no hay resultados: el test de usabilidad está planeado, no realizado.",
+        aprendizaje:
+          "• En fintech, a veces el producto ya tiene las funciones; el trabajo es juntarlas en el momento de decidir.\n• Mostrar contexto sin dar consejo financiero es una línea de diseño: rango sí, predicción no.\n• Siguiente: confirmar la disponibilidad de saldo USD para residentes en México, correr el test y explorar la entrada desde la notificación de pago recibido (dirección B).",
+      },
+      {
+        slug: "aeromexico-reacomodo",
+        title: "Aeroméxico Reacomodo",
+        subtitle: "Reacomodo en un toque cuando tu vuelo se retrasa o se cancela",
+        concept: true,
+        image: "/projects/aeromexico-reacomodo/01-cover.webp",
+        imageAlt:
+          "Portada del concept project Reacomodo en un toque, no afiliado a Aeroméxico, con tres pantallas del rediseño",
+        images: {
+          overview: [
+            caseImage("aeromexico-reacomodo", "02-antes.webp", 3943, 2237, {
+              alt: "Recreación del flujo actual, por verificar en la app: notificación, Mis Viajes, estatus sin opciones, canales de ayuda y compensación por separado",
+              caption: "Recreación del flujo actual. No es una captura de la app y el flujo está por verificar.",
+            }),
+          ],
+          process: [
+            caseImage("aeromexico-reacomodo", "04-lofi-direcciones.webp", 3120, 2628, {
+              alt: "Tres direcciones en grises: A buscador, B automático y C sugerido más alternativas, la elegida",
+            }),
+            caseImage("aeromexico-reacomodo", "03-user-flow.webp", 3882, 1538, {
+              alt: "User flow de la dirección C con ramas de demora y cancelación, derechos, otras opciones y estados",
+            }),
+          ],
+          solution: [
+            caseImage("aeromexico-reacomodo", "06-hifi-reacomodo.webp", 7210, 1880, {
+              alt: "Notificación y reacomodo: cancelación, demora de 3 horas, demora corta y conexión perdida",
+              caption: "Los nombres y montos son datos de ejemplo.",
+            }),
+            caseImage("aeromexico-reacomodo", "07-hifi-derechos.webp", 5160, 1880, {
+              alt: "Tus derechos según causa y horas: cancelación, demora de 2 a 4 horas, más de 4 horas y clima",
+            }),
+            caseImage("aeromexico-reacomodo", "08-hifi-otras-opciones.webp", 3960, 1880, {
+              alt: "Otras opciones: viajar otro día o pedir reembolso con el monto estimado antes de confirmar",
+            }),
+            caseImage("aeromexico-reacomodo", "09-hifi-confirmacion.webp", 3110, 1880, {
+              alt: "Confirmación con pase nuevo y vale de alimentos, y cambio a otro vuelo",
+            }),
+            caseImage("aeromexico-reacomodo", "05-design-system.webp", 3360, 7540, {
+              alt: "Design system: paleta oscura, Schibsted Grotesk, espaciado, radios, sombras, contraste WCAG y componentes",
+            }),
+            caseImage("aeromexico-reacomodo", "10-hifi-casos-borde.webp", 5160, 1880, {
+              alt: "Casos borde: sin vuelos hoy, varios pasajeros, boleto de agencia y sin conexión",
+            }),
+          ],
+        },
+        homeTeaser:
+          "Rediseño especulativo de cómo la app de Aeroméxico acompaña a un pasajero cuando su vuelo se retrasa o se cancela.",
+        contexto:
+          "Rediseño especulativo de cómo la app de Aeroméxico acompaña a un pasajero cuando su vuelo se retrasa o se cancela.\n\nPlataforma: app móvil iOS y Android, con notificación push como punto de entrada.\nDuración: 2 semanas (concept sprint).\nHerramientas: Figma, FigJam.\nFuera de alcance: algoritmo de reacomodo, reembolsos de agencias externas, grupos y menores no acompañados.",
+        problema:
+          "Aeroméxico es de las aerolíneas más puntuales del mundo, pero cuando un vuelo sí se cae, la app avisa y no resuelve: el reacomodo pasa a la fila o al teléfono. El pasajero se entera tarde, hace fila en mostrador o llama al call center, y no sabe qué le corresponde por ley.\n\nFlujo actual (según fuentes públicas, por verificar en la app): notificación de cambio → abrir app → Mis viajes / Estatus → no hay opciones de vuelo visibles → llamar al call center, escribir al bot de WhatsApp o hacer fila en mostrador → negociar el nuevo vuelo → buscar por separado qué compensación aplica.\n\nEvidencia pública:\n• En 2025 Aeroméxico operó cerca de 190 mil vuelos con 91.88% de puntualidad en salidas, según Cirium (El Financiero). Aun así, cerca de 8% de salidas no fueron puntuales.\n• La app tiene 3.5 millones de descargas; sus funciones publicadas son estatus, notificaciones, check-in y Mis viajes. No se menciona reacomodo (El Imparcial, App Store).\n• En la contingencia por lluvias del AICM (agosto 2025), el comunicado de Aeroméxico remitió a la web de estatus y a su página de políticas; no mencionó la app (comunicado, Vive USA).\n• En octubre 2025 se reportaron al menos 53 vuelos cancelados y 315 demorados en dos días por una disputa con pilotos (Mexico News Daily).\n• Reseñas en App Store se quejan de que \"te cambian vuelos sin previo aviso\" y de \"pésimo servicio al cliente\" (App Store).\n• La ley obliga a avisar del cambio y a ofrecer opciones según la demora, pero el pasajero debe conocerlas para pedirlas (Ley de Aviación Civil, art. 47 Bis).",
+        proceso: {
+          research:
+            "Los referentes de EE. UU. y Canadá ya resuelven el reacomodo dentro de la app; ninguno explica derechos de forma tan clara como lo exige la ley mexicana.\n• United: con demora de 60+ min, la home muestra si ya te reacomodaron, otros vuelos, vales de comida y hotel, y agente por chat o video. Qué tomamos: todo en la home; el problema es la pantalla principal mientras dura.\n• Delta: \"Trip Support\": ves alternativas sin costo, eliges una o buscas más, confirmas y recibes pase nuevo. Qué tomamos: una opción sugerida + \"ver otras opciones\", sin esconder la búsqueda.\n• Air Canada: reacomodo automático al siguiente vuelo disponible; si no te sirve, lo cambias en \"Manage my booking\". Qué tomamos: reacomodo por defecto que el pasajero puede aceptar o cambiar.\n\nUnited reporta que casi 50% de sus clientes ya se atiende solo por app o web durante interrupciones (United).\n\nInsights (hipótesis a validar en el test):\n1. La primera pregunta es \"¿a qué hora llego?\", no \"¿por qué?\". Las opciones deben ordenarse por hora de llegada.\n2. Los derechos dependen de horas y causa. Si la app calcula qué aplica (7.5% de descuento, 25% de indemnización), el pasajero no tiene que buscarlo.\n3. Aceptar debe ser reversible. Si el pasajero teme quedarse con un mal vuelo, prefiere la fila; un \"puedes cambiarlo después\" baja ese miedo.\n\nBenchmark por verificar con capturas actuales de cada app.\n\nHow Might We: ¿cómo podríamos hacer que un pasajero con vuelo demorado o cancelado sepa qué le corresponde y asegure un nuevo vuelo sin hacer fila ni llamar?\n\nHipótesis: si la app avisa con el vuelo alternativo ya sugerido, muestra los derechos calculados para su caso y permite aceptar en un toque, el pasajero resolverá su reacomodo desde el teléfono en menos de 2 minutos y con menos llamadas al call center.",
+          restricciones:
+            "Restricciones asumidas: respetar la identidad visual de Aeroméxico; solo ofrecer vuelos con asiento disponible; textos de derechos alineados al art. 47 Bis y revisados por legal.",
+          iteraciones:
+            "Tres direcciones en wireframes lo-fi; se eligió la C porque resuelve rápido sin quitarle control al pasajero.\n• A · Buscador: el aviso lleva a un buscador de vuelos con fecha y origen precargados. Descartada: familiar, pero traslada todo el trabajo al pasajero en un momento de estrés.\n• B · Automático: la aerolínea reacomoda sola y el pasajero solo recibe el pase nuevo. Descartada: más rápido, pero si el vuelo no le sirve vuelve a la fila; no muestra derechos.\n• C · Sugerido + alternativas: tarjeta con el mejor vuelo ya apartado, 2 o 3 alternativas debajo y derechos a un lado. Elegida: un toque si la sugerencia sirve, control si no; derechos visibles antes de decidir.\n\nEntregables de esta fase: wireframes lo-fi de A, B y C, flujo de usuario de la C con ramas de demora y cancelación y anotaciones de las decisiones.",
+          decisiones:
+            "• Hora de llegada como dato principal. Es lo que el pasajero reorganiza (conexión, trabajo, familia); el número de vuelo va en segundo plano.\n• Derechos antes del botón, no después. El pasajero decide entre reacomodo y reembolso sabiendo qué pierde o gana.\n• Causa dicha en lenguaje claro. \"Por clima\" o \"por operación de Aeroméxico\", porque de eso depende la compensación.\n• Salida humana siempre visible. Un acceso a agente por chat en cada pantalla, como hace United.\n• Identidad Aeroméxico intacta. Se usa su paleta y tipografía; el rediseño es de flujo, no de estilo.",
+          validacion:
+            "Plan, aún no realizado. Test de usabilidad moderado con 5 pasajeros que hayan volado en el último año, 15 a 20 minutos cada uno, por videollamada con el prototipo de Figma. Resultados: pendientes.\n\nTareas:\n1. \"Te llegó este aviso. Encuentra un vuelo que te lleve hoy a tu destino.\"\n2. \"Antes de aceptar, dime qué te corresponde por esta cancelación.\"\n3. \"Decides no viajar hoy. Pide tu reembolso.\"\n4. \"Ya aceptaste un vuelo, pero cambiaste de opinión. Elige otro.\"\n\nPreguntas de cierre:\n• ¿Qué hiciste la última vez que te demoraron o cancelaron un vuelo?\n• ¿Confiarías en aceptar desde la app sin hablar con nadie? ¿Por qué?\n• Del 1 al 5, ¿qué tan claro quedó lo que te corresponde?\n\nMétricas a medir:\n• Éxito por tarea: completó / con ayuda / no completó.\n• Tiempo en tarea 1: segundos desde el aviso hasta confirmar vuelo.\n• Comprensión de derechos: respuesta en tarea 2 correcta / parcial / incorrecta.\n• Errores: toques en opción o vuelo equivocado.\n• Confianza percibida: escala 1 a 5 al cierre.\n\nPara el \"antes vs. después\", se pediría la tarea 1 en la app actual para comparar pasos y tiempo.",
+        },
+        solucionFinal:
+          "Mientras dura la interrupción, la home de la app se vuelve un centro de reacomodo: qué pasó, tu mejor opción y lo que te corresponde.\n\nPantallas:\n1. Notificación: \"Tu vuelo AM 123 se canceló. Te apartamos el AM 127, llegas 19:40.\" Abre directo a la tarjeta de reacomodo.\n2. Reacomodo: vuelo sugerido arriba con hora de llegada y asiento; debajo 2 o 3 alternativas ordenadas por llegada; botón \"Aceptar este vuelo\".\n3. Tus derechos: panel según causa y horas: alimentos, descuento mínimo de 7.5% (2 a 4 h) o reembolso / vuelo con indemnización mínima de 25% (cancelación o más de 4 h), citando el art. 47 Bis.\n4. Otras opciones: viajar otro día o pedir reembolso, con el monto estimado visible antes de confirmar.\n5. Confirmación: pase de abordar nuevo, vales digitales si aplican y \"Puedes cambiarlo hasta 2 h antes\" (regla a definir con negocio).\n\nAccesibilidad:\n• Estados (cancelado, demorado, confirmado) con texto e ícono, no solo color.\n• Contraste AA mínimo; horas en tamaño grande para lectura rápida en sala de espera.\n• Áreas táctiles de 44 × 44 pt; orden de lectura lógico para VoiceOver y TalkBack.\n• Lenguaje llano en derechos: sin \"concesionario\" ni \"permisionario\".\n\nEstados y casos borde: demora corta sin derechos (menos de 1 h) · causa no imputable a la aerolínea (clima) · sin vuelos disponibles hoy · reserva con varios pasajeros · conexión perdida · boleto comprado en agencia (redirigir) · sin conexión (última información en caché y hora de actualización).",
+        resultado:
+          "Concepto sin lanzar. Todavía no hay resultados: el test de usabilidad está planeado, no realizado.",
+        aprendizaje:
+          "• En aerolíneas, la puntualidad alta no elimina el problema: el cerca de 8% que falla define la experiencia de quien lo vive.\n• Explicar derechos no es solo legal; es lo que permite decidir entre reacomodo y reembolso sin miedo.\n• Siguiente: correr el test, validar los textos de derechos con un abogado y explorar la versión para rutas a EE. UU., donde el DOT exige reembolso automático tras 6+ h de demora en vuelos internacionales (CBS News).",
       },
     ],
     stats: [

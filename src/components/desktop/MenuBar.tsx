@@ -56,7 +56,9 @@ export function MenuBar() {
   const { locale, setLocale, t } = useLocale();
   const dc = desktopContent[locale];
   const { theme, setTheme } = useTheme();
-  const { focused, open: openApp } = useWM();
+  const { wins, focused, open: openApp } = useWM();
+  // On phones an open app is full screen, with nothing above it but its own nav bar.
+  const appOpen = Object.values(wins).some((w) => w && !w.minimized);
   const [open, setOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -80,7 +82,11 @@ export function MenuBar() {
     "flex w-full items-center rounded-md px-2 py-1 text-left text-[13px] hover:bg-accent hover:text-accent-fg";
 
   return (
-    <div className="menubar fixed inset-x-0 top-0 z-[2000] flex h-7 items-center justify-between px-3 text-[13px] max-md:h-11 max-md:px-5">
+    <div
+      className={`menubar fixed inset-x-0 top-0 z-[2000] flex h-7 items-center justify-between px-3 text-[13px] max-md:h-11 max-md:px-5 ${
+        appOpen ? "max-md:hidden" : ""
+      }`}
+    >
       <div className="flex items-center gap-1" ref={menuRef}>
         <button
           type="button"

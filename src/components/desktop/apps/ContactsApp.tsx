@@ -110,7 +110,7 @@ export function ContactsApp({ win }: { win: WinState }) {
           </div>
         </aside>
 
-        <div className="@container min-w-0 flex-1 overflow-y-auto rounded-[20px] bg-win px-6 py-7 shadow-[0_0_0_0.5px_var(--line)] max-md:rounded-none max-md:shadow-none sm:px-10 sm:py-9">
+        <div className="@container min-w-0 flex-1 overflow-y-auto rounded-[20px] bg-win px-6 py-7 shadow-[0_0_0_0.5px_var(--line)] max-md:rounded-none max-md:shadow-none sm:px-10 sm:py-9 max-md:pb-32">
           <div className="mx-auto max-w-[960px]">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex min-w-0 items-center gap-4">
@@ -156,11 +156,11 @@ export function ContactsApp({ win }: { win: WinState }) {
               {site.tagline}
             </p>
 
-            <div className="mt-6 flex flex-wrap items-center gap-2.5">
+            <div className="mt-6 flex items-center gap-2.5">
               <button
                 type="button"
                 onClick={() => open("figma")}
-                className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-accent-fg shadow-[0_6px_18px_-4px_var(--accent)] transition-transform hover:-translate-y-0.5"
+                className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold whitespace-nowrap text-accent-fg transition-opacity hover:opacity-90"
               >
                 {dc.viewProjects}
                 <IconArrowRight className="h-4 w-4" />
@@ -168,9 +168,10 @@ export function ContactsApp({ win }: { win: WinState }) {
               <button
                 type="button"
                 onClick={() => open("preview")}
+                aria-label={dc.openCV}
                 className="rounded-full bg-hover px-5 py-2.5 text-[14px] font-semibold transition-colors hover:bg-sel"
               >
-                {dc.openCV}
+                CV
               </button>
             </div>
 

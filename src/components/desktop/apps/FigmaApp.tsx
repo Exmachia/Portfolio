@@ -245,7 +245,7 @@ function FigmaHome({
               </button>
             ))}
           </div>
-          <ul className="mt-5 grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-x-4 gap-y-6 sm:grid-cols-[repeat(auto-fill,minmax(210px,1fr))] sm:gap-x-5 sm:gap-y-7">
+          <ul className="mt-5 grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-x-4 gap-y-6 sm:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] sm:gap-x-6 sm:gap-y-8 xl:grid-cols-[repeat(auto-fill,minmax(380px,1fr))] xl:gap-x-8 xl:gap-y-10">
             {shown.map((c) => (
               <li key={c.slug}>
                 <button
@@ -259,7 +259,7 @@ function FigmaHome({
                         src={c.image}
                         alt=""
                         fill
-                        sizes="260px"
+                        sizes="(max-width: 640px) 50vw, 440px"
                         className="object-cover"
                       />
                     ) : (

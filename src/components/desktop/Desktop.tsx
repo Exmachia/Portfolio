@@ -61,10 +61,10 @@ const MOBILE_APPS: AppId[] = [
 // Default spots for the .fig files, stacked under the CV (Tailwind needs the
 // full class names written out).
 const FIG_FILE_SLOTS = [
-  "top-[124px] right-5",
-  "top-[236px] right-5",
-  "top-[348px] right-5",
-  "top-[460px] right-5",
+  "top-[128px] right-5",
+  "top-[256px] right-5",
+  "top-[384px] right-5",
+  "top-[512px] right-5",
 ];
 
 // Keeps the address bar shareable: the focused window decides the URL, and
@@ -107,7 +107,7 @@ function DesktopLayer() {
 
   return (
     <div className="pointer-events-none absolute inset-0 pt-11 md:pt-7">
-      <div className="relative flex min-h-full flex-col px-6 pt-8 pb-16 md:block md:min-h-0 md:px-0 md:pt-0 md:pb-0">
+      <div className="relative flex min-h-full flex-col px-6 pt-8 pb-40 md:block md:min-h-0 md:px-0 md:pt-0 md:pb-0">
         <DesktopFile
           id="cv"
           label={dc.preview.fileName}

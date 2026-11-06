@@ -91,11 +91,11 @@ export function PdfFileIcon({ className = "h-full w-full" }: { className?: strin
 // with the Figma badge in the corner.
 export function FigFileIcon({ src }: { src: string }) {
   return (
-    <span className="relative block h-[60px] w-[84px]">
-      <span className="absolute inset-x-0 top-[7px] block h-[47px] overflow-hidden rounded-[5px] bg-white shadow-[0_0_0_2px_#fff,0_0_0_2.5px_rgba(0,0,0,0.12),0_6px_14px_rgba(0,0,0,0.3)]">
-        <Image src={src} alt="" fill sizes="84px" className="object-cover" />
+    <span className="relative block h-[80px] w-[112px]">
+      <span className="absolute inset-x-0 top-[8px] block h-[63px] overflow-hidden rounded-[6px] bg-white shadow-[0_0_0_2px_#fff,0_0_0_2.5px_rgba(0,0,0,0.12),0_6px_14px_rgba(0,0,0,0.3)]">
+        <Image src={src} alt="" fill sizes="224px" className="object-cover" />
       </span>
-      <span className="absolute -right-1.5 -bottom-0.5 block h-[22px] w-[22px] drop-shadow-md">
+      <span className="absolute -right-2 -bottom-0.5 block h-[28px] w-[28px] drop-shadow-md">
         <AppIcon id="figma" />
       </span>
     </span>
