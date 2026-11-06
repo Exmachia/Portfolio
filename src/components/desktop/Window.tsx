@@ -236,15 +236,15 @@ export function Window({
           <button
             type="button"
             onClick={mobile?.back?.onClick ?? (() => close(win.id))}
+            aria-label={mobile?.back?.label ?? labels.home}
             className="ios-back"
           >
             <BackChevron />
-            <span className="truncate">{mobile?.back?.label ?? labels.home}</span>
           </button>
-          <h2 className="truncate text-center text-[17px] font-semibold tracking-[-0.01em]">
+          <h2 className="truncate px-1 text-center text-[17px] font-semibold tracking-[-0.01em]">
             {mobile?.title ?? title}
           </h2>
-          <div className="flex min-w-0 items-center justify-end gap-1">
+          <div className="flex min-w-0 items-center justify-end gap-2">
             {mobile?.actions}
           </div>
         </nav>

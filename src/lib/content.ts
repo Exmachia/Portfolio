@@ -1234,6 +1234,213 @@ export const content: Record<Locale, ContentBundle> = {
         aprendizaje:
           "• In airlines, high punctuality doesn't remove the problem: the roughly 8% that fails defines the experience of whoever lives it.\n• Explaining rights isn't only legal; it's what lets people choose between rebooking and a refund without fear.\n• Next: run the test, validate the rights wording with a lawyer and explore the version for routes to the US, where the DOT requires an automatic refund after 6+ hours of delay on international flights (CBS News).",
       },
+      {
+        slug: "volaris-precio-total",
+        title: "Volaris Total Price",
+        subtitle: "Your flight's price with what you actually carry, from the results",
+        concept: true,
+        image: "/projects/volaris-precio-total/01-cover.webp",
+        imageAlt:
+          "Cover of the What are you carrying? concept project, not affiliated with Volaris, with three screens of the redesign",
+        images: {
+          overview: [
+            caseImage("volaris-precio-total", "02-antes.webp", 3895, 1876, {
+              alt: "Recreation of the current flow, to verify: search, results with base fare, choose fare, passengers, extras and payment with the total going up",
+              caption: "Recreation of the current flow. Not a capture of the app, and the flow is still to be verified.",
+            }),
+          ],
+          process: [
+            caseImage("volaris-precio-total", "04-lofi-direcciones.webp", 3120, 3780, {
+              alt: "Three grayscale directions: A fare table, B checkout notice and C configurator, the chosen one, with the table of baggage rules to suggested fare",
+            }),
+            caseImage("volaris-precio-total", "03-user-flow.webp", 3882, 1288, {
+              alt: "User flow for direction C: search, what you carry, results with total, breakdown and checkout, with states",
+            }),
+          ],
+          solution: [
+            caseImage("volaris-precio-total", "06-hifi-que-llevas.webp", 7484, 1872, {
+              alt: "What are you carrying? screen with the measurements of each option, carry-on, 25 kg, counts as carry-on and decide later",
+              caption: "Names and amounts are sample data.",
+            }),
+            caseImage("volaris-precio-total", "07-hifi-resultados.webp", 3110, 1872, {
+              alt: "Results with the total per person based on baggage, with the base fare as secondary text",
+            }),
+            caseImage("volaris-precio-total", "08-hifi-desglose.webp", 2836, 1872, {
+              alt: "Breakdown when tapping a flight: suggested fare and a Plus alternative with the difference in pesos",
+            }),
+            caseImage("volaris-precio-total", "09-hifi-checkout.webp", 2244, 1872, {
+              alt: "Checkout without surprises and a notice when the price changes",
+            }),
+            caseImage("volaris-precio-total", "05-design-system.webp", 3360, 6848, {
+              alt: "Design system: colors, Nunito Sans, spacing, radii, shadows, WCAG contrast and components",
+            }),
+            caseImage("volaris-precio-total", "10-hifi-casos-borde.webp", 4568, 1872, {
+              alt: "Edge cases: several passengers, round trip by leg, international and seats sold out",
+            }),
+          ],
+        },
+        homeTeaser:
+          "A speculative redesign of the start of the flight purchase on volaris.com and the app.",
+        contexto:
+          "A speculative redesign of the start of the flight purchase on volaris.com and the app.\n\nPlatform: mobile web and iOS / Android app.\nDuration: 2 weeks (concept sprint).\nTools: Figma, FigJam.\nOut of scope: the legal position on baggage fees, pricing logic, check-in and boarding.",
+        problema:
+          "The Zero fare, the most visible one, includes only a personal item. Carry-on, checked bag and seat are added later, and the real price only appears at checkout or at the airport. The price users compare while searching isn't the one they pay: with a carry-on, the fare can cost double.\n\nCurrent purchase flow (to verify with captures): Search flight → results with base fare price → choose fare → passenger details → extras (baggage, seat) → payment. Baggage is decided in step 5, after choosing the flight.\n\nPending: confirm fare names (the official page says Flex, Expansión reports Básica).\n\nPublic evidence:\n• The Zero fare includes only a personal item; carry-on and checked bags are added at a cost (Volaris, Fares).\n• Flex forces you to pick just one: carry-on, 15 kg checked or a seat. Plus includes carry-on and 25 kg (Volaris, Fares).\n• Volaris recommends adding baggage before arriving; at the airport \"current rates\" apply (Volaris, Carry-on baggage).\n• In a Mexico City–Monterrey simulation, Zero cost $945 and Plus $1,943: $998 more to bring a carry-on (Expansión, May 2026).\n• The Civil Aviation Law (art. 47 Bis) allows two pieces in the cabin of 55 × 40 × 25 cm and 10 kg in total. In 2021 Profeco put suspension seals on Volaris for charging for it (Expansión, Nov 2021).\n• In the first 5 days of the summer 2025 operation, Volaris added 18 conciliations at Profeco; there were complaints about improper carry-on baggage charges (El Imparcial, Jul 2025).\n• Profeco's recommendation repeated by the press: compare the total cost, not the base fare (El Imparcial, May 2026).\n\nThe legal debate about the charge isn't solved by design. What can be designed is that the total price is visible before choosing.",
+        proceso: {
+          research:
+            "The references ask what you're carrying before showing prices; Volaris asks after you've already chosen a flight.\n• Google Flights: a \"Bags\" filter: you choose carry-on and checked bags and the results' prices update with those charges. What we took: declare baggage once and recalculate all results.\n• KAYAK: a fee calculator above the results; each fare shows what it includes next to the price. What we took: put the configurator on top, not in a later step.\n• Viva Aerobus: Zero, Switch and Smart packages with a difference in pesos (+$608, +$1,893) against the base. What we took: show the delta in pesos, not just the list of benefits.\n\nInsights (hypotheses to validate in the test):\n1. Users know what they carry before searching. \"I'm bringing a carry-on\" is an input, not an extra discovered at the end.\n2. They compare flights by the big number. If that number is the Zero fare, they're comparing prices they won't pay.\n3. The surprise is paid twice. In money at the airport and in trust toward the brand.\n\nBenchmark to verify with current captures of each app.\n\nHow Might We: how might we let a passenger see the final price of their trip, with what they actually carry, from the first results screen?\n\nHypothesis: if users declare their baggage and seat before seeing results, and each flight shows the total with that included, they'll pick the right fare the first time. There will be fewer fare changes at checkout and less baggage paid at the airport.",
+          restricciones:
+            "Assumed constraints: respect the Zero, Flex and Plus fares as they exist; don't change prices or policies; Volaris's visual identity intact.",
+          iteraciones:
+            "Three directions as lo-fi wireframes; C was chosen because it's the only one that changes the number users compare.\n• A · Fare table: when you tap a flight, a Zero / Flex / Plus table with what each includes. Discarded: it already exists in essence; it still compares flights by base price.\n• B · Checkout notice: a \"you're missing a carry-on\" summary before paying. Discarded: it comes too late; the flight was already chosen at the wrong price.\n• C · \"What are you carrying?\" configurator: a row of icons above the results: personal item, carry-on, checked bag, seat. Chosen: it recalculates the total of all flights and picks the cheapest fare that covers what you carry.\n\nDeliverables of this phase: lo-fi wireframes of A, B and C, the user flow for C, a \"chosen baggage → suggested fare\" rules table and decision annotations.",
+          decisiones:
+            "• Total on top, base below. The big number is the price with your baggage; the base fare stays as secondary text.\n• The system picks the fare, the user picks what they carry. If you carry a carry-on and 15 kg, it suggests the cheapest combination among Zero + extras, Flex or Plus.\n• Measurements visible, not hidden in policies. Each icon shows cm and kg so users know whether their bag counts as carry-on.\n• Volaris identity intact. It uses the brand's palette and typography; the change is in the order of the flow, not the style.",
+          validacion:
+            "A plan, not yet carried out. Moderated usability test with 5 people who flew a low-cost airline in the last year, 15 to 20 minutes each, over video call with the Figma prototype. Results: pending.\n\nTasks:\n1. \"Search for a Mexico City–Cancún flight. You're traveling with a carry-on. Pick the cheapest one.\"\n2. \"Before paying, tell me how much you think you'll pay in total.\"\n3. \"Now add a 25 kg checked bag. Which fare suits you?\"\n4. \"Your bag is 60 cm tall. Does it count as carry-on?\"\n\nClosing questions:\n• Have you ever paid for baggage at the airport that you didn't expect?\n• What was the most confusing thing about this version?\n• From 1 to 5, how much do you trust that the price shown is the final one?\n\nMetrics to measure:\n• Task success: completed / with help / didn't complete.\n• Total accuracy: the difference between the total the user estimates (task 2) and the real one.\n• Correct fare: did they pick the cheapest option that covers their baggage?\n• Trust in the price: 1 to 5 scale at the end.\n\nRunning tasks 1 and 2 on Volaris's current flow would give the \"before vs. after\".",
+        },
+        solucionFinal:
+          "The search starts by asking what you carry; from there, every price on screen is the one you're going to pay.\n\nScreens:\n1. What are you carrying?: four icons with measurements: personal item (35 × 45 × 20 cm), carry-on (55 × 40 × 25 cm, 10 kg), checked (15 or 25 kg) and seat. Personal item checked by default.\n2. Results with total: each flight shows the final price per person with what's chosen and a label: \"Includes your carry-on\".\n3. Breakdown on tap: suggested fare + extras, with the alternative: \"Plus costs $X more and includes changes\".\n4. Checkout without surprises: the total doesn't change from the results; if it does, it's explained in one line before paying.\n\nAccessibility:\n• Each option in the configurator is a toggle with a text label, not just an icon.\n• Minimum AA contrast on prices and labels over brand backgrounds.\n• 44 × 44 pt touch targets; the screen reader announces \"Total with carry-on: $X\".\n\nStates and edge cases: several passengers with different baggage · round trip with different baggage per leg · international flight with different rules · seats sold out · a user who doesn't know what they carry (\"Decide later\", with a notice of the airport cost) · price that changes between results and payment.",
+        resultado:
+          "An unlaunched concept. There are no results yet: the usability test is planned, not carried out.",
+        aprendizaje:
+          "• In low-cost airlines, the problem isn't the charge but the moment it's shown.\n• Changing the order of the flow can be worth more than redesigning screens: ask first, charge later.\n• Next: run the test, validate the suggested-fare rule on more routes and explore the configurator per passenger in group bookings.",
+      },
+      {
+        slug: "viva-viaje-en-grupo",
+        title: "Viva Aerobus Group Travel",
+        subtitle: "Seats and check-in for the whole family in a single flow",
+        concept: true,
+        image: "/projects/viva-viaje-en-grupo/01-cover.webp",
+        imageAlt:
+          "Cover of the Seats and check-in for the whole family concept project, not affiliated with Viva Aerobus, with three screens of the redesign",
+        images: {
+          overview: [
+            caseImage("viva-viaje-en-grupo", "02-antes.webp", 3895, 1879, {
+              alt: "Recreation of the estimated flow, to verify in the app: My trips, booking, seats per passenger, payment and check-in per passenger",
+              caption: "Recreation of the current flow. Not a capture of the app, and the flow is still to be verified.",
+            }),
+          ],
+          process: [
+            caseImage("viva-viaje-en-grupo", "04-lofi-direcciones.webp", 3120, 2588, {
+              alt: "Three grayscale directions: A step per passenger, B Sit us together button and C group map, the chosen one",
+            }),
+            caseImage("viva-viaje-en-grupo", "03-user-flow.webp", 3882, 1288, {
+              alt: "User flow for direction C with 2 adults, 1 girl and 1 baby, and its states",
+            }),
+          ],
+          solution: [
+            caseImage("viva-viaje-en-grupo", "06-hifi-grupo-y-mapa.webp", 8000, 1858, {
+              alt: "Your group and group map: everyone together, minors with their adult, moving a token, a minor without an adult and list mode",
+              caption: "Names and amounts are sample data.",
+            }),
+            caseImage("viva-viaje-en-grupo", "07-hifi-comparar.webp", 1378, 1876, {
+              alt: "Compare options: everyone together, minors with their adult and assignment at check-in with a risk notice",
+            }),
+            caseImage("viva-viaje-en-grupo", "08-hifi-check-in.webp", 3702, 1876, {
+              alt: "Group check-in, mixed fares and a minor with a third party",
+            }),
+            caseImage("viva-viaje-en-grupo", "09-hifi-pases.webp", 2518, 1876, {
+              alt: "Boarding passes and a who-sits-where summary to share",
+            }),
+            caseImage("viva-viaje-en-grupo", "05-design-system.webp", 3360, 10264, {
+              alt: "Design system: colors, Albert Sans, spacing, radii, shadows, icons, components and WCAG contrast",
+            }),
+            caseImage("viva-viaje-en-grupo", "10-hifi-casos-borde.webp", 5434, 1876, {
+              alt: "Edge cases: no adjacent block, aircraft change, more babies than adults, a baby in an exit row and offline",
+            }),
+          ],
+        },
+        homeTeaser:
+          "A speculative redesign of how a family or group chooses seats and checks in on Viva's app.",
+        contexto:
+          "A speculative redesign of how a family or group chooses seats and checks in on Viva's app.\n\nPlatform: iOS and Android mobile app.\nDuration: 2 weeks (concept sprint).\nTools: Figma, FigJam.\nOut of scope: pricing logic, immigration rules by country and baggage sales.",
+        problema:
+          "A booking with several passengers (including minors) forces deciding seats and check-in person by person, without clearly seeing who sits next to whom or how much it costs to sit together. Viva sells the app as the fast way to travel \"with your family and friends\", but seats and check-in are still designed for one passenger at a time.\n\nEstimated current flow (to verify in the app): My trips → booking → Seats → choose passenger → choose seat → repeat for every passenger → pay → Check-in → confirm each passenger's details → boarding passes. With 4 passengers, the seat and details steps repeat 4 times.\n\nHypothesis to verify with captures: the cost of sitting together only appears added up at the end, and the map doesn't show which minor sits next to which adult.\n\nPublic evidence:\n• Check-in opens depending on the fare: Zero 4 hours before, Light 8 hours, Smart 10 days. A family with mixed fares can't check everyone in at the same time (Viva Blog).\n• Web and WhatsApp check-in starts with the code and last name of a single passenger (Viva Blog).\n• Babies from 7 days to under 2 years travel on a lap, not in an emergency row, and only one per adult (Viva Blog).\n• A minor traveling with a third party requires a release letter signed by a parent or guardian (Viva, PDF).\n• The app has 4.8 stars with 119 thousand ratings on the Mexican App Store and promises \"Add companions\" (App Store).\n• No public Viva page was found guaranteeing free adjacent seats for minors. Verify in the terms and conditions.\n• Regulatory context: the US proposed in August 2024 to require seating children under 13 next to an adult for free (DOT). Viva operates routes to the US.\n• In June 2026, the UK competition regulator investigated Ryanair for charging parents around €9 to sit with their children (Xataka).\n• In February 2026, Southwest assigned a 2-year-old to another row because the family hadn't paid for seats (Semana).\n• Profeco logged 314 formal complaints against Viva in 2025 through May; the main reasons were cancellations, baggage and refunds, not seats (El Imparcial).",
+        proceso: {
+          research:
+            "The references treat \"seat the family together\" as a system rule; at Viva today it looks like an individual purchase.\n• United: since 2023, children under 12 sit next to an adult at no cost, even in Basic Economy. The map shows the free seats available when booking. If there are no adjacent ones, a flight change at no cost. What we took: mark on the map which seats put the family together and how much they cost.\n• Ryanair: children aged 2 to 11 go next to an adult from the same booking; with free random assignment, only minors are guaranteed. Other adults and teenagers may end up separated. What we took: separate \"the mandatory\" (minor + adult) from \"the optional\" (the whole group together) and state the price of each.\n• Southwest: tries to seat children under 12 with an adult at no cost, but automatic assignment separated a 2-year-old in 2026. What we took: a counterexample; \"trying\" isn't enough; show the outcome before the flight and warn if there's risk.\n\nInsights (hypotheses to validate in the test):\n1. Families think in \"who sits with whom\", not seat numbers. \"Mom with the baby, dad with the 7-year-old\" matters more than \"14B and 14C\".\n2. The fear is being separated, not the price. If the cost of sitting together is clear and early, the decision is made without anxiety.\n3. Check-in is a group chore. Whoever books wants to do it once for everyone, with the minors' details already saved.\n\nBenchmark to verify with current captures of each app.\n\nHow Might We: how might we let whoever books for their family see who sits next to whom, know what it costs, and check everyone in with a single flow?\n\nHypothesis: if the seat map shows each passenger with an avatar, suggests an adjacent block with its total price, and check-in processes the whole group at once, families will complete seats and check-in in fewer steps, with fewer errors and without minors separated from their adult.",
+          restricciones:
+            "Assumed constraints: respect Viva's visual identity; don't change fares or seat prices, only show them better; comply with safety rules (babies on a lap outside the emergency row, one baby per adult).",
+          iteraciones:
+            "Three directions as lo-fi wireframes; C was chosen because it's the only one that lets you see both the outcome (who sits where) and the price at once.\n• A · Step per passenger: the same as today, but with a better UI: one map per passenger. Discarded: clean, but it doesn't solve the problem; users still build the group from memory.\n• B · \"Sit us together\" button: a single button assigns the best block and charges the total. Discarded: fast, but it removes control; you can't see which minor sits with which adult.\n• C · Group map: all passengers as draggable tokens on the map, with a suggested block and its price. Chosen: it suggests by default, lets you adjust, and the total changes live.\n\nDeliverables of this phase: lo-fi wireframes of A, B and C, the user flow for C with a booking of 2 adults, 1 child and 1 baby, and decision annotations.",
+          decisiones:
+            "• People before numbers. The token shows an initial and a name (\"Ana, 7\"); the seat number goes at a second level.\n• Total price, not per seat. \"Sit together: $X for 4\" instead of four separate prices the user adds up.\n• The system protects the minor. It doesn't let you confirm if a minor ends up without an adjacent adult; it explains why and proposes the nearest free seat.\n• Explicit mixed fares. If a passenger on a Zero fare can't check in yet, it shows when it opens and schedules a reminder, instead of an error.\n• Viva identity intact. It uses the brand's green and typography; the redesign is about structure, not style.",
+          validacion:
+            "A plan, not yet carried out. Moderated usability test with 5 people who flew with minors in the last year, 15 to 20 minutes each, over video call with the Figma prototype. Results: pending.\n\nTasks (test booking: 2 adults, a 7-year-old girl, a 1-year-old baby):\n1. \"Choose seats so your daughter sits next to an adult. Tell me how much you'll pay before confirming.\"\n2. \"Now seat all four together. How much did the price change?\"\n3. \"Check in the whole family.\"\n4. \"Show your partner who sits in which seat.\"\n\nClosing questions:\n• How do you choose seats today when you travel as a family?\n• What was the most confusing thing about this version?\n• From 1 to 5, how sure did you feel that your daughter was next to an adult?\n\nMetrics to measure:\n• Task success: completed / with help / didn't complete.\n• Price accuracy: did they state the correct total before confirming in task 1?\n• Time on task 3: seconds from \"Check-in\" until seeing all the passes.\n• Errors: a minor without an adjacent adult, wrong seat, a passenger left out.\n• Perceived confidence: 1 to 5 scale at the end.\n\nComparing against the current app with the same tasks 1 and 3 would give the \"before vs. after\".",
+        },
+        solucionFinal:
+          "\"Seats\" and \"Check-in\" become a single group flow: a map where each passenger is a token, with the price of sitting together visible from the start.\n\nScreens:\n1. Your group: a list of the booking's passengers with age, type (adult, child, baby on a lap) and fare. This is where minors are paired with their adult.\n2. Group map: a suggested adjacent block with the tokens already placed. Drag a token to change; the total updates live.\n3. Compare options: three cards: \"Everyone together\" (total price), \"Minors with their adult\" (price) and \"Assignment at check-in\" (with a risk notice).\n4. Group check-in: a single confirmation for everyone; minors' details and documents preloaded from \"companions\".\n5. Boarding passes: a carousel with all the passes and a \"who sits where\" summary view to share.\n\nAccessibility:\n• Passenger type is communicated with text and an icon, not only color.\n• Dragging has an alternative: tap a token and then tap a seat, and a list mode for screen readers (\"Ana, age 7: seat 14B, next to Laura\").\n• Minimum AA contrast on the map; 44 × 44 pt touch targets.\n\nStates and edge cases: baby on a lap (no seat, not allowed in the emergency row) · more babies than adults · no adjacent block available · an aircraft change that breaks the block · mixed fares with check-in at different times · a minor with a third party (requires a release letter) · offline (passes cached).",
+        resultado:
+          "An unlaunched concept. There are no results yet: the usability test is planned, not carried out.",
+        aprendizaje:
+          "• In low-cost airlines, price transparency can be the UX improvement, without changing the business model.\n• Designing for the group changes the unit of the flow: from \"passenger\" to \"booking\".\n• Regulation is moving (US, UK); a design that already separates \"mandatory\" from \"optional\" adapts easily if the rules change.\n• Next: capture the current flow, run the test and explore notices for when an aircraft change breaks the seat block.",
+      },
+      {
+        slug: "delta-modo-conexion",
+        title: "Delta Connection Mode",
+        subtitle: "A clear verdict on whether you make your next flight",
+        concept: true,
+        image: "/projects/delta-modo-conexion/01-cover.webp",
+        imageAlt:
+          "Cover of the Will I make it or not? concept project, not affiliated with Delta Air Lines, with three screens of the redesign",
+        images: {
+          overview: [
+            caseImage("delta-modo-conexion", "02-antes.webp", 3895, 1859, {
+              alt: "Recreation of the current flow, to verify in the app: gate notification, flight card, map, hand calculation, immigration left out of the calculation and rebooking",
+              caption: "Recreation of the current flow. Not a capture of the app, and the flow is still to be verified.",
+            }),
+          ],
+          process: [
+            caseImage("delta-modo-conexion", "04-lofi-direcciones.webp", 3120, 2640, {
+              alt: "Three grayscale directions: A card in Today, B map first and C connection mode, the chosen one",
+            }),
+            caseImage("delta-modo-conexion", "03-user-flow.webp", 3896, 1446, {
+              alt: "User flow for direction C with the On time, Tight and At risk states, route, plan B and edge cases",
+            }),
+          ],
+          solution: [
+            caseImage("delta-modo-conexion", "06-hifi-veredicto.webp", 5160, 1888, {
+              alt: "Live Activity and verdict in its three states: On time, Tight and At risk",
+              caption: "Names and amounts are sample data.",
+            }),
+            caseImage("delta-modo-conexion", "07-hifi-ruta.webp", 3702, 1888, {
+              alt: "Your route: domestic, with immigration and the existing map",
+            }),
+            caseImage("delta-modo-conexion", "08-hifi-plan-b.webp", 3110, 1888, {
+              alt: "Plan B: options, already rebooked and flight confirmed",
+            }),
+            caseImage("delta-modo-conexion", "05-design-system.webp", 3360, 9048, {
+              alt: "Design system: colors, Source Sans 3, spacing, radii, shadows, components, icons and WCAG contrast",
+            }),
+            caseImage("delta-modo-conexion", "09-hifi-estados.webp", 8000, 1880, {
+              alt: "States: gate change, delayed departure, separate tickets, no signal, long connection and mobility assistance",
+            }),
+          ],
+        },
+        homeTeaser:
+          "A speculative redesign of how the Fly Delta app supports a passenger during a short layover.",
+        contexto:
+          "A speculative redesign of how the Fly Delta app supports a passenger during a short layover.\n\nPlatform: iOS and Android mobile app, plus Live Activity on iOS.\nDuration: 2 weeks (concept sprint).\nTools: Figma, FigJam.\nOut of scope: deciding whether to hold a flight (operations), real immigration line times and backend logic.",
+        problema:
+          "When landing with little time, the passenger pieces together loose data (gate, boarding time, map, notifications) to answer a single question: will I make it or not? Fly Delta already has the pieces of a connection (gate, status, maps, alerts, rebooking), but scattered. Nobody brings them together into a \"you make it / you don't\" verdict.\n\nCurrent flow when landing with a short connection (to verify in the app): gate notification → open app → Today tab → next flight card → tap the gate to open the map → calculate by hand gate closing time minus walking time. If there's immigration or security, the app doesn't add it to the calculation (to verify).\n\nPublic evidence:\n• Delta describes the Today tab as a \"one-stop\" view with boarding pass, gate, status and airport maps (Delta Pro).\n• Connecting gate information is offered \"via maps\"; remaining time or risk isn't mentioned (Delta Pro, 2023).\n• Version 7.0 (May 2025) adds Live Activities with a gate-closing notice, iOS 16+ only and not Android (Delta News).\n• If you miss the connection, Delta \"may have already rebooked you\"; the user has to check the new flight, check in and pick seats (Delta.com).\n• In 2025, 76.4% of flights by reporting US airlines arrived on time; Delta Network, 79.3%. One in five flights arrives late (DOT ATCR, Feb 2026).\n• When arriving from an international flight to the US, you go through customs, pick up bags, check them in again and repeat security (The Points Guy).\n• Public App Store reviews: \"my international layover went from 1 hour and 45 minutes to only 40 minutes\"; another describes arriving at A14 with a departure at A42 and \"less than 30 minutes to travel\" (App Store).",
+        proceso: {
+          research:
+            "The references treat the connection as a task with a countdown and steps; Fly Delta treats it as one more flight in the list.\n• United: a connection page with live status, a countdown and step-by-step directions to the gate; if you don't make it, you rebook for free in the app. It reports 98% of connections made in its test (TechRadar). What we took: a single screen dedicated to the connection and the emergency exit in the same place.\n• Flighty: Connection Assistant: a step guide (security, bags, terminal change) with typical times for each; it estimates immigration by citizenship. What we took: break time down into steps, not just distance.\n• Fly Delta (current): gate, status, maps and alerts in the Today tab; Live Activity with gate closing on iOS. The data already exists; it needs to be joined into a verdict.\n\nInsights (hypotheses to validate in the test):\n1. The question is binary. Passengers want to know \"do I make it?\" before the exact gate; the verdict must come first.\n2. Real time isn't distance. Immigration, security and bags weigh more than walking; hiding them gives false calm.\n3. Plan B lowers stress even if it isn't used. Knowing what happens if you don't make it reduces anxiety during the rush.\n\nBenchmark to verify with current captures of each app.\n\nHow Might We: how might we let a passenger with a short layover know in 3 seconds whether they make their flight and what to do if they don't?\n\nHypothesis: if on landing we show a verdict with remaining time, mandatory steps and a visible plan B, passengers will take the right route faster and with fewer doubts than building the calculation from Today and the map.",
+          restricciones:
+            "Assumed constraints: respect Delta's visual identity; use only data the app already shows (gate, status, maps, rebooking); work with weak signal on the plane and the jet bridge.",
+          iteraciones:
+            "Three directions as lo-fi wireframes; C was chosen because it's the only one that answers \"will I make it?\" without opening the app.\n• A · Card in Today: a new block on top of Today with remaining time and gate. Discarded: low cost, but it competes with the boarding pass and offers; the risk gets lost.\n• B · Map first: on landing, the map opens with the route drawn and a counter. Discarded: useful for walking, but it doesn't show immigration or plan B; the map is slow to load with weak signal.\n• C · Connection mode: a dedicated screen that activates on landing, with a verdict, steps and plan B; mirrored in a Live Activity. Chosen: the verdict on the lock screen and detail one tap away; it reuses data Delta already has.\n\nDeliverables of this phase: lo-fi wireframes of A, B and C, the user flow for C with its 3 risk states and decision annotations.",
+          decisiones:
+            "• Verdict before data. The status takes the top of the screen; the gate and the map go below.\n• Doors closing, not takeoff. The count uses the gate closing, which already appears in Live Activities, because it's the real limit.\n• Mandatory steps visible. If the connection includes immigration or security, they are added to the calculation and shown as steps, not as a footnote.\n• Plan B always one tap away. It appears even when you're On time, in the background; it comes to the front when At risk.\n• Calm language. \"You have 18 min to spare\" instead of \"Hurry up!\"; color reinforces, it doesn't alarm.",
+          validacion:
+            "A plan, not yet carried out. Moderated usability test with 5 people who made a Delta connection in the last year, 15 to 20 minutes each, over video call with the Figma prototype. Results: pending.\n\nTasks:\n1. \"You just landed in Atlanta. Do you make your next flight? How do you know?\"\n2. \"Your flight comes from another country. Tell me what you have to do before reaching the gate.\"\n3. \"They changed your gate while you're walking. What do you do now?\"\n4. \"The app says you're at risk. Find your alternative and choose one.\"\n\nClosing questions:\n• What do you do today when you have a short connection?\n• Would you trust the verdict or check it on the airport screens?\n• From 1 to 5, how calm did you feel with this version?\n\nMetrics to measure:\n• Task success: completed / with help / didn't complete.\n• Time on task 1: seconds until correctly saying \"I make it\" or \"I don't\".\n• Understanding of steps: in task 2, how many mandatory steps they mention unaided.\n• Errors: taps on wrong actions or misreading the status.\n• Perceived calm: 1 to 5 scale at the end.\n\nComparing against the current app with the same tasks 1 and 4 would give the \"before vs. after\".",
+        },
+        solucionFinal:
+          "\"Your connection\" activates on landing: a verdict, the countdown to gate closing, the steps you have left and a plan B ready.\n\nScreens:\n1. Verdict: a large status (On time / Tight / At risk), minutes until gate closing, arrival gate → departure gate.\n2. Your route: steps in order with the estimated time of each: leaving the plane, immigration, bags, security, walking or the train. A \"View on map\" button opens the existing map.\n3. Plan B: if the status is At risk: the next available flight, whether Delta already rebooked you, and actions (accept, choose another, talk to an agent).\n4. Live Activity: verdict, minutes and gate on the lock screen and Dynamic Island; on Android, a persistent notification.\n\nAccessibility:\n• The status is communicated with text and an icon, not only green, amber or red.\n• Minimum AA contrast; dynamic type without cutting off the countdown.\n• Accessible route: if the passenger requested mobility assistance, the route uses elevators and adds that time.\n• The screen reader announces status changes once, not every minute.\n\nStates and edge cases: long connection (the mode doesn't activate) · gate change along the way (recalculates and notifies) · delayed departing flight (gains margin) · already rebooked by Delta (plan B becomes the plan) · separate tickets or a partner airline (a notice that protection doesn't apply) · offline (last data with an update time).",
+        resultado:
+          "An unlaunched concept. There are no results yet: the usability test is planned, not carried out.",
+        aprendizaje:
+          "• In airlines, high-value design is in moments of stress, not in booking: joining existing data is worth more than adding features.\n• An honest verdict (including \"At risk\") builds more trust than hiding the bad news until the end.\n• Next: run the test, calibrate the On time / Tight / At risk thresholds with real ATL data and explore the mode for passengers with mobility assistance.",
+      },
     ],
     stats: [
       {
@@ -2319,6 +2526,213 @@ export const content: Record<Locale, ContentBundle> = {
           "Concepto sin lanzar. Todavía no hay resultados: el test de usabilidad está planeado, no realizado.",
         aprendizaje:
           "• En aerolíneas, la puntualidad alta no elimina el problema: el cerca de 8% que falla define la experiencia de quien lo vive.\n• Explicar derechos no es solo legal; es lo que permite decidir entre reacomodo y reembolso sin miedo.\n• Siguiente: correr el test, validar los textos de derechos con un abogado y explorar la versión para rutas a EE. UU., donde el DOT exige reembolso automático tras 6+ h de demora en vuelos internacionales (CBS News).",
+      },
+      {
+        slug: "volaris-precio-total",
+        title: "Volaris Precio Total",
+        subtitle: "El precio de tu vuelo con lo que realmente llevas, desde los resultados",
+        concept: true,
+        image: "/projects/volaris-precio-total/01-cover.webp",
+        imageAlt:
+          "Portada del concept project ¿Qué llevas?, no afiliado a Volaris, con tres pantallas del rediseño",
+        images: {
+          overview: [
+            caseImage("volaris-precio-total", "02-antes.webp", 3895, 1876, {
+              alt: "Recreación del flujo actual, por verificar: buscar, resultados con tarifa base, escoger tarifa, pasajeros, extras y pago con el total que sube",
+              caption: "Recreación del flujo actual. No es una captura de la app y el flujo está por verificar.",
+            }),
+          ],
+          process: [
+            caseImage("volaris-precio-total", "04-lofi-direcciones.webp", 3120, 3780, {
+              alt: "Tres direcciones en grises: A tabla de tarifas, B aviso en checkout y C configurador, la elegida, con la tabla de reglas de equipaje a tarifa sugerida",
+            }),
+            caseImage("volaris-precio-total", "03-user-flow.webp", 3882, 1288, {
+              alt: "User flow de la dirección C: buscar, qué llevas, resultados con total, desglose y checkout, con estados",
+            }),
+          ],
+          solution: [
+            caseImage("volaris-precio-total", "06-hifi-que-llevas.webp", 7484, 1872, {
+              alt: "Pantalla ¿Qué llevas? con medidas de cada opción, maleta de mano, 25 kg, cuenta como mano y decidir después",
+              caption: "Los nombres y montos son datos de ejemplo.",
+            }),
+            caseImage("volaris-precio-total", "07-hifi-resultados.webp", 3110, 1872, {
+              alt: "Resultados con el total por persona según el equipaje, con la tarifa base como texto secundario",
+            }),
+            caseImage("volaris-precio-total", "08-hifi-desglose.webp", 2836, 1872, {
+              alt: "Desglose al tocar un vuelo: tarifa sugerida y alternativa Plus con la diferencia en pesos",
+            }),
+            caseImage("volaris-precio-total", "09-hifi-checkout.webp", 2244, 1872, {
+              alt: "Checkout sin sorpresas y aviso cuando el precio cambia",
+            }),
+            caseImage("volaris-precio-total", "05-design-system.webp", 3360, 6848, {
+              alt: "Design system: colores, Nunito Sans, espaciado, radios, sombras, contraste WCAG y componentes",
+            }),
+            caseImage("volaris-precio-total", "10-hifi-casos-borde.webp", 4568, 1872, {
+              alt: "Casos borde: varios pasajeros, viaje redondo por tramo, internacional y asientos agotados",
+            }),
+          ],
+        },
+        homeTeaser:
+          "Rediseño especulativo del inicio de la compra de vuelo en volaris.com y la app.",
+        contexto:
+          "Rediseño especulativo del inicio de la compra de vuelo en volaris.com y la app.\n\nPlataforma: web móvil y app iOS / Android.\nDuración: 2 semanas (concept sprint).\nHerramientas: Figma, FigJam.\nFuera de alcance: postura legal sobre el cobro de equipaje, lógica de pricing, check-in y abordaje.",
+        problema:
+          "La tarifa Zero, la más visible, solo incluye un objeto personal. Maleta de mano, documentada y asiento se suman después, y el precio real aparece hasta el checkout o en el aeropuerto. El precio que el usuario compara al buscar no es el que paga: con maleta de mano, la tarifa puede costar el doble.\n\nFlujo actual de compra (por verificar con capturas): Buscar vuelo → resultados con precio de tarifa base → elegir tarifa → datos de pasajeros → extras (equipaje, asiento) → pago. El equipaje se decide en el paso 5, después de elegir vuelo.\n\nPendiente: confirmar nombres de tarifas (la página oficial dice Flex, Expansión reporta Básica).\n\nEvidencia pública:\n• La tarifa Zero incluye solo un objeto personal; maleta de mano y documentada se agregan con costo (Volaris, Tarifas).\n• Flex obliga a elegir solo uno: maleta de mano, 15 kg documentados o asiento. Plus incluye mano y 25 kg (Volaris, Tarifas).\n• Volaris recomienda agregar equipaje antes de llegar; en el aeropuerto aplican \"tarifas vigentes\" (Volaris, Equipaje de mano).\n• En una simulación CDMX–Monterrey, Zero costó $945 y Plus $1,943: $998 más para llevar maleta de mano (Expansión, mayo 2026).\n• La Ley de Aviación Civil (art. 47 Bis) permite dos piezas en cabina de 55 × 40 × 25 cm y 10 kg en total. En 2021 Profeco colocó sellos de suspensión a Volaris por cobrarla (Expansión, nov. 2021).\n• En los primeros 5 días del operativo de verano 2025, Volaris sumó 18 conciliaciones en Profeco; hubo quejas por cobros indebidos de equipaje de mano (El Imparcial, jul. 2025).\n• La recomendación de Profeco que repite la prensa: comparar el costo total, no la tarifa base (El Imparcial, mayo 2026).\n\nEl debate legal sobre el cobro no se resuelve con diseño. Lo que sí se puede diseñar es que el precio total sea visible antes de elegir.",
+        proceso: {
+          research:
+            "Los referentes preguntan qué llevas antes de mostrar precios; Volaris lo pregunta después de que ya elegiste vuelo.\n• Google Flights: filtro \"Bags\": eliges maletas de mano y documentadas y los precios de resultados se actualizan con esos cargos. Qué tomamos: declarar el equipaje una vez y recalcular todos los resultados.\n• KAYAK: calculadora de cargos arriba de los resultados; cada tarifa muestra qué incluye junto al precio. Qué tomamos: poner el configurador arriba, no en un paso posterior.\n• Viva Aerobus: paquetes Zero, Switch y Smart con diferencia en pesos (+$608, +$1,893) frente a la base. Qué tomamos: mostrar el delta en pesos, no solo la lista de beneficios.\n\nInsights (hipótesis a validar en el test):\n1. El usuario sabe qué lleva antes de buscar. \"Voy con maleta de mano\" es un dato de entrada, no un extra que descubre al final.\n2. Compara vuelos por el número grande. Si ese número es la tarifa Zero, compara precios que no va a pagar.\n3. La sorpresa se paga dos veces. En dinero en el aeropuerto y en confianza hacia la marca.\n\nBenchmark por verificar con capturas actuales de cada app.\n\nHow Might We: ¿cómo podríamos hacer que un pasajero vea el precio final de su viaje, con lo que realmente lleva, desde la primera pantalla de resultados?\n\nHipótesis: si el usuario declara su equipaje y asiento antes de ver resultados, y cada vuelo muestra el total con eso incluido, elegirá la tarifa correcta a la primera. Habrá menos cambios de tarifa en el checkout y menos equipaje pagado en el aeropuerto.",
+          restricciones:
+            "Restricciones asumidas: respetar las tarifas Zero, Flex y Plus tal como existen; no cambiar precios ni políticas; identidad visual de Volaris intacta.",
+          iteraciones:
+            "Tres direcciones en wireframes lo-fi; se eligió la C porque es la única que cambia el número que el usuario compara.\n• A · Tabla de tarifas: al tocar un vuelo, tabla Zero / Flex / Plus con lo que incluye cada una. Descartada: ya existe en esencia; sigue comparando vuelos por precio base.\n• B · Aviso en checkout: resumen \"te falta maleta de mano\" antes de pagar. Descartada: llega tarde; el vuelo ya se eligió con el precio equivocado.\n• C · Configurador \"¿Qué llevas?\": fila de íconos arriba de resultados: objeto personal, mano, documentada, asiento. Elegida: recalcula el total de todos los vuelos y elige la tarifa más barata que cubre lo que llevas.\n\nEntregables de esta fase: wireframes lo-fi de A, B y C, flujo de usuario de la C, tabla de reglas \"equipaje elegido → tarifa sugerida\" y anotaciones de las decisiones.",
+          decisiones:
+            "• Total arriba, base abajo. El número grande es el precio con tu equipaje; la tarifa base queda como texto secundario.\n• El sistema elige la tarifa, el usuario elige qué lleva. Si llevas mano y 15 kg, sugiere la combinación más barata entre Zero + extras, Flex o Plus.\n• Medidas visibles, no escondidas en políticas. Cada ícono muestra cm y kg para que el usuario sepa si su maleta cuenta como mano.\n• Identidad Volaris intacta. Se usa la paleta y tipografía de la marca; el cambio es de orden en el flujo, no de estilo.",
+          validacion:
+            "Plan, aún no realizado. Test de usabilidad moderado con 5 personas que hayan volado en aerolínea de bajo costo en el último año, 15 a 20 minutos cada una, por videollamada con el prototipo de Figma. Resultados: pendientes.\n\nTareas:\n1. \"Busca un vuelo CDMX–Cancún. Viajas con una maleta de mano. Elige el más barato.\"\n2. \"Antes de pagar, dime cuánto crees que vas a pagar en total.\"\n3. \"Ahora agrega una maleta documentada de 25 kg. ¿Qué tarifa te conviene?\"\n4. \"Tu maleta mide 60 cm de alto. ¿Cuenta como equipaje de mano?\"\n\nPreguntas de cierre:\n• ¿Alguna vez pagaste equipaje en el aeropuerto que no esperabas?\n• ¿Qué fue lo más confuso de esta versión?\n• Del 1 al 5, ¿qué tanto confías en que el precio mostrado es el final?\n\nMétricas a medir:\n• Éxito por tarea: completó / con ayuda / no completó.\n• Precisión del total: diferencia entre el total que el usuario estima (tarea 2) y el real.\n• Tarifa correcta: ¿eligió la opción más barata que cubre su equipaje?\n• Confianza en el precio: escala 1 a 5 al cierre.\n\nCorrer las tareas 1 y 2 en el flujo actual de Volaris daría el \"antes vs. después\".",
+        },
+        solucionFinal:
+          "La búsqueda empieza preguntando qué llevas; desde ahí, cada precio en pantalla es el que vas a pagar.\n\nPantallas:\n1. ¿Qué llevas?: cuatro íconos con medidas: objeto personal (35 × 45 × 20 cm), mano (55 × 40 × 25 cm, 10 kg), documentada (15 o 25 kg) y asiento. Objeto personal marcado por defecto.\n2. Resultados con total: cada vuelo muestra el precio final por persona con lo elegido y una etiqueta: \"Incluye tu maleta de mano\".\n3. Desglose al tocar: tarifa sugerida + extras, con la alternativa: \"Plus te cuesta $X más e incluye cambios\".\n4. Checkout sin sorpresas: el total no cambia respecto a resultados; si cambia, se explica en una línea antes de pagar.\n\nAccesibilidad:\n• Cada opción del configurador es un toggle con etiqueta de texto, no solo ícono.\n• Contraste AA mínimo en precios y etiquetas sobre fondos de marca.\n• Áreas táctiles de 44 × 44 pt; el lector de pantalla anuncia \"Total con maleta de mano: $X\".\n\nEstados y casos borde: varios pasajeros con equipaje distinto · viaje redondo con equipaje diferente por tramo · vuelo internacional con reglas distintas · asientos agotados · usuario que no sabe qué lleva (\"Decidir después\", con aviso del costo en aeropuerto) · precio que cambia entre resultados y pago.",
+        resultado:
+          "Concepto sin lanzar. Todavía no hay resultados: el test de usabilidad está planeado, no realizado.",
+        aprendizaje:
+          "• En aerolíneas de bajo costo, el problema no es el cobro sino el momento en que se muestra.\n• Cambiar el orden del flujo puede valer más que rediseñar pantallas: preguntar primero, cobrar después.\n• Siguiente: correr el test, validar la regla de tarifa sugerida con más rutas y explorar el configurador por pasajero en reservas grupales.",
+      },
+      {
+        slug: "viva-viaje-en-grupo",
+        title: "Viva Aerobus Viaje en Grupo",
+        subtitle: "Asientos y check-in para toda la familia en un solo flujo",
+        concept: true,
+        image: "/projects/viva-viaje-en-grupo/01-cover.webp",
+        imageAlt:
+          "Portada del concept project Asientos y check-in para toda la familia, no afiliado a Viva Aerobus, con tres pantallas del rediseño",
+        images: {
+          overview: [
+            caseImage("viva-viaje-en-grupo", "02-antes.webp", 3895, 1879, {
+              alt: "Recreación del flujo estimado, por verificar en la app: Mis viajes, reservación, asientos por pasajero, pago y check-in por pasajero",
+              caption: "Recreación del flujo actual. No es una captura de la app y el flujo está por verificar.",
+            }),
+          ],
+          process: [
+            caseImage("viva-viaje-en-grupo", "04-lofi-direcciones.webp", 3120, 2588, {
+              alt: "Tres direcciones en grises: A paso por pasajero, B botón Sentarnos juntos y C mapa de grupo, la elegida",
+            }),
+            caseImage("viva-viaje-en-grupo", "03-user-flow.webp", 3882, 1288, {
+              alt: "User flow de la dirección C con 2 adultos, 1 niña y 1 bebé, y sus estados",
+            }),
+          ],
+          solution: [
+            caseImage("viva-viaje-en-grupo", "06-hifi-grupo-y-mapa.webp", 8000, 1858, {
+              alt: "Tu grupo y mapa de grupo: todos juntos, menores con su adulto, mover una ficha, menor sin adulto y modo lista",
+              caption: "Los nombres y montos son datos de ejemplo.",
+            }),
+            caseImage("viva-viaje-en-grupo", "07-hifi-comparar.webp", 1378, 1876, {
+              alt: "Comparar opciones: todos juntos, menores con su adulto y asignación en check-in con aviso de riesgo",
+            }),
+            caseImage("viva-viaje-en-grupo", "08-hifi-check-in.webp", 3702, 1876, {
+              alt: "Check-in del grupo, tarifas mixtas y menor con un tercero",
+            }),
+            caseImage("viva-viaje-en-grupo", "09-hifi-pases.webp", 2518, 1876, {
+              alt: "Pases de abordar y resumen de quién va dónde para compartir",
+            }),
+            caseImage("viva-viaje-en-grupo", "05-design-system.webp", 3360, 10264, {
+              alt: "Design system: colores, Albert Sans, espaciado, radios, sombras, íconos, componentes y contraste WCAG",
+            }),
+            caseImage("viva-viaje-en-grupo", "10-hifi-casos-borde.webp", 5434, 1876, {
+              alt: "Casos borde: sin bloque contiguo, cambio de avión, más bebés que adultos, bebé en fila de salida y sin conexión",
+            }),
+          ],
+        },
+        homeTeaser:
+          "Rediseño especulativo de cómo una familia o grupo elige asientos y hace check-in en la app de Viva.",
+        contexto:
+          "Rediseño especulativo de cómo una familia o grupo elige asientos y hace check-in en la app de Viva.\n\nPlataforma: app móvil iOS y Android.\nDuración: 2 semanas (concept sprint).\nHerramientas: Figma, FigJam.\nFuera de alcance: lógica de precios, reglas migratorias por país y venta de equipaje.",
+        problema:
+          "Una reservación con varios pasajeros (incluidos menores) obliga a decidir asientos y check-in persona por persona, sin ver claramente quién queda junto a quién ni cuánto cuesta sentarse juntos. Viva vende la app como la forma rápida de viajar \"con tu familia y amigos\", pero asientos y check-in siguen pensados para un pasajero a la vez.\n\nFlujo actual estimado (por verificar en la app): Mis viajes → reservación → Asientos → elegir pasajero → elegir asiento → repetir por cada pasajero → pagar → Check-in → confirmar datos de cada pasajero → pases de abordar. Con 4 pasajeros, los pasos de asiento y datos se repiten 4 veces.\n\nHipótesis a verificar con capturas: el costo de sentarse juntos solo aparece sumado al final, y el mapa no muestra qué menor queda junto a qué adulto.\n\nEvidencia pública:\n• El check-in abre según la tarifa: Zero 4 horas antes, Light 8 horas, Smart 10 días. Una familia con tarifas mixtas no puede hacer check-in de todos al mismo tiempo (Viva Blog).\n• El check-in web y por WhatsApp se inicia con el código y el apellido de un solo pasajero (Viva Blog).\n• Los bebés de 7 días a menos de 2 años viajan en brazos, no en fila de emergencia, y solo uno por adulto (Viva Blog).\n• Un menor que viaja con un tercero requiere carta responsiva firmada por padre o tutor (Viva, PDF).\n• La app tiene 4.8 estrellas con 119 mil calificaciones en la App Store México y promete \"Agrega acompañantes\" (App Store).\n• No se encontró una página pública de Viva que garantice asientos contiguos gratis para menores. Verificar en términos y condiciones.\n• Contexto regulatorio: EE.UU. propuso en agosto de 2024 obligar a sentar gratis a menores de 13 años junto a un adulto (DOT). Viva opera rutas a EE.UU.\n• En junio de 2026, el regulador de competencia de Reino Unido investigó a Ryanair por cobrar cerca de 9 € a padres para sentarse con sus hijos (Xataka).\n• En febrero de 2026, Southwest asignó a un niño de 2 años en otra fila porque la familia no pagó asientos (Semana).\n• Profeco registró 314 quejas formales contra Viva en 2025 hasta mayo; los motivos principales fueron cancelaciones, equipaje y devoluciones, no asientos (El Imparcial).",
+        proceso: {
+          research:
+            "Los referentes tratan \"sentar a la familia junta\" como una regla del sistema; en Viva hoy parece una compra individual.\n• United: desde 2023, menores de 12 se sientan junto a un adulto sin costo, incluso en Basic Economy. El mapa muestra los asientos gratis disponibles al reservar. Si no hay contiguos, cambio de vuelo sin costo. Qué tomamos: marcar en el mapa qué asientos sientan juntos a la familia y cuánto cuestan.\n• Ryanair: niños de 2 a 11 van junto a un adulto de la misma reservación; con asignación aleatoria gratis, solo los menores quedan garantizados. Otros adultos y adolescentes pueden quedar separados. Qué tomamos: separar \"lo obligatorio\" (menor + adulto) de \"lo opcional\" (todo el grupo junto) y decir el precio de cada uno.\n• Southwest: intenta sentar a menores de 12 con un adulto sin costo, pero la asignación automática separó a un niño de 2 años en 2026. Qué tomamos: antiejemplo; \"intentar\" no basta; mostrar el resultado antes del vuelo y avisar si hay riesgo.\n\nInsights (hipótesis a validar en el test):\n1. La familia piensa en \"quién va con quién\", no en números de asiento. \"Mamá con la bebé, papá con el de 7\" importa más que \"14B y 14C\".\n2. El miedo es quedar separados, no el precio. Si el costo de sentarse juntos se ve claro y temprano, la decisión se toma sin ansiedad.\n3. El check-in es un trámite del grupo. Quien reserva quiere hacerlo una vez por todos, con los datos de menores ya guardados.\n\nBenchmark por verificar con capturas actuales de cada app.\n\nHow Might We: ¿cómo podríamos hacer que quien reserva para su familia vea quién va junto a quién, sepa cuánto cuesta, y haga check-in de todos en un solo flujo?\n\nHipótesis: si el mapa de asientos muestra a cada pasajero con su avatar, sugiere un bloque contiguo con su precio total, y el check-in procesa a todo el grupo de una vez, la familia completará asientos y check-in en menos pasos, con menos errores y sin menores separados de su adulto.",
+          restricciones:
+            "Restricciones asumidas: respetar la identidad visual de Viva; no cambiar tarifas ni precios de asientos, solo mostrarlos mejor; cumplir reglas de seguridad (bebés en brazos fuera de fila de emergencia, un bebé por adulto).",
+          iteraciones:
+            "Tres direcciones en wireframes lo-fi; se eligió la C porque es la única que deja ver a la vez el resultado (quién va dónde) y el precio.\n• A · Paso por pasajero: igual que hoy, pero con mejor UI: un mapa por cada pasajero. Descartada: limpia, pero no resuelve el problema; el usuario sigue armando el grupo de memoria.\n• B · Botón \"Sentarnos juntos\": un solo botón asigna el mejor bloque y cobra el total. Descartada: rápida, pero quita el control; no se ve qué menor va con qué adulto.\n• C · Mapa de grupo: todos los pasajeros como fichas arrastrables sobre el mapa, con un bloque sugerido y su precio. Elegida: sugiere por defecto, deja ajustar, y el total cambia en vivo.\n\nEntregables de esta fase: wireframes lo-fi de A, B y C, flujo de usuario de la C con reservación de 2 adultos, 1 niño y 1 bebé y anotaciones de las decisiones.",
+          decisiones:
+            "• Personas antes que números. La ficha muestra inicial y nombre (\"Ana, 7\"); el número de asiento va en segundo nivel.\n• Precio total, no por asiento. \"Sentarse juntos: $X para 4\" en vez de cuatro precios sueltos que el usuario suma.\n• El sistema protege al menor. No deja confirmar si un menor queda sin adulto contiguo; explica por qué y propone el asiento libre más cercano.\n• Tarifas mixtas explícitas. Si un pasajero con tarifa Zero aún no puede hacer check-in, se muestra cuándo abre y se agenda un recordatorio, en vez de un error.\n• Identidad Viva intacta. Se usan el verde y la tipografía de la marca; el rediseño es de estructura, no de estilo.",
+          validacion:
+            "Plan, aún no realizado. Test de usabilidad moderado con 5 personas que hayan volado con menores en el último año, 15 a 20 minutos cada una, por videollamada con el prototipo de Figma. Resultados: pendientes.\n\nTareas (reservación de prueba: 2 adultos, niña de 7 años, bebé de 1 año):\n1. \"Elige asientos para que tu hija vaya junto a un adulto. Dime cuánto vas a pagar antes de confirmar.\"\n2. \"Ahora sienta a los cuatro juntos. ¿Cuánto cambió el precio?\"\n3. \"Haz check-in de toda la familia.\"\n4. \"Enséñale a tu pareja quién va en qué asiento.\"\n\nPreguntas de cierre:\n• ¿Cómo eligen asientos hoy cuando viajan en familia?\n• ¿Qué fue lo más confuso de esta versión?\n• Del 1 al 5, ¿qué tan seguro te sentiste de que tu hija iba junto a un adulto?\n\nMétricas a medir:\n• Éxito por tarea: completó / con ayuda / no completó.\n• Precisión del precio: ¿dijo el total correcto antes de confirmar en tarea 1?\n• Tiempo en tarea 3: segundos desde \"Check-in\" hasta ver todos los pases.\n• Errores: menor sin adulto contiguo, asiento equivocado, pasajero omitido.\n• Confianza percibida: escala 1 a 5 al cierre.\n\nComparar contra la app actual con las mismas tareas 1 y 3 daría el \"antes vs. después\".",
+        },
+        solucionFinal:
+          "\"Asientos\" y \"Check-in\" se vuelven un solo flujo de grupo: un mapa donde cada pasajero es una ficha, con el precio de sentarse juntos visible desde el inicio.\n\nPantallas:\n1. Tu grupo: lista de pasajeros de la reservación con edad, tipo (adulto, niño, bebé en brazos) y tarifa. Aquí se emparejan menores con su adulto.\n2. Mapa de grupo: bloque contiguo sugerido con las fichas ya colocadas. Arrastras una ficha para cambiar; el total se actualiza en vivo.\n3. Comparar opciones: tres tarjetas: \"Todos juntos\" (precio total), \"Menores con su adulto\" (precio) y \"Asignación en check-in\" (con aviso de riesgo).\n4. Check-in del grupo: una sola confirmación por todos; datos de menores y documentos precargados desde \"acompañantes\".\n5. Pases de abordar: un carrusel con todos los pases y una vista resumen \"quién va dónde\" para compartir.\n\nAccesibilidad:\n• El tipo de pasajero se comunica con texto e ícono, no solo con color.\n• Arrastrar tiene alternativa: tocar ficha y luego tocar asiento, y un modo lista para lector de pantalla (\"Ana, 7 años: asiento 14B, junto a Laura\").\n• Contraste AA mínimo en el mapa; áreas táctiles de 44 × 44 pt.\n\nEstados y casos borde: bebé en brazos (sin asiento, no permite fila de emergencia) · más bebés que adultos · no hay bloque contiguo disponible · cambio de avión que rompe el bloque · tarifas mixtas con check-in en horarios distintos · menor con un tercero (requiere carta responsiva) · sin conexión (pases en caché).",
+        resultado:
+          "Concepto sin lanzar. Todavía no hay resultados: el test de usabilidad está planeado, no realizado.",
+        aprendizaje:
+          "• En aerolíneas de bajo costo, la transparencia del precio puede ser la mejora de UX, sin cambiar el modelo de negocio.\n• Diseñar para el grupo cambia la unidad del flujo: de \"pasajero\" a \"reservación\".\n• La regulación se mueve (EE.UU., Reino Unido); un diseño que ya separa \"obligatorio\" de \"opcional\" se adapta fácil si cambian las reglas.\n• Siguiente: capturar el flujo actual, correr el test y explorar avisos cuando un cambio de avión rompe el bloque de asientos.",
+      },
+      {
+        slug: "delta-modo-conexion",
+        title: "Delta Modo Conexión",
+        subtitle: "Un veredicto claro para saber si llegas a tu siguiente vuelo",
+        concept: true,
+        image: "/projects/delta-modo-conexion/01-cover.webp",
+        imageAlt:
+          "Portada del concept project ¿Llego o no llego?, no afiliado a Delta Air Lines, con tres pantallas del rediseño",
+        images: {
+          overview: [
+            caseImage("delta-modo-conexion", "02-antes.webp", 3895, 1859, {
+              alt: "Recreación del flujo actual, por verificar en la app: notificación de puerta, tarjeta del vuelo, mapa, cálculo a mano, migración fuera del cálculo y reprogramación",
+              caption: "Recreación del flujo actual. No es una captura de la app y el flujo está por verificar.",
+            }),
+          ],
+          process: [
+            caseImage("delta-modo-conexion", "04-lofi-direcciones.webp", 3120, 2640, {
+              alt: "Tres direcciones en grises: A tarjeta en Today, B mapa primero y C modo conexión, la elegida",
+            }),
+            caseImage("delta-modo-conexion", "03-user-flow.webp", 3896, 1446, {
+              alt: "User flow de la dirección C con los estados A tiempo, Justo y En riesgo, ruta, plan B y casos borde",
+            }),
+          ],
+          solution: [
+            caseImage("delta-modo-conexion", "06-hifi-veredicto.webp", 5160, 1888, {
+              alt: "Live Activity y veredicto en sus tres estados: A tiempo, Justo y En riesgo",
+              caption: "Los nombres y montos son datos de ejemplo.",
+            }),
+            caseImage("delta-modo-conexion", "07-hifi-ruta.webp", 3702, 1888, {
+              alt: "Tu ruta: doméstica, con migración y mapa existente",
+            }),
+            caseImage("delta-modo-conexion", "08-hifi-plan-b.webp", 3110, 1888, {
+              alt: "Plan B: opciones, ya reprogramado y vuelo confirmado",
+            }),
+            caseImage("delta-modo-conexion", "05-design-system.webp", 3360, 9048, {
+              alt: "Design system: colores, Source Sans 3, espaciado, radios, sombras, componentes, íconos y contraste WCAG",
+            }),
+            caseImage("delta-modo-conexion", "09-hifi-estados.webp", 8000, 1880, {
+              alt: "Estados: cambio de puerta, salida retrasada, boletos separados, sin señal, conexión larga y asistencia de movilidad",
+            }),
+          ],
+        },
+        homeTeaser:
+          "Rediseño especulativo de cómo la app Fly Delta acompaña a un pasajero durante una escala corta.",
+        contexto:
+          "Rediseño especulativo de cómo la app Fly Delta acompaña a un pasajero durante una escala corta.\n\nPlataforma: app móvil iOS y Android, más Live Activity en iOS.\nDuración: 2 semanas (concept sprint).\nHerramientas: Figma, FigJam.\nFuera de alcance: decidir si se espera un vuelo (operación), tiempos reales de filas de migración y lógica de backend.",
+        problema:
+          "Al aterrizar con poco tiempo, el pasajero junta datos sueltos (puerta, hora de abordaje, mapa, notificaciones) para responder una sola pregunta: ¿llego o no llego? Fly Delta ya tiene las piezas de una conexión (puerta, estatus, mapas, alertas, reprogramación), pero repartidas. Nadie las junta en un veredicto de \"llegas / no llegas\".\n\nFlujo actual al aterrizar con conexión corta (por verificar en la app): notificación de puerta → abrir app → pestaña Today → tarjeta del siguiente vuelo → tocar la puerta para abrir el mapa → calcular a mano hora de cierre menos tiempo caminando. Si hay migración o seguridad, la app no lo suma al cálculo (por verificar).\n\nEvidencia pública:\n• Delta describe la pestaña Today como vista \"one-stop\" con pase de abordar, puerta, estatus y mapas del aeropuerto (Delta Pro).\n• La información de la puerta de conexión se ofrece \"via maps\"; no se menciona tiempo restante ni riesgo (Delta Pro, 2023).\n• La versión 7.0 (mayo 2025) agrega Live Activities con aviso de cierre de puertas, solo iOS 16+ y no Android (Delta News).\n• Si pierdes la conexión, Delta \"may have already rebooked you\"; el usuario debe revisar el vuelo nuevo, hacer check-in y asientos (Delta.com).\n• En 2025, 76.4% de los vuelos de aerolíneas reportantes en EE. UU. llegaron a tiempo; Delta Network, 79.3%. Uno de cada cinco vuelos llega tarde (DOT ATCR, feb 2026).\n• Al llegar de un vuelo internacional a EE. UU., pasas aduana, recoges maletas, las documentas de nuevo y repites seguridad (The Points Guy).\n• Reseñas públicas en App Store: \"my international layover went from 1 hour and 45 minutes to only 40 minutes\"; otra describe llegar a A14 con salida en A42 y \"less than 30 minutes to travel\" (App Store).",
+        proceso: {
+          research:
+            "Los referentes tratan la conexión como una tarea con cuenta regresiva y pasos; Fly Delta la trata como un vuelo más en la lista.\n• United: página de conexión con estatus en vivo, cuenta regresiva e indicaciones paso a paso a la puerta; si no llegas, reprogramas gratis en la app. Reporta 98% de conexiones logradas en su prueba (TechRadar). Qué tomamos: una sola pantalla dedicada a la conexión y la salida de emergencia en el mismo lugar.\n• Flighty: Connection Assistant: guía de pasos (seguridad, maletas, cambio de terminal) con tiempos típicos de cada uno; estima migración según ciudadanía. Qué tomamos: desglosar el tiempo en pasos, no solo en distancia.\n• Fly Delta (actual): puerta, estatus, mapas y alertas en la pestaña Today; Live Activity con cierre de puertas en iOS. Los datos ya existen; falta unirlos en un veredicto.\n\nInsights (hipótesis a validar en el test):\n1. La pregunta es binaria. El pasajero quiere saber \"¿llego?\" antes que la puerta exacta; el veredicto debe ir primero.\n2. El tiempo real no es la distancia. Migración, seguridad y maletas pesan más que caminar; ocultarlos da falsa calma.\n3. El plan B baja el estrés aunque no se use. Saber qué pasa si no llegas reduce la ansiedad durante la carrera.\n\nBenchmark por verificar con capturas actuales de cada app.\n\nHow Might We: ¿cómo podríamos hacer que un pasajero con escala corta sepa en 3 segundos si llega a su vuelo y qué hacer si no?\n\nHipótesis: si al aterrizar mostramos un veredicto con tiempo restante, pasos obligatorios y un plan B visible, el pasajero tomará la ruta correcta más rápido y con menos dudas que armando el cálculo desde Today y el mapa.",
+          restricciones:
+            "Restricciones asumidas: respetar la identidad visual de Delta; usar solo datos que la app ya muestra (puerta, estatus, mapas, reprogramación); funcionar con señal débil en el avión y la pasarela.",
+          iteraciones:
+            "Tres direcciones en wireframes lo-fi; se eligió la C porque es la única que responde \"¿llego?\" sin abrir la app.\n• A · Tarjeta en Today: bloque nuevo arriba de Today con tiempo restante y puerta. Descartada: bajo costo, pero compite con pase de abordar y ofertas; el riesgo se pierde.\n• B · Mapa primero: al aterrizar se abre el mapa con la ruta trazada y un contador. Descartada: útil para caminar, pero no muestra migración ni plan B; el mapa tarda en cargar con señal débil.\n• C · Modo conexión: pantalla dedicada que se activa al aterrizar, con veredicto, pasos y plan B; espejo en Live Activity. Elegida: veredicto en la pantalla bloqueada y detalle a un toque; reutiliza datos que Delta ya tiene.\n\nEntregables de esta fase: wireframes lo-fi de A, B y C, flujo de usuario de la C con sus 3 estados de riesgo y anotaciones de las decisiones.",
+          decisiones:
+            "• Veredicto antes que datos. El estado ocupa la parte superior; la puerta y el mapa van debajo.\n• Cerrar puertas, no despegar. La cuenta usa el cierre de puertas, que ya aparece en Live Activities, porque es el límite real.\n• Pasos obligatorios visibles. Si la conexión incluye migración o seguridad, se suman al cálculo y se muestran como pasos, no como nota al pie.\n• Plan B siempre a un toque. Aparece aunque estés A tiempo, en segundo plano; sube al frente en En riesgo.\n• Lenguaje calmado. \"Te quedan 18 min de margen\" en vez de \"¡Date prisa!\"; el color refuerza, no alarma.",
+          validacion:
+            "Plan, aún no realizado. Test de usabilidad moderado con 5 personas que hayan hecho una conexión en Delta en el último año, 15 a 20 minutos cada una, por videollamada con el prototipo de Figma. Resultados: pendientes.\n\nTareas:\n1. \"Acabas de aterrizar en Atlanta. ¿Llegas a tu siguiente vuelo? ¿Cómo lo sabes?\"\n2. \"Tu vuelo viene de otro país. Dime qué tienes que hacer antes de llegar a la puerta.\"\n3. \"Te cambiaron la puerta mientras caminas. ¿Qué haces ahora?\"\n4. \"La app dice que estás en riesgo. Encuentra tu alternativa y elige una.\"\n\nPreguntas de cierre:\n• ¿Qué haces hoy cuando tienes una conexión corta?\n• ¿Confiarías en el veredicto o lo revisarías en las pantallas del aeropuerto?\n• Del 1 al 5, ¿qué tan tranquilo te sentiste con esta versión?\n\nMétricas a medir:\n• Éxito por tarea: completó / con ayuda / no completó.\n• Tiempo en tarea 1: segundos hasta decir \"llego\" o \"no llego\" correctamente.\n• Comprensión de pasos: en tarea 2, cuántos pasos obligatorios menciona sin ayuda.\n• Errores: toques en acciones equivocadas o lectura errónea del estado.\n• Tranquilidad percibida: escala 1 a 5 al cierre.\n\nComparar contra la app actual con las mismas tareas 1 y 4 daría el \"antes vs. después\".",
+        },
+        solucionFinal:
+          "\"Tu conexión\" se activa al aterrizar: un veredicto, la cuenta regresiva al cierre de puertas, los pasos que te faltan y un plan B listo.\n\nPantallas:\n1. Veredicto: estado grande (A tiempo / Justo / En riesgo), minutos hasta cierre de puertas, puerta de llegada → puerta de salida.\n2. Tu ruta: pasos en orden con tiempo estimado de cada uno: bajar del avión, migración, maletas, seguridad, caminar o tren. Botón \"Ver en mapa\" abre el mapa existente.\n3. Plan B: si el estado es En riesgo: siguiente vuelo disponible, si Delta ya te reprogramó, y acciones (aceptar, elegir otro, hablar con un agente).\n4. Live Activity: veredicto, minutos y puerta en pantalla bloqueada y Dynamic Island; en Android, notificación persistente.\n\nAccesibilidad:\n• El estado se comunica con texto e ícono, no solo con verde, ámbar o rojo.\n• Contraste AA mínimo; tipografía dinámica sin cortar la cuenta regresiva.\n• Ruta accesible: si el pasajero pidió asistencia de movilidad, la ruta usa elevadores y suma ese tiempo.\n• El lector de pantalla anuncia cambios de estado una vez, no cada minuto.\n\nEstados y casos borde: conexión larga (el modo no se activa) · cambio de puerta en el trayecto (recalcula y avisa) · vuelo de salida retrasado (gana margen) · ya reprogramado por Delta (el plan B pasa a ser el plan) · boletos separados o aerolínea socia (aviso de que no aplica la protección) · sin conexión (último dato con hora de actualización).",
+        resultado:
+          "Concepto sin lanzar. Todavía no hay resultados: el test de usabilidad está planeado, no realizado.",
+        aprendizaje:
+          "• En aerolíneas, el diseño de alto valor está en momentos de estrés, no en la reserva: juntar datos existentes vale más que agregar funciones.\n• Un veredicto honesto (incluido \"En riesgo\") genera más confianza que ocultar la mala noticia hasta el final.\n• Siguiente: correr el test, calibrar los umbrales de A tiempo / Justo / En riesgo con datos reales de ATL y explorar el modo para pasajeros con asistencia de movilidad.",
       },
     ],
     stats: [

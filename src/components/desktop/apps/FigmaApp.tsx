@@ -614,7 +614,7 @@ function FigmaFile({
       </aside>
 
       <div className="relative flex min-w-0 flex-1 flex-col">
-        <div className="relative z-20 flex items-center gap-2 border-b border-line bg-win px-3 py-2.5 md:hidden">
+        <div className="relative z-20 flex items-center gap-2 bg-win px-4 pt-1 pb-3 md:hidden">
           <PageMenu
             label={dc.pages}
             pages={FRAMES.map((f) => ({ id: f, label: frameLabel(f) }))}

@@ -379,45 +379,59 @@ body {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, auto) minmax(0, 1fr);
     align-items: center;
-    gap: 8px;
+    gap: 12px;
     flex: none;
-    height: calc(52px + env(safe-area-inset-top, 0px));
-    padding: env(safe-area-inset-top, 0px) 12px 0 6px;
-    border-bottom: 0.5px solid var(--line);
+    height: calc(68px + env(safe-area-inset-top, 0px));
+    padding: env(safe-area-inset-top, 0px) 16px 0;
     background: var(--win);
     color: var(--fg);
     user-select: none;
   }
 }
-.ios-back {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  justify-self: start;
-  max-width: 100%;
-  min-height: 44px;
-  padding: 0 8px 0 4px;
-  border-radius: 10px;
-  color: var(--accent);
-  font-size: 17px;
-  letter-spacing: -0.01em;
-}
-.ios-back:active {
-  opacity: 0.45;
-}
-/* Text and icon buttons on the right side of the nav bar. */
+/* Liquid Glass bubbles: the back button and the actions float on the bar as
+   round glass buttons instead of text links. */
+.ios-back,
 .ios-action {
   display: grid;
   place-items: center;
+  height: 44px;
   min-width: 44px;
-  min-height: 44px;
-  padding: 0 4px;
-  color: var(--accent);
-  font-size: 17px;
+  border-radius: 999px;
+  color: var(--fg);
+  font-size: 15px;
+  font-weight: 600;
   letter-spacing: -0.01em;
+  background: color-mix(in srgb, var(--fg) 6%, var(--win));
+  box-shadow:
+    inset 0 0.5px 0 color-mix(in srgb, #fff 55%, transparent),
+    0 0 0 0.5px var(--line),
+    0 2px 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
 }
+.ios-back {
+  justify-self: start;
+  width: 44px;
+  padding-right: 2px;
+}
+.ios-action {
+  padding: 0 16px;
+}
+.ios-action:has(svg) {
+  width: 44px;
+  padding: 0;
+}
+.ios-back:active,
 .ios-action:active {
-  opacity: 0.45;
+  transform: scale(0.92);
+  opacity: 0.75;
+}
+.ios-action:disabled {
+  opacity: 0.4;
 }
 .ios-action:disabled {
   opacity: 0.35;
