@@ -59,6 +59,7 @@ export type DesktopContent = {
     details: string;
     openPublic: string;
     visit: string;
+    zoom: string;
     zoomIn: string;
     zoomOut: string;
     zoomReset: string;
@@ -197,6 +198,7 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       details: "Details",
       openPublic: "Open in Figma",
       visit: "Visit site",
+      zoom: "Zoom",
       zoomIn: "Zoom in",
       zoomOut: "Zoom out",
       zoomReset: "Reset zoom to 100%",
@@ -436,6 +438,7 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       details: "Detalles",
       openPublic: "Abrir en Figma",
       visit: "Visitar sitio",
+      zoom: "Zoom",
       zoomIn: "Acercar",
       zoomOut: "Alejar",
       zoomReset: "Restablecer zoom al 100%",

@@ -415,6 +415,93 @@ function PageMenu({
   );
 }
 
+// Phones: zoom lives next to the page picker as an "aA" button (like Safari's)
+// that opens a stepper, so the screen keeps just one floating control.
+function ZoomMenu({
+  zoom,
+  min,
+  max,
+  onStep,
+  onReset,
+  labels,
+}: {
+  zoom: number;
+  min: number;
+  max: number;
+  onStep: (dir: 1 | -1) => void;
+  onReset: () => void;
+  labels: { zoom: string; zoomIn: string; zoomOut: string; zoomReset: string };
+}) {
+  const [open, setOpen] = useState(false);
+  const root = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onDown = (e: PointerEvent) => {
+      if (!root.current?.contains(e.target as Node)) setOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setOpen(false);
+    };
+    document.addEventListener("pointerdown", onDown);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("pointerdown", onDown);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [open]);
+
+  const step =
+    "grid h-11 w-11 place-items-center rounded-xl text-[20px] leading-none active:bg-hover disabled:opacity-35";
+
+  return (
+    <div ref={root} className="relative z-20 shrink-0">
+      <button
+        type="button"
+        aria-label={labels.zoom}
+        aria-haspopup="true"
+        aria-expanded={open}
+        onClick={() => setOpen((o) => !o)}
+        className="ios-bubble text-[15px] font-semibold"
+      >
+        <span aria-hidden>
+          A<span className="text-[12px]">A</span>
+        </span>
+      </button>
+      {open && (
+        <div className="absolute top-full right-0 mt-1.5 flex items-center rounded-2xl bg-win p-1.5 shadow-[0_10px_40px_rgba(0,0,0,0.28)] outline outline-1 outline-line">
+          <button
+            type="button"
+            aria-label={labels.zoomOut}
+            onClick={() => onStep(-1)}
+            disabled={zoom <= min + 0.005}
+            className={step}
+          >
+            −
+          </button>
+          <button
+            type="button"
+            aria-label={labels.zoomReset}
+            onClick={onReset}
+            className="h-11 min-w-[64px] rounded-xl px-2 text-center text-[14px] font-medium tabular-nums active:bg-hover"
+          >
+            {Math.round(zoom * 100)}%
+          </button>
+          <button
+            type="button"
+            aria-label={labels.zoomIn}
+            onClick={() => onStep(1)}
+            disabled={zoom >= max - 0.005}
+            className={step}
+          >
+            +
+          </button>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function FigmaFile({
   project,
   caseStudies,
@@ -623,6 +710,19 @@ function FigmaFile({
             active={active}
             onPick={jump}
           />
+          <ZoomMenu
+            zoom={zoom}
+            min={ZOOM_MIN}
+            max={ZOOM_MAX}
+            onStep={stepZoom}
+            onReset={resetZoom}
+            labels={{
+              zoom: dc.zoom,
+              zoomIn: dc.zoomIn,
+              zoomOut: dc.zoomOut,
+              zoomReset: dc.zoomReset,
+            }}
+          />
         </div>
 
         <div
@@ -649,6 +749,17 @@ function FigmaFile({
                     <IconLock className="mt-0.5 h-3.5 w-3.5 shrink-0 not-italic" />
                     {ui.confidentialNote}
                   </p>
+                )}
+                {project.link && (
+                  <a
+                    href={project.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-6 inline-flex items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-accent-fg hover:opacity-90"
+                  >
+                    {dc.visit}
+                    <IconArrowUpRight className="h-4 w-4" />
+                  </a>
                 )}
                 {project.concept && (
                   <p className="mt-6 flex items-start gap-2.5 text-[13px] leading-relaxed text-muted">
@@ -751,7 +862,7 @@ function FigmaFile({
           </div>
         </div>
 
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-win px-1.5 py-1 shadow-[0_4px_18px_rgba(0,0,0,0.18)] outline outline-1 outline-line">
+        <div className="absolute bottom-[max(16px,env(safe-area-inset-bottom))] left-1/2 flex -translate-x-1/2 items-center gap-1 rounded-full bg-win px-1.5 py-1 shadow-[0_4px_18px_rgba(0,0,0,0.18)] outline outline-1 outline-line">
           <button
             type="button"
             aria-label="Previous frame"
@@ -776,7 +887,7 @@ function FigmaFile({
           </button>
         </div>
 
-        <div className="absolute right-4 bottom-4 flex items-center rounded-full bg-win px-1 py-1 shadow-[0_4px_18px_rgba(0,0,0,0.18)] outline outline-1 outline-line max-sm:right-1/2 max-sm:bottom-16 max-sm:translate-x-1/2">
+        <div className="absolute right-4 bottom-4 flex items-center rounded-full bg-win px-1 py-1 shadow-[0_4px_18px_rgba(0,0,0,0.18)] outline outline-1 outline-line max-md:hidden">
           <button
             type="button"
             aria-label={dc.zoomOut}
