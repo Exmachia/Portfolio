@@ -448,9 +448,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Anagram",
         subtitle: "Portfolio and catalog for an architecture studio",
         link: "https://anagramarquitectos.com/portafolio",
-        image: "/projects/anagram/01-cover.webp",
+        image: "/projects/anagram/01-cover-v2.webp",
         imageAlt:
-          "Anagram case cover: the text Website for an architecture studio next to the site's home and its properties page",
+          "Anagram case cover on a cream background: \"From having nothing to show to a portfolio of flagship projects\", with three iPhones showing the site's home, about and portfolio",
         images: {
           overview: [
             caseImage("anagram", "02-antes.webp", 2880, 1514, {
@@ -521,9 +521,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Nativa",
         subtitle: "Pre-sale for a high-value residential development",
         link: "https://nativaliving.anagramarquitectos.com/",
-        image: "/projects/nativa/01-cover.webp",
+        image: "/projects/nativa/01-cover-v2.webp",
         imageAlt:
-          "Nativa case cover: the text Apartment presale in Colima next to the site's home and its mobile view",
+          "Nativa case cover on a green background: \"Selling what doesn't exist yet: the page builds trust and desire on its own\", with the site's home and its mobile view",
         images: {
           overview: [
             caseImage("nativa", "02-antes.webp", 2880, 2072, {
@@ -616,9 +616,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Casas Exclusivas Colima",
         subtitle: "Real estate catalog",
         link: "https://www.casasexclusivas-colima.com/",
-        image: "/projects/casas-exclusivas-colima/01-cover.webp",
+        image: "/projects/casas-exclusivas-colima/01-cover-v2.webp",
         imageAlt:
-          "Casas Exclusivas Colima case cover: title, problem line and mobile home and sales screens",
+          "Casas Exclusivas case cover on a dark background: \"The client asked for a structure like Century 21. The challenge: give it its own identity\", with the site on desktop and mobile",
         images: {
           overview: [
             caseImage("casas-exclusivas-colima", "02-antes.webp", 3600, 1536, {
@@ -685,9 +685,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Sinagua",
         subtitle: "Open data platform on water in Mexico",
         link: "https://www.sinagua.org",
-        image: "/projects/sinagua/01-cover.webp",
+        image: "/projects/sinagua/01-cover-v2.webp",
         imageAlt:
-          "Sinagua case cover: the aquifer map of Mexico and the Valle de León aquifer detail on a dark background",
+          "Sinagua case cover on a cream background: \"The water data exists, but it's scattered. Here it reads municipality by municipality and in plain language\", with the map of Mexico's aquifers and the platform's detail",
         images: {
           overview: [
             caseImage("sinagua", "02-antes.webp", 2880, 1994, {
@@ -754,9 +754,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Nu Wallet",
         subtitle: "A wallet to see and control all your cards",
         concept: true,
-        image: "/projects/nu-wallet/01-cover.webp",
+        image: "/projects/nu-wallet/01-cover-v2.webp",
         imageAlt:
-          "Nu Wallet case cover: three iPhone screens on a purple background with a Concept project label, not affiliated with Nu",
+          "Nu Wallet case cover on a purple background: \"Several cards at once, and no place to see them together or know which to use for what\", with the card stack on an iPhone and the Concept project label, not affiliated with Nu",
         homeTeaser:
           "A speculative redesign of how a Nu Mexico customer sees and controls all their cards.",
         contexto:
@@ -825,9 +825,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Spotify Classic Mode",
         subtitle: "A player with a touch ring for listening to full albums",
         concept: true,
-        image: "/projects/spotify-modo-clasico/01-cover.webp",
+        image: "/projects/spotify-modo-clasico/01-cover-v2.webp",
         imageAlt:
-          "Spotify Classic Mode case cover: three iPhone screens on a dark background with a Concept project label, not affiliated with Spotify",
+          "Spotify Classic Mode case cover on a black background: \"Listening to a full album, or controlling the music without looking, takes a back seat\", with three iPhones and the touch ring, and the Concept project label, not affiliated with Spotify",
         homeTeaser:
           "A speculative redesign of a playback mode for listening to full albums with a circular touch control.",
         contexto:
@@ -893,9 +893,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "BBVA Secure Transfers",
         subtitle: "A confirmation centered on who receives the money",
         concept: true,
-        image: "/projects/bbva-transferencias-seguras/01-cover.webp",
+        image: "/projects/bbva-transferencias-seguras/01-cover-v2.webp",
         imageAlt:
-          "BBVA Secure Transfers case cover: three iPhone screens on a blue background with a Concept project label, not affiliated with BBVA",
+          "BBVA Secure Transfers case cover on a blue background: \"A SPEI already deposited can't be cancelled, and when sending there's no clear signal of who receives it\", with two iPhones showing the confirmation and the Concept project label, not affiliated with BBVA",
         homeTeaser:
           "A speculative redesign of sending SPEI transfers in the BBVA Mexico app.",
         contexto:
@@ -964,9 +964,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Banorte Statement",
         subtitle: "One screen to decide how much of your card to pay",
         concept: true,
-        image: "/projects/banorte-estado-de-cuenta/01-cover.webp",
+        image: "/projects/banorte-estado-de-cuenta/01-cover-v2.webp",
         imageAlt:
-          "Banorte Statement case cover: three iPhone screens and a Concept project label, not affiliated with Banorte",
+          "Banorte Statement case cover on a red background: \"Three amounts left unexplained. You see how much you owe, but not how much it's worth paying\", with a tilted iPhone showing the payment options and the Concept project label, not affiliated with Banorte",
         homeTeaser:
           "A speculative redesign of how a Banorte mobile customer understands their credit card statement and decides how much to pay.",
         contexto:
@@ -1032,9 +1032,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Mercado Pago Savings Goals",
         subtitle: "Savings pockets that say how much is left and when you reach your goal",
         concept: true,
-        image: "/projects/mercado-pago-metas-de-ahorro/01-cover.webp",
+        image: "/projects/mercado-pago-metas-de-ahorro/01-cover-v2.webp",
         imageAlt:
-          "Cover of the Savings goals concept project, not affiliated with Mercado Pago, with three screens of the redesign",
+          "Savings goals case cover on a yellow background: \"You see a percentage, but not how much is left or when you reach your goal\", with four iPhones showing the goals and the Concept project label, not affiliated with Mercado Pago",
         images: {
           overview: [
             caseImage("mercado-pago-metas-de-ahorro", "02-antes.webp", 3908, 2356, {
@@ -1102,9 +1102,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Wise USD to MXN",
         subtitle: "Convert dollars to pesos knowing whether to do it today or wait",
         concept: true,
-        image: "/projects/wise-usd-a-mxn/01-cover.webp",
+        image: "/projects/wise-usd-a-mxn/01-cover-v2.webp",
         imageAlt:
-          "Cover of the Convert to MXN with context concept project, not affiliated with Wise, with three screens of the redesign",
+          "Convert to MXN case cover on a green background: \"Is today's rate good? How many pesos do I get? Today it isn't visible in one place\", with an iPhone showing the net in pesos and the Concept project label, not affiliated with Wise",
         images: {
           overview: [
             caseImage("wise-usd-a-mxn", "02-antes.webp", 3895, 1891, {
@@ -1169,9 +1169,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Aeroméxico Rebooking",
         subtitle: "One-tap rebooking when your flight is delayed or cancelled",
         concept: true,
-        image: "/projects/aeromexico-reacomodo/01-cover.webp",
+        image: "/projects/aeromexico-reacomodo/01-cover-v2.webp",
         imageAlt:
-          "Cover of the One-tap rebooking concept project, not affiliated with Aeroméxico, with three screens of the redesign",
+          "One-tap rebooking case cover on a blue background: \"When a flight falls through, you queue or call, and you don't know what you're owed by law\", with two iPhones showing the rebooking and the Concept project label, not affiliated with Aeroméxico",
         images: {
           overview: [
             caseImage("aeromexico-reacomodo", "02-antes.webp", 3943, 2237, {
@@ -1239,9 +1239,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Volaris Total Price",
         subtitle: "Your flight's price with what you actually carry, from the results",
         concept: true,
-        image: "/projects/volaris-precio-total/01-cover.webp",
+        image: "/projects/volaris-precio-total/01-cover-v2.webp",
         imageAlt:
-          "Cover of the What are you carrying? concept project, not affiliated with Volaris, with three screens of the redesign",
+          "What are you carrying? case cover on a plum background: \"The price you compare while searching isn't the one you pay\", with several tilted iPhones showing the results and the Concept project label, not affiliated with Volaris",
         images: {
           overview: [
             caseImage("volaris-precio-total", "02-antes.webp", 3895, 1876, {
@@ -1309,9 +1309,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Viva Aerobus Group Travel",
         subtitle: "Seats and check-in for the whole family in a single flow",
         concept: true,
-        image: "/projects/viva-viaje-en-grupo/01-cover.webp",
+        image: "/projects/viva-viaje-en-grupo/01-cover-v2.webp",
         imageAlt:
-          "Cover of the Seats and check-in for the whole family concept project, not affiliated with Viva Aerobus, with three screens of the redesign",
+          "Seats and check-in for the whole family case cover on a green background: \"Today it's decided person by person, without seeing who sits with whom or how much it costs to sit together\", with iPhones showing the group map and the Concept project label, not affiliated with Viva Aerobus",
         images: {
           overview: [
             caseImage("viva-viaje-en-grupo", "02-antes.webp", 3895, 1879, {
@@ -1379,9 +1379,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Delta Connection Mode",
         subtitle: "A clear verdict on whether you make your next flight",
         concept: true,
-        image: "/projects/delta-modo-conexion/01-cover.webp",
+        image: "/projects/delta-modo-conexion/01-cover-v2.webp",
         imageAlt:
-          "Cover of the Will I make it or not? concept project, not affiliated with Delta Air Lines, with three screens of the redesign",
+          "Will I make it or not? case cover on a navy background: \"Gate, time, map and alerts scattered to answer a single question\", with the On time, Tight and At risk cards and an iPhone, and the Concept project label, not affiliated with Delta Air Lines",
         images: {
           overview: [
             caseImage("delta-modo-conexion", "02-antes.webp", 3895, 1859, {
@@ -1741,9 +1741,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Anagram",
         subtitle: "Portafolio y catálogo para un estudio de arquitectura",
         link: "https://anagramarquitectos.com/portafolio",
-        image: "/projects/anagram/01-cover.webp",
+        image: "/projects/anagram/01-cover-v2.webp",
         imageAlt:
-          "Portada del caso Anagram: texto Sitio de un estudio de arquitectura junto a la portada del sitio y la página de propiedades",
+          "Portada del caso Anagram sobre fondo crema: \"De no tener nada que mostrar a un portafolio de proyectos insignia\", con tres iPhones del inicio, nosotros y portafolio del sitio",
         images: {
           overview: [
             caseImage("anagram", "02-antes.webp", 2880, 1514, {
@@ -1814,9 +1814,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Nativa",
         subtitle: "Preventa de desarrollo residencial de alta plusvalía",
         link: "https://nativaliving.anagramarquitectos.com/",
-        image: "/projects/nativa/01-cover.webp",
+        image: "/projects/nativa/01-cover-v2.webp",
         imageAlt:
-          "Portada del caso Nativa: texto Preventa de departamentos en Colima junto a la portada del sitio y su vista móvil",
+          "Portada del caso Nativa sobre fondo verde: \"Vender lo que todavía no existe: la página genera confianza y deseo por sí sola\", con la portada del sitio y su vista móvil",
         images: {
           overview: [
             caseImage("nativa", "02-antes.webp", 2880, 2072, {
@@ -1909,9 +1909,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Casas Exclusivas Colima",
         subtitle: "Catálogo inmobiliario",
         link: "https://www.casasexclusivas-colima.com/",
-        image: "/projects/casas-exclusivas-colima/01-cover.webp",
+        image: "/projects/casas-exclusivas-colima/01-cover-v2.webp",
         imageAlt:
-          "Portada del caso Casas Exclusivas Colima: título, línea del problema y pantallas de inicio y venta móvil",
+          "Portada del caso Casas Exclusivas sobre fondo oscuro: \"El cliente pidió una estructura como Century 21. El reto: darle identidad propia\", con el sitio en escritorio y móvil",
         images: {
           overview: [
             caseImage("casas-exclusivas-colima", "02-antes.webp", 3600, 1536, {
@@ -1978,9 +1978,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Sinagua",
         subtitle: "Plataforma de datos abiertos sobre el agua en México",
         link: "https://www.sinagua.org",
-        image: "/projects/sinagua/01-cover.webp",
+        image: "/projects/sinagua/01-cover-v2.webp",
         imageAlt:
-          "Portada del caso Sinagua: el mapa de acuíferos de México y el detalle del acuífero Valle de León sobre fondo oscuro",
+          "Portada del caso Sinagua sobre fondo crema: \"Los datos del agua existen, pero están dispersos. Aquí se leen municipio por municipio y en lenguaje llano\", con el mapa de acuíferos de México y el detalle de la plataforma",
         images: {
           overview: [
             caseImage("sinagua", "02-antes.webp", 2880, 1994, {
@@ -2047,9 +2047,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Nu Wallet",
         subtitle: "Una wallet para ver y controlar todas tus tarjetas",
         concept: true,
-        image: "/projects/nu-wallet/01-cover.webp",
+        image: "/projects/nu-wallet/01-cover-v2.webp",
         imageAlt:
-          "Portada del caso Nu Wallet: tres pantallas en iPhone sobre fondo morado y etiqueta Concept project, no afiliado a Nu",
+          "Portada del caso Nu Wallet sobre fondo morado: \"Varias tarjetas a la vez, y ningún lugar donde verlas juntas ni saber cuál usar para qué\", con la pila de tarjetas en un iPhone y la etiqueta Concept project, no afiliado a Nu",
         homeTeaser:
           "Rediseño especulativo de cómo un cliente de Nu México ve y controla todas sus tarjetas.",
         contexto:
@@ -2118,9 +2118,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Spotify Modo Clásico",
         subtitle: "Un reproductor con anillo táctil para escuchar álbumes completos",
         concept: true,
-        image: "/projects/spotify-modo-clasico/01-cover.webp",
+        image: "/projects/spotify-modo-clasico/01-cover-v2.webp",
         imageAlt:
-          "Portada del caso Spotify Modo Clásico: tres pantallas en iPhone sobre fondo oscuro y etiqueta Concept project, no afiliado a Spotify",
+          "Portada del caso Spotify Modo Clásico sobre fondo negro: \"Escuchar un álbum completo, o controlar la música sin ver, queda en segundo plano\", con tres iPhones y el anillo táctil, y la etiqueta Concept project, no afiliado a Spotify",
         homeTeaser:
           "Rediseño especulativo de un modo de reproducción para escuchar álbumes completos con un control circular táctil.",
         contexto:
@@ -2186,9 +2186,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "BBVA Transferencias Seguras",
         subtitle: "Una confirmación centrada en quién recibe el dinero",
         concept: true,
-        image: "/projects/bbva-transferencias-seguras/01-cover.webp",
+        image: "/projects/bbva-transferencias-seguras/01-cover-v2.webp",
         imageAlt:
-          "Portada del caso BBVA Transferencias Seguras: tres pantallas en iPhone sobre fondo azul y etiqueta Concept project, no afiliado a BBVA",
+          "Portada del caso BBVA Transferencias Seguras sobre fondo azul: \"Un SPEI ya depositado no se cancela, y al enviar no hay una señal clara de a quién le llega\", con dos iPhones de la confirmación y la etiqueta Concept project, no afiliado a BBVA",
         homeTeaser:
           "Rediseño especulativo del envío de transferencias SPEI en la app BBVA México.",
         contexto:
@@ -2257,9 +2257,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Banorte Estado de Cuenta",
         subtitle: "Una pantalla para decidir cuánto pagar de tu tarjeta",
         concept: true,
-        image: "/projects/banorte-estado-de-cuenta/01-cover.webp",
+        image: "/projects/banorte-estado-de-cuenta/01-cover-v2.webp",
         imageAlt:
-          "Portada del caso Banorte Estado de Cuenta: tres pantallas en iPhone y etiqueta Concept project, no afiliado a Banorte",
+          "Portada del caso Banorte Estado de Cuenta sobre fondo rojo: \"Tres montos sin explicar. Ves cuánto debes, pero no cuánto te conviene pagar\", con un iPhone inclinado con las opciones de pago y la etiqueta Concept project, no afiliado a Banorte",
         homeTeaser:
           "Rediseño especulativo de cómo un cliente de Banorte móvil entiende su estado de cuenta de tarjeta de crédito y decide cuánto pagar.",
         contexto:
@@ -2325,9 +2325,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Mercado Pago Metas de Ahorro",
         subtitle: "Apartados que dicen cuánto falta y cuándo llegas a tu meta",
         concept: true,
-        image: "/projects/mercado-pago-metas-de-ahorro/01-cover.webp",
+        image: "/projects/mercado-pago-metas-de-ahorro/01-cover-v2.webp",
         imageAlt:
-          "Portada del concept project Metas de ahorro, no afiliado a Mercado Pago, con tres pantallas del rediseño",
+          "Portada del caso Metas de ahorro sobre fondo amarillo: \"Ves un porcentaje, pero no cuánto te falta ni cuándo llegas a tu meta\", con cuatro iPhones de las metas y la etiqueta Concept project, no afiliado a Mercado Pago",
         images: {
           overview: [
             caseImage("mercado-pago-metas-de-ahorro", "02-antes.webp", 3908, 2356, {
@@ -2395,9 +2395,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Wise USD a MXN",
         subtitle: "Convertir dólares a pesos sabiendo si conviene hoy o esperar",
         concept: true,
-        image: "/projects/wise-usd-a-mxn/01-cover.webp",
+        image: "/projects/wise-usd-a-mxn/01-cover-v2.webp",
         imageAlt:
-          "Portada del concept project Convertir a MXN con contexto, no afiliado a Wise, con tres pantallas del rediseño",
+          "Portada del caso Convertir a MXN sobre fondo verde: \"¿Es buena la tasa de hoy? ¿Cuántos pesos me llegan? Hoy no se ve en un solo lugar\", con un iPhone que muestra el neto en pesos y la etiqueta Concept project, no afiliado a Wise",
         images: {
           overview: [
             caseImage("wise-usd-a-mxn", "02-antes.webp", 3895, 1891, {
@@ -2462,9 +2462,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Aeroméxico Reacomodo",
         subtitle: "Reacomodo en un toque cuando tu vuelo se retrasa o se cancela",
         concept: true,
-        image: "/projects/aeromexico-reacomodo/01-cover.webp",
+        image: "/projects/aeromexico-reacomodo/01-cover-v2.webp",
         imageAlt:
-          "Portada del concept project Reacomodo en un toque, no afiliado a Aeroméxico, con tres pantallas del rediseño",
+          "Portada del caso Reacomodo en un toque sobre fondo azul: \"Cuando un vuelo se cae, haces fila o llamas, y no sabes qué te toca por ley\", con dos iPhones del reacomodo y la etiqueta Concept project, no afiliado a Aeroméxico",
         images: {
           overview: [
             caseImage("aeromexico-reacomodo", "02-antes.webp", 3943, 2237, {
@@ -2532,9 +2532,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Volaris Precio Total",
         subtitle: "El precio de tu vuelo con lo que realmente llevas, desde los resultados",
         concept: true,
-        image: "/projects/volaris-precio-total/01-cover.webp",
+        image: "/projects/volaris-precio-total/01-cover-v2.webp",
         imageAlt:
-          "Portada del concept project ¿Qué llevas?, no afiliado a Volaris, con tres pantallas del rediseño",
+          "Portada del caso ¿Qué llevas? sobre fondo guinda: \"El precio que comparas al buscar no es el que pagas\", con varios iPhones inclinados con los resultados y la etiqueta Concept project, no afiliado a Volaris",
         images: {
           overview: [
             caseImage("volaris-precio-total", "02-antes.webp", 3895, 1876, {
@@ -2602,9 +2602,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Viva Aerobus Viaje en Grupo",
         subtitle: "Asientos y check-in para toda la familia en un solo flujo",
         concept: true,
-        image: "/projects/viva-viaje-en-grupo/01-cover.webp",
+        image: "/projects/viva-viaje-en-grupo/01-cover-v2.webp",
         imageAlt:
-          "Portada del concept project Asientos y check-in para toda la familia, no afiliado a Viva Aerobus, con tres pantallas del rediseño",
+          "Portada del caso Asientos y check-in para toda la familia sobre fondo verde: \"Hoy se decide persona por persona, sin ver quién queda con quién ni cuánto cuesta sentarse juntos\", con iPhones del mapa de grupo y la etiqueta Concept project, no afiliado a Viva Aerobus",
         images: {
           overview: [
             caseImage("viva-viaje-en-grupo", "02-antes.webp", 3895, 1879, {
@@ -2672,9 +2672,9 @@ export const content: Record<Locale, ContentBundle> = {
         title: "Delta Modo Conexión",
         subtitle: "Un veredicto claro para saber si llegas a tu siguiente vuelo",
         concept: true,
-        image: "/projects/delta-modo-conexion/01-cover.webp",
+        image: "/projects/delta-modo-conexion/01-cover-v2.webp",
         imageAlt:
-          "Portada del concept project ¿Llego o no llego?, no afiliado a Delta Air Lines, con tres pantallas del rediseño",
+          "Portada del caso ¿Llego o no llego? sobre fondo azul marino: \"Puerta, hora, mapa y alertas sueltas para responder una sola pregunta\", con las tarjetas A tiempo, Justo y En riesgo y un iPhone, y la etiqueta Concept project, no afiliado a Delta Air Lines",
         images: {
           overview: [
             caseImage("delta-modo-conexion", "02-antes.webp", 3895, 1859, {
