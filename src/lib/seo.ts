@@ -14,18 +14,22 @@ export function pageMetadata({
   path,
   image,
   type = "website",
+  noindex = false,
 }: {
   title: string;
   description: string;
   path: string;
   image?: string;
   type?: "website" | "article";
+  // Alternate views of a page (e.g. the regular-page version) stay out of the index.
+  noindex?: boolean;
 }): Metadata {
   const fullTitle = `${title} — ${site.name}`;
   return {
     title: fullTitle,
     description,
     alternates: { canonical: path },
+    ...(noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: fullTitle,
       description,

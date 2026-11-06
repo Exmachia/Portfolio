@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { useLocale } from "@/lib/locale-context";
 import { desktopContent, type AppId } from "@/lib/desktop-content";
@@ -163,6 +164,15 @@ export function MenuBar() {
               <Check on={false} />
               {dc.menu.downloadCV}
             </a>
+            <Link
+              role="menuitem"
+              href="/pagina"
+              className={item}
+              onClick={() => setOpen(false)}
+            >
+              <Check on={false} />
+              {dc.plain.viewPlain}
+            </Link>
           </div>
         )}
       </div>

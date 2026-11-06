@@ -6,14 +6,16 @@ import { useLocale } from "@/lib/locale-context";
 import {
   desktopContent,
   figmaPublicUrl,
-  visibleCaseStudies,
   featuredCaseStudies,
+  orderCaseStudies,
 } from "@/lib/desktop-content";
-import { siteUrl, type CaseImage, type CaseStudy } from "@/lib/content";
+import { siteUrl, type CaseStudy } from "@/lib/content";
 import { Window } from "@/components/desktop/Window";
+import { CaseGallery } from "@/components/case/CaseGallery";
 import { useWM, type WinState } from "@/components/desktop/wm";
 import {
   IconArrowLeft,
+  IconArrowRight,
   IconArrowUpRight,
   IconCheckCircle,
   IconLink,
@@ -95,39 +97,6 @@ function Cover({ project, pending }: { project: CaseStudy; pending: string }) {
 
 // Screens of a case, in reading order. Click opens the full-size file, since
 // the wide ones (states, design system) can't be read at frame width.
-function Gallery({ images }: { images: CaseImage[] }) {
-  return (
-    <div className="space-y-6">
-      {images.map((img) => (
-        <figure key={img.src}>
-          <a
-            href={img.src}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="block overflow-hidden rounded-md outline outline-1 outline-line"
-          >
-            <Image
-              src={img.src}
-              alt={img.alt}
-              width={img.width}
-              height={img.height}
-              // Frames are at most 960px wide; phones get the viewport width.
-              sizes="(max-width: 1000px) 100vw, 960px"
-              quality={85}
-              className="h-auto w-full"
-            />
-          </a>
-          {img.caption && (
-            <figcaption className="mt-2 text-[12px] leading-snug text-muted italic">
-              {img.caption}
-            </figcaption>
-          )}
-        </figure>
-      ))}
-    </div>
-  );
-}
-
 function Frame({
   id,
   label,
@@ -744,6 +713,18 @@ function FigmaFile({
                 <p className="mt-6 max-w-[560px] font-display text-[20px] leading-snug tracking-tight">
                   {project.homeTeaser}
                 </p>
+                {project.meta && project.meta.length > 0 && (
+                  <dl className="mt-7 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-line pt-6 max-sm:grid-cols-1">
+                    {project.meta.map((m) => (
+                      <div key={m.label} className="min-w-0">
+                        <dt className="font-mono text-[10.5px] tracking-[0.12em] text-muted uppercase">
+                          {m.label}
+                        </dt>
+                        <dd className="mt-1 text-[14px] leading-snug">{m.value}</dd>
+                      </div>
+                    ))}
+                  </dl>
+                )}
                 {project.confidential && (
                   <p className="mt-6 flex items-start gap-2 text-[13px] leading-relaxed text-muted italic">
                     <IconLock className="mt-0.5 h-3.5 w-3.5 shrink-0 not-italic" />
@@ -789,7 +770,7 @@ function FigmaFile({
                   </div>
                 )}
                 {overviewImages.length > 0 && (
-                  <Gallery images={overviewImages} />
+                  <CaseGallery images={overviewImages} />
                 )}
               </div>
             </Frame>
@@ -812,7 +793,7 @@ function FigmaFile({
                         </div>
                         {s.key === "iterations" && processImages.length > 0 && (
                           <div className="mt-5">
-                            <Gallery images={processImages} />
+                            <CaseGallery images={processImages} />
                           </div>
                         )}
                       </div>
@@ -821,7 +802,7 @@ function FigmaFile({
                 </ol>
                 {!project.proceso.iteraciones && processImages.length > 0 && (
                   <div className="mt-6">
-                    <Gallery images={processImages} />
+                    <CaseGallery images={processImages} />
                   </div>
                 )}
               </div>
@@ -839,7 +820,7 @@ function FigmaFile({
                 </p>
                 {solutionImages.length > 0 && (
                   <div className="mt-8">
-                    <Gallery images={solutionImages} />
+                    <CaseGallery images={solutionImages} />
                   </div>
                 )}
               </div>
@@ -857,6 +838,52 @@ function FigmaFile({
                     <p className={`mt-2 ${body}`}>{project.aprendizaje}</p>
                   </div>
                 )}
+
+                <div className="mt-10 space-y-3 border-t border-line pt-8">
+                  <button
+                    type="button"
+                    onClick={() => select(next.slug)}
+                    className="group flex w-full items-center gap-4 rounded-2xl border border-line bg-win2/60 p-3 text-left transition-colors hover:bg-hover"
+                  >
+                    <span className="relative block h-16 w-24 shrink-0 overflow-hidden rounded-lg bg-hover">
+                      {next.image && (
+                        <Image src={next.image} alt="" fill sizes="96px" className="object-cover" />
+                      )}
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block font-mono text-[10.5px] tracking-[0.12em] text-muted uppercase">
+                        {ui.next}
+                      </span>
+                      <span className="mt-0.5 block truncate text-[15px] font-semibold">
+                        {next.title}
+                      </span>
+                    </span>
+                    <IconArrowRight className="mr-1 h-4 w-4 shrink-0 text-muted transition-transform group-hover:translate-x-0.5" />
+                  </button>
+
+                  <div className="rounded-2xl bg-sel p-5">
+                    <p className="font-display text-[20px] leading-tight font-semibold tracking-tight">
+                      {dc.cta.title}
+                    </p>
+                    <p className="mt-1.5 text-[14px] leading-relaxed text-fg/80">{dc.cta.body}</p>
+                    <div className="mt-4 flex flex-wrap gap-2">
+                      <a
+                        href={`mailto:${t.site.email}`}
+                        className="rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold text-accent-fg hover:opacity-90"
+                      >
+                        {dc.cta.email}
+                      </a>
+                      <a
+                        href={t.site.whatsappHref}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full bg-win px-5 py-2.5 text-[14px] font-semibold outline outline-1 outline-line hover:bg-hover"
+                      >
+                        {dc.cta.whatsapp}
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </Frame>
           </div>
@@ -980,15 +1007,7 @@ function FigmaFile({
 export function FigmaApp({ win }: { win: WinState }) {
   const { t, locale } = useLocale();
   const dc = desktopContent[locale].figma;
-  // Featured work first (in the order of featuredCaseStudies), then the rest.
-  const caseStudies = [
-    ...featuredCaseStudies
-      .map((slug) => visibleCaseStudies(t.caseStudies).find((c) => c.slug === slug))
-      .filter((c): c is CaseStudy => Boolean(c)),
-    ...visibleCaseStudies(t.caseStudies).filter(
-      (c) => !isFeatured(c.slug),
-    ),
-  ];
+  const caseStudies = orderCaseStudies(t.caseStudies);
   const { setProps } = useWM();
   const appLabel = desktopContent[locale].tips.figma;
 

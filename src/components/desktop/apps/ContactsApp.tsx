@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLocale } from "@/lib/locale-context";
 import {
   desktopContent,
@@ -174,6 +175,12 @@ export function ContactsApp({ win }: { win: WinState }) {
                 CV
               </button>
             </div>
+            <Link
+              href="/pagina"
+              className="mt-4 inline-block text-[13px] text-muted underline-offset-4 hover:text-fg hover:underline"
+            >
+              {desktopContent[locale].plain.viewPlain}
+            </Link>
 
             {featured.length > 0 && (
               <section className="mt-10">

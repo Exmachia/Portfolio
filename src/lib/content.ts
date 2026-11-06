@@ -33,6 +33,8 @@ export type CaseStudy = {
   image?: string;
   // Alt text for the cover; falls back to the title.
   imageAlt?: string;
+  // At-a-glance facts shown on the cover (type, duration, platform, tools, role).
+  meta?: { label: string; value: string }[];
   confidential?: boolean;
   // Unlaunched concept: not affiliated with the brand (shows ui.conceptNote).
   concept?: boolean;
@@ -447,6 +449,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "anagram",
         title: "Anagram",
         subtitle: "Portfolio and catalog for an architecture studio",
+        meta: [{"label":"Type","value":"Real project · freelance with E3"},{"label":"Platform","value":"Website"},{"label":"Role","value":"Product, SEO, competitor analysis and copy"}],
         link: "https://anagramarquitectos.com/portafolio",
         image: "/projects/anagram/01-cover-v2.webp",
         imageAlt:
@@ -520,6 +523,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "nativa",
         title: "Nativa",
         subtitle: "Pre-sale for a high-value residential development",
+        meta: [{"label":"Type","value":"Real project · freelance with E3"},{"label":"Platform","value":"Website, a subdomain of Anagram"},{"label":"Role","value":"Full design of the site"}],
         link: "https://nativaliving.anagramarquitectos.com/",
         image: "/projects/nativa/01-cover-v2.webp",
         imageAlt:
@@ -615,6 +619,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "casas-exclusivas-colima",
         title: "Casas Exclusivas Colima",
         subtitle: "Real estate catalog",
+        meta: [{"label":"Type","value":"Real project · freelance with E3"},{"label":"Platform","value":"Website"},{"label":"Role","value":"Full design of the site and SEO strategy"}],
         link: "https://www.casasexclusivas-colima.com/",
         image: "/projects/casas-exclusivas-colima/01-cover-v2.webp",
         imageAlt:
@@ -684,6 +689,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "sinagua",
         title: "Sinagua",
         subtitle: "Open data platform on water in Mexico",
+        meta: [{"label":"Type","value":"Citizen project, non-profit"},{"label":"Platform","value":"Open data web platform"},{"label":"Role","value":"Personal end-to-end project"}],
         link: "https://www.sinagua.org",
         image: "/projects/sinagua/01-cover-v2.webp",
         imageAlt:
@@ -753,6 +759,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "nu-wallet",
         title: "Nu Wallet",
         subtitle: "A wallet to see and control all your cards",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/nu-wallet/01-cover-v2.webp",
         imageAlt:
@@ -826,6 +833,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "spotify-modo-clasico",
         title: "Spotify Classic Mode",
         subtitle: "A player with a touch ring for listening to full albums",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/spotify-modo-clasico/01-cover-v2.webp",
         imageAlt:
@@ -896,6 +904,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "bbva-transferencias-seguras",
         title: "BBVA Secure Transfers",
         subtitle: "A confirmation centered on who receives the money",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/bbva-transferencias-seguras/01-cover-v2.webp",
         imageAlt:
@@ -969,6 +978,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "banorte-estado-de-cuenta",
         title: "Banorte Statement",
         subtitle: "One screen to decide how much of your card to pay",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/banorte-estado-de-cuenta/01-cover-v2.webp",
         imageAlt:
@@ -1039,6 +1049,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "mercado-pago-metas-de-ahorro",
         title: "Mercado Pago Savings Goals",
         subtitle: "Savings pockets that say how much is left and when you reach your goal",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/mercado-pago-metas-de-ahorro/01-cover-v2.webp",
         imageAlt:
@@ -1111,6 +1122,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "wise-usd-a-mxn",
         title: "Wise USD to MXN",
         subtitle: "Convert dollars to pesos knowing whether to do it today or wait",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/wise-usd-a-mxn/01-cover-v2.webp",
         imageAlt:
@@ -1180,6 +1192,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "aeromexico-reacomodo",
         title: "Aeroméxico Rebooking",
         subtitle: "One-tap rebooking when your flight is delayed or cancelled",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app, with a push notification"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/aeromexico-reacomodo/01-cover-v2.webp",
         imageAlt:
@@ -1252,6 +1265,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "volaris-precio-total",
         title: "Volaris Total Price",
         subtitle: "Your flight's price with what you actually carry, from the results",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"Mobile web and iOS / Android app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/volaris-precio-total/01-cover-v2.webp",
         imageAlt:
@@ -1324,6 +1338,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "viva-viaje-en-grupo",
         title: "Viva Aerobus Group Travel",
         subtitle: "Seats and check-in for the whole family in a single flow",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/viva-viaje-en-grupo/01-cover-v2.webp",
         imageAlt:
@@ -1396,6 +1411,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "delta-modo-conexion",
         title: "Delta Connection Mode",
         subtitle: "A clear verdict on whether you make your next flight",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app, plus a Live Activity on iOS"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/delta-modo-conexion/01-cover-v2.webp",
         imageAlt:
@@ -1760,6 +1776,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "anagram",
         title: "Anagram",
         subtitle: "Portafolio y catálogo para un estudio de arquitectura",
+        meta: [{"label":"Tipo","value":"Proyecto real · freelance con E3"},{"label":"Plataforma","value":"Sitio web"},{"label":"Rol","value":"Producto, SEO, competencia y textos"}],
         link: "https://anagramarquitectos.com/portafolio",
         image: "/projects/anagram/01-cover-v2.webp",
         imageAlt:
@@ -1833,6 +1850,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "nativa",
         title: "Nativa",
         subtitle: "Preventa de desarrollo residencial de alta plusvalía",
+        meta: [{"label":"Tipo","value":"Proyecto real · freelance con E3"},{"label":"Plataforma","value":"Sitio web, subdominio de Anagram"},{"label":"Rol","value":"Diseño completo del sitio"}],
         link: "https://nativaliving.anagramarquitectos.com/",
         image: "/projects/nativa/01-cover-v2.webp",
         imageAlt:
@@ -1928,6 +1946,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "casas-exclusivas-colima",
         title: "Casas Exclusivas Colima",
         subtitle: "Catálogo inmobiliario",
+        meta: [{"label":"Tipo","value":"Proyecto real · freelance con E3"},{"label":"Plataforma","value":"Sitio web"},{"label":"Rol","value":"Diseño completo del sitio y estrategia de SEO"}],
         link: "https://www.casasexclusivas-colima.com/",
         image: "/projects/casas-exclusivas-colima/01-cover-v2.webp",
         imageAlt:
@@ -1997,6 +2016,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "sinagua",
         title: "Sinagua",
         subtitle: "Plataforma de datos abiertos sobre el agua en México",
+        meta: [{"label":"Tipo","value":"Proyecto ciudadano, sin fines de lucro"},{"label":"Plataforma","value":"Plataforma web de datos abiertos"},{"label":"Rol","value":"Proyecto personal end-to-end"}],
         link: "https://www.sinagua.org",
         image: "/projects/sinagua/01-cover-v2.webp",
         imageAlt:
@@ -2066,6 +2086,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "nu-wallet",
         title: "Nu Wallet",
         subtitle: "Una wallet para ver y controlar todas tus tarjetas",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/nu-wallet/01-cover-v2.webp",
         imageAlt:
@@ -2139,6 +2160,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "spotify-modo-clasico",
         title: "Spotify Modo Clásico",
         subtitle: "Un reproductor con anillo táctil para escuchar álbumes completos",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/spotify-modo-clasico/01-cover-v2.webp",
         imageAlt:
@@ -2209,6 +2231,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "bbva-transferencias-seguras",
         title: "BBVA Transferencias Seguras",
         subtitle: "Una confirmación centrada en quién recibe el dinero",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/bbva-transferencias-seguras/01-cover-v2.webp",
         imageAlt:
@@ -2282,6 +2305,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "banorte-estado-de-cuenta",
         title: "Banorte Estado de Cuenta",
         subtitle: "Una pantalla para decidir cuánto pagar de tu tarjeta",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/banorte-estado-de-cuenta/01-cover-v2.webp",
         imageAlt:
@@ -2352,6 +2376,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "mercado-pago-metas-de-ahorro",
         title: "Mercado Pago Metas de Ahorro",
         subtitle: "Apartados que dicen cuánto falta y cuándo llegas a tu meta",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/mercado-pago-metas-de-ahorro/01-cover-v2.webp",
         imageAlt:
@@ -2424,6 +2449,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "wise-usd-a-mxn",
         title: "Wise USD a MXN",
         subtitle: "Convertir dólares a pesos sabiendo si conviene hoy o esperar",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/wise-usd-a-mxn/01-cover-v2.webp",
         imageAlt:
@@ -2493,6 +2519,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "aeromexico-reacomodo",
         title: "Aeroméxico Reacomodo",
         subtitle: "Reacomodo en un toque cuando tu vuelo se retrasa o se cancela",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android, con notificación push"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/aeromexico-reacomodo/01-cover-v2.webp",
         imageAlt:
@@ -2565,6 +2592,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "volaris-precio-total",
         title: "Volaris Precio Total",
         subtitle: "El precio de tu vuelo con lo que realmente llevas, desde los resultados",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"Web móvil y app iOS / Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/volaris-precio-total/01-cover-v2.webp",
         imageAlt:
@@ -2637,6 +2665,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "viva-viaje-en-grupo",
         title: "Viva Aerobus Viaje en Grupo",
         subtitle: "Asientos y check-in para toda la familia en un solo flujo",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/viva-viaje-en-grupo/01-cover-v2.webp",
         imageAlt:
@@ -2709,6 +2738,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "delta-modo-conexion",
         title: "Delta Modo Conexión",
         subtitle: "Un veredicto claro para saber si llegas a tu siguiente vuelo",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android, más Live Activity en iOS"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/delta-modo-conexion/01-cover-v2.webp",
         imageAlt:

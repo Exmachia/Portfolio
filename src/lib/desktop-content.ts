@@ -33,6 +33,27 @@ export type DesktopContent = {
   // What each app is for, shown in the dock tooltip ("Figma" -> "My projects").
   tips: Record<AppId, string>;
   hint: string;
+  coach: { title: string; body: string; plain: string; dismiss: string };
+  plain: {
+    viewPlain: string;
+    viewDesktop: string;
+    projects: string;
+    real: string;
+    concepts: string;
+    experience: string;
+    about: string;
+    skills: string;
+    tools: string;
+    contact: string;
+    contactBody: string;
+    seeProjects: string;
+    downloadCV: string;
+    back: string;
+    nextProject: string;
+    language: string;
+    theme: string;
+    menu: string;
+  };
   // System alert shown when every window is closed.
   alert: {
     title: string;
@@ -59,7 +80,9 @@ export type DesktopContent = {
     details: string;
     openPublic: string;
     visit: string;
+    cta: { title: string; body: string; email: string; whatsapp: string };
     zoom: string;
+    viewer: { open: string; close: string; prev: string; next: string; zoom: string; fit: string };
     zoomIn: string;
     zoomOut: string;
     zoomReset: string;
@@ -174,6 +197,32 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       trash: "Trash",
     },
     hint: "Open Figma in the dock to see my projects",
+    coach: {
+      title: "This is my desk",
+      body: "Open Figma in the dock to see my projects. Everything here moves and opens like a computer.",
+      plain: "I'd rather see a regular page",
+      dismiss: "Got it",
+    },
+    plain: {
+      viewPlain: "View as a regular page",
+      viewDesktop: "View as a desktop",
+      projects: "Projects",
+      real: "Real projects",
+      concepts: "Concepts",
+      experience: "Experience",
+      about: "About me",
+      skills: "Skills",
+      tools: "Tools",
+      contact: "Contact",
+      contactBody: "Have a project in mind, or want to talk about one of mine? Write to me.",
+      seeProjects: "See my projects",
+      downloadCV: "Download CV",
+      back: "Projects",
+      nextProject: "Next project",
+      language: "Language",
+      theme: "Appearance",
+      menu: "Menu",
+    },
     alert: {
       title: "Want to see my projects?",
       body: "They're in Figma: real products and concepts, each with its full process.",
@@ -198,7 +247,9 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       details: "Details",
       openPublic: "Open in Figma",
       visit: "Visit site",
+      cta: { title: "Shall we talk?", body: "If this case was useful, or you have a project in mind, write to me.", email: "Email me", whatsapp: "WhatsApp" },
       zoom: "Zoom",
+      viewer: { open: "Open image", close: "Close", prev: "Previous image", next: "Next image", zoom: "Zoom in", fit: "Fit to screen" },
       zoomIn: "Zoom in",
       zoomOut: "Zoom out",
       zoomReset: "Reset zoom to 100%",
@@ -414,6 +465,32 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       trash: "Papelera",
     },
     hint: "Abre Figma en el dock para ver mis proyectos",
+    coach: {
+      title: "Este es mi escritorio",
+      body: "Abre Figma en el dock para ver mis proyectos. Aquí todo se mueve y se abre como en una computadora.",
+      plain: "Prefiero ver una página normal",
+      dismiss: "Entendido",
+    },
+    plain: {
+      viewPlain: "Ver como página normal",
+      viewDesktop: "Ver como escritorio",
+      projects: "Proyectos",
+      real: "Proyectos reales",
+      concepts: "Conceptos",
+      experience: "Experiencia",
+      about: "Sobre mí",
+      skills: "Skills",
+      tools: "Herramientas",
+      contact: "Contacto",
+      contactBody: "¿Tienes un proyecto en mente o quieres platicar de alguno de los míos? Escríbeme.",
+      seeProjects: "Ver mis proyectos",
+      downloadCV: "Descargar CV",
+      back: "Proyectos",
+      nextProject: "Siguiente proyecto",
+      language: "Idioma",
+      theme: "Apariencia",
+      menu: "Menú",
+    },
     alert: {
       title: "¿Quieres ver mis proyectos?",
       body: "Están en Figma: productos reales y conceptos, cada uno con su proceso completo.",
@@ -438,7 +515,9 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       details: "Detalles",
       openPublic: "Abrir en Figma",
       visit: "Visitar sitio",
+      cta: { title: "¿Hablamos?", body: "Si te sirvió este caso o tienes un proyecto en mente, escríbeme.", email: "Escribirme", whatsapp: "WhatsApp" },
       zoom: "Zoom",
+      viewer: { open: "Abrir imagen", close: "Cerrar", prev: "Imagen anterior", next: "Imagen siguiente", zoom: "Ampliar", fit: "Ajustar a la pantalla" },
       zoomIn: "Acercar",
       zoomOut: "Alejar",
       zoomReset: "Restablecer zoom al 100%",
@@ -659,4 +738,16 @@ export const isCaseStudyVisible = (slug: string) =>
 
 export function visibleCaseStudies<T extends { slug: string }>(list: T[]): T[] {
   return list.filter((c) => isCaseStudyVisible(c.slug));
+}
+
+// Featured work first (in the order of featuredCaseStudies), then the rest.
+export function orderCaseStudies<T extends { slug: string }>(list: T[]): T[] {
+  const visible = visibleCaseStudies(list);
+  const featured = featuredCaseStudies
+    .map((slug) => visible.find((c) => c.slug === slug))
+    .filter((c): c is T => Boolean(c));
+  return [
+    ...featured,
+    ...visible.filter((c) => !featuredCaseStudies.includes(c.slug)),
+  ];
 }
