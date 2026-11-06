@@ -273,7 +273,7 @@ export const content: Record<Locale, ContentBundle> = {
         "Some details of this project are under an NDA, so I keep the description high-level out of respect for the client.",
       conceptLabel: "Concept project",
       conceptNote:
-        "A concept project: not affiliated with the brand and never launched. The screens are my own recreations, made with the support of AI tools, and names and amounts are sample data.",
+        "A concept project: not affiliated with the brand and never launched.",
       shareCaseStudy: "Share",
       linkCopied: "Link copied",
     },
@@ -1586,7 +1586,7 @@ export const content: Record<Locale, ContentBundle> = {
         "Algunos detalles de este proyecto están bajo NDA, así que mantengo la descripción a nivel general por respeto al cliente.",
       conceptLabel: "Concept project",
       conceptNote:
-        "Proyecto conceptual: no está afiliado a la marca ni se ha lanzado. Las pantallas son recreaciones mías, hechas con apoyo de herramientas de IA, y los nombres y montos son datos de ejemplo.",
+        "Proyecto conceptual: no está afiliado a la marca ni se ha lanzado.",
       shareCaseStudy: "Compartir",
       linkCopied: "Link copiado",
     },
