@@ -33,7 +33,7 @@ export function PlainCase({ slug }: { slug: string }) {
 
   return (
     <PlainShell>
-      <main className="mx-auto max-w-[880px] px-5 pb-16">
+      <main className="relative mx-auto max-w-[880px] px-6 pb-16 sm:px-8">
         <Link
           href="/pagina#proyectos"
           className="mt-8 inline-flex items-center gap-1.5 text-[14px] text-muted hover:text-fg"
@@ -102,16 +102,16 @@ export function PlainCase({ slug }: { slug: string }) {
           </dl>
         )}
 
-        <section className="mt-12">
+        <section className="mt-12 border-t border-line pt-8">
           <p className={eyebrow}>{ui.context}</p>
           <p className={body}>{project.contexto}</p>
         </section>
-        <section className="mt-10">
+        <section className="mt-10 border-t border-line pt-8">
           <p className={eyebrow}>{ui.problem}</p>
           <p className={body}>{project.problema}</p>
         </section>
         {project.miRol && (
-          <section className="mt-10">
+          <section className="mt-10 border-t border-line pt-8">
             <p className={eyebrow}>{ui.role}</p>
             <p className={body}>{project.miRol}</p>
           </section>
@@ -122,7 +122,7 @@ export function PlainCase({ slug }: { slug: string }) {
           </div>
         )}
 
-        <h2 className="mt-16 font-display text-[30px] font-semibold tracking-tight">{ui.process}</h2>
+        <h2 className="mt-16 border-t border-line pt-8 font-display text-[30px] font-semibold tracking-tight">{ui.process}</h2>
         <ol className="mt-4 space-y-10">
           {steps.map((s) => (
             <li key={s.key}>
@@ -142,7 +142,7 @@ export function PlainCase({ slug }: { slug: string }) {
           </div>
         )}
 
-        <h2 className="mt-16 font-display text-[30px] font-semibold tracking-tight">{ui.finalSolution}</h2>
+        <h2 className="mt-16 border-t border-line pt-8 font-display text-[30px] font-semibold tracking-tight">{ui.finalSolution}</h2>
         <p className={body}>{project.solucionFinal}</p>
         {img?.solution && img.solution.length > 0 && (
           <div className="mt-8">
@@ -150,7 +150,7 @@ export function PlainCase({ slug }: { slug: string }) {
           </div>
         )}
 
-        <section className="mt-16">
+        <section className="mt-16 border-t border-line pt-8">
           <p className={eyebrow}>{ui.result}</p>
           <p className="mt-3 border-l-2 border-accent pl-5 font-display text-[26px] leading-[1.25] font-medium tracking-tight">
             {project.resultado}
@@ -166,7 +166,7 @@ export function PlainCase({ slug }: { slug: string }) {
         <div className="mt-14 space-y-3 border-t border-line pt-8">
           <Link
             href={`/pagina/${next.slug}`}
-            className="group flex items-center gap-4 rounded-2xl border border-line bg-win2/60 p-3 hover:bg-hover"
+            className="group flex items-center gap-4 rounded-2xl border border-line bg-win p-3 hover:bg-hover"
           >
             <span className="relative block h-16 w-24 shrink-0 overflow-hidden rounded-lg bg-hover">
               {next.image && <Image src={next.image} alt="" fill sizes="96px" className="object-cover" />}
@@ -179,7 +179,7 @@ export function PlainCase({ slug }: { slug: string }) {
             </span>
             <IconArrowRight className="mr-1 h-4 w-4 shrink-0 text-muted" />
           </Link>
-          <div className="rounded-2xl bg-sel p-6">
+          <div className="rounded-2xl border border-line bg-sel p-6">
             <p className="font-display text-[22px] font-semibold tracking-tight">{dc.figma.cta.title}</p>
             <p className="mt-1.5 text-[15px] leading-relaxed text-fg/80">{dc.figma.cta.body}</p>
             <div className="mt-4 flex flex-wrap gap-2">

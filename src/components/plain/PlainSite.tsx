@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useLocale } from "@/lib/locale-context";
 import { desktopContent, orderCaseStudies } from "@/lib/desktop-content";
 import type { CaseStudy } from "@/lib/content";
+import { Cross, Eyebrow, Section } from "@/components/plain/PlainParts";
 import { PlainShell } from "@/components/plain/PlainShell";
 import { IconArrowRight, IconLock } from "@/components/icons";
 
@@ -16,9 +17,9 @@ function ProjectCard({ c, tag }: { c: CaseStudy; tag: string }) {
     <li>
       <Link
         href={`/pagina/${c.slug}`}
-        className="group block overflow-hidden rounded-2xl border border-line bg-win2/60 transition hover:-translate-y-0.5 hover:shadow-lg"
+        className="group block overflow-hidden rounded-2xl border border-line bg-win transition hover:-translate-y-0.5 hover:border-muted/50 hover:shadow-lg"
       >
-        <span className="relative block aspect-[16/10] overflow-hidden bg-hover">
+        <span className="relative block aspect-[16/10] overflow-hidden border-b border-line bg-hover">
           {c.image && (
             <Image
               src={c.image}
@@ -43,8 +44,6 @@ function ProjectCard({ c, tag }: { c: CaseStudy; tag: string }) {
   );
 }
 
-const h2 = "font-display text-[28px] leading-tight font-semibold tracking-tight";
-
 export function PlainSite() {
   const { t, locale } = useLocale();
   const dc = desktopContent[locale];
@@ -56,59 +55,71 @@ export function PlainSite() {
 
   return (
     <PlainShell>
-      <main className="mx-auto max-w-[1040px] px-5">
-        <section className="py-14 max-sm:py-10">
-          <div className="flex items-center gap-4">
-            <span className="relative block h-[72px] w-[72px] shrink-0 overflow-hidden rounded-full shadow-md">
-              <Image src="/eduardo.jpg" alt={site.name} fill sizes="72px" priority className="object-cover" />
-            </span>
-            <div className="min-w-0">
-              <p className="font-display text-[20px] font-semibold tracking-tight">{site.name}</p>
-              <p className="mt-0.5 font-mono text-[11px] tracking-[0.16em] text-muted uppercase">
-                {site.role}
-              </p>
+      <main>
+        <section className="relative overflow-hidden px-6 pt-10 pb-16 sm:px-10 sm:pt-14 sm:pb-20">
+          {/* Faint grid that fades out from the top-left corner. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 opacity-70"
+            style={{
+              backgroundImage:
+                "linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px)",
+              backgroundSize: "56px 56px",
+              maskImage: "radial-gradient(ellipse 80% 90% at 0% 0%, black, transparent 70%)",
+              WebkitMaskImage: "radial-gradient(ellipse 80% 90% at 0% 0%, black, transparent 70%)",
+            }}
+          />
+          <div className="relative">
+            <div className="flex items-center gap-4">
+              <span className="relative block h-[68px] w-[68px] shrink-0 overflow-hidden rounded-full shadow-md ring-1 ring-line ring-offset-4 ring-offset-win">
+                <Image src="/eduardo.jpg" alt={site.name} fill sizes="68px" priority className="object-cover" />
+              </span>
+              <div className="min-w-0">
+                <p className="font-display text-[19px] font-semibold tracking-tight">{site.name}</p>
+                <p className="mt-0.5 font-mono text-[11px] tracking-[0.16em] text-muted uppercase">
+                  {site.role}
+                </p>
+              </div>
+            </div>
+            <h1 className="mt-9 max-w-[17ch] font-display text-[clamp(2.4rem,6.4vw,4.4rem)] leading-[1.02] font-semibold tracking-[-0.04em]">
+              {site.heroStatement}
+            </h1>
+            <p className="mt-6 max-w-[40rem] text-[17px] leading-relaxed text-muted">{site.tagline}</p>
+            <div className="mt-8 flex flex-wrap gap-2.5">
+              <a href="#proyectos" className={`${contactButton} bg-accent text-accent-fg hover:opacity-90`}>
+                {p.seeProjects}
+                <IconArrowRight className="h-4 w-4" />
+              </a>
+              <a href={site.cvHref} download className={`${contactButton} border border-line hover:bg-hover`}>
+                {p.downloadCV}
+              </a>
             </div>
           </div>
-          <h1 className="mt-8 max-w-[18ch] font-display text-[clamp(2.2rem,6vw,3.8rem)] leading-[1.04] font-semibold tracking-[-0.035em]">
-            {site.heroStatement}
-          </h1>
-          <p className="mt-5 max-w-[40rem] text-[17px] leading-relaxed text-muted">{site.tagline}</p>
-          <div className="mt-7 flex flex-wrap gap-2.5">
-            <a href="#proyectos" className={`${contactButton} bg-accent text-accent-fg hover:opacity-90`}>
-              {p.seeProjects}
-              <IconArrowRight className="h-4 w-4" />
-            </a>
-            <a href={site.cvHref} download className={`${contactButton} bg-hover hover:bg-sel`}>
-              {p.downloadCV}
-            </a>
+        </section>
+
+        <Section id="proyectos" index="01" title={p.projects}>
+          <div className="mt-10">
+            <Eyebrow>{p.real}</Eyebrow>
+            <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {real.map((c) => (
+                <ProjectCard key={c.slug} c={c} tag={dc.contacts.realTag} />
+              ))}
+            </ul>
           </div>
-        </section>
+          <div className="mt-12">
+            <Eyebrow>{p.concepts}</Eyebrow>
+            <ul className="mt-5 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {concepts.map((c) => (
+                <ProjectCard key={c.slug} c={c} tag={dc.figma.home.conceptTag} />
+              ))}
+            </ul>
+          </div>
+        </Section>
 
-        <section id="proyectos" className="scroll-mt-24 py-10">
-          <h2 className={h2}>{p.projects}</h2>
-          <h3 className="mt-8 mb-4 text-[13px] font-semibold tracking-wide text-muted uppercase">
-            {p.real}
-          </h3>
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {real.map((c) => (
-              <ProjectCard key={c.slug} c={c} tag={dc.contacts.realTag} />
-            ))}
-          </ul>
-          <h3 className="mt-10 mb-4 text-[13px] font-semibold tracking-wide text-muted uppercase">
-            {p.concepts}
-          </h3>
-          <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {concepts.map((c) => (
-              <ProjectCard key={c.slug} c={c} tag={dc.figma.home.conceptTag} />
-            ))}
-          </ul>
-        </section>
-
-        <section id="experiencia" className="scroll-mt-24 py-10">
-          <h2 className={h2}>{p.experience}</h2>
-          <ul className="mt-6 divide-y divide-line border-y border-line">
+        <Section id="experiencia" index="02" title={p.experience}>
+          <ul className="mt-8 divide-y divide-line border-y border-line">
             {t.experience.map((e) => (
-              <li key={e.company + e.dates} className="grid gap-2 py-6 md:grid-cols-[220px_1fr] md:gap-8">
+              <li key={e.company + e.dates} className="grid gap-2 py-7 md:grid-cols-[210px_1fr] md:gap-10">
                 <p className="font-mono text-[11px] tracking-wide text-muted uppercase">{e.dates}</p>
                 <div>
                   <p className="text-[18px] font-semibold tracking-tight">{e.company}</p>
@@ -124,64 +135,78 @@ export function PlainSite() {
               </li>
             ))}
           </ul>
-        </section>
+        </Section>
 
-        <section id="sobre-mi" className="scroll-mt-24 py-10">
-          <h2 className={h2}>{p.about}</h2>
-          <div className="mt-6 max-w-[62ch] space-y-4 text-[16px] leading-relaxed text-fg/85">
-            {t.sobreMi.paragraphs.map((para, i) => (
-              <p key={i}>{para}</p>
-            ))}
+        <Section id="sobre-mi" index="03" title={p.about}>
+          <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14">
+            <div className="max-w-[62ch] space-y-4 text-[16px] leading-relaxed text-fg/85">
+              {t.sobreMi.paragraphs.map((para, i) => (
+                <p key={i}>{para}</p>
+              ))}
+            </div>
+            <div className="space-y-8">
+              <div>
+                <Eyebrow>{p.skills}</Eyebrow>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {site.expertise.map((s) => (
+                    <li key={s.name} className="rounded-full border border-line px-3.5 py-1.5 text-[13px]">
+                      {s.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <Eyebrow>{p.tools}</Eyebrow>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {site.skills.map((s) => (
+                    <li key={s.name} className="rounded-full bg-hover px-3.5 py-1.5 text-[13px]">
+                      {s.name}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
           </div>
-          <h3 className="mt-10 mb-3 text-[13px] font-semibold tracking-wide text-muted uppercase">
-            {p.skills}
-          </h3>
-          <ul className="flex flex-wrap gap-2">
-            {site.expertise.map((s) => (
-              <li key={s.name} className="rounded-full bg-hover px-3.5 py-1.5 text-[13px]">
-                {s.name}
-              </li>
-            ))}
-          </ul>
-          <h3 className="mt-8 mb-3 text-[13px] font-semibold tracking-wide text-muted uppercase">
-            {p.tools}
-          </h3>
-          <ul className="flex flex-wrap gap-2">
-            {site.skills.map((s) => (
-              <li key={s.name} className="rounded-full bg-hover px-3.5 py-1.5 text-[13px]">
-                {s.name}
-              </li>
-            ))}
-          </ul>
-        </section>
+        </Section>
 
-        <section id="contacto" className="scroll-mt-24 py-12">
-          <div className="rounded-3xl bg-sel p-8 max-sm:p-6">
-            <h2 className={h2}>{p.contact}</h2>
-            <p className="mt-3 max-w-[48ch] text-[16px] leading-relaxed text-fg/80">{p.contactBody}</p>
-            <div className="mt-6 flex flex-wrap gap-2.5">
-              <a href={`mailto:${site.email}`} className={`${contactButton} bg-accent text-accent-fg hover:opacity-90`}>
-                {site.email}
-              </a>
+        <Section id="contacto" index="04" title={p.contact}>
+          <p className="mt-8 max-w-[22ch] font-display text-[clamp(1.8rem,4.4vw,3rem)] leading-[1.08] font-semibold tracking-[-0.03em]">
+            {p.contactBody}
+          </p>
+          <div className="relative mt-9 border border-line">
+            <Cross className="-top-2 -left-2" />
+            <Cross className="-top-2 -right-2" />
+            <Cross className="-bottom-2 -left-2" />
+            <Cross className="-right-2 -bottom-2" />
+            <a
+              href={`mailto:${site.email}`}
+              className="group flex items-center justify-between gap-4 px-5 py-5 text-[clamp(1rem,2.6vw,1.4rem)] font-semibold tracking-tight hover:bg-hover sm:px-7"
+            >
+              <span className="min-w-0 break-all">{site.email}</span>
+              <IconArrowRight className="h-5 w-5 shrink-0 transition-transform group-hover:translate-x-1" />
+            </a>
+            <div className="grid divide-y divide-line border-t border-line sm:grid-cols-2 sm:divide-x sm:divide-y-0">
               <a
                 href={site.whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${contactButton} bg-win outline outline-1 outline-line hover:bg-hover`}
+                className="flex items-center justify-between gap-4 px-5 py-4 text-[14px] font-medium hover:bg-hover sm:px-7"
               >
                 WhatsApp
+                <IconArrowRight className="h-4 w-4 -rotate-45 text-muted" />
               </a>
               <a
                 href={site.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`${contactButton} bg-win outline outline-1 outline-line hover:bg-hover`}
+                className="flex items-center justify-between gap-4 px-5 py-4 text-[14px] font-medium hover:bg-hover sm:px-7"
               >
                 LinkedIn
+                <IconArrowRight className="h-4 w-4 -rotate-45 text-muted" />
               </a>
             </div>
           </div>
-        </section>
+        </Section>
       </main>
     </PlainShell>
   );
