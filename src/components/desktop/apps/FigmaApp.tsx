@@ -7,6 +7,7 @@ import {
   desktopContent,
   figmaPublicUrl,
   visibleCaseStudies,
+  featuredCaseStudies,
 } from "@/lib/desktop-content";
 import { siteUrl, type CaseImage, type CaseStudy } from "@/lib/content";
 import { Window } from "@/components/desktop/Window";
@@ -17,6 +18,7 @@ import {
   IconCheckCircle,
   IconLink,
   IconLock,
+  IconStar,
   IconShare,
 } from "@/components/icons";
 
@@ -29,6 +31,8 @@ const FRAME_WIDTH = 760;
 const FRAME_WIDTH_WIDE = 960;
 
 type FilterId = "all" | "projects" | "concepts";
+
+const isFeatured = (slug: string) => featuredCaseStudies.includes(slug);
 
 // Canvas zoom: buttons walk these steps, ctrl/cmd + wheel (and trackpad pinch)
 // zoom continuously between the limits.
@@ -254,6 +258,15 @@ function FigmaHome({
                   className="group block w-full text-left"
                 >
                   <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-win outline outline-1 outline-line transition group-hover:outline-2 group-hover:outline-accent">
+                    {isFeatured(c.slug) && (
+                      <span
+                        title={dc.home.featured}
+                        className="absolute top-2 left-2 z-10 grid h-7 w-7 place-items-center rounded-full bg-black/55 text-[#ffd23f] shadow-md backdrop-blur-sm"
+                      >
+                        <IconStar filled className="h-4 w-4" />
+                        <span className="sr-only">{dc.home.featured}</span>
+                      </span>
+                    )}
                     {c.image ? (
                       <Image
                         src={c.image}
@@ -854,7 +867,15 @@ function FigmaFile({
 export function FigmaApp({ win }: { win: WinState }) {
   const { t, locale } = useLocale();
   const dc = desktopContent[locale].figma;
-  const caseStudies = visibleCaseStudies(t.caseStudies);
+  // Featured work first (in the order of featuredCaseStudies), then the rest.
+  const caseStudies = [
+    ...featuredCaseStudies
+      .map((slug) => visibleCaseStudies(t.caseStudies).find((c) => c.slug === slug))
+      .filter((c): c is CaseStudy => Boolean(c)),
+    ...visibleCaseStudies(t.caseStudies).filter(
+      (c) => !isFeatured(c.slug),
+    ),
+  ];
   const { setProps } = useWM();
   const appLabel = desktopContent[locale].tips.figma;
 
@@ -934,6 +955,12 @@ export function FigmaApp({ win }: { win: WinState }) {
                 <span className="text-muted max-sm:hidden" aria-hidden>
                   /
                 </span>
+                {isFeatured(project.slug) && (
+                  <IconStar
+                    filled
+                    className="h-3.5 w-3.5 shrink-0 text-[#f5b800]"
+                  />
+                )}
                 <span className="truncate font-medium">{project.title}</span>
               </>
             ) : (

@@ -69,6 +69,7 @@ export type DesktopContent = {
       concepts: string;
       pagesUnit: string;
       conceptTag: string;
+      featured: string;
       back: string;
     };
     frames: {
@@ -206,6 +207,7 @@ export const desktopContent: Record<Locale, DesktopContent> = {
         concepts: "Concepts",
         pagesUnit: "pages",
         conceptTag: "Concept",
+        featured: "Featured",
         back: "Recents",
       },
       frames: {
@@ -444,6 +446,7 @@ export const desktopContent: Record<Locale, DesktopContent> = {
         concepts: "Conceptos",
         pagesUnit: "páginas",
         conceptTag: "Concepto",
+        featured: "Destacado",
         back: "Recientes",
       },
       frames: {
@@ -635,11 +638,12 @@ export const desktopContent: Record<Locale, DesktopContent> = {
 // "Open in Figma" button until the link is available.
 export const figmaPublicUrl: string | null = null;
 
-// Shown in the Contacts window, in this order; each opens its file in Figma.
+// Featured work, in this order: starred and listed first in Figma, shown in the
+// Contacts window and as .fig files on the desktop.
 export const featuredCaseStudies: string[] = [
   "nu-wallet",
-  "sinagua",
   "bbva-transferencias-seguras",
+  "sinagua",
   "banorte-estado-de-cuenta",
 ];
 

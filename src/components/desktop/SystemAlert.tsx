@@ -37,11 +37,9 @@ export function SystemAlert() {
     return () => document.removeEventListener("keydown", onKey);
   }, [shown]);
 
-  // Phones: a bar pinned to the bottom, always there on the home screen and on
-  // the landing card (Contacts), so the projects are one tap away.
-  const showBar = Object.values(wins).every(
-    (w) => !w || w.minimized || w.id === "contacts",
-  );
+  // Phones: a bar pinned to the bottom of the home screen (the menu), so the
+  // projects are one tap away. It only shows there, never over an app.
+  const showBar = empty;
 
   return (
     <>
