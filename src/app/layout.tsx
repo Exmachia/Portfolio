@@ -4,6 +4,7 @@ import "./globals.css";
 import { Providers } from "@/components/Providers";
 import { themeInitScript } from "@/lib/theme";
 import { content, defaultLocale, siteUrl } from "@/lib/content";
+import { JsonLd } from "@/components/JsonLd";
 
 // Inter is only a fallback for non-Apple devices; on a Mac the system font
 // (-apple-system / SF Pro) takes over, like the real macOS UI.
@@ -31,6 +32,9 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${site.name} — ${site.role}`,
     description: site.tagline,
+    url: "/",
+    siteName: site.name,
+    locale: "es_MX",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     type: "website",
   },
@@ -46,6 +50,31 @@ export const metadata: Metadata = {
 // notch); the status bar color is kept in sync by the desktop shell.
 export const viewport: Viewport = { viewportFit: "cover" };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#person`,
+      name: site.name,
+      jobTitle: site.role,
+      description: site.tagline,
+      url: siteUrl,
+      image: `${siteUrl}/eduardo.jpg`,
+      sameAs: [site.linkedin],
+      knowsAbout: site.expertise.map((e) => e.name),
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}/#website`,
+      url: siteUrl,
+      name: site.name,
+      inLanguage: defaultLocale,
+      publisher: { "@id": `${siteUrl}/#person` },
+    },
+  ],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -55,6 +84,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body suppressHydrationWarning>
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        <JsonLd data={structuredData} />
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -350,15 +350,15 @@ function PageMenu({
     <div ref={root} className="relative z-20 w-full">
       <button
         type="button"
-        aria-label={label}
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((o) => !o)}
         className="flex w-full items-center gap-3 rounded-xl bg-hover px-3.5 py-3 text-left text-[15px] font-medium"
       >
+        <span className="sr-only">{label}: </span>
         <span className="font-mono text-[12px] text-muted">
           {String(index + 1).padStart(2, "0")}
-        </span>
+        </span>{" "}
         <span className="flex-1 truncate">{pages[index]?.label}</span>
         <svg
           viewBox="0 0 24 24"

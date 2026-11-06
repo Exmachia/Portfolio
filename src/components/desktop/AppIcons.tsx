@@ -2,14 +2,14 @@ import Image from "next/image";
 import type { AppId } from "@/lib/desktop-content";
 
 const ICON_SRC: Partial<Record<AppId, string>> = {
-  finder: "/icons/finder.png",
-  figma: "/icons/figma.png",
-  claude: "/icons/claude.png",
+  finder: "/icons/finder.webp",
+  figma: "/icons/figma.webp",
+  claude: "/icons/claude.webp",
   notion: "/icons/notion.webp",
-  photobooth: "/icons/photobooth.png",
-  contacts: "/icons/contacts.png",
-  preview: "/icons/preview.png",
-  trash: "/icons/trash.png",
+  photobooth: "/icons/photobooth.webp",
+  contacts: "/icons/contacts.webp",
+  preview: "/icons/preview.webp",
+  trash: "/icons/trash.webp",
 };
 
 export function AppIcon({
