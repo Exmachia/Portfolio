@@ -23,22 +23,10 @@ import {
 const FRAMES = ["cover", "overview", "process", "solution", "result"] as const;
 type FrameId = (typeof FRAMES)[number];
 
-const FRAME_WIDTH: Record<FrameId, number> = {
-  cover: 760,
-  overview: 560,
-  process: 640,
-  solution: 520,
-  result: 560,
-};
-
-// Frames that carry pictures (CaseStudy.images) are wider so the screens stay
-// legible. Cases without pictures keep the widths above.
-const FRAME_WIDTH_WIDE: Record<FrameId, number> = {
-  ...FRAME_WIDTH,
-  overview: 880,
-  process: 880,
-  solution: 960,
-};
+// Frames stack vertically at one width. Cases with pictures (CaseStudy.images)
+// use the wider one so the screens stay legible.
+const FRAME_WIDTH = 760;
+const FRAME_WIDTH_WIDE = 960;
 
 type FilterId = "all" | "projects" | "concepts";
 
@@ -79,7 +67,7 @@ function Cover({ project, pending }: { project: CaseStudy; pending: string }) {
           src={project.image}
           alt={project.imageAlt ?? project.title}
           fill
-          sizes="760px"
+          sizes="960px"
           className="object-cover"
           priority
         />
@@ -152,7 +140,7 @@ function Frame({
   children: React.ReactNode;
 }) {
   return (
-    <section id={`figma-frame-${id}`} className="shrink-0" style={{ width: `min(${width}px, calc(100vw - 72px))` }}>
+    <section id={`figma-frame-${id}`} className="mx-auto w-full" style={{ maxWidth: width }}>
       <button
         type="button"
         onClick={() => onJump(id)}
@@ -435,52 +423,64 @@ function FigmaFile({
 
   const [activeBySlug, setActiveBySlug] = useState<Record<string, FrameId>>({});
   const active = activeBySlug[project.slug] ?? "cover";
-  const canvas = useRef<HTMLDivElement>(null);
+  // Looked up by id (not a ref) so handlers passed down as props don't read refs.
+  const canvasEl = () => document.getElementById("figma-canvas");
 
   useEffect(() => {
-    canvas.current?.scrollTo({ left: 0, top: 0 });
+    canvasEl()?.scrollTo({ left: 0, top: 0 });
   }, [project.slug]);
 
   const [zoom, setZoom] = useState(1);
-  const zoomPrev = useRef(1);
-  // Point (in canvas px) that stays put while zooming; the centre by default.
-  const zoomAnchor = useRef<{ x: number; y: number } | null>(null);
+  // The frame under a point of the canvas (and how far down it), so zooming
+  // keeps the reading position even though the text re-wraps.
+  const zoomAnchor = useRef<{ y: number; id: FrameId; frac: number } | null>(null);
 
-  // CSS zoom changes the layout size, so keep the anchor point under the
-  // cursor by rescaling the scroll position.
-  useLayoutEffect(() => {
-    const el = canvas.current;
-    const r = zoom / zoomPrev.current;
-    zoomPrev.current = zoom;
-    if (!el || r === 1) return;
-    const a = zoomAnchor.current ?? {
-      x: el.clientWidth / 2,
-      y: el.clientHeight / 2,
-    };
+  const frameEl = (id: FrameId) => document.getElementById(`figma-frame-${id}`);
+
+  const markAnchor = (y?: number) => {
+    const el = canvasEl();
+    if (!el) return;
+    const at = y ?? el.clientHeight / 2;
+    const top = el.getBoundingClientRect().top;
     zoomAnchor.current = null;
-    el.scrollLeft = (el.scrollLeft + a.x) * r - a.x;
-    el.scrollTop = (el.scrollTop + a.y) * r - a.y;
+    for (const id of FRAMES) {
+      const r = frameEl(id)?.getBoundingClientRect();
+      if (r && r.top - top <= at) {
+        zoomAnchor.current = { y: at, id, frac: (at - (r.top - top)) / r.height };
+      }
+    }
+  };
+
+  useLayoutEffect(() => {
+    const el = canvasEl();
+    const a = zoomAnchor.current;
+    zoomAnchor.current = null;
+    if (!el || !a) return;
+    const r = frameEl(a.id)?.getBoundingClientRect();
+    if (!r) return;
+    const frameTop = r.top - el.getBoundingClientRect().top + el.scrollTop;
+    el.scrollTop = frameTop + a.frac * r.height - a.y;
   }, [zoom]);
 
   // ctrl/cmd + wheel (also how trackpads send a pinch). Needs a native,
   // non-passive listener to stop the browser from zooming the whole page.
   useEffect(() => {
-    const el = canvas.current;
+    const el = canvasEl();
     if (!el) return;
     const onZoomWheel = (e: WheelEvent) => {
       if (!e.ctrlKey && !e.metaKey) return;
       e.preventDefault();
-      const rect = el.getBoundingClientRect();
-      zoomAnchor.current = { x: e.clientX - rect.left, y: e.clientY - rect.top };
+      markAnchor(e.clientY - el.getBoundingClientRect().top);
       const delta = Math.max(-30, Math.min(30, e.deltaY));
       setZoom((z) => clampZoom(z * Math.exp(-delta * 0.01)));
     };
     el.addEventListener("wheel", onZoomWheel, { passive: false });
     return () => el.removeEventListener("wheel", onZoomWheel);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const stepZoom = (dir: 1 | -1) => {
-    zoomAnchor.current = null;
+    markAnchor();
     setZoom((z) => {
       const eps = 0.005;
       if (dir === 1) return ZOOM_STEPS.find((s) => s > z + eps) ?? z;
@@ -488,46 +488,53 @@ function FigmaFile({
     });
   };
   const resetZoom = () => {
-    zoomAnchor.current = null;
+    markAnchor();
     setZoom(1);
   };
 
   const jump = (f: FrameId) => {
     setActiveBySlug((s) => ({ ...s, [project.slug]: f }));
-    document.getElementById(`figma-frame-${f}`)?.scrollIntoView({
-      behavior: "smooth",
-      inline: "start",
-      block: "nearest",
-    });
+    const el = canvasEl();
+    const target = frameEl(f);
+    if (!el || !target) return;
+    const top =
+      target.getBoundingClientRect().top - el.getBoundingClientRect().top + el.scrollTop;
+    el.scrollTo({ top: top - 16, behavior: "smooth" });
   };
   const step = (dir: 1 | -1) => {
     const i = FRAMES.indexOf(active);
     jump(FRAMES[(i + dir + FRAMES.length) % FRAMES.length]);
   };
 
-  const onWheel = (e: React.WheelEvent<HTMLDivElement>) => {
-    const el = e.currentTarget;
-    if (e.ctrlKey || e.metaKey) return;
-    if (Math.abs(e.deltaY) <= Math.abs(e.deltaX)) return;
-    const canScrollY = el.scrollHeight > el.clientHeight + 1;
-    const atTop = el.scrollTop <= 0;
-    const atBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1;
-    if (!canScrollY || (e.deltaY < 0 && atTop) || (e.deltaY > 0 && atBottom)) {
-      el.scrollLeft += e.deltaY;
-    }
+  // The page list follows the scroll position.
+  const scrollRaf = useRef(0);
+  const onScroll = () => {
+    if (scrollRaf.current) return;
+    scrollRaf.current = requestAnimationFrame(() => {
+      scrollRaf.current = 0;
+      const el = canvasEl();
+      if (!el) return;
+      const top = el.getBoundingClientRect().top;
+      let current: FrameId = "cover";
+      for (const id of FRAMES) {
+        const r = frameEl(id)?.getBoundingClientRect();
+        if (r && r.top - top <= el.clientHeight * 0.35) current = id;
+      }
+      if (el.scrollTop + el.clientHeight >= el.scrollHeight - 4) current = "result";
+      setActiveBySlug((m) =>
+        m[project.slug] === current ? m : { ...m, [project.slug]: current },
+      );
+    });
   };
+  useEffect(() => () => cancelAnimationFrame(scrollRaf.current), []);
 
   const images = project.images;
   const overviewImages = images?.overview ?? [];
   const processImages = images?.process ?? [];
   const solutionImages = images?.solution ?? [];
-  const widthOf = (id: FrameId) => {
-    const wide =
-      (id === "overview" && overviewImages.length > 0) ||
-      (id === "process" && processImages.length > 0) ||
-      (id === "solution" && solutionImages.length > 0);
-    return (wide ? FRAME_WIDTH_WIDE : FRAME_WIDTH)[id];
-  };
+  const wide =
+    overviewImages.length + processImages.length + solutionImages.length > 0;
+  const frameWidth = wide ? FRAME_WIDTH_WIDE : FRAME_WIDTH;
 
   const processSteps = [
     { key: "research", label: ui.research, value: project.proceso.research },
@@ -542,7 +549,7 @@ function FigmaFile({
   const fp = (id: FrameId) => ({
     id,
     label: frameLabel(id),
-    width: widthOf(id),
+    width: frameWidth,
     active: active === id,
     onJump: jump,
     onActivate: () => setActiveBySlug((m) => ({ ...m, [project.slug]: id })),
@@ -604,12 +611,12 @@ function FigmaFile({
         </div>
 
         <div
-          ref={canvas}
-          onWheel={onWheel}
-          className="canvas-grid min-h-0 flex-1 overflow-auto"
+          id="figma-canvas"
+          onScroll={onScroll}
+          className="canvas-grid min-h-0 flex-1 overflow-y-auto overflow-x-hidden"
         >
           <div
-            className="flex min-w-max items-start gap-14 p-10 pb-24"
+            className="flex flex-col gap-12 p-8 pb-28 max-sm:gap-10 max-sm:p-4 max-sm:pb-28"
             style={{ zoom }}
           >
             <Frame {...fp("cover")}>
@@ -641,16 +648,16 @@ function FigmaFile({
 
             <Frame {...fp("overview")}>
               <div className="space-y-7 p-8">
-                <div className={overviewImages.length ? measure : undefined}>
+                <div className={wide ? measure : undefined}>
                   <Label>{ui.context}</Label>
                   <p className={`mt-2 ${body}`}>{project.contexto}</p>
                 </div>
-                <div className={overviewImages.length ? measure : undefined}>
+                <div className={wide ? measure : undefined}>
                   <Label>{ui.problem}</Label>
                   <p className={`mt-2 ${body}`}>{project.problema}</p>
                 </div>
                 {project.miRol && (
-                  <div className={overviewImages.length ? measure : undefined}>
+                  <div className={wide ? measure : undefined}>
                     <Label>{ui.role}</Label>
                     <p className={`mt-2 ${body}`}>{project.miRol}</p>
                   </div>
@@ -673,7 +680,7 @@ function FigmaFile({
                         {i + 1}
                       </span>
                       <div className="min-w-0 flex-1">
-                        <div className={processImages.length ? measure : undefined}>
+                        <div className={wide ? measure : undefined}>
                           <Label>{s.label}</Label>
                           <p className={`mt-1.5 ${body}`}>{s.value}</p>
                         </div>
@@ -700,7 +707,7 @@ function FigmaFile({
                   {ui.finalSolution}
                 </h2>
                 <p
-                  className={`mt-4 ${body} ${solutionImages.length ? measure : ""}`}
+                  className={`mt-4 ${body} ${wide ? measure : ""}`}
                 >
                   {project.solucionFinal}
                 </p>

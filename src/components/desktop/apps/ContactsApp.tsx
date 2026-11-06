@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import { CountUp } from "@/components/CountUp";
 import { useLocale } from "@/lib/locale-context";
 import {
   desktopContent,
@@ -72,7 +71,7 @@ export function ContactsApp({ win }: { win: WinState }) {
   const dc = desktopContent[locale].contacts;
   const conceptTag = desktopContent[locale].figma.home.conceptTag;
   const { open } = useWM();
-  const { site, sobreMi, interests, stats } = t;
+  const { site, sobreMi, interests } = t;
   const featured = featuredCaseStudies
     .map((slug) => t.caseStudies.find((c) => c.slug === slug))
     .filter((c): c is CaseStudy => Boolean(c && isCaseStudyVisible(c.slug)));
@@ -174,26 +173,6 @@ export function ContactsApp({ win }: { win: WinState }) {
                 {dc.openCV}
               </button>
             </div>
-
-            <ul className="mt-8 grid grid-cols-2 gap-2.5 @2xl:grid-cols-4">
-              {stats.map((s) => (
-                <li key={s.label}>
-                  <button
-                    type="button"
-                    disabled={!s.linkSlug || !isCaseStudyVisible(s.linkSlug)}
-                    onClick={() => s.linkSlug && open("figma", { project: s.linkSlug })}
-                    className="h-full w-full rounded-2xl border border-line bg-win2 p-3.5 text-left transition-colors enabled:hover:bg-sel"
-                  >
-                    <p className="font-display text-[28px] leading-none font-semibold tracking-tight">
-                      <CountUp end={s.value} prefix={s.prefix} suffix={s.suffix} />
-                    </p>
-                    <p className="mt-2 text-[11.5px] leading-snug text-muted">
-                      {s.label}
-                    </p>
-                  </button>
-                </li>
-              ))}
-            </ul>
 
             {featured.length > 0 && (
               <section className="mt-10">
