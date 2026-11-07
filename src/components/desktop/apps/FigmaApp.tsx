@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { useLocale } from "@/lib/locale-context";
 import {
@@ -12,6 +11,7 @@ import {
 import { siteUrl, type CaseStudy } from "@/lib/content";
 import { Window } from "@/components/desktop/Window";
 import { CaseGallery } from "@/components/case/CaseGallery";
+import { SkeletonImage } from "@/components/SkeletonImage";
 import { useWM, type WinState } from "@/components/desktop/wm";
 import {
   IconArrowLeft,
@@ -69,7 +69,7 @@ function Cover({ project, pending }: { project: CaseStudy; pending: string }) {
       }`}
     >
       {project.image ? (
-        <Image
+        <SkeletonImage
           src={project.image}
           alt={project.imageAlt ?? project.title}
           fill
@@ -239,7 +239,7 @@ function FigmaHome({
                       </span>
                     )}
                     {c.image ? (
-                      <Image
+                      <SkeletonImage
                         src={c.image}
                         alt=""
                         fill
@@ -847,7 +847,7 @@ function FigmaFile({
                   >
                     <span className="relative block h-16 w-24 shrink-0 overflow-hidden rounded-lg bg-hover">
                       {next.image && (
-                        <Image src={next.image} alt="" fill sizes="96px" className="object-cover" />
+                        <SkeletonImage src={next.image} alt="" fill sizes="96px" className="object-cover" />
                       )}
                     </span>
                     <span className="min-w-0 flex-1">

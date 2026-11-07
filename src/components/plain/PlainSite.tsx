@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useLocale } from "@/lib/locale-context";
 import { desktopContent, orderCaseStudies } from "@/lib/desktop-content";
 import type { CaseStudy } from "@/lib/content";
+import { SkeletonImage } from "@/components/SkeletonImage";
 import { Cross, Eyebrow, Section } from "@/components/plain/PlainParts";
 import { PlainShell } from "@/components/plain/PlainShell";
 import { IconArrowRight, IconLock } from "@/components/icons";
@@ -21,7 +22,7 @@ function ProjectCard({ c, tag }: { c: CaseStudy; tag: string }) {
       >
         <span className="relative block aspect-[16/10] overflow-hidden border-b border-line bg-hover">
           {c.image && (
-            <Image
+            <SkeletonImage
               src={c.image}
               alt={c.imageAlt ?? c.title}
               fill

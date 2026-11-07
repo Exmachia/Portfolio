@@ -842,3 +842,29 @@ body {
     top: calc(48px - 118vw * 0.11466);
   }
 }
+
+/* Placeholder shown while an image loads: a soft highlight sweeping across. */
+.skeleton {
+  background-color: var(--hover);
+  background-image: linear-gradient(
+    100deg,
+    transparent 30%,
+    var(--hover) 50%,
+    transparent 70%
+  );
+  background-size: 250% 100%;
+  animation: skeleton 1.5s ease-in-out infinite;
+}
+@keyframes skeleton {
+  from {
+    background-position: 150% 0;
+  }
+  to {
+    background-position: -50% 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton {
+    animation: none;
+  }
+}

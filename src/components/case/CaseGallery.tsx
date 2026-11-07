@@ -41,7 +41,7 @@ function GalleryItem({ img, onOpen }: { img: CaseImage; onOpen: () => void }) {
         className="group relative block w-full cursor-zoom-in overflow-hidden rounded-md bg-hover outline outline-1 outline-line"
         style={{ aspectRatio: `${img.width} / ${img.height}` }}
       >
-        {!loaded && <span className="absolute inset-0 animate-pulse bg-hover" aria-hidden />}
+        {!loaded && <span className="skeleton absolute inset-0" aria-hidden />}
         <Image
           ref={(el) => {
             // Cached images can finish before hydration, so onLoad never fires.

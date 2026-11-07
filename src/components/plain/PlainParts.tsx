@@ -31,8 +31,8 @@ export function Section({
       id={id}
       className="relative scroll-mt-4 border-t border-line px-6 py-14 sm:px-10 sm:py-16"
     >
-      <Cross className="-top-2 -left-2" />
-      <Cross className="-top-2 -right-2" />
+      <Cross className="-top-2 -left-2 max-sm:hidden" />
+      <Cross className="-top-2 -right-2 max-sm:hidden" />
       <div className="flex items-center gap-4">
         <span className="font-mono text-[11px] tracking-[0.16em] text-muted">{index}</span>
         <h2 className="font-display text-[clamp(1.7rem,3.4vw,2.2rem)] leading-tight font-semibold tracking-tight">

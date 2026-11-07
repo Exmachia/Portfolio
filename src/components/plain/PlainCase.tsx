@@ -1,9 +1,9 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/lib/locale-context";
 import { desktopContent, orderCaseStudies } from "@/lib/desktop-content";
+import { SkeletonImage } from "@/components/SkeletonImage";
 import { PlainShell } from "@/components/plain/PlainShell";
 import { contactButton } from "@/components/plain/PlainSite";
 import { CaseGallery } from "@/components/case/CaseGallery";
@@ -79,7 +79,7 @@ export function PlainCase({ slug }: { slug: string }) {
 
         {project.image && (
           <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-hover outline outline-1 outline-line">
-            <Image
+            <SkeletonImage
               src={project.image}
               alt={project.imageAlt ?? project.title}
               fill
@@ -169,7 +169,7 @@ export function PlainCase({ slug }: { slug: string }) {
             className="group flex items-center gap-4 rounded-2xl border border-line bg-win p-3 hover:bg-hover"
           >
             <span className="relative block h-16 w-24 shrink-0 overflow-hidden rounded-lg bg-hover">
-              {next.image && <Image src={next.image} alt="" fill sizes="96px" className="object-cover" />}
+              {next.image && <SkeletonImage src={next.image} alt="" fill sizes="96px" className="object-cover" />}
             </span>
             <span className="min-w-0 flex-1">
               <span className="block font-mono text-[10.5px] tracking-[0.12em] text-muted uppercase">

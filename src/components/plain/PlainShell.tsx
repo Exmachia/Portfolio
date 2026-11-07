@@ -61,7 +61,7 @@ export function PlainShell({ children }: { children: ReactNode }) {
   return (
     <div
       id={SCROLL_ID}
-      className="fixed inset-0 overflow-y-auto bg-win text-fg [scroll-behavior:smooth]"
+      className="fixed inset-0 overflow-x-hidden overflow-y-auto overscroll-x-none bg-win text-fg [scroll-behavior:smooth]"
       style={{
         backgroundImage:
           "repeating-linear-gradient(135deg, var(--line) 0 1px, transparent 1px 9px)",

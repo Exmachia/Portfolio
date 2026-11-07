@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SkeletonImage } from "@/components/SkeletonImage";
 import type { AppId } from "@/lib/desktop-content";
 
 const ICON_SRC: Partial<Record<AppId, string>> = {
@@ -93,7 +94,7 @@ export function FigFileIcon({ src }: { src: string }) {
   return (
     <span className="relative block h-[80px] w-[112px]">
       <span className="absolute inset-x-0 top-[8px] block h-[63px] overflow-hidden rounded-[6px] bg-white shadow-[0_0_0_2px_#fff,0_0_0_2.5px_rgba(0,0,0,0.12),0_6px_14px_rgba(0,0,0,0.3)]">
-        <Image src={src} alt="" fill sizes="224px" className="object-cover" />
+        <SkeletonImage src={src} alt="" fill sizes="224px" className="object-cover" />
       </span>
       <span className="absolute -right-2 -bottom-0.5 block h-[28px] w-[28px] drop-shadow-md">
         <AppIcon id="figma" />

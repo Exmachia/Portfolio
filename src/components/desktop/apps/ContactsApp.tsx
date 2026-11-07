@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { SkeletonImage } from "@/components/SkeletonImage";
 import { useLocale } from "@/lib/locale-context";
 import {
   desktopContent,
@@ -208,7 +209,7 @@ export function ContactsApp({ win }: { win: WinState }) {
                       >
                         <span className="relative block aspect-[16/10] overflow-hidden bg-hover">
                           {c.image && (
-                            <Image
+                            <SkeletonImage
                               src={c.image}
                               alt={c.imageAlt ?? c.title}
                               fill
