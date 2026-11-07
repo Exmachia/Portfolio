@@ -833,7 +833,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "spotify-modo-clasico",
         title: "Spotify Classic Mode",
         subtitle: "A player with a touch ring for listening to full albums",
-        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
+        meta: [{"label":"Duration","value":"3 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/spotify-modo-clasico/01-cover-v2.webp",
         imageAlt:
@@ -841,7 +841,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "A speculative redesign of a playback mode for listening to full albums with a circular touch control.",
         contexto:
-          "A speculative redesign of a playback mode for listening to full albums with a circular touch control, inspired by the iPod click wheel. A 2-week concept sprint.",
+          "A speculative redesign of a playback mode for listening to full albums with a circular touch control, inspired by the iPod click wheel. A 3-week concept sprint.",
         problema:
           "Spotify's player is designed for skipping between songs while looking at the screen. Listening to a full album, or controlling the music without looking, has little support.\n\nToday, to go back to a moment in a song: Library → album → Play → Now Playing → drag the progress bar (to verify in the app). The bar is thin and gives no tactile reference, so you have to look at it. The proposal combines navigating and seeking in a single circular control with haptic ticks.\n\nPublic evidence:\n• Until November 2021 an album's main button played it on shuffle; Spotify changed it after Adele's request (Gizmodo).\n• Users asked on the official forum to turn off shuffle by default on albums and to seek within a song without opening its screen (Spotify Community).\n• Rewound, an app that imitated the click wheel with haptics, passed 170,000 downloads in about a week; Apple pulled it in 2019 (iMore, iCulture).",
         miRol:
@@ -904,7 +904,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "bbva-transferencias-seguras",
         title: "BBVA Secure Transfers",
         subtitle: "A confirmation centered on who receives the money",
-        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
+        meta: [{"label":"Duration","value":"1 week (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/bbva-transferencias-seguras/01-cover-v2.webp",
         imageAlt:
@@ -912,7 +912,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "A speculative redesign of sending SPEI transfers in the BBVA Mexico app.",
         contexto:
-          "A speculative redesign of sending SPEI transfers in the BBVA Mexico app. A 2-week concept sprint. Technical assumption: that the bank can obtain the account holder's name from the destination CLABE before sending (feasibility to verify with BBVA).",
+          "A speculative redesign of sending SPEI transfers in the BBVA Mexico app. A 1-week concept sprint. Technical assumption: that the bank can obtain the account holder's name from the destination CLABE before sending (feasibility to verify with BBVA).",
         problema:
           "A SPEI transfer that has already been deposited can't be cancelled, and fraud is the main cause of complaints against banks. When sending, the customer has no clear signal of who is receiving the money: the app should help catch the error or the fraud before sending, not after.\n\nSending to a new account today (to verify): Home → Transfer → new recipient → CLABE → name and concept → amount → confirm with biometrics or Token. The confirmation repeats what the user typed; it doesn't say who the real account holder is or whether you've sent to them before. Pending: confirm whether it shows the account holder's name today after the CLABE is entered.\n\nPublic evidence:\n• According to Banxico, a SPEI payment can only be cancelled before it is deposited; afterwards it depends on the recipient agreeing to return it (El Imparcial).\n• January to May 2026: 35,762 claims for possible fraud before CONDUSEF (+18.95% year over year); in multiple banking, 54% of claims were for fraud and BBVA is among the four with the most complaints (El CEO).\n• Since October 2025 the MTU allows different limits for new accounts: the system already tells \"new\" from \"known\", but the user doesn't see it when sending (Xataka México).",
         miRol:
@@ -1049,7 +1049,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "mercado-pago-metas-de-ahorro",
         title: "Mercado Pago Savings Goals",
         subtitle: "Savings pockets that say how much is left and when you reach your goal",
-        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
+        meta: [{"label":"Duration","value":"3 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/mercado-pago-metas-de-ahorro/01-cover-v2.webp",
         imageAlt:
@@ -1094,7 +1094,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "A speculative redesign of how a Mercado Pago Mexico user sees their Apartados (savings pockets) and what their money earns.",
         contexto:
-          "A speculative redesign of how a Mercado Pago Mexico user sees their Apartados (savings pockets) and what their money earns. A 2-week concept sprint.",
+          "A speculative redesign of how a Mercado Pago Mexico user sees their Apartados (savings pockets) and what their money earns. A 3-week concept sprint.",
         problema:
           "Mercado Pago advertises its rate as a percentage, but users save in pesos and in dates. The rate changes by balance, type of money, the month's deposits and membership, and the rules change every few months. The user sees a percentage, but not how much is left or when they reach their goal.\n\nToday (to verify in the app): Home → money and yields → Apartados → an Apartado → see balance. The rate and its conditions live on another screen or in the terms and conditions. Pending: confirm the current rate at publication.\n\nPublic evidence:\n• Users already use Apartados as goals: 545,000 for vacations in the first months of 2026, nearly double the previous year (Descubre).\n• Oct 2025: 7% base and up to 13% with $3,000 monthly deposits, only on the first $25,000 (Xataka). Jun 2026: the maximum drops to 12% (Xataka). Sep 2026: 15% for Meli+ members (DPL News).\n• The rules changed at least 3 times in 12 months.",
         miRol:
@@ -1192,7 +1192,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "aeromexico-reacomodo",
         title: "Aeroméxico Rebooking",
         subtitle: "One-tap rebooking when your flight is delayed or cancelled",
-        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app, with a push notification"},{"label":"Tools","value":"Figma, FigJam"}],
+        meta: [{"label":"Duration","value":"3 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app, with a push notification"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/aeromexico-reacomodo/01-cover-v2.webp",
         imageAlt:
@@ -1237,7 +1237,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "A speculative redesign of how Aeroméxico's app supports a passenger when their flight is delayed or cancelled.",
         contexto:
-          "A speculative redesign of how Aeroméxico's app supports a passenger when their flight is delayed or cancelled, with a push notification as the entry point. A 2-week concept sprint.",
+          "A speculative redesign of how Aeroméxico's app supports a passenger when their flight is delayed or cancelled, with a push notification as the entry point. A 3-week concept sprint.",
         problema:
           "Aeroméxico is among the most punctual airlines in the world, but when a flight does fall through, the app informs and doesn't resolve: rebooking moves to the queue or the phone, and the passenger doesn't know what they are owed by law.\n\nToday (according to public sources, to verify in the app): notification → My trips / Status → no flight options visible → call center, WhatsApp bot or the counter queue → negotiate the new flight → look separately for what compensation applies.\n\nPublic evidence:\n• In 2025 Aeroméxico operated about 190 thousand flights with 91.88% on-time departures (Cirium); even so, about 8% were not on time.\n• The app's published features are status, notifications, check-in and My trips; rebooking isn't mentioned (El Imparcial).\n• In October 2025 at least 53 flights were reported cancelled and 315 delayed in two days because of a dispute with pilots (Mexico News Daily).",
         miRol:
@@ -1265,7 +1265,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "volaris-precio-total",
         title: "Volaris Total Price",
         subtitle: "Your flight's price with what you actually carry, from the results",
-        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"Mobile web and iOS / Android app"},{"label":"Tools","value":"Figma, FigJam"}],
+        meta: [{"label":"Duration","value":"1 week (concept sprint)"},{"label":"Platform","value":"Mobile web and iOS / Android app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/volaris-precio-total/01-cover-v2.webp",
         imageAlt:
@@ -1310,7 +1310,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "A speculative redesign of the start of the flight purchase on volaris.com and the app.",
         contexto:
-          "A speculative redesign of the start of the flight purchase on volaris.com and the app. A 2-week concept sprint. Out of scope: the legal position on baggage fees and pricing logic.",
+          "A speculative redesign of the start of the flight purchase on volaris.com and the app. A 1-week concept sprint. Out of scope: the legal position on baggage fees and pricing logic.",
         problema:
           "The Zero fare, the most visible one, includes only a personal item. Carry-on, checked bag and seat are added later, and the real price only appears at checkout or at the airport: with a carry-on, the fare can cost double.\n\nToday (to verify with captures): Search → results with base fare price → choose fare → passengers → extras (baggage, seat) → payment. Baggage is decided in step 5, after choosing the flight. Pending: confirm fare names (the official page says Flex, Expansión reports Básica).\n\nPublic evidence:\n• In a Mexico City–Monterrey simulation, Zero cost $945 and Plus $1,943: $998 more to bring a carry-on (Expansión, May 2026).\n• The Civil Aviation Law (art. 47 Bis) allows two pieces in the cabin of 55 × 40 × 25 cm and 10 kg in total; in 2021 Profeco put suspension seals on Volaris for charging for it (Expansión).\n• Profeco's recommendation: compare the total cost, not the base fare (El Imparcial).\n\nThe legal debate isn't solved by design; what can be designed is that the total price is visible before choosing.",
         miRol:
@@ -1338,7 +1338,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "viva-viaje-en-grupo",
         title: "Viva Aerobus Group Travel",
         subtitle: "Seats and check-in for the whole family in a single flow",
-        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
+        meta: [{"label":"Duration","value":"3 weeks (concept sprint)"},{"label":"Platform","value":"iOS and Android mobile app"},{"label":"Tools","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/viva-viaje-en-grupo/01-cover-v2.webp",
         imageAlt:
@@ -1383,7 +1383,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "A speculative redesign of how a family or group chooses seats and checks in on Viva's app.",
         contexto:
-          "A speculative redesign of how a family or group chooses seats and checks in on Viva's app. A 2-week concept sprint. Out of scope: pricing logic and immigration rules.",
+          "A speculative redesign of how a family or group chooses seats and checks in on Viva's app. A 3-week concept sprint. Out of scope: pricing logic and immigration rules.",
         problema:
           "A booking with several passengers (including minors) forces deciding seats and check-in person by person, without clearly seeing who sits next to whom or how much it costs to sit together. Viva sells the app for traveling \"with your family and friends\", but seats and check-in are still designed for one passenger at a time.\n\nToday (estimated, to verify in the app): My trips → Seats → choose passenger and seat, repeated for each passenger → pay → Check-in with each passenger's details → passes. With 4 passengers, those steps repeat 4 times. Hypothesis to verify with captures: the cost of sitting together only appears added up at the end and the map doesn't show which minor sits next to which adult.\n\nPublic evidence:\n• Check-in opens depending on the fare (Zero 4 hours before, Light 8 hours, Smart 10 days): a family with mixed fares can't check everyone in at the same time (Viva Blog).\n• Babies travel on a lap, not in an emergency row, and only one per adult (Viva Blog); a minor with a third party requires a release letter.\n• No public Viva page was found guaranteeing free adjacent seats for minors. Verify in the terms and conditions.",
         miRol:
@@ -2160,7 +2160,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "spotify-modo-clasico",
         title: "Spotify Modo Clásico",
         subtitle: "Un reproductor con anillo táctil para escuchar álbumes completos",
-        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
+        meta: [{"label":"Duración","value":"3 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/spotify-modo-clasico/01-cover-v2.webp",
         imageAlt:
@@ -2168,7 +2168,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "Rediseño especulativo de un modo de reproducción para escuchar álbumes completos con un control circular táctil.",
         contexto:
-          "Rediseño especulativo de un modo de reproducción para escuchar álbumes completos con un control circular táctil, inspirado en el click wheel del iPod. Concept sprint de 2 semanas.",
+          "Rediseño especulativo de un modo de reproducción para escuchar álbumes completos con un control circular táctil, inspirado en el click wheel del iPod. Concept sprint de 3 semanas.",
         problema:
           "El reproductor de Spotify está pensado para saltar entre canciones mirando la pantalla. Escuchar un álbum completo, o controlar la música sin ver, tiene pocos apoyos.\n\nHoy, para volver a un momento de una canción: Biblioteca → álbum → Play → Now Playing → arrastrar la barra de progreso (por verificar en la app). La barra es delgada y no da referencia táctil, así que hay que mirarla. La propuesta junta navegar y adelantar en un solo control circular con ticks hápticos.\n\nEvidencia pública:\n• Hasta noviembre de 2021 el botón principal de un álbum lo reproducía en aleatorio; Spotify lo cambió tras la petición de Adele (Gizmodo).\n• Usuarios pidieron en el foro oficial desactivar el aleatorio por defecto en álbumes y adelantar dentro de una canción sin abrir su pantalla (Spotify Community).\n• Rewound, una app que imitaba el click wheel con háptica, superó 170,000 descargas en cerca de una semana; Apple la retiró en 2019 (iMore, iCulture).",
         miRol:
@@ -2231,7 +2231,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "bbva-transferencias-seguras",
         title: "BBVA Transferencias Seguras",
         subtitle: "Una confirmación centrada en quién recibe el dinero",
-        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
+        meta: [{"label":"Duración","value":"1 semana (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/bbva-transferencias-seguras/01-cover-v2.webp",
         imageAlt:
@@ -2239,7 +2239,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "Rediseño especulativo del envío de transferencias SPEI en la app BBVA México.",
         contexto:
-          "Rediseño especulativo del envío de transferencias SPEI en la app BBVA México. Concept sprint de 2 semanas. Supuesto técnico: que el banco pueda obtener el nombre del titular de la CLABE destino antes de enviar (por verificar con BBVA).",
+          "Rediseño especulativo del envío de transferencias SPEI en la app BBVA México. Concept sprint de 1 semana. Supuesto técnico: que el banco pueda obtener el nombre del titular de la CLABE destino antes de enviar (por verificar con BBVA).",
         problema:
           "Una transferencia SPEI ya depositada no se puede cancelar, y el fraude es la principal causa de quejas contra bancos. Al enviar, el cliente no tiene una señal clara de a quién le llega el dinero: la app debe ayudar a detectar el error o el fraude antes de enviar, no después.\n\nEnviar a una cuenta nueva hoy (por verificar): Inicio → Transferir → nuevo destinatario → CLABE → nombre y concepto → monto → confirmar con biometría o Token. La confirmación repite lo que el usuario escribió; no dice quién es el titular real ni si ya le enviaste antes. Pendiente: confirmar si hoy muestra el nombre del titular tras capturar la CLABE.\n\nEvidencia pública:\n• Según Banxico, un pago SPEI solo se cancela antes de depositarse; después depende de que el receptor acepte devolverlo (El Imparcial).\n• Enero a mayo de 2026: 35,762 reclamaciones por posible fraude ante CONDUSEF (+18.95% anual); en banca múltiple, 54% de las reclamaciones fueron por fraude y BBVA está entre las cuatro con más quejas (El CEO).\n• Desde octubre de 2025 el MTU permite límites distintos para cuentas nuevas: el sistema ya distingue \"nuevo\" de \"conocido\", pero el usuario no lo ve al enviar (Xataka México).",
         miRol:
@@ -2376,7 +2376,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "mercado-pago-metas-de-ahorro",
         title: "Mercado Pago Metas de Ahorro",
         subtitle: "Apartados que dicen cuánto falta y cuándo llegas a tu meta",
-        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
+        meta: [{"label":"Duración","value":"3 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/mercado-pago-metas-de-ahorro/01-cover-v2.webp",
         imageAlt:
@@ -2421,7 +2421,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "Rediseño especulativo de cómo un usuario de Mercado Pago México ve sus Apartados y lo que rinde su dinero.",
         contexto:
-          "Rediseño especulativo de cómo un usuario de Mercado Pago México ve sus Apartados y lo que rinde su dinero. Concept sprint de 2 semanas.",
+          "Rediseño especulativo de cómo un usuario de Mercado Pago México ve sus Apartados y lo que rinde su dinero. Concept sprint de 3 semanas.",
         problema:
           "Mercado Pago anuncia su tasa en porcentaje, pero el usuario ahorra en pesos y en fechas. La tasa cambia por saldo, tipo de dinero, depósitos del mes y membresía, y las reglas cambian cada pocos meses. El usuario ve un porcentaje, pero no cuánto le falta ni cuándo llega a su meta.\n\nHoy (por verificar en la app): Inicio → dinero y rendimientos → Apartados → un Apartado → ver saldo. La tasa y sus condiciones viven en otra pantalla o en términos y condiciones. Pendiente: confirmar la tasa vigente al publicar.\n\nEvidencia pública:\n• Los usuarios ya usan los Apartados como metas: 545,000 para vacaciones en los primeros meses de 2026, cerca del doble que el año anterior (Descubre).\n• Oct 2025: 7% base y hasta 13% con depósitos de $3,000 al mes, solo sobre los primeros $25,000 (Xataka). Jun 2026: el máximo baja a 12% (Xataka). Sep 2026: 15% para miembros Meli+ (DPL News).\n• Las reglas cambiaron al menos 3 veces en 12 meses.",
         miRol:
@@ -2519,7 +2519,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "aeromexico-reacomodo",
         title: "Aeroméxico Reacomodo",
         subtitle: "Reacomodo en un toque cuando tu vuelo se retrasa o se cancela",
-        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android, con notificación push"},{"label":"Herramientas","value":"Figma, FigJam"}],
+        meta: [{"label":"Duración","value":"3 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android, con notificación push"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/aeromexico-reacomodo/01-cover-v2.webp",
         imageAlt:
@@ -2564,7 +2564,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "Rediseño especulativo de cómo la app de Aeroméxico acompaña a un pasajero cuando su vuelo se retrasa o se cancela.",
         contexto:
-          "Rediseño especulativo de cómo la app de Aeroméxico acompaña a un pasajero cuando su vuelo se retrasa o se cancela, con una notificación push como punto de entrada. Concept sprint de 2 semanas.",
+          "Rediseño especulativo de cómo la app de Aeroméxico acompaña a un pasajero cuando su vuelo se retrasa o se cancela, con una notificación push como punto de entrada. Concept sprint de 3 semanas.",
         problema:
           "Aeroméxico es de las aerolíneas más puntuales del mundo, pero cuando un vuelo sí se cae, la app avisa y no resuelve: el reacomodo pasa a la fila o al teléfono, y el pasajero no sabe qué le corresponde por ley.\n\nHoy (según fuentes públicas, por verificar en la app): notificación → Mis viajes / Estatus → sin opciones de vuelo visibles → call center, bot de WhatsApp o fila en mostrador → negociar el nuevo vuelo → buscar aparte qué compensación aplica.\n\nEvidencia pública:\n• En 2025 Aeroméxico operó cerca de 190 mil vuelos con 91.88% de puntualidad en salidas (Cirium); aun así, cerca de 8% no fueron puntuales.\n• Las funciones publicadas de la app son estatus, notificaciones, check-in y Mis viajes; no se menciona reacomodo (El Imparcial).\n• En octubre de 2025 se reportaron al menos 53 vuelos cancelados y 315 demorados en dos días por una disputa con pilotos (Mexico News Daily).",
         miRol:
@@ -2592,7 +2592,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "volaris-precio-total",
         title: "Volaris Precio Total",
         subtitle: "El precio de tu vuelo con lo que realmente llevas, desde los resultados",
-        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"Web móvil y app iOS / Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
+        meta: [{"label":"Duración","value":"1 semana (concept sprint)"},{"label":"Plataforma","value":"Web móvil y app iOS / Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/volaris-precio-total/01-cover-v2.webp",
         imageAlt:
@@ -2637,7 +2637,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "Rediseño especulativo del inicio de la compra de vuelo en volaris.com y la app.",
         contexto:
-          "Rediseño especulativo del inicio de la compra de vuelo en volaris.com y la app. Concept sprint de 2 semanas. Fuera de alcance: la postura legal sobre el cobro de equipaje y la lógica de pricing.",
+          "Rediseño especulativo del inicio de la compra de vuelo en volaris.com y la app. Concept sprint de 1 semana. Fuera de alcance: la postura legal sobre el cobro de equipaje y la lógica de pricing.",
         problema:
           "La tarifa Zero, la más visible, solo incluye un objeto personal. Maleta de mano, documentada y asiento se suman después, y el precio real aparece hasta el checkout o en el aeropuerto: con maleta de mano, la tarifa puede costar el doble.\n\nHoy (por verificar con capturas): Buscar → resultados con precio de tarifa base → elegir tarifa → pasajeros → extras (equipaje, asiento) → pago. El equipaje se decide en el paso 5, después de elegir vuelo. Pendiente: confirmar nombres de tarifas (la página oficial dice Flex, Expansión reporta Básica).\n\nEvidencia pública:\n• En una simulación CDMX–Monterrey, Zero costó $945 y Plus $1,943: $998 más para llevar maleta de mano (Expansión, mayo 2026).\n• La Ley de Aviación Civil (art. 47 Bis) permite dos piezas en cabina de 55 × 40 × 25 cm y 10 kg en total; en 2021 Profeco colocó sellos de suspensión a Volaris por cobrarla (Expansión).\n• La recomendación de Profeco: comparar el costo total, no la tarifa base (El Imparcial).\n\nEl debate legal no se resuelve con diseño; lo que sí se puede diseñar es que el precio total sea visible antes de elegir.",
         miRol:
@@ -2665,7 +2665,7 @@ export const content: Record<Locale, ContentBundle> = {
         slug: "viva-viaje-en-grupo",
         title: "Viva Aerobus Viaje en Grupo",
         subtitle: "Asientos y check-in para toda la familia en un solo flujo",
-        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
+        meta: [{"label":"Duración","value":"3 semanas (concept sprint)"},{"label":"Plataforma","value":"App móvil iOS y Android"},{"label":"Herramientas","value":"Figma, FigJam"}],
         concept: true,
         image: "/projects/viva-viaje-en-grupo/01-cover-v2.webp",
         imageAlt:
@@ -2710,7 +2710,7 @@ export const content: Record<Locale, ContentBundle> = {
         homeTeaser:
           "Rediseño especulativo de cómo una familia o grupo elige asientos y hace check-in en la app de Viva.",
         contexto:
-          "Rediseño especulativo de cómo una familia o grupo elige asientos y hace check-in en la app de Viva. Concept sprint de 2 semanas. Fuera de alcance: lógica de precios y reglas migratorias.",
+          "Rediseño especulativo de cómo una familia o grupo elige asientos y hace check-in en la app de Viva. Concept sprint de 3 semanas. Fuera de alcance: lógica de precios y reglas migratorias.",
         problema:
           "Una reservación con varios pasajeros (incluidos menores) obliga a decidir asientos y check-in persona por persona, sin ver claramente quién queda junto a quién ni cuánto cuesta sentarse juntos. Viva vende la app para viajar \"con tu familia y amigos\", pero asientos y check-in siguen pensados para un pasajero a la vez.\n\nHoy (estimado, por verificar en la app): Mis viajes → Asientos → elegir pasajero y asiento, repetido por cada pasajero → pagar → Check-in con los datos de cada pasajero → pases. Con 4 pasajeros, esos pasos se repiten 4 veces. Hipótesis a verificar con capturas: el costo de sentarse juntos solo aparece sumado al final y el mapa no muestra qué menor queda junto a qué adulto.\n\nEvidencia pública:\n• El check-in abre según la tarifa (Zero 4 horas antes, Light 8 horas, Smart 10 días): una familia con tarifas mixtas no puede hacer check-in de todos al mismo tiempo (Viva Blog).\n• Los bebés viajan en brazos, no en fila de emergencia, y solo uno por adulto (Viva Blog); un menor con un tercero requiere carta responsiva.\n• No se encontró una página pública de Viva que garantice asientos contiguos gratis para menores. Verificar en términos y condiciones.",
         miRol:
