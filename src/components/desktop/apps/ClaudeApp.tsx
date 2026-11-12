@@ -278,7 +278,7 @@ export function ClaudeApp({ win }: { win: WinState }) {
                       key={c.id}
                       type="button"
                       onClick={() => ask(c.id)}
-                      className="w-full rounded-2xl border border-line px-4 py-2.5 text-right text-[13px] leading-snug hover:bg-sel md:w-auto md:rounded-full md:px-3.5 md:py-1.5 md:text-center"
+                      className="w-full rounded-2xl border border-line px-4 py-2.5 text-left text-[13px] leading-snug hover:bg-sel md:w-auto md:rounded-full md:px-3.5 md:py-1.5 md:text-center"
                     >
                       {c.prompt}
                     </button>
