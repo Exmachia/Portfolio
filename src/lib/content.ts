@@ -180,6 +180,9 @@ export type ContentBundle = {
   interests: Interest[];
 };
 
+// Index of the first step of each phase of the process (see comoTrabajo.phases).
+export const processPhaseStarts = [0, 3, 6, 7];
+
 export const featuredSlugs = ["psl-scout", "geest", "anagram", "nativa"];
 
 export const content: Record<Locale, ContentBundle> = {
@@ -189,7 +192,7 @@ export const content: Record<Locale, ContentBundle> = {
       role: "Product Designer",
       heroStatement: "Product design that actually solves the problem.",
       tagline:
-        "I design end-to-end digital products across fintech, travel, SaaS, marketplaces, and real estate, driven by research, not assumptions.",
+        "I design digital products end to end for fintech, travel, SaaS, marketplaces, and real estate: I research, validate, and review with engineering until it ships.",
       email: "eduardo-chacom@hotmail.com",
       whatsapp: "+52 312 121 4827",
       whatsappHref: "https://wa.me/523121214827",
@@ -284,7 +287,7 @@ export const content: Record<Locale, ContentBundle> = {
       kicker: "Research first, always",
       intro:
         "In a market where products compete head to head, the difference isn't just in the interface anymore, it's in how well you understand your user before you draw the first wireframe. Here's the full process, step by step.",
-      phases: ["Discovery", "Design", "Validation"],
+      phases: ["Discovery", "Design", "Validation", "Delivery"],
       steps: [
         {
           title: "Research",
@@ -327,6 +330,24 @@ export const content: Record<Locale, ContentBundle> = {
           description:
             "Before shipping, I test the high-fidelity prototype with real users, sometimes through an interactive prototype generated with Claude, to see where it breaks before it's in production.",
           imageLabel: "Usability testing",
+        },
+        {
+          title: "Working with the team",
+          description:
+            "I work directly with developers (app and web) and with my lead. At Geest, consultants also brought real cases from users who were missing something or wanted improvements, and that fed straight into what I designed.",
+          imageLabel: "Team and developers",
+        },
+        {
+          title: "Handoff",
+          description:
+            "I deliver flows, states and components in Figma, then walk developers and my lead through each feature, so questions get solved before it's built, not after.",
+          imageLabel: "Figma handoff",
+        },
+        {
+          title: "Design QA in staging",
+          description:
+            "Before a feature goes to production I review it in staging and check everything against my Figma. If something doesn't match, I ask for the fix; when it's all right, it ships.",
+          imageLabel: "Staging review",
         },
         {
           title: "Monitoring",
@@ -1516,7 +1537,7 @@ export const content: Record<Locale, ContentBundle> = {
       role: "Product Designer",
       heroStatement: "Diseño de producto que sí resuelve el problema.",
       tagline:
-        "Diseño producto digital end-to-end para fintech, viajes, SaaS, marketplaces y real estate, guiado por research, no por suposiciones.",
+        "Diseño producto digital de punta a punta para fintech, viajes, SaaS, marketplaces y real estate: investigo, valido y reviso con ingeniería hasta producción.",
       email: "eduardo-chacom@hotmail.com",
       whatsapp: "+52 312 121 4827",
       whatsappHref: "https://wa.me/523121214827",
@@ -1611,7 +1632,7 @@ export const content: Record<Locale, ContentBundle> = {
       kicker: "Investigación primero, siempre",
       intro:
         "En un mercado donde los productos compiten cabeza a cabeza, la diferencia ya no está solo en la interfaz, está en qué tan bien entiendes a tu usuario antes de dibujar el primer wireframe. Este es el proceso completo, paso a paso.",
-      phases: ["Discovery", "Diseño", "Validación"],
+      phases: ["Discovery", "Diseño", "Validación", "Entrega"],
       steps: [
         {
           title: "Investigación",
@@ -1654,6 +1675,24 @@ export const content: Record<Locale, ContentBundle> = {
           description:
             "Antes de lanzar, pruebo el prototipo de alta fidelidad con usuarios reales, a veces mediante un prototipo interactivo generado con Claude, para ver dónde falla antes de que esté en producción.",
           imageLabel: "Pruebas de usabilidad",
+        },
+        {
+          title: "Trabajo con el equipo",
+          description:
+            "Trabajo directo con developers (app y web) y con mi lead. En Geest, además, con consultores que traían casos reales de usuarios a quienes les hacía falta algo o querían mejoras, y eso alimentaba directamente lo que diseñaba.",
+          imageLabel: "Equipo y developers",
+        },
+        {
+          title: "Handoff",
+          description:
+            "Entrego flujos, estados y componentes en Figma, y luego les explico cada feature a los developers y a mi lead, para resolver dudas antes de que se construya, no después.",
+          imageLabel: "Handoff en Figma",
+        },
+        {
+          title: "Design QA en staging",
+          description:
+            "Antes de que una feature llegue a producción reviso staging y comparo todo contra mi Figma. Si algo no coincide, pido la corrección; cuando todo está bien, sale.",
+          imageLabel: "Revisión en staging",
         },
         {
           title: "Monitoreo",

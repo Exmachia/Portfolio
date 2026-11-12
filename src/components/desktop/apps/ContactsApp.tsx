@@ -169,11 +169,10 @@ export function ContactsApp({ win }: { win: WinState }) {
               </button>
               <button
                 type="button"
-                onClick={() => open("preview")}
-                aria-label={dc.openCV}
-                className="rounded-full bg-hover px-5 py-2.5 text-[14px] font-semibold transition-colors hover:bg-sel"
+                onClick={() => open("claude", { chat: "process" })}
+                className="rounded-full bg-hover px-5 py-2.5 text-[14px] font-semibold whitespace-nowrap transition-colors hover:bg-sel"
               >
-                CV
+                {desktopContent[locale].plain.process}
               </button>
             </div>
             <Link

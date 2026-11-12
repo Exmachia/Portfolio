@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useLocale } from "@/lib/locale-context";
 import { desktopContent, orderCaseStudies } from "@/lib/desktop-content";
+import { processPhaseStarts } from "@/lib/content";
 import type { CaseStudy } from "@/lib/content";
 import { SkeletonImage } from "@/components/SkeletonImage";
 import { Cross, Eyebrow, Section } from "@/components/plain/PlainParts";
@@ -91,7 +92,14 @@ export function PlainSite() {
                 {p.seeProjects}
                 <IconArrowRight className="h-4 w-4" />
               </a>
-              <a href={site.cvHref} download className={`${contactButton} border border-line hover:bg-hover`}>
+              <a href="#proceso" className={`${contactButton} border border-line hover:bg-hover`}>
+                {p.process}
+              </a>
+              <a
+                href={site.cvHref}
+                download
+                className="inline-flex items-center px-3 py-2.5 text-[14px] font-medium text-muted underline-offset-4 hover:text-fg hover:underline"
+              >
                 {p.downloadCV}
               </a>
             </div>
@@ -138,7 +146,75 @@ export function PlainSite() {
           </ul>
         </Section>
 
-        <Section id="sobre-mi" index="03" title={p.about}>
+        <Section id="proceso" index="03" title={p.process}>
+          <p className="mt-8 max-w-[24ch] font-display text-[clamp(1.5rem,3.6vw,2.3rem)] leading-[1.1] font-semibold tracking-[-0.03em]">
+            {t.comoTrabajo.kicker}
+          </p>
+          <p className="mt-4 max-w-[62ch] text-[16px] leading-relaxed text-fg/80">
+            {t.comoTrabajo.intro}
+          </p>
+          <div className="mt-10 space-y-10">
+            {t.comoTrabajo.phases.map((phase, pi) => {
+              const from = processPhaseStarts[pi];
+              const to = processPhaseStarts[pi + 1] ?? t.comoTrabajo.steps.length;
+              return (
+                <div key={phase}>
+                  <Eyebrow>{phase}</Eyebrow>
+                  <ol className="mt-2 divide-y divide-line">
+                    {t.comoTrabajo.steps.slice(from, to).map((st, i) => (
+                      <li key={st.title} className="grid gap-1.5 py-5 md:grid-cols-[210px_1fr] md:gap-10">
+                        <p className="flex items-baseline gap-3 text-[15px] font-semibold tracking-tight">
+                          <span className="font-mono text-[11px] font-normal text-muted">
+                            {String(from + i + 1).padStart(2, "0")}
+                          </span>
+                          {st.title}
+                        </p>
+                        <p className="max-w-[60ch] text-[15px] leading-relaxed text-fg/80">
+                          {st.description}
+                        </p>
+                      </li>
+                    ))}
+                  </ol>
+                </div>
+              );
+            })}
+          </div>
+          <p className="mt-10 max-w-[60ch] text-[15px] leading-relaxed text-muted italic">
+            {t.comoTrabajo.closing}
+          </p>
+        </Section>
+
+        <Section id="ia" index="04" title={p.ai}>
+          <div className="mt-8 space-y-12">
+            {dc.claude.chats
+              .filter((c) => c.answer.every((b) => b.type !== "process"))
+              .map((chat) => (
+                <div key={chat.id}>
+                  <Eyebrow>{chat.title}</Eyebrow>
+                  <div className="mt-4 space-y-4">
+                    {chat.answer.map((b, i) =>
+                      b.type === "p" ? (
+                        <p key={i} className="max-w-[62ch] text-[16px] leading-relaxed text-fg/85">
+                          {b.text}
+                        </p>
+                      ) : b.type === "list" ? (
+                        <ul key={i} className="grid gap-x-10 divide-y divide-line border-y border-line md:grid-cols-2 md:divide-y-0 md:[&>li]:border-b md:[&>li]:border-line md:[&>li:nth-last-child(-n+2)]:border-b-0">
+                          {b.items.map((it) => (
+                            <li key={it.title} className="py-4">
+                              <p className="text-[15px] font-semibold tracking-tight">{it.title}</p>
+                              <p className="mt-1 text-[14.5px] leading-relaxed text-fg/80">{it.text}</p>
+                            </li>
+                          ))}
+                        </ul>
+                      ) : null,
+                    )}
+                  </div>
+                </div>
+              ))}
+          </div>
+        </Section>
+
+        <Section id="sobre-mi" index="05" title={p.about}>
           <div className="mt-8 grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-14">
             <div className="max-w-[62ch] space-y-4 text-[16px] leading-relaxed text-fg/85">
               {t.sobreMi.paragraphs.map((para, i) => (
@@ -170,7 +246,7 @@ export function PlainSite() {
           </div>
         </Section>
 
-        <Section id="contacto" index="04" title={p.contact}>
+        <Section id="contacto" index="06" title={p.contact}>
           <p className="mt-8 max-w-[22ch] font-display text-[clamp(1.8rem,4.4vw,3rem)] leading-[1.08] font-semibold tracking-[-0.03em]">
             {p.contactBody}
           </p>

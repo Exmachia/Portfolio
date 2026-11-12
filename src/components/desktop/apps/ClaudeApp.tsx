@@ -7,7 +7,7 @@ import {
   type ClaudeBlock,
   type ClaudeChat,
 } from "@/lib/desktop-content";
-import type { ContentBundle } from "@/lib/content";
+import { processPhaseStarts, type ContentBundle } from "@/lib/content";
 import { Window } from "@/components/desktop/Window";
 import type { WinState } from "@/components/desktop/wm";
 
@@ -19,7 +19,9 @@ type Node =
   | { k: "h"; text: string }
   | { k: "step"; n: number; title: string; text: string };
 
-const PHASE_STARTS: Record<number, number> = { 0: 0, 3: 1, 6: 2 };
+const PHASE_STARTS: Record<number, number> = Object.fromEntries(
+  processPhaseStarts.map((step, phase) => [step, phase]),
+);
 
 function flatten(blocks: ClaudeBlock[], how: ContentBundle["comoTrabajo"]): Node[] {
   const out: Node[] = [];

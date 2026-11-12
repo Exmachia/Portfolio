@@ -41,6 +41,10 @@ export type DesktopContent = {
     real: string;
     concepts: string;
     experience: string;
+    process: string;
+    ai: string;
+    processNav: string;
+    aiNav: string;
     about: string;
     skills: string;
     tools: string;
@@ -210,6 +214,10 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       real: "Real projects",
       concepts: "Concepts",
       experience: "Experience",
+      process: "How I work",
+      ai: "AI and building",
+      processNav: "Process",
+      aiNav: "AI",
       about: "About me",
       skills: "Skills",
       tools: "Tools",
@@ -342,6 +350,42 @@ export const desktopContent: Record<Locale, DesktopContent> = {
             {
               type: "p",
               text: "Both were validated with A/B testing before shipping.",
+            },
+          ],
+        },
+        {
+          id: "built",
+          title: "What I've built",
+          prompt: "What have you built or advised on besides designing?",
+          answer: [
+            {
+              type: "p",
+              text: "Some products where I went beyond the screens.",
+            },
+            {
+              type: "list",
+              items: [
+                {
+                  title: "Sinagua",
+                  text: "An open-data platform on water in Mexico. I researched, designed and built it end to end, with AI help for the code. It's live at sinagua.org.",
+                },
+                {
+                  title: "SAPO",
+                  text: "A CMMS for heavy-duty freight transport in Mexico: vehicle records, work orders, spare parts, inspections, inventory and maintenance costs in one place. I advise on product strategy, UX, information architecture and UI.",
+                },
+                {
+                  title: "Anagram",
+                  text: "Website for an architecture studio, through my agency E3. I handled product, design, SEO and copy, and built the keyword system with Claude. It ranks first on Google for \"arquitectos Colima\".",
+                },
+                {
+                  title: "This portfolio",
+                  text: "Designed and built by me with AI help.",
+                },
+              ],
+            },
+            {
+              type: "p",
+              text: "I never ship the first version AI gives me: I review and correct everything it generates, code included.",
             },
           ],
         },
@@ -478,6 +522,10 @@ export const desktopContent: Record<Locale, DesktopContent> = {
       real: "Proyectos reales",
       concepts: "Conceptos",
       experience: "Experiencia",
+      process: "Cómo trabajo",
+      ai: "IA y construcción",
+      processNav: "Proceso",
+      aiNav: "IA",
       about: "Sobre mí",
       skills: "Skills",
       tools: "Herramientas",
@@ -610,6 +658,42 @@ export const desktopContent: Record<Locale, DesktopContent> = {
             {
               type: "p",
               text: "Ambas se validaron con A/B testing antes de lanzarse.",
+            },
+          ],
+        },
+        {
+          id: "built",
+          title: "Lo que he construido",
+          prompt: "¿Qué has construido o asesorado además de diseñar?",
+          answer: [
+            {
+              type: "p",
+              text: "Algunos productos donde fui más allá de las pantallas.",
+            },
+            {
+              type: "list",
+              items: [
+                {
+                  title: "Sinagua",
+                  text: "Plataforma de datos abiertos sobre el agua en México. La investigué, diseñé y desarrollé de punta a punta, con apoyo de IA para programar. Está en vivo en sinagua.org.",
+                },
+                {
+                  title: "SAPO",
+                  text: "Un CMMS para el transporte de carga pesada en México: registros de vehículos, órdenes de trabajo, refacciones, inspecciones, inventario y costos de mantenimiento en un solo lugar. Asesoro en estrategia de producto, UX, arquitectura de información y UI.",
+                },
+                {
+                  title: "Anagram",
+                  text: "Sitio de un estudio de arquitectura, con mi agencia E3. Me encargué del producto, el diseño, el SEO y los textos, y armé el sistema de keywords con Claude. Está en el primer lugar de Google para \"arquitectos Colima\".",
+                },
+                {
+                  title: "Este portafolio",
+                  text: "Lo diseñé y lo construí con apoyo de IA.",
+                },
+              ],
+            },
+            {
+              type: "p",
+              text: "A la IA no le suelto la primera versión: reviso y corrijo todo lo que genera, también el código.",
             },
           ],
         },

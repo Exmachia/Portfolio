@@ -11,6 +11,8 @@ const SCROLL_ID = "plain-scroll";
 const SECTIONS = [
   { key: "projects", id: "proyectos" },
   { key: "experience", id: "experiencia" },
+  { key: "processNav", id: "proceso" },
+  { key: "aiNav", id: "ia" },
   { key: "about", id: "sobre-mi" },
   { key: "contact", id: "contacto" },
 ] as const;
@@ -68,7 +70,7 @@ export function PlainShell({ children }: { children: ReactNode }) {
       }}
     >
       <header className="pointer-events-none fixed inset-x-0 top-3 z-40 flex justify-center px-3 sm:top-4">
-        <div className="pop pointer-events-auto flex h-12 w-full max-w-[780px] items-center gap-1 rounded-full pr-1.5 pl-5">
+        <div className="pop pointer-events-auto flex h-12 w-full max-w-[860px] items-center gap-1 rounded-full pr-1.5 pl-5">
           <Link
             href="/pagina"
             className="mr-1 font-display text-[15px] font-semibold tracking-tight whitespace-nowrap"
@@ -77,7 +79,7 @@ export function PlainShell({ children }: { children: ReactNode }) {
           </Link>
           <nav
             aria-label={dc.plain.menu}
-            className="ml-2 flex items-center gap-0.5 text-[13.5px] max-md:hidden"
+            className="ml-2 flex items-center gap-0.5 text-[13.5px] max-lg:hidden"
           >
             {SECTIONS.map((s) => (
               <Link
