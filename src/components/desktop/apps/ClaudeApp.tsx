@@ -272,13 +272,13 @@ export function ClaudeApp({ win }: { win: WinState }) {
               )}
 
               {convo.length > 0 && !streaming && remaining.length > 0 && (
-                <div className="flex flex-wrap gap-2 pl-8">
+                <div className="flex flex-col gap-2 md:flex-row md:flex-wrap md:pl-8">
                   {remaining.map((c) => (
                     <button
                       key={c.id}
                       type="button"
                       onClick={() => ask(c.id)}
-                      className="rounded-full border border-line px-3.5 py-1.5 text-[13px] hover:bg-sel"
+                      className="w-full rounded-2xl border border-line px-4 py-2.5 text-right text-[13px] leading-snug hover:bg-sel md:w-auto md:rounded-full md:px-3.5 md:py-1.5 md:text-center"
                     >
                       {c.prompt}
                     </button>

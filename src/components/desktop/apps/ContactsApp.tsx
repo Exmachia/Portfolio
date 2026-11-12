@@ -162,7 +162,7 @@ export function ContactsApp({ win }: { win: WinState }) {
               <button
                 type="button"
                 onClick={() => open("figma")}
-                className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold whitespace-nowrap text-accent-fg transition-opacity hover:opacity-90"
+                className="flex items-center gap-2 rounded-full bg-accent px-5 py-2.5 text-[14px] font-semibold whitespace-nowrap text-accent-fg transition-opacity hover:opacity-90 max-sm:px-4"
               >
                 {dc.viewProjects}
                 <IconArrowRight className="h-4 w-4" />
@@ -170,7 +170,7 @@ export function ContactsApp({ win }: { win: WinState }) {
               <button
                 type="button"
                 onClick={() => open("claude", { chat: "process" })}
-                className="rounded-full bg-hover px-5 py-2.5 text-[14px] font-semibold whitespace-nowrap transition-colors hover:bg-sel"
+                className="rounded-full bg-hover px-5 py-2.5 text-[14px] font-semibold whitespace-nowrap transition-colors hover:bg-sel max-sm:px-4"
               >
                 {desktopContent[locale].plain.process}
               </button>
@@ -253,7 +253,7 @@ export function ContactsApp({ win }: { win: WinState }) {
                   </Field>
                   <Field label={dc.linkedin}>
                     <a href={site.linkedin} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">
-                      {site.linkedin.replace(/^https?:\/\/(www\.)?/, "")}
+                      {decodeURI(site.linkedin.replace(/^https?:\/\/(www\.)?/, ""))}
                     </a>
                   </Field>
                   <Field label={dc.interests}>

@@ -52,29 +52,25 @@ export function PreviewApp({ win }: { win: WinState }) {
       }
     >
       <div className="h-full p-2 pt-0 max-md:p-0">
-      <div className="relative h-full overflow-hidden rounded-[20px] bg-white shadow-[0_0_0_0.5px_var(--line)] max-md:rounded-none max-md:shadow-none">
-        <iframe
-          key={href}
-          src={`${href}#toolbar=0&navpanes=0&view=FitH`}
-          title={dc.fileName}
-          className="h-full w-full border-0 bg-white max-md:hidden"
-        />
-        <div className="h-full overflow-y-auto bg-win2 px-3 pt-3 pb-8 md:hidden">
+      <div className="relative h-full overflow-hidden rounded-[20px] bg-win2 shadow-[0_0_0_0.5px_var(--line)] max-md:rounded-none max-md:shadow-none">
+        {/* The page is shown as an image everywhere: the browser's own PDF
+            viewer draws a dark frame around the sheet and can't be restyled. */}
+        <div className="h-full overflow-y-auto px-3 pt-3 pb-8 md:px-8 md:pt-6">
           <Image
             key={image}
             src={image}
             alt={dc.fileName}
             width={1836}
             height={2376}
-            // full resolution, so pinch-zoom stays sharp
+            // full resolution, so zooming in stays sharp
             unoptimized
-            className="h-auto w-full rounded-md bg-white shadow-[0_1px_3px_rgba(0,0,0,0.12),0_8px_24px_-6px_rgba(0,0,0,0.18)]"
+            className="mx-auto h-auto w-full max-w-[780px] rounded-md bg-white shadow-[0_1px_3px_rgba(0,0,0,0.12),0_8px_24px_-6px_rgba(0,0,0,0.18)]"
           />
           <a
             href={href}
             target="_blank"
             rel="noopener noreferrer"
-            className="mx-auto mt-5 flex w-fit items-center gap-1.5 rounded-full bg-hover px-4 py-2 text-[15px] font-medium text-accent"
+            className="mx-auto mt-5 flex w-fit items-center gap-1.5 rounded-full bg-hover px-4 py-2 text-[15px] font-medium text-accent md:hidden"
           >
             <IconArrowUpRight className="h-4 w-4" />
             {dc.openTab}

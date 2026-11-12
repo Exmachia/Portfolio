@@ -196,7 +196,7 @@ export const content: Record<Locale, ContentBundle> = {
       email: "eduardo-chacom@hotmail.com",
       whatsapp: "+52 312 121 4827",
       whatsappHref: "https://wa.me/523121214827",
-      linkedin: "https://www.linkedin.com/in/eduardo-chacon-171367275/",
+      linkedin: "https://www.linkedin.com/in/eduardo-chac%C3%B3n-171367275/",
       experienceSummary:
         "Currently at PSL Scout, with 3+ years of experience designing product.",
       skills: [
@@ -1541,7 +1541,7 @@ export const content: Record<Locale, ContentBundle> = {
       email: "eduardo-chacom@hotmail.com",
       whatsapp: "+52 312 121 4827",
       whatsappHref: "https://wa.me/523121214827",
-      linkedin: "https://www.linkedin.com/in/eduardo-chacon-171367275/",
+      linkedin: "https://www.linkedin.com/in/eduardo-chac%C3%B3n-171367275/",
       experienceSummary:
         "Actualmente en PSL Scout, con más de 3 años de experiencia diseñando producto.",
       skills: [
