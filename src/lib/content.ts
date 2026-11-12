@@ -1498,6 +1498,76 @@ export const content: Record<Locale, ContentBundle> = {
         aprendizaje:
           "• In airlines, high-value design is in moments of stress, not in booking: joining existing data is worth more than adding features.\n• An honest verdict (including \"At risk\") builds more trust than hiding the bad news until the end.\n• Next: run the test and calibrate the thresholds with real ATL data.",
       },
+      {
+        slug: "claude-code-apple-watch",
+        title: "Claude Code on Apple Watch",
+        subtitle: "Unblock the agent from your wrist, without approving what you don't understand",
+        meta: [{"label":"Duration","value":"2 weeks (concept sprint)"},{"label":"Platform","value":"Apple Watch, as a companion to the Claude iPhone app"},{"label":"Tools","value":"Figma"}],
+        concept: true,
+        image: "/projects/claude-code-apple-watch/01-cover-v2.webp",
+        imageAlt:
+          "Claude Code on Apple Watch case cover on a dark background: \"The agent works on its own, but stops when it needs you. Unblock it from your wrist.\", with a watch asking permission to run the tests and another with the watch face and the Claude Code widget, and the Concept project label, not affiliated with Anthropic",
+        images: {
+          overview: [
+            caseImage("claude-code-apple-watch", "02-antes.webp", 2920, 2620, {
+              alt: "Recreation of the current flow: notification on the iPhone lock screen, Code session list with the Approve button and the notification mirrored on the Apple Watch with no actions of its own",
+              caption: "Recreated from the Remote Control documentation and official App Store screenshots. Not a real capture, and the watch screen is still to be verified.",
+            }),
+          ],
+          process: [
+            caseImage("claude-code-apple-watch", "04-lofi-direcciones.webp", 5032, 1628, {
+              alt: "Three grayscale directions: A mini chat, B notifications only and C decision inbox, the chosen one",
+            }),
+            caseImage("claude-code-apple-watch", "03-user-flow.webp", 5120, 3080, {
+              alt: "User flow for direction C: from the vibration to Claude continuing, with branches for permission by risk, a question with options or voice, and a finished task",
+            }),
+          ],
+          solution: [
+            caseImage("claude-code-apple-watch", "06-hifi-avisos-y-sesiones.webp", 1760, 1380, {
+              alt: "Watch face with a complication and a Smart Stack widget, short-look notification and a session list sorted by urgency",
+            }),
+            caseImage("claude-code-apple-watch", "07-hifi-permisos-por-riesgo.webp", 2272, 1486, {
+              alt: "Permission request at low, medium and high risk, and the allowed confirmation",
+              caption: "Projects and commands are sample data.",
+            }),
+            caseImage("claude-code-apple-watch", "08-hifi-pregunta-y-voz.webp", 2784, 1336, {
+              alt: "Question with options, answered question and dictation: listening, transcript with a 3-second countdown and instruction sent",
+            }),
+            caseImage("claude-code-apple-watch", "05-design-system.webp", 2760, 8354, {
+              alt: "Design system: measured and proposed colors, typography, spacing, WCAG contrast and watch components",
+            }),
+            caseImage("claude-code-apple-watch", "09-hifi-terminada-y-casos-borde.webp", 3296, 1288, {
+              alt: "Finished task, failed task and edge cases: Mac offline, request already answered, confirm on iPhone and no sessions",
+            }),
+          ],
+        },
+        homeTeaser:
+          "A speculative Claude app for Apple Watch that unblocks Claude Code from your wrist.",
+        contexto:
+          "A speculative Claude app for Apple Watch that works with Remote Control: Claude keeps running on the computer and the watch only sends decisions and messages. A 2-week concept sprint. Out of scope: starting sessions from the watch, viewing full diffs and configuring permissions.",
+        problema:
+          "Handing a long task to an agent only saves time if the agent isn't left waiting for you. When Claude Code needs permission to run a command or asks you a question, the session stops until you answer.\n\nToday, away from the computer: a notification reaches the iPhone → you open it → Code tab → blocked sessions filter → Approve. The iPhone app already lets you approve from the list, but everything goes through the phone: the Apple Watch only mirrors the notification (to verify).\n\nPublic evidence:\n• With Remote Control, Claude sends a push to the phone when a task finishes or needs a decision; there are only two toggles, with no per-event settings (Claude Code Docs).\n• Permission requests and questions stay open until someone answers (Claude Code Docs).\n• There are public user reports asking to approve or deny from the notification (claudeissues.com; not official information).\n• I found no official Claude app for Apple Watch as of November 12, 2026.",
+        miRol:
+          "A personal project with no relationship to Anthropic. I handled the research, flows, wireframes, interface and prototype.",
+        proceso: {
+          research:
+            "Watch apps that work well don't shrink the phone app: they settle one decision in seconds and send the rest to the iPhone.\n• Apple Pay on Apple Watch: the confirmation always shows what you're approving. We took that for every request.\n• watchOS notifications: a short look with the essentials and a long look with context and buttons. We took the two reading levels.\n• Double tap (Series 9 or later, Ultra 2 or later): runs the main action without touching the screen. Only for low-risk approvals.\n• Claude on iPhone, Code tab (today): status per session and the question in plain language. Brought to the wrist.\n\nHypotheses to validate in the test:\n1. The agent needs you to decide, not to supervise: allow or deny, pick an option or change course.\n2. Only what can be explained in one sentence can be approved on the watch.\n3. Voice works for redirecting, but the dictation has to be seen before it's sent.\n\nBenchmark to verify with current captures.",
+          restricciones:
+            "Claude keeps running on the computer; the watch only sends decisions and messages. No reading or editing code on the watch. Respect the permission rules Claude Code already has.",
+          iteraciones:
+            "Three directions as lo-fi wireframes; C was chosen.\n• A · Mini chat: the whole conversation on the watch. It reads poorly at 46 mm and pushes you to review code on a tiny screen.\n• B · Notifications only: fast, but it doesn't show session status, doesn't allow redirecting and treats a test the same as a deploy.\n• C · Decision inbox: a widget with the status, requests explained with a risk level, answers with options or voice, and a handoff to the iPhone for anything risky. Chosen: it unblocks the safe in seconds and stops the dangerous.",
+          decisiones:
+            "• Risk sets the amount of friction: low, a tap or double tap; medium, an explicit tap; high (publishing, deleting, leaving the project folder), only on the iPhone.\n• The sentence first, then the command: \"Run the tests\" on top; the real command below, for whoever wants to check it.\n• Dictation is shown before it's sent, with 3 seconds to cancel.\n• Different vibrations for \"waiting for you\", \"done\" and \"failed\".",
+          validacion:
+            "A plan, not yet carried out: a moderated test with 5 people who use Claude Code daily, with the prototype and a real session running in parallel. Results: pending.\n\nTasks: let Claude run the tests, decide on a high-risk request, answer a question and ask for a change without typing. It would measure success, time to unblock, attempts to approve something high-risk on the watch, voice errors and confidence (1 to 5).",
+        },
+        solucionFinal:
+          "The Claude app on the watch becomes a decision inbox: you see which sessions are waiting for you, understand each request in one sentence and answer without taking out your phone.\n\n1. Smart Stack and complication: how many sessions are working and how many are waiting for you.\n2. Sessions: sorted by urgency, with status as icon, color and text.\n3. Permission request: the sentence, the project, the command and the risk level, with Allow, Allow for this session or Deny.\n4. High risk: not approved on the watch; it opens on the iPhone or gets denied.\n5. Claude's question: the options as buttons and \"Another answer\" by voice.\n6. Dictate an instruction: a visible transcript, sent in 3 seconds unless you cancel.\n7. Task finished: a short summary and \"View changes on iPhone\".",
+        resultado:
+          "An unlaunched concept. There are no results yet: the usability test is planned, not carried out.",
+        aprendizaje:
+          "• On a watch, designing means deciding what's left out: the question wasn't how to fit Claude Code into 46 mm, but which decisions fit there safely.\n• Trust in an agent depends on people understanding what they approve; speed without that understanding is a risk.\n• Next: run the test and tune the risk thresholds with real requests.",
+      },
     ],
     stats: [
       {
@@ -2842,6 +2912,76 @@ export const content: Record<Locale, ContentBundle> = {
           "Concepto sin lanzar. Todavía no hay resultados: el test de usabilidad está planeado, no realizado.",
         aprendizaje:
           "• En aerolíneas, el diseño de alto valor está en momentos de estrés, no en la reserva: juntar datos existentes vale más que agregar funciones.\n• Un veredicto honesto (incluido \"En riesgo\") genera más confianza que ocultar la mala noticia hasta el final.\n• Siguiente: correr el test y calibrar los umbrales con datos reales de ATL.",
+      },
+      {
+        slug: "claude-code-apple-watch",
+        title: "Claude Code en Apple Watch",
+        subtitle: "Destrabar al agente desde la muñeca, sin aprobar lo que no entiendes",
+        meta: [{"label":"Duración","value":"2 semanas (concept sprint)"},{"label":"Plataforma","value":"Apple Watch, como complemento de la app de Claude en iPhone"},{"label":"Herramientas","value":"Figma"}],
+        concept: true,
+        image: "/projects/claude-code-apple-watch/01-cover-v2.webp",
+        imageAlt:
+          "Portada del caso Claude Code en Apple Watch sobre fondo oscuro: \"El agente trabaja solo, pero se detiene cuando te necesita. Destrábalo desde la muñeca.\", con un reloj que pide permiso para correr las pruebas y otro con la esfera y el widget de Claude Code, y la etiqueta Concept project, no afiliado a Anthropic",
+        images: {
+          overview: [
+            caseImage("claude-code-apple-watch", "02-antes.webp", 2920, 2620, {
+              alt: "Recreación del flujo actual: aviso en la pantalla bloqueada del iPhone, lista de sesiones de Code con el botón Aprobar y el aviso reflejado en el Apple Watch sin acciones propias",
+              caption: "Recreación con la documentación de Remote Control y capturas oficiales de la App Store. No es una captura real y la pantalla del reloj está por verificar.",
+            }),
+          ],
+          process: [
+            caseImage("claude-code-apple-watch", "04-lofi-direcciones.webp", 5032, 1628, {
+              alt: "Tres direcciones en grises: A chat en miniatura, B solo notificaciones y C bandeja de decisiones, la elegida",
+            }),
+            caseImage("claude-code-apple-watch", "03-user-flow.webp", 5120, 3080, {
+              alt: "User flow de la dirección C: de la vibración a que Claude siga, con ramas para permiso según riesgo, pregunta con opciones o voz y tarea terminada",
+            }),
+          ],
+          solution: [
+            caseImage("claude-code-apple-watch", "06-hifi-avisos-y-sesiones.webp", 1760, 1380, {
+              alt: "Esfera con complicación y widget Smart Stack, aviso corto y lista de sesiones ordenada por urgencia",
+            }),
+            caseImage("claude-code-apple-watch", "07-hifi-permisos-por-riesgo.webp", 2272, 1486, {
+              alt: "Pedido de permiso con riesgo bajo, medio y alto, y la confirmación de permitido",
+              caption: "Los proyectos y comandos son datos de ejemplo.",
+            }),
+            caseImage("claude-code-apple-watch", "08-hifi-pregunta-y-voz.webp", 2784, 1336, {
+              alt: "Pregunta con opciones, pregunta respondida y dictado: escuchando, transcripción con cuenta regresiva de 3 segundos e instrucción enviada",
+            }),
+            caseImage("claude-code-apple-watch", "05-design-system.webp", 2760, 8354, {
+              alt: "Design system: colores medidos y propuestos, tipografía, espaciado, contraste WCAG y componentes del reloj",
+            }),
+            caseImage("claude-code-apple-watch", "09-hifi-terminada-y-casos-borde.webp", 3296, 1288, {
+              alt: "Tarea terminada, tarea con error y casos borde: Mac sin conexión, pedido ya respondido, confirmar en iPhone y sin sesiones",
+            }),
+          ],
+        },
+        homeTeaser:
+          "Propuesta especulativa de una app de Claude para Apple Watch que destraba a Claude Code desde la muñeca.",
+        contexto:
+          "Propuesta especulativa de una app de Claude para Apple Watch que funciona con Remote Control: Claude sigue corriendo en la computadora y el reloj solo envía decisiones y mensajes. Concept sprint de 2 semanas. Fuera de alcance: iniciar sesiones desde el reloj, ver diffs completos y configurar permisos.",
+        problema:
+          "Delegarle una tarea larga a un agente solo ahorra tiempo si el agente no se queda parado esperándote. Cuando Claude Code necesita permiso para correr un comando o te hace una pregunta, la sesión se detiene hasta que respondes.\n\nHoy, lejos de la computadora: llega la notificación al iPhone → la abres → pestaña Code → filtro de sesiones bloqueadas → Aprobar. La app de iPhone ya deja aprobar desde la lista, pero todo pasa por el teléfono: el Apple Watch solo refleja el aviso (por verificar).\n\nEvidencia pública:\n• Con Remote Control, Claude manda push al teléfono cuando termina una tarea o necesita una decisión; solo hay dos interruptores, sin configuración por tipo de evento (Claude Code Docs).\n• Los pedidos de permiso y las preguntas quedan abiertos hasta que alguien contesta (Claude Code Docs).\n• Hay reportes públicos de usuarios que piden aprobar o negar desde la notificación (claudeissues.com; no es información oficial).\n• No encontré una app oficial de Claude para Apple Watch al 12 de noviembre de 2026.",
+        miRol:
+          "Proyecto personal sin relación con Anthropic. Me encargué de la investigación, los flujos, los wireframes, la interfaz y el prototipo.",
+        proceso: {
+          research:
+            "Las apps de reloj que funcionan bien no traen la app del teléfono en miniatura: resuelven una sola decisión en segundos y mandan lo demás al iPhone.\n• Apple Pay en Apple Watch: la confirmación siempre muestra qué vas a aprobar. Se toma eso para cada pedido.\n• Notificaciones de watchOS: vista corta con lo esencial y vista larga con contexto y botones. Se toman los dos niveles de lectura.\n• Doble toque (Series 9 o posterior, Ultra 2 o posterior): ejecuta la acción principal sin tocar la pantalla. Solo para aprobaciones de bajo riesgo.\n• Claude en iPhone, pestaña Code (hoy): estado por sesión y la pregunta en lenguaje claro. Se llevan a la muñeca.\n\nHipótesis a validar en el test:\n1. El agente te necesita para decidir, no para supervisar: permitir o negar, elegir una opción o cambiar el rumbo.\n2. Solo se puede aprobar en el reloj lo que se puede explicar en una frase.\n3. La voz sirve para redirigir, pero lo dictado tiene que verse antes de enviarse.\n\nBenchmark por verificar con capturas actuales.",
+          restricciones:
+            "Claude sigue corriendo en la computadora; el reloj solo envía decisiones y mensajes. Nada de leer o editar código en el reloj. Respetar las reglas de permisos que ya tiene Claude Code.",
+          iteraciones:
+            "Tres direcciones en wireframes lo-fi; se eligió la C.\n• A · Chat en miniatura: la conversación completa en el reloj. Se lee mal en 46 mm y empuja a revisar código en una pantalla diminuta.\n• B · Solo notificaciones: rápida, pero no muestra el estado de las sesiones, no deja redirigir y trata igual un test que un deploy.\n• C · Bandeja de decisiones: widget con el estado, pedidos explicados con nivel de riesgo, respuestas con opciones o voz, y relevo al iPhone para lo arriesgado. Elegida: destraba en segundos lo seguro y frena lo peligroso.",
+          decisiones:
+            "• El riesgo decide cuánta fricción hay: bajo, un toque o doble toque; medio, toque explícito; alto (publicar, borrar, salir de la carpeta del proyecto), solo en el iPhone.\n• Primero la frase, luego el comando: \"Correr las pruebas\" arriba; el comando real abajo, para quien quiera comprobarlo.\n• Lo dictado se ve antes de enviarse, con 3 segundos para cancelar.\n• Vibraciones distintas para \"te espera\", \"listo\" y \"falló\".",
+          validacion:
+            "Plan, aún no realizado: test moderado con 5 personas que usan Claude Code a diario, con el prototipo y una sesión real en paralelo. Resultados: pendientes.\n\nTareas: dejar que Claude corra las pruebas, decidir un pedido de riesgo alto, contestar una pregunta y pedir un cambio sin escribir. Se mediría éxito, tiempo para destrabar, intentos de aprobar algo de riesgo alto en el reloj, errores de voz y confianza (1 a 5).",
+        },
+        solucionFinal:
+          "La app de Claude en el reloj se vuelve una bandeja de decisiones: ves qué sesiones te esperan, entiendes cada pedido en una frase y respondes sin sacar el teléfono.\n\n1. Smart Stack y complicación: cuántas sesiones trabajan y cuántas te esperan.\n2. Sesiones: ordenadas por urgencia, con estado en ícono, color y texto.\n3. Pedido de permiso: la frase, el proyecto, el comando y el nivel de riesgo, con Permitir, Permitir en esta sesión o Negar.\n4. Riesgo alto: no se aprueba en el reloj; se abre en el iPhone o se niega.\n5. Pregunta de Claude: las opciones como botones y \"Otra respuesta\" por voz.\n6. Dictar una instrucción: transcripción visible y envío en 3 segundos si no la cancelas.\n7. Tarea terminada: resumen corto y \"Ver cambios en iPhone\".",
+        resultado:
+          "Concepto sin lanzar. Todavía no hay resultados: el test de usabilidad está planeado, no realizado.",
+        aprendizaje:
+          "• En un reloj, diseñar es decidir qué no va: la pregunta no fue cómo meter Claude Code en 46 mm, sino qué decisiones caben ahí con seguridad.\n• La confianza en un agente depende de que la persona entienda lo que aprueba; la rapidez sin esa comprensión es un riesgo.\n• Siguiente: correr el test y ajustar los umbrales de riesgo con pedidos reales.",
       },
     ],
     stats: [
