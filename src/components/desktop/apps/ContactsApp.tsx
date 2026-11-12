@@ -112,7 +112,7 @@ export function ContactsApp({ win }: { win: WinState }) {
           </div>
         </aside>
 
-        <div className="@container min-w-0 flex-1 overflow-y-auto rounded-[20px] bg-win px-6 py-7 shadow-[0_0_0_0.5px_var(--line)] max-md:rounded-none max-md:shadow-none sm:px-10 sm:py-9">
+        <div className="@container min-w-0 flex-1 overflow-x-hidden overflow-y-auto rounded-[20px] bg-win px-6 py-7 shadow-[0_0_0_0.5px_var(--line)] max-md:rounded-none max-md:shadow-none sm:px-10 sm:py-9">
           <div className="mx-auto max-w-[960px]">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <div className="flex min-w-0 items-center gap-4">
@@ -158,7 +158,7 @@ export function ContactsApp({ win }: { win: WinState }) {
               {site.tagline}
             </p>
 
-            <div className="mt-6 flex items-center gap-2.5">
+            <div className="mt-6 flex flex-wrap items-center gap-2.5">
               <button
                 type="button"
                 onClick={() => open("figma")}
